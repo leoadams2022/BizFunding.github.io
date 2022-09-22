@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Save form Data in a Text File using JavaScript</title>
+	 <link rel="icon" type="image/x-png" href="https://img.icons8.com/cotton/344/note--v2.png">
+
+    <style>
+/*---------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------body-------------------------------------------------*/	
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background: #44585e;;
+}
+/*---------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------msg-------------------------------------------------*/
+.msg {
+  width: 100%;
+  height:75% !important;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+/*---------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------.txtName-------------------------------------------------*/
+.txtName {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: large;
+}
+/*---------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------.formDiv01 .formDiv02 .formDiv03-----------------------------*/
+.formDiv01, .formDiv02{
+  margin: 15px;
+}
+.formDiv03 {
+  display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+/*---------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------.glow-on-hover-------------------------------------------*/
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+	margin: 5%;
+	font-size: 20px;
+	font-weight: bold;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;	
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+/*-----------------------------------------SNAKE----------------------------------------------------*/
+.loader {
+  --s: 35px; /* the size of the wave */
+  --b: 15px; /* the thickness of the line*/
+  
+  height: calc(2*var(--s));
+  // aspect-ratio: 2.5;
+  display: grid;
+  padding: 20px;
+  filter: blur(7px) contrast(20) hue-rotate(20deg);
+  background: #fff;
+  mix-blend-mode: darken;
+}
+.loader::before{
+  content: "";
+  background: red;
+  --_g: calc(-.6*var(--s)), #0000 calc(99% - var(--b)),#000 calc(101% - var(--b)) 99%,#0000 101%;
+  --_r: calc(1.166*var(--s) + var(--b)/2) at left 50%;
+  -webkit-mask:
+    radial-gradient(var(--_r) bottom var(--_g)) 
+      calc(50% - var(--s)) calc(50% - var(--s))/calc(4*var(--s)) calc(2*var(--s)),
+    radial-gradient(var(--_r) top    var(--_g)) 
+      calc(50% + var(--s)) calc(50% + var(--s))/calc(4*var(--s)) calc(2*var(--s));
+  animation: m 1s infinite linear;
+}
+@keyframes m {
+  to {
+    -webkit-mask-position: 
+      calc(50% - 5*var(--s)) calc(50% - var(--s)),
+      calc(50% - 3*var(--s)) calc(50% + var(--s))
+  }
+}
+ /*-----------------------------------------SNAKE END----------------------------------------------------*/
+  
+
+	</style>
+</head>
+<body>
+   <div class="loader"></div>
+    <div>
+        <form id="NoteForm"> 
+        <!--Add few elements to the form-->
+
+        <div class="formDiv01">
+            <input type="text" id="txtName" class="txtName" placeholder="Enter CUST Name"  />
+        </div>
+        
+        <div class="formDiv02">
+            <textarea id="msg" class="msg" name="msg" placeholder="Write You'r note ..." onkeyup="this.value = this.value.toUpperCase();"style="height:100px" ></textarea>
+			<!--"-->
+        </div>
+        <div class="formDiv03">
+		    <button type="button" id="bt" class="glow-on-hover" onclick="copy()">Copy</button> 
+			<button type="button" id="bt" class="glow-on-hover" onclick="saveFile()">Save</button>
+			<button type="button" id="bt" class="glow-on-hover" onclick="ClearIt()">Clera All</button>
+        </div>
+</form>
+    </div>
+	<div class="loader"></div>
+</body>
+<script>
+    let saveFile = () => {
+    	
+        // Get the data from each element on the form.
+     const name = document.getElementById('txtName');
+     const msg = document.getElementById('msg');
+		if((name.value === '')|| (msg.value === '')){
+       alert("Please enter a Name & Note");
+       
+   } 
+   else {
+
+	
+        // This variable stores all the data.
+        let data = 
+            '\r Name: ' + name.value + ' \r\n ' + 
+           'Message: ' + msg.value;
+        
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = name.value + '.txt';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+		
+
+        newLink.click(); 
+		document.getElementById("NoteForm").reset();
+   }
+    }
+function ClearIt()  {
+ document.getElementById("NoteForm").reset();
+ }
+function copy() {
+   /* Get the text field */
+  var copyText = document.getElementById("msg");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+  
+  
+  copyTextuper = copyText.value.toUpperCase();
+  
+  
+} 
+</script>
+</html>

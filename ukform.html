@@ -1,0 +1,558 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1256">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 12">
+<meta name=Originator content="Microsoft Word 12">
+<link rel=File-List href="UK%20script%20no%20input_files/filelist.xml">
+<link rel=themeData href="UK%20script%20no%20input_files/themedata.thmx">
+<link rel=colorSchemeMapping href="UK%20script%20no%20input_files/colorschememapping.xml">
+<style>
+body{background: #3b4c51;
+color: wheat;
+}
+.txtinput, .TXTarea, .CustName {width:60%;
+                     padding: 12px 20px;
+                     margin: 8px 0;
+                     display: inline-block;
+                     border: 1px solid #ccc;
+                     border-radius: 4px;
+                     box-sizing: border-box;}
+
+
+.btn {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.TransferTime {
+  width: 150px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #CCC;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(https://cdn-icons-png.flaticon.com/512/2985/2985149.png) 96% / 15% no-repeat #EEE;
+}
+/* CAUTION: Internet Explorer hackery ahead */
+select::-ms-expand {
+    display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+/* Target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    select {
+        background: none\9;
+        padding: 5px\9;
+    }
+}
+
+
+
+
+
+
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #1d0f3c;
+  
+}
+
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #550303;
+  color: white;
+  border: none;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+.BYLEO {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+}
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: #3b4c51;
+ 
+ 
+}
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:36.0pt'>
+
+
+<div class="sticky">
+<form id="QName">
+<input class="CustName" type="text" id="txtName" placeholder="Enter cust name" />
+<input class="btn" type="button" id="bt" value="Save data to file" onclick="saveFile()" />
+<input class="btn" type="button" onclick="myFunction()" value="Reset form">
+
+</form>
+
+</div>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify;line-height:normal'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='font-size:16.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;color:black;mso-themecolor:text1;background:
+silver;mso-highlight:silver'>Fill in booking form</span></b><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'> 
+1- Did you know you would be eligible for compensation through the financial services compensation scheme? </span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<!--  <input type="text"  class="txtinput" id="N1" placeholder="-------" />  -->
+<form id="Q1">
+<select class="TransferTime" name="TransferTime" id="N1">
+    <option selected value="--">--</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+</form>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>
+2- Around how long ago did you transfer your pension? <span style='background:lime;mso-highlight:
+lime'></span></span></p>
+
+<!--  <input type="text"  class="txtinput" id="N2" placeholder="(Must be within 20 years)" />   -->
+<form id="Q2">
+ <select class="TransferTime" name="TransferTime" id="N2">
+    <option selected value="00">00</option>
+    <option value="01">01</option>
+    <option value="02">02</option>
+    <option value="03">03</option>
+    <option value="04">04</option>
+    <option value="05">05</option>
+    <option value="06">06</option>
+    <option value="07">07</option>
+    <option value="08">08</option>
+    <option value="09">09</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+  </select>
+  </form>
+<!----------------------------------------------------------------------------------------------->
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>
+3- What was the type of scheme you transferred out of? (Was it a DB <i>(defined benefit<span
+class=GramE>)<span style='font-style:normal'> )</span></span></i></span><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<form id="Q3">
+
+<input type="text"  class="txtinput" id="N3" placeholder="--------" />
+
+</form>
+
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>
+4- Can you confirm the name of the new provider you transferred to? </span><span style='font-size:
+12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<!--  <input type="text"  class="txtinput" id="N4" placeholder="--------" />
+<!--Make sure the form has the autocomplete function switched off:-->
+
+<form id="Q4" autocomplete="off" action="/action_page.php">
+  <div class="autocomplete" style="width:300px;">
+    <input class="txtinput"  id="myInput" type="text" name="myCountry" placeholder="--------">
+  </div>
+</form>
+
+
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>
+5- Have you received a statement from them since you transferred? </span><span style='font-size:
+12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<!--  <input type="text"  class="txtinput" id="N5" placeholder="--------" /> -->
+<form id="Q5">
+<select class="TransferTime" name="TransferTime" id="N5">
+    <option selected value="--">--</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+</form>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>
+6- What was the amount you transferred? <span style='background:lime;mso-highlight:lime'></span></span></p>
+
+<form id="Q6">
+
+<input type="text"  class="txtinput" id="N6" placeholder="(Minimum £ 10000 )" />
+</form>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>
+7- Who advised you to transfer your pension? Do you remember the name of the company they worked for?</span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<form id="Q7">
+
+<input type="text"   class="txtinput" id="N7" placeholder="--------" />
+</form>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>
+8- When xxx came out to see you, did they ask for any referrals from you? Or did anyone else in your household transfer a pension with them as well? They do tend to target other family members.</span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<form id="Q8">
+
+<input type="text"  class="txtinput" id="N8" placeholder="--------" />
+</form>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>
+9- Do you have an idea of how much money you might have lost? </span><span style='font-size:12.0pt;
+font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<form id="Q9">
+
+<input type="text"  class="txtinput" id="N9" placeholder="--------" />
+</form>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>
+10- Really important question can you confirm you havent yet made a claim by yourself or with a claims management company, or lawyer and havent yet been sent to the FOS which stands for the financial ombudsman <i><u>(aam-buhdz-muhn)</u></i> services? </span><span
+style='font-size:12. pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<!--  <input type="text" class="txtinput" id="N10" placeholder="(Cant have made a claim or is in the process of making one)" /> -->
+<form id="Q10">
+<select class="TransferTime" name="TransferTime" id="N10">
+    <option selected value="--">--</option>
+    <option value="Yes I Have">Yes I Have</option>
+    <option value="No I Have Not">No I Have Not</option>
+  </select>
+</form>
+
+
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><b><span lang=EN-GB style='font-size:16.0pt;font-family:
+"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";color:black;
+mso-themecolor:text1;background:silver;mso-highlight:silver'>Close</span></b><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal'><span lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;'>So, all I need to do is hand
+you over to one of the our </span><span lang=EN-GB style='font-size:13.0pt;
+font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>claims
+specialists</span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify;line-height:normal'><span lang=EN-GB style='font-size:13.0pt;
+font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;'>They will have a quick chat with you to confirm if you are </span><span
+lang=EN-GB style='font-size:13.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin'>eligible and give you an idea of how much you
+might receive back on the call and give you further details.</span><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+        <div>
+		<form id="QNote">
+            <textarea class="TXTarea" id="msg" name="msg" placeholder="Write any notes ..." ></textarea>
+		</form>	
+        </div>
+
+         <div>
+          <!-- <input class="btn" type="button" id="bt" value="Save data to file" onclick="saveFile()" /> -->
+			<p class="BYLEO">MADE BY LEO ADAMS</p>
+        </div>
+
+
+</body>
+<script>
+// the save into a TXT function------------------------------------
+    let saveFile = () => {
+    	
+        // Get the data from each element on the form.
+		const n1 = document.getElementById('N1');
+		const n2 = document.getElementById('N2');
+		const n3 = document.getElementById('N3');
+		const n4 = document.getElementById('myInput');
+		const n5 = document.getElementById('N5');
+		const n6 = document.getElementById('N6');
+		const n7 = document.getElementById('N7');
+		const n8 = document.getElementById('N8');
+		const n9 = document.getElementById('N9');
+		const n10 = document.getElementById('N10');
+		
+    	const name = document.getElementById('txtName');
+     
+        const msg = document.getElementById('msg');
+        
+        // This variable stores all the data.
+        let data = 
+            '\r Name: ' + name.value + ' \r\n ' + 
+            
+			
+			'1-Are you  eligible for compensation?: ' + n1.value  + ' \r\n ' + 
+			'2-how long ago did you transfer your pension?: ' + n2.value  + 'years \r\n ' + 
+			'3-type of orignal scheme: ' + n3.value  + ' \r\n ' + 
+			'4-new provider name: ' + n4.value  + ' \r\n ' + 
+			'5-Have you received a statement : ' + n5.value  + ' \r\n ' + 
+			'6-amount you transferred : ' + n6.value  + 'pounds \r\n ' + 
+			'7-Who advised you to transfer : ' + n7.value  + ' \r\n ' + 
+			'8-did they ask for any referrals from you? : ' + n8.value  + ' \r\n ' + 
+			'9-how much money you might have lost : ' + n9.value  + ' \r\n ' + 
+			'10-confirm you havent made any kind of claim :' + n10.value + ' \r\n ' + 
+			'Nots: ' + msg.value  
+			;
+        
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = name.value + '.txt';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+		
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+	
+	
+    }
+	//------------------------------------------------------------------------------------------------------
+
+	//------------------------------------------------------------------------------------------------------
+	//the reset the form function------------------------------------------
+	
+	function myFunction() {
+	document.getElementById("QName").reset();
+	document.getElementById("QNote").reset();
+    document.getElementById("Q1").reset();
+	document.getElementById("Q2").reset();
+    document.getElementById("Q3").reset();
+    document.getElementById("Q4").reset();
+    document.getElementById("Q5").reset();
+    document.getElementById("Q6").reset();
+    document.getElementById("Q7").reset();
+    document.getElementById("Q8").reset();
+    document.getElementById("Q9").reset();
+	document.getElementById("Q10").reset();
+	
+	
+
+
+}
+	//------------------------------------------------------------------------------------------------------
+	
+	//the autocomplete function------------------------------------------
+	
+	function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+var countries = ["Aviva", "BAE Systems", "Barclays Bank", "BMW UK", "Boots Co.", "BP", "British Airways", "British American Tobacco", "British Broadcasting Corp.", "BT Pension Scheme", "Centrica", "Centrica PLC", "Coal Pension Trustees", "Co-operative", "Diageo", "EDF Energy", "Ford Motor Co. Ltd.", "GlaxoSmithKline", "Greater Manchester Pension Fund", "HSBC Bank", "IBM United Kingdom Pensions Trust", "Imperial Chemical Industries (AkzoNobel)", "J. Sainsbury", "Jaguar Land Rover", "Lancashire County Council", "Lloyds TSB Group", "London Pensions Fund Authority", "Marks & Spencer Group", "Merseyside", "Mineworkers' Pension Scheme", "National Grid", "Northern Ireland Local Gov't Officers' Superannuation Comm. ", "Pensions Trust", "Prudential", "Railways Pensions Trustee ", "Rolls-Royce", "Royal Bank of Scotland", "RSA Group", "Santander", "Shell International", "South Tyneside Metropolitan Borough Council (Tyne & Wear)", "South Yorkshire Pensions Authority", "Strathclyde Pension Fund", "Tata Steel UK", "Tesco", "Transport for London", "Unilever", "Universities Superannuation Scheme", "West Midlands Pension Fund", "West Yorkshire Pension Fund"];
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), countries);
+
+	//------------------------------------------------------------------------------------------------------
+
+
+</script>
+
+</html>
