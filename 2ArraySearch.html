@@ -50,7 +50,9 @@ body {
 <h1>COVED-19 & BGM Checker</h1>
 </div>
 <div id="inputdiv">
+<form id="inputForm">
 <input onkeyup="myFunction(),myFunction2()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input" id="myInput" type="text" placeholder="Search" >
+</form>
 </div>
 <div id="resdiv" class="resdiv">
 <div id="resdiv1">
@@ -65,6 +67,10 @@ body {
 </div>
 </div>
 <script>
+function ClearIt()  {
+ document.getElementById("inputForm").reset();
+ }
+ setInterval(ClearIt, 10000);
 
 function myFunction() {
 
