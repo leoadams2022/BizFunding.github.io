@@ -15,7 +15,7 @@ body {
   color: beige;
 }
 #inputdiv {
-  margin-left: 18vw;
+  text-align: center;
 }
 #myInput {
   width: 80%;
@@ -52,6 +52,67 @@ body {
   top: 0px;
   left: 25%;
 }
+
+
+/*--------------------------------------------------.glow-on-hover-------------------------------------------*/
+.glow-on-hover {
+    width: 150px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+	margin: 1%;
+	font-size: 20px;
+	font-weight: bold;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;	
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+/*---------------------------------------------------------------------------------------------*/
 </style>	  
 
 </head>
@@ -59,11 +120,13 @@ body {
 <div id="h1div">
 <h1>COVED-19 & BGM Checker</h1>
 <img id="gifimg" class="gifimg" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/04de2e31234507.564a1d23645bf.gif"></img>
+
 </div>
 <div id="inputdiv">
-<form id="inputForm">
+<!--<form id="inputForm">-->
 <input onkeyup="myFunction(),myFunction2()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input" id="myInput" type="text" placeholder="Search" >
-</form>
+<button type="button" id="clearbtn" class="glow-on-hover" onclick="ClearIt()">Clear</button>
+<!--</form>-->
 </div>
 <div id="resdiv" class="resdiv">
 <div id="resdiv1">
@@ -78,7 +141,11 @@ body {
 </div>
 </div>
 <script>
-
+function ClearIt(){
+document.getElementById("myInput").value = '';
+myFunction();
+myFunction2();
+}
 
 function myFunction() {
 
@@ -148,6 +215,7 @@ function myFunction() {
 
 
 }
+
 function myFunction2() {
     var userInput = document.getElementById("myInput").value;
 	var imgx = document.getElementById("imgx1");
@@ -206,9 +274,9 @@ function myFunction2() {
 		  $(imgx).hide(500);		  
       }  
 	  		
-    //setInterval(function(){document.getElementById('myInput').value=''; myFunction(); myFunction2();},5000);
+    
 }
- 
+
  
  
 
