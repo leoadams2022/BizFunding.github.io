@@ -124,7 +124,7 @@ body {
 </div>
 <div id="inputdiv">
 <!--<form id="inputForm">-->
-<input onkeyup="myFunction(),myFunction2()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input" id="myInput" type="text" placeholder="Search" >
+<input autocomplete="off" onkeyup="myFunction(),myFunction2()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input" id="myInput" type="text" placeholder="Search" >
 <button type="button" id="clearbtn" class="glow-on-hover" onclick="ClearIt()">Clear</button>
 <!--</form>-->
 </div>
