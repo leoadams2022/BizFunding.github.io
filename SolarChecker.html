@@ -10,16 +10,16 @@ body {
   background: #212129;
   background-image: url("https://lh3.googleusercontent.com/drive-viewer/AJc5JmTa1qGeMBJkEYhE1I8TpE-7uRfftyOh4Rs5uDm9hjL1I8uDV4ISsVy-A_RpJMcsQ9NMhIH9ihs=w1279-h881");
   background-repeat: no-repeat;
-  background-position: 50% -50%;
+  background-position: 50% 0%;
   //background-size:cover;
 }
 #h1div {
   text-align: center;
-  margin-top: 10%;
+  //margin-top: 10%;
   color: beige;
 }
 #inputdiv {
-  margin-left: 18vw;
+  text-align: center;
 }
 #myInput {
   width: 80%;
@@ -33,7 +33,7 @@ body {
 }
 #resdiv {
   text-align: center;
-  margin-top: 10%;
+  //margin-top: 10%;
   font-size: 30px;
   font-weight: bold;
   grid-template-columns: auto;
@@ -52,32 +52,101 @@ body {
   color: #fff;
   background: #212129a6;
 }
+/*--------------------------------------------------.glow-on-hover-------------------------------------------*/
+.glow-on-hover {
+    width: 150px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: #fff;//you can change the text button color here#fff
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+	margin: 1%;
+	font-size: 20px;
+	font-weight: bold;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;	
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #317b84;//you can change the button color here#111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+	border: 2px solid #fff;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+/*---------------------------------------------------------------------------------------------*/
 </style>	  
 
 </head>
 <body onload = "JavaScript:AutoRefresh(300000);" >
 <div id="h1div">
-<h1>Solar Checker</h1>
-<!--<img id="gifimg" class="gifimg" src="https://bestanimations.com/media/solar-system/891843367solar-system-gif.gif"></img>-->
+     <h1>Solar Checker</h1>
 </div>
 <div id="inputdiv">
-<input autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" onkeyup="myFunction()"  class="input" id="myInput" type="text" placeholder="Search" >
-<!--oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" -->
+     <input autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" onkeyup="myFunction()"  class="input" id="myInput" type="text" placeholder="Search" >
+	 <button type="button" id="clearbtn" class="glow-on-hover" onclick="ClearIt()">Clear</button>
 </div>
 
 
 <div id="resdiv">
-<div id="pp"><p id="res">Enter a Zip Code to Check it</p><p id="st"></p></div>
-<div id="imgimg"><img id="imgx" src="https://cdn.pixabay.com/photo/2012/04/26/18/36/negative-42774_960_720.png"/>
-<img id="imgy" src="https://cdn.pixabay.com/photo/2012/04/26/19/45/check-42926_960_720.png"/></div>
-<div id="tt"><table>
-<tbody id='table-body'> 
-</tbody>
-</table></div>
+     <div id="pp">
+         <p id="res">Enter a Zip Code to Check it</p>
+     </div>
+	 <div id="tt">
+         <table>
+         <tbody id='table-body'> 
+         </tbody>
+         </table>
+     </div>
+     <div id="imgimg">
+	     <img id="imgx" src="https://cdn.pixabay.com/photo/2012/04/26/18/36/negative-42774_960_720.png"/>
+         <img id="imgy" src="https://cdn.pixabay.com/photo/2012/04/26/19/45/check-42926_960_720.png"/>
+     </div>   
 </div>
 
 <script>
-
+function ClearIt(){
+document.getElementById("myInput").value = '';
+myFunction();
+myFunction2();
+}
 
 
 function AutoRefresh( t ) {
@@ -122,6 +191,7 @@ if(userInput.length == 5){
 				  $(imgy).hide(500);
 			      $(imgx).show(500);
 				  res.innerHTML = 'This Zip Code Is not on the list :(';
+				  res.style.color = 'red';
 			      			        }//if (results.length === 0)
 			else {
 			      //imgx.style.display = 'none';
@@ -129,12 +199,14 @@ if(userInput.length == 5){
 				  $(imgy).show(500);
 			      $(imgx).hide(500);
 				  res.innerHTML = 'This Zip Code Is In the list :)';
+				  res.style.color = 'lime';
 		       	}
 		                     }//if (userInput.length == 5)
 else if (userInput === '') {
 	      var table = document.getElementById('table-body');
           table.innerHTML = '';
 		  res.innerHTML = 'please enter a  zip code';
+		  res.style.color = '#fff';
 		  //imgx.style.display = 'none';
 		  //imgy.style.display = 'none';
 		  $(imgy).hide(500);
@@ -142,6 +214,7 @@ else if (userInput === '') {
 		                     }//else if (userInput === '')
 else {
           res.innerHTML = 'please enter a valid 5-digit zip code';
+		  res.style.color = '#fff';
 		  var table = document.getElementById('table-body');
           table.innerHTML = '';
 		  //imgx.style.display = 'none';
