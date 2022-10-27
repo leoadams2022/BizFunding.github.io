@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DUP LIST FOR Trot</title>
+	  <link rel="icon" type="image/x-png" href="https://cdn-icons-png.flaticon.com/512/4725/4725506.png">
+	  <!------------------------------------------------------------------------------------------------->
+<style>
+body {
+  background: #847d71;
+}
+#h1div {
+  text-align: center;
+  margin-top: 10%;
+  color: beige;
+}
+#inputdiv {
+  margin-left: 18vw;
+}
+#myInput {
+  width: 80%;
+  height: 30px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  border: 2px solid;
+  background: #b9d3d9;
+  border-radius: 10px;
+}
+#resdiv {
+  text-align: center;
+  margin-top: 10%;
+  font-size: 30px;
+  font-weight: bold;
+}
+#imgx, #imgy {
+  width: 20vw;
+  height: 20vh;
+  display: none;
+}
+</style>	  
+
+</head>
+<body onload = "JavaScript:AutoRefresh(300000);" >
+<div id="h1div">
+<h1>Trot DUP Checker</h1>
+</div>
+<div id="inputdiv">
+<input autocomplete="off" onkeyup="myFunction()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input" id="myInput" type="text" placeholder="Search" >
+</div>
+
+
+<div id="resdiv">
+<p id="res">Enter a Number to Check it</p>
+<img id="imgx" src="https://cdn.pixabay.com/photo/2012/04/26/18/36/negative-42774_960_720.png"/>
+<img id="imgy" src="https://cdn.pixabay.com/photo/2012/04/26/19/45/check-42926_960_720.png"/>
+</div>
+
+<script>
+function AutoRefresh( t ) {
+               setTimeout("location.reload(true);", t);
+}
+function myFunction() {
+
+    var userInput = document.getElementById("myInput").value;
+	var imgx = document.getElementById("imgx");
+	var imgy = document.getElementById("imgy");
+   if(userInput.length == 10)
+      {  	
+          const numbers =["7178808623","9192218056","4042465986","6783689108","7164991914","9543041293","3212252287","5596238586","3172013810","3025215059","5402230760","8326547175","5736442116","2533773422","9077501494","8107306663","4438000225","9702819655","9515267783","7602172542","3868985422","9193066384","5408415955","5137390318","8087815628","2814516883","2163942812","7047475797","2142821896","5159884355","2676015306","6034942616","3522081810","5738149966","5074559080","5165285169","8033274485","4109058291","5615739239"];
+		  
+		   
+		  var input = document.getElementById("myInput").value;
+          var TorF = numbers.includes(input);
+
+          if (TorF == true){
+              var res = document.getElementById("res");
+              res.innerHTML = "It's BAD :(";
+              res.style.color = '#e53434';
+			  imgx.style.display = 'inline';
+			  imgy.style.display = 'none';
+
+          } else if (input === '') {
+              document.getElementById("res").innerHTML = 'Enter a Number to Check it';
+              var res = document.getElementById("res");
+              res.innerHTML = 'Enter a Number to Check it';
+              res.style.color = 'black';
+			  imgx.style.display = 'none';
+			  imgy.style.display = 'none';
+          } else {
+              var res = document.getElementById("res");
+              res.innerHTML = "It's Good :)";
+              res.style.color = '#acbf50';
+			  imgx.style.display = 'none';
+			  imgy.style.display = 'inline';
+          }
+   }else if (userInput === '') {
+          document.getElementById("res").innerHTML = 'Enter a Number to Check it';
+          var res = document.getElementById("res");
+          res.innerHTML = 'Enter a Number to Check it';
+          res.style.color = 'black';
+		  imgx.style.display = 'none';
+		  imgy.style.display = 'none';
+   }else
+      {  	
+	      var res = document.getElementById("res"); 
+          res.innerHTML = 'please enter a valid 10-digit phone number';
+          res.style.color = 'black';
+          imgx.style.display = 'none';	
+          imgy.style.display = 'none';		        	
+      }  
+
+
+
+
+
+}
+</script>
+
+
+
+</body>
+</html>
