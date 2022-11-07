@@ -145,8 +145,11 @@ setInterval(AlarmGoOn, 1000);
 
 function GetList(){
 	const SavedList = JSON.parse(localStorage.getItem('list'));
+	if (SavedList == null){
+	}else if (SavedList != null){
 	alarm_list = SavedList;
 	drawTable(alarm_list.flat(),'table_body');
+	}
 }
 
 
