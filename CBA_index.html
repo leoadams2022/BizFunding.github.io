@@ -554,16 +554,18 @@ function GetList() {
 
 
 function AddDeleteBt() {
+	var mylist = alarm_list.flat();
     const DeleteBt = document.getElementsByClassName('deleteBt');
     const PhoneNumber = document.getElementsByClassName('phone_number');
     for (let i = 0; i < DeleteBt.length; i++) {
-        DeleteBt[i].innerHTML = `<button id="DeleteBt${[i]}" class="DeleteBt" onclick="DeleteBtFun('${PhoneNumber[i].innerText}')"><span>Delete</span></button>`;
+	    mylist[i].id = Number([i]);
+        DeleteBt[i].innerHTML = `<button id="DeleteBt${[i]}" class="DeleteBt" onclick="DeleteBtFun(${[i]})"><span>Delete</span></button>`;
     }
 }
 
 function DeleteBtFun(PhoneNumber) {
     alarm_list = alarm_list.flat().filter(object => {
-        return object.phone_number !== PhoneNumber;
+        return object.id !== PhoneNumber;
     });
     drawTable(alarm_list.flat(), 'table_body');
     AddDeleteBt();
@@ -641,9 +643,12 @@ function ShowTimeAtEntery() {
 }
 setInterval(ShowTimeAtEntery, 1000);
 //=================================================================================
+ if (Notification.permission === 'granted'){
+ }else{
  Notification.requestPermission().then((result) => {
-  console.log(result);
+              //console.log(result);
 });
+ }
 function ShowNotification(){
  const notification = new Notification("Call Back Time",{
                        body: "Click Here to See More Details",
