@@ -244,7 +244,6 @@ input#phone_number {
 <body id="body" onload="GetList(),AddDeleteBt(),audio.play();" >
    <div id="adding_alarm_div">
    <div id="h1andcurrent_timeDiv">
-    <button onclick="ShowNotification()">notf</button>
       <h1 class="h1Current_Time">Current Time:<span id="current_time"></span></h1>
 	  </div>
 	  <!--======================-->
@@ -537,6 +536,7 @@ function AlarmGoOn() {
             RnTime[i].style.background = '#c33002';
             Mytr[i].style.background = '#c33002';
             audio.play();
+			ShowNotification();
             alarm_list[i].wentoff = 'yes';
             localStorage.setItem('list', JSON.stringify(alarm_list));
         }
@@ -645,11 +645,14 @@ setInterval(ShowTimeAtEntery, 1000);
   console.log(result);
 });
 function ShowNotification(){
- const notification = new Notification("my new notification",{
-                       body: "hi this is my notification"
+ const notification = new Notification("Call Back Time",{
+                       body: "Click Here to See More Details",
+					   icon: "https://cdn-icons-png.flaticon.com/512/4514/4514070.png"
                         });
-					   
-					   
+						
+						notification.onclick = (e) =>{
+						   window.location.href = "https://leoadams2022.github.io/BizFunding.github.io/CBA_index.html"
+						   };   
 }
 
 
