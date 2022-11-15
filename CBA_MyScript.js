@@ -293,6 +293,7 @@ function ViweRNtime_AlarmGoOff_RedBackground() {
             Mytr[i].style.background = '#c33002';
             audio.play();
             list[i].wentoff = 'yes';
+		ShowNotification();
             localStorage.setItem('list', JSON.stringify(list));
         }
     }
