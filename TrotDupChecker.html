@@ -5,57 +5,250 @@
 	  <link rel="icon" type="image/x-png" href="https://cdn-icons-png.flaticon.com/512/4725/4725506.png">
 	  <!------------------------------------------------------------------------------------------------->
 <style>
-body {
-  background: #847d71;
-}
-#h1div {
-  text-align: center;
-  margin-top: 10%;
-  color: beige;
-}
-#inputdiv {
-  margin-left: 18vw;
-}
-#myInput {
-  width: 80%;
-  height: 30px;
-  text-align: center;
-  font-size: 15px;
-  font-weight: bold;
-  border: 2px solid;
-  background: #b9d3d9;
-  border-radius: 10px;
-}
-#resdiv {
-  text-align: center;
-  margin-top: 10%;
-  font-size: 30px;
-  font-weight: bold;
-}
-#imgx, #imgy {
-  width: 20vw;
-  height: 20vh;
-  display: none;
-}
-</style>	  
 
+*{
+margin:0px;
+padding:0px;
+box-sizing: border-box;
+}
+a {
+       text-decoration: none;
+    color: white;
+}
+body {
+    background: linear-gradient(358deg, #000000cf, #0000001f), url(MarinesBg.jpg);
+    color: white;
+    background-size: cover;
+    background-position: center center;
+}
+.contenar {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0px auto;
+    align-items: center;
+    gap: 10px;
+    height: 100vh;
+    justify-content: flex-start;
+}
+div#h1div {
+    height: 5vh;
+    margin-top: 10%;
+    align-self: flex-start;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+div#inputdiv {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    height: 15vh;
+	margin-top: 4%;
+	flex-wrap: wrap;
+}
+input#myInput {
+    flex-basis: 45%;
+    height: 40px;
+    line-height: 13px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15px;
+}
+div#resdiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    /* height: 80vh; */
+    width: 100%;
+    gap: 50px;
+	flex-wrap: wrap;
+}
+div#pp {
+    font-size: 30px;
+    font-weight: 900;
+    background: linear-gradient(178deg, #9e9e9e, #9e9e9e63);
+    border-radius: 10px;
+    padding: 15px;
+}
+div#tt {
+    font-size: 30px;
+    font-weight: 900;
+    background: none;
+    border-radius: 10px;
+    padding: 15px;
+}
+#tt > table {
+    margin: auto;
+}
+.Bg {
+    display: none;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: stretch;
+}
+.header {
+    display: flex;
+    width: 90%;
+    background: linear-gradient(180deg, #009688e0, transparent);
+    justify-content: space-between;
+    align-items: baseline;
+    border-radius: 2px;
+    margin-top: 15px;
+    padding: 10px 20px;
+}
+ul.navUl {
+    list-style: none;
+}
+li.navLi {
+    display: inline-block;
+    margin: 0px 20px;
+}
+button.clearBtn {
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 0px 10px;
+    height: 38px;
+    margin-left: 30px;
+    background: #bfe4ff;
+    color: black;
+    text-transform: uppercase;
+    transition: box-shadow 0.5s ease-in-out;
+}
+.clearBtn:hover {
+    box-shadow: #99fdf4 0px 6px 30px;
+}
+button#clearbtn:active {
+    background: #9e9e9e;
+}
+a.navA::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background: #bfe4ff;
+    display: block;
+    visibility: hidden;
+}
+a.navA:hover::after {
+    visibility: visible;
+}
+/*---------------haide the imgx and imgy------------------------*/
+#imgx, #imgy {
+ display:none;
+ width:200px;
+ height:200px;
+}
+
+/*--------------------------------------------------.glow-on-hover-------------------------------------------*/
+.glow-on-hover {
+    width: 150px;
+    height: 30px;
+    border: none;
+    vertical-align: middle;
+    line-height: 13px;
+    outline: none;
+    color: #fff;
+    //you can change the text button color here#fff: ;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin: 1%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;	
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #317b84;//you can change the button color here#111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+	border: 2px solid #fff;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+/*---------------------------------------------------------------------------------------------*/
+</style>
 </head>
 <body onload = "JavaScript:AutoRefresh(300000);" >
+<div class="contenar">
+<div class="header">
+  <h1 class="logo">Trot Checker</h1>
+   <ul class="navUl">
+     <li class="navLi"><a class="navA" href="#">NAV1</a></li>
+	 <li class="navLi"><a class="navA" href="#">NAV1</a></li>
+	 <li class="navLi"><a class="navA" href="#">NAV1</a></li>
+   </ul>
+</div>
 <div id="h1div">
-<h1>Tort DUP Checker</h1>
-	<span>Last update 04:46 PM 02-12-2022</span>
+     <p>Check if the Phone </p>
+	 <p>Number is good or not.</p>
 </div>
 <div id="inputdiv">
 <input autocomplete="off" onkeyup="myFunction()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input" id="myInput" type="text" placeholder="Search" >
 </div>
 
 
+
+
+
+
 <div id="resdiv">
-<p id="res">Enter a Number to Check it</p>
+  <div id="pp">
+     <p id="res">Enter a Number to Check it</p>
+  </div>
+  
+  <div id="tt">
+  <div id="imgimg">
 <img id="imgx" src="https://cdn.pixabay.com/photo/2012/04/26/18/36/negative-42774_960_720.png"/>
-<img id="imgy" src="https://cdn.pixabay.com/photo/2012/04/26/19/45/check-42926_960_720.png"/>
+<img id="imgy" src="https://lh3.googleusercontent.com/fife/AAbDypAQ9KidTHp8d7PG_2j-sOYOiJcpuMEFezzfCl7cYb-Tn4BB9e6ld7HkUZtpUXt4Doysdn9GrnzSTYxmgX801dzDeoH6jB6t8LR-Ca4GsqiKvxpGWcmAphrBDRyJ1wqUk4z4MjEcPFOn6CbHw-AWWzfDNd62IwIrW4HQ2oyUcRY3fhUiXROVWRzdxZeTfQjeE8CgWZWTc8XPcBc-XcVeXCLPVjXTLfW_gI_RO51e1RFvVVn0zLocWy4VhUFW-BIOMFG_trCYExLtKkWcD6DtT45RgMAwi2yWyHOfECkXHzgWF4vUB9H7lYVglPpvGso9Aq5hs6UYf2z_YVWuDvc5AGIIbnprtw-kr28kC5ARMP9jXsYOtSFyDNAUPEXCq7iO7W7YkfNJwCFBbMx4NPBKRhi71c4RZ8raPcQ7gxaIx0xVYyxAuVl4810fvWJde4pNUBV8icM6EAkCkai_0siaxXcOHnQApSkaHBM7hSWshs_bHQkl2MTk9tEQ3PdKKdkdiTl2lVLLwJJkHupdtOb-PvtZM8CkBuZAv8T4uAhbhBI96g6qKUMGE4e5iDC85jsKZNhcZWT3T9rpsLoj1ajq-ZRGaXjvrn8df8bNvnSXHT074iWm8uAuvU8ZeRBB-kSUts7f7Jw66ac3JZzHBdWJLDkdCZiNspG8Lg131XMeBsRcneUSyGXGR5Rb4lBqXT9pE7y2DVGWFupI_irkfgpad2_sBJStSjcMkl2kDAqHxe6aC1NRqc65ak-uj2HK8QTxxdJBOdRfGxVLWWtzCItagd1eigKYz3GY3hgEFrMrWDJr4TxsyX3L93BKtsaKtQhT07L12-RGjHvp5lq_20W14lIP694Ee_fCQ9Sy5PruZYLswUqROrcHMQ6Kp94jdEsIwQjeSAqkfW-X5F5xFYWiNVdLziF9XRPgdSqhXquZDPkoB63Pma4m5GyrHNlqEOJ1L2Ig96uzneLy1xVBT48ivnQl-X_fcyyi-LDDqS3-UxHhRMHDK6bGYGgqkHYnL6XSKQPRhmz7OnwydMYMb6nyvl9DSV1W4PbPDvBdxas3wzd4X9Q9oQA69M6VrXdkaa8ehGL5Jzs89UTCOx1ITS-frgBFPFDRK2fjFr4gTWDMX4jm_HCj4anERvtNWk3nEbGso6hC8c6F0NJc_gnKEvBEB9Ganl6ZswdPF6AdZpWNHSKfy_sdZgDk3_DfXpFqVsjrl9IXs4kjVdBCLvdZ6KsKxdW6Ei0GwLhdAz3oM0jF_SPyuUNxzVq5y5PP5vS8ZsXSeH42PLXvsOd7ibFTyHE19wupxJ_tFrCdQX-w2cr_XJeDOO4N4mG0_EghR-RWClCy2Ne9nbHKlMur5i9XSelwo05d16eFuhgURtH7NuzjeqBmlqhP6NSHg3q3n2VgX-bEkIzNtRwpvR9b1HUZL-z1o3eihm3qs5y6ZhCYOhxP88lLWaswLKAFwYjtB1tKifkRDJt_fS-4UIRm=w1279-h881"/>
+ </div>
+ </div>
 </div>
 
+
+</div>
 <script>
 function AutoRefresh( t ) {
                setTimeout("location.reload(true);", t);
@@ -74,38 +267,44 @@ function myFunction() {
           if (TorF == true){
               var res = document.getElementById("res");
               res.innerHTML = "It's BAD :(";
-              res.style.color = '#e53434';
+              res.style.color = 'red';
 			  imgx.style.display = 'inline';
 			  imgy.style.display = 'none';
+			  document.getElementById('tt').style.background='linear-gradient(178deg, #9e9e9e, #9e9e9e63)';
 
           } else if (input === '') {
               document.getElementById("res").innerHTML = 'Enter a Number to Check it';
               var res = document.getElementById("res");
               res.innerHTML = 'Enter a Number to Check it';
-              res.style.color = 'black';
+              res.style.color = 'white';
 			  imgx.style.display = 'none';
 			  imgy.style.display = 'none';
+			  document.getElementById('tt').style.background='none'
           } else {
               var res = document.getElementById("res");
               res.innerHTML = "It's Good :)";
-              res.style.color = '#acbf50';
+              res.style.color = 'lime';
 			  imgx.style.display = 'none';
 			  imgy.style.display = 'inline';
+			  document.getElementById('tt').style.background='linear-gradient(178deg, #9e9e9e, #9e9e9e63)';
           }
    }else if (userInput === '') {
           document.getElementById("res").innerHTML = 'Enter a Number to Check it';
           var res = document.getElementById("res");
           res.innerHTML = 'Enter a Number to Check it';
-          res.style.color = 'black';
+          res.style.color = 'white';
 		  imgx.style.display = 'none';
 		  imgy.style.display = 'none';
+		  document.getElementById('tt').style.background='none'
    }else
       {  	
 	      var res = document.getElementById("res"); 
           res.innerHTML = 'please enter a valid 10-digit phone number';
-          res.style.color = 'black';
+          res.style.color = 'white';
           imgx.style.display = 'none';	
-          imgy.style.display = 'none';		        	
+          imgy.style.display = 'none';
+		  document.getElementById('tt').style.background='none'
+		  
       }  
 
 
