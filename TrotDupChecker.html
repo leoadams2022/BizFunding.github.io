@@ -327,3 +327,380 @@ function myFunction() {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>DUP LIST FOR Tort</title>
+	  <link rel="icon" type="image/x-png" href="https://cdn-icons-png.flaticon.com/512/4725/4725506.png">
+	  <!------------------------------------------------------------------------------------------------->
+<style>
+
+*{
+margin:0px;
+padding:0px;
+box-sizing: border-box;
+}
+a {
+       text-decoration: none;
+    color: white;
+}
+body {
+    background: linear-gradient(358deg, #000000cf, #0000001f), url(MarinesBg.jpg);
+    color: white;
+    background-size: cover;
+    background-position: center center;
+}
+.contenar {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0px auto;
+    align-items: center;
+    gap: 10px;
+    height: 100vh;
+    justify-content: flex-start;
+}
+div#h1div {
+    height: 5vh;
+    margin-top: 10%;
+    align-self: flex-start;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+div#inputdiv {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    height: 15vh;
+	margin-top: 4%;
+	flex-wrap: wrap;
+}
+input#myInput {
+    flex-basis: 45%;
+    height: 40px;
+    line-height: 13px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15px;
+}
+div#resdiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    /* height: 80vh; */
+    width: 100%;
+    gap: 50px;
+	flex-wrap: wrap;
+}
+div#pp {
+    font-size: 30px;
+    font-weight: 900;
+    background: linear-gradient(178deg, #9e9e9e, #9e9e9e63);
+    border-radius: 10px;
+    padding: 15px;
+}
+div#tt {
+    font-size: 30px;
+    font-weight: 900;
+    background: none;
+    border-radius: 10px;
+    padding: 15px;
+}
+#tt > table {
+    margin: auto;
+}
+.Bg {
+    display: none;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: stretch;
+}
+.header {
+    display: flex;
+    width: 90%;
+    background: linear-gradient(180deg, #009688e0, transparent);
+    justify-content: space-between;
+    align-items: baseline;
+    border-radius: 2px;
+    margin-top: 15px;
+    padding: 10px 20px;
+}
+ul.navUl {
+    list-style: none;
+}
+li.navLi {
+    display: inline-block;
+    margin: 0px 20px;
+}
+button.clearBtn {
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 0px 10px;
+    height: 38px;
+    margin-left: 30px;
+    background: #bfe4ff;
+    color: black;
+    text-transform: uppercase;
+    transition: box-shadow 0.5s ease-in-out;
+}
+.clearBtn:hover {
+    box-shadow: #99fdf4 0px 6px 30px;
+}
+button#clearbtn:active {
+    background: #9e9e9e;
+}
+a.navA::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background: #bfe4ff;
+    display: block;
+    visibility: hidden;
+}
+a.navA:hover::after {
+    visibility: visible;
+}
+.footer {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+}
+/*---------------haide the imgx and imgy------------------------*/
+#imgx, #imgy {
+ display:none;
+ width:200px;
+ height:200px;
+}
+
+/*--------------------------------------------------.glow-on-hover-------------------------------------------*/
+.glow-on-hover {
+    width: 150px;
+    height: 30px;
+    border: none;
+    vertical-align: middle;
+    line-height: 13px;
+    outline: none;
+    color: #fff;
+    //you can change the text button color here#fff: ;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin: 1%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;	
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #317b84;//you can change the button color here#111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+	border: 2px solid #fff;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+/*---------------------------------------------------------------------------------------------*/
+/* customizable snowflake styling =================================================*/
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial;
+  text-shadow: 0 0 1px #000;
+}  
+@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
+/* ================================================= customizable snowflake styling */
+</style>
+</head>
+<body onload = "JavaScript:AutoRefresh(300000);" >
+
+
+<div class="snowflakes" aria-hidden="true">
+ <!-- <div class="intro"> Find 250+ Ready to use demo at <a href="https://codeconvey.com">Codeconvey.com</a></div> -->
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+  ❄
+  </div>
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+  ❄
+  </div>
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+  ❄
+  </div>
+</div>
+
+
+
+
+<div class="contenar">
+<div class="header">
+  <h1 class="logo">Old Trot Checker</h1>
+   <ul class="navUl">
+     <li class="navLi"><a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/NewTrotDupChecker.html">New Tort Dup</a></li>
+	 <li class="navLi"><a class="navA" href="#">NAV1</a></li>
+	 <li class="navLi"><a class="navA" href="#">NAV1</a></li>
+   </ul>
+</div>
+<div id="h1div">
+     <p>Check if the Phone </p>
+	 <p>Number is good or not</p>
+	 <p>For Old Tort</p>
+</div>
+<div id="inputdiv">
+<input autocomplete="off" onkeyup="myFunction()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input" id="myInput" type="text" placeholder="Search" >
+</div>
+
+
+
+
+
+
+<div id="resdiv">
+  <div id="pp">
+     <p id="res">Enter a Number to Check it</p>
+  </div>
+  
+  <div id="tt">
+  <div id="imgimg">
+<img id="imgx" src="https://cdn.pixabay.com/photo/2012/04/26/18/36/negative-42774_960_720.png"/>
+<img id="imgy" src="https://lh3.googleusercontent.com/fife/AAbDypAQ9KidTHp8d7PG_2j-sOYOiJcpuMEFezzfCl7cYb-Tn4BB9e6ld7HkUZtpUXt4Doysdn9GrnzSTYxmgX801dzDeoH6jB6t8LR-Ca4GsqiKvxpGWcmAphrBDRyJ1wqUk4z4MjEcPFOn6CbHw-AWWzfDNd62IwIrW4HQ2oyUcRY3fhUiXROVWRzdxZeTfQjeE8CgWZWTc8XPcBc-XcVeXCLPVjXTLfW_gI_RO51e1RFvVVn0zLocWy4VhUFW-BIOMFG_trCYExLtKkWcD6DtT45RgMAwi2yWyHOfECkXHzgWF4vUB9H7lYVglPpvGso9Aq5hs6UYf2z_YVWuDvc5AGIIbnprtw-kr28kC5ARMP9jXsYOtSFyDNAUPEXCq7iO7W7YkfNJwCFBbMx4NPBKRhi71c4RZ8raPcQ7gxaIx0xVYyxAuVl4810fvWJde4pNUBV8icM6EAkCkai_0siaxXcOHnQApSkaHBM7hSWshs_bHQkl2MTk9tEQ3PdKKdkdiTl2lVLLwJJkHupdtOb-PvtZM8CkBuZAv8T4uAhbhBI96g6qKUMGE4e5iDC85jsKZNhcZWT3T9rpsLoj1ajq-ZRGaXjvrn8df8bNvnSXHT074iWm8uAuvU8ZeRBB-kSUts7f7Jw66ac3JZzHBdWJLDkdCZiNspG8Lg131XMeBsRcneUSyGXGR5Rb4lBqXT9pE7y2DVGWFupI_irkfgpad2_sBJStSjcMkl2kDAqHxe6aC1NRqc65ak-uj2HK8QTxxdJBOdRfGxVLWWtzCItagd1eigKYz3GY3hgEFrMrWDJr4TxsyX3L93BKtsaKtQhT07L12-RGjHvp5lq_20W14lIP694Ee_fCQ9Sy5PruZYLswUqROrcHMQ6Kp94jdEsIwQjeSAqkfW-X5F5xFYWiNVdLziF9XRPgdSqhXquZDPkoB63Pma4m5GyrHNlqEOJ1L2Ig96uzneLy1xVBT48ivnQl-X_fcyyi-LDDqS3-UxHhRMHDK6bGYGgqkHYnL6XSKQPRhmz7OnwydMYMb6nyvl9DSV1W4PbPDvBdxas3wzd4X9Q9oQA69M6VrXdkaa8ehGL5Jzs89UTCOx1ITS-frgBFPFDRK2fjFr4gTWDMX4jm_HCj4anERvtNWk3nEbGso6hC8c6F0NJc_gnKEvBEB9Ganl6ZswdPF6AdZpWNHSKfy_sdZgDk3_DfXpFqVsjrl9IXs4kjVdBCLvdZ6KsKxdW6Ei0GwLhdAz3oM0jF_SPyuUNxzVq5y5PP5vS8ZsXSeH42PLXvsOd7ibFTyHE19wupxJ_tFrCdQX-w2cr_XJeDOO4N4mG0_EghR-RWClCy2Ne9nbHKlMur5i9XSelwo05d16eFuhgURtH7NuzjeqBmlqhP6NSHg3q3n2VgX-bEkIzNtRwpvR9b1HUZL-z1o3eihm3qs5y6ZhCYOhxP88lLWaswLKAFwYjtB1tKifkRDJt_fS-4UIRm=w1279-h881"/>
+ </div>
+ </div>
+</div>
+
+
+</div>
+<div class="footer">
+     <p class="lastupdateP">Last UpDate : 04:57 21-12-2022</p>
+</div>
+<script>
+function AutoRefresh( t ) {
+               setTimeout("location.reload(true);", t);
+}
+function myFunction() {
+
+    var userInput = document.getElementById("myInput").value;
+	var imgx = document.getElementById("imgx");
+	var imgy = document.getElementById("imgy");
+   if(userInput.length == 10)
+      {  	
+          const numbers = ['9109153204','7034771465','7178808623','9192218056','4042465986','6783689108','7164991914','9543041293','3212252287','5596238586','3172013810','3025215059','5402230760','8326547175','5736442116','2533773422','9077501494','8107306663','4438000225','6159159347','9702819655','9515267783','7602172542','3868985422','9193066384','5408415955','8605089345','5137390318','8087815628','2814516883','2163942812','7047475797','2142821896','5159884355','2676015306','6034942616','3522081810','5738149966','8324446933','5074559080','5165285169','8033274485','5414600495','4109058291','5615739239','8137310712','8564057224','3219561521','9106769166','2814557953','9516832220','2392004473','9048039102','6159830417','3032887011','6617334247','8187131974','9495258985','9163405963','7278100125','9545923675','8312334768','7726266161','7073725785','5109137609','7602218525','3033713645','6035328226','9252560467','2542160059','4074603279','7277760818','2515451481','9517335513','2252848821','8658982187','8503466650','9162965354','9103523352','3522168063','5626191584','8165887141','5705176018','2094164467','5307151210','2566798175','9092827215','2819652754','6192064735','9715634757','6616629949','5615969078','6266221061','2147054954','4084556916','2566525207','6812838535','5103872511','7272370493','8639341812','9169696466','7603908466','8504454330','7146184882','8636027320','7275844353','8507046380','8504150901','8134109847','8154400000','7074863599','7609956615','9415657057','8638526663','6503264310','6154830389','7148935406','7195880324','7137036440','8636629287','7272393452','9516637275','8183419526','7609855732','8506386455','7277254512','8048241915','8303588324','7274951778','9413022460','7814799016','9542586916','8634672294','9046921025','6262215481','4148079293','8056212437','9167718311','9096597063','8633810003','7272163973','2679754433','7343412437','9046140087','8133107488','6093920652','8632425932','9043741833','9162040933','5615759326','7742490046','9162831111','8504994423','5618453417','8187571510','9047725832','6196788618','8504184774','7818342384','3036904894','4044520942','7273268850','9419168476','5419880942','8632144775','6235845358','7249449138','6199132868','8055400149','7728014072','7133976090','8134808081','4043081022','7196602497','8329220087','9255139323','6179476053','9542324553','7276670126','6302706375','2392290196','9096437575','2817706124','9099239944','7604531510','6787642717','4236538897','9514209202','9157607872','6095564892','5189611633','8583678621','8183522608','9542960744','5155283432','9169560142','6262416976','7044914518','9162481392','9159208408','9544442110','7076249510','8134585196','5616746060','9417400596','8137285482','5714312427','7036254657','9545433338','3179932374','3106333333','7278318605','6198083736','3306084356','2057644523','5012263164','3364292466','2564103403','3345937354','7072921601','5013669246','2563392101','2053631857','2562931898','3165191791','6789934984','4102060912','8508322913','5129221279','4074607473','3133188012','7042937566','2404324415','5862018481','7195869184','6033122808','5016503376','7572188478','6788510686','8046170470','7028082730','6143785989','6788824212','8135468081','3362104568','9126890499','2313359974','3346998579','6235708460','6628897895','7757204923','5416215167','5017720349','2515868000','5108234946','5207054293','9014128478','2153318873','7022658827','8162260412','2038598936','9546127773','7575086594','5612228160','8636327722','9045459358','3042163840','8033159555','9107970828','6127509122','4253195100','2524599992','4233041539','2076040159','4783977678','4073611145','9123221250','9013618887','9188593044','2523679549','5167102929','8502760248','7133661249','5167102929','2022399791','5038013532','3012562330','4439881571','9192182001','4808067861','3303830913','4344837341','7012902407','6127509122','5103346800','5592800268','8138333562','9562208084','9197933025','9782656985','2293254788','9546964820','7863171432','4793723033','6155733470','4073142012','6613840546','4804570680','9106244783','7632458123','8503466650','9852644135','2052662551','6199852248','2393343328','6192463130','8636027320','8324442018','4074011101','8137312920','5738375670','9048130241','9042844227','6097605911','9046266451','9542459636','7022758179','6197990991','8658502111','9566938072','7604531510','8502726997','5743202151','7609538773','9413485155','3865466384','7044914518','9159208408','9417400596','9162898688','7144032644','7273202917','7733693190','7273202917','5016506013','7757721616','4078106680','5055503017','6184068328','7322996115','2522597433','6142960650','7576464243','9126744508','9736410162','5122967325','5167102929','9103814007','8166789172','5805830898','2406016960','6158292308','2524599992','5618272919','5012592740'];
+		  var input = document.getElementById("myInput").value;
+          var TorF = numbers.includes(input);
+
+          if (TorF == true){
+              var res = document.getElementById("res");
+              res.innerHTML = "It's BAD :(";
+              res.style.color = 'red';
+			  imgx.style.display = 'inline';
+			  imgy.style.display = 'none';
+			  document.getElementById('tt').style.background='linear-gradient(178deg, #9e9e9e, #9e9e9e63)';
+
+          } else if (input === '') {
+              document.getElementById("res").innerHTML = 'Enter a Number to Check it';
+              var res = document.getElementById("res");
+              res.innerHTML = 'Enter a Number to Check it';
+              res.style.color = 'white';
+			  imgx.style.display = 'none';
+			  imgy.style.display = 'none';
+			  document.getElementById('tt').style.background='none'
+          } else {
+              var res = document.getElementById("res");
+              res.innerHTML = "It's Good :)";
+              res.style.color = 'lime';
+			  imgx.style.display = 'none';
+			  imgy.style.display = 'inline';
+			  document.getElementById('tt').style.background='linear-gradient(178deg, #9e9e9e, #9e9e9e63)';
+          }
+   }else if (userInput === '') {
+          document.getElementById("res").innerHTML = 'Enter a Number to Check it';
+          var res = document.getElementById("res");
+          res.innerHTML = 'Enter a Number to Check it';
+          res.style.color = 'white';
+		  imgx.style.display = 'none';
+		  imgy.style.display = 'none';
+		  document.getElementById('tt').style.background='none'
+   }else
+      {  	
+	      var res = document.getElementById("res"); 
+          res.innerHTML = 'please enter a valid 10-digit phone number';
+          res.style.color = 'white';
+          imgx.style.display = 'none';	
+          imgy.style.display = 'none';
+		  document.getElementById('tt').style.background='none'
+		  
+      }  
+
+
+
+
+
+}
+</script>
+
+
+
+</body>
+</html>
