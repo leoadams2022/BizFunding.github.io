@@ -307,11 +307,11 @@ Leave3WayCall.addEventListener("click", GetDispo);
 var CallDispo;
 
 function CallLogFunction() {
-	var number = document.getElementById('phone_numberDISP').innerText; //'                   '
-	if (number === '                   ') {
+	var number = document.getElementById('phone_numberDISP').innerText; //'                   '
+	if (number === '                   ') {
 		alert('There is no Number From:CallLogFunction');
 	} else {
-		var number = document.getElementById('phone_numberDISP').innerText; //'                   '
+		var number = document.getElementById('phone_numberDISP').innerText; //'                   '
 		var resSpan2 = document.getElementById('Dispospan2');
 		var TorF = NumbersArray.includes(number);
 		if (TorF == true) {
@@ -320,6 +320,14 @@ function CallLogFunction() {
 				setTimeout(() => {
 						resSpan2.innerHTML = '';
 					}, 5000);*/
+					CallLogObject.forEach(Element => {
+						if(Element[0].number == number){
+							let time = new Date();
+							time = time.toLocaleString("en-US");
+                            Element[0].ReCallDate += `//  ReCallDate: ${time}  //`;
+							localStorage.setItem('CallLogLocalStorage', JSON.stringify(CallLogObject));
+						}
+					})
 		} else {
 			NumbersArray.push(number);
 			var first = document.getElementById('first_name').value;
@@ -331,6 +339,7 @@ function CallLogFunction() {
 			var email = document.getElementById('email').value;
 			var comments = document.getElementById('comments').value;
 			var phone_code = document.getElementById('phone_code').value;
+			var CallTime = document.querySelector('#SecondSDISP').innerText;
 			document.getElementById('phone_code').value = 'add';
 			var list = CallLogObject.flat();
 			let time = new Date();
@@ -347,7 +356,9 @@ function CallLogFunction() {
 				"email": email,
 				"comments": comments,
 				"phone_code": phone_code,
-				"CallDispo": CallDispo
+				"CallDispo": CallDispo,
+				"ReCallDate": "",
+				"CallTime": CallTime
 			}];
 			CallLogObject.push(NewItem);
 			localStorage.setItem('CallLogLocalStorage', JSON.stringify(CallLogObject))
