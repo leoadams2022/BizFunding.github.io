@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -215,6 +216,21 @@ a.navA:hover::after {
     100% { background-position: 0 0; }
 }
 /*---------------------------------------------------------------------------------------------*/
+@keyframes LookHere {
+    from{transform: translate(0px, 0px);}
+    to{transform: translate(0px, -5px);}
+}
+@keyframes Color {
+    /* #333333, #dd1818 */
+    from{color: #642323 ;}
+    to{color: #ff0000 ;}
+}
+li.navLi.New{
+    animation: LookHere 1s  0s infinite alternate;
+}
+li.navLi.New a {
+    animation: Color 1s  0s infinite alternate;
+}
 
 </style>
 </head>
@@ -226,7 +242,7 @@ a.navA:hover::after {
   <h1 class="logo">New Trot Checker</h1>
    <ul class="navUl">
      <li class="navLi"><a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/TrotDupChecker.html">Old Tort Dup</a></li>
-	 <li class="navLi"><a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/Med_Conditions.html">Medical Conditions</a></li>
+	 <li class="navLi New"><a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/Med_Conditions.html">Medical Conditions</a></li>
 <!-- 	 <li class="navLi"><a class="navA" href="#">NAV1</a></li> -->
    </ul>
 </div>
