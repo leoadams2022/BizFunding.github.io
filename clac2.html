@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    * {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #EAEBEC;
+}
+
+.container {
+  width: 400px;
+  margin: auto;
+}
+
+.calc-body {
+  width: 275px;
+  margin: auto;
+  min-height: 400px;
+  border: solid 1px #3A4655;
+  box-shadow: 0 8px 50px -7px black;
+}
+
+.calc-screen {
+  background: #3A4655;
+  width: 100%;
+  height: 150px;
+  padding: 20px;
+}
+
+.calc-operation {
+  text-align: right;
+  /* color: #727B86; */
+  color: #dbebff;
+  font-size: 21px;
+  padding-bottom: 10px;
+  border-bottom: dotted 1px;
+
+  overflow-x: auto;
+}
+
+.calc-typed {
+    margin-top: 20px;
+    font-size: 30px;
+    /* text-align: right; */
+    position: relative;
+    color: #fff;
+    text-align: left;
+}
+
+.calc-button-row {
+  width: 100%;
+  background: #3C4857;
+}
+
+.button,
+.Cbutton {
+  width: 25%;
+  background: #425062;
+  color: #fff;
+  padding: 20px;
+  display: inline-block;
+  font-size: 25px;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: -4px;
+  border-right: solid 2px #3C4857;
+  border-bottom: solid 2px #3C4857;
+  transition: all 0.2s ease-in-out;
+}
+
+.button.l {
+  color: #AEB3BA;
+  background: #404D5E;
+}
+
+.Cbutton.c {
+  color: #D95D4E;
+  background: #404D5E;
+}
+
+.button:hover {
+  background: #E0B612;
+  /* transform: rotate(5deg); */
+  box-shadow: 0px 0px 6px 1px;
+}
+
+.Cbutton.c:hover{
+    background: #D95D4E;
+    color: #fff;
+    box-shadow: 0px 0px 6px 1px;
+}
+.button.l:hover {
+  background: #009688;
+  color: #fff;
+  /* transform: rotate(0deg); */
+}
+
+.blink-me {
+  color: #E0B612;
+  animation-name: example;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes example {
+  0%   {color: #e0b612;}
+  50% {color: #e0b6122e;}
+  100%  {color: #e0b612;} 
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    /* width: 1px !important; */
+    height: 8px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #dbebff;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #009688;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+span.deleteBtn {
+    position: absolute;
+    top: 0px;
+    display: block;
+    right: 0px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    transition: color 0.5s;
+}
+span.deleteBtn:hover{
+    color: #D95D4E;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="calc-body">
+          <div class="calc-screen">
+            <div class="calc-operation"  ><span id="calc-operation"></span><span class="blink-me">_</span></div>
+            <div class="calc-typed" >
+                <span id="calc-typed"></span>
+                <span class="deleteBtn" onclick="deleteFunc()">&#8592</span>
+            </div>
+          </div>
+          <div class="calc-button-row">
+            <div class="Cbutton c" value="C" onclick="reset()">C</div>
+            <div class="button l" value="(">(</div>
+            <div class="button l" value=")">)</div>
+            <div class="button l" value="/">/</div>
+          </div>
+          <div class="calc-button-row">
+            <div class="button" value="7">7</div>
+            <div class="button" value="8">8</div>
+            <div class="button" value="9">9</div>
+            <div class="button l" value="*">x</div>
+          </div>
+          <div class="calc-button-row">
+            <div class="button" value="4">4</div>
+            <div class="button" value="5">5</div>
+            <div class="button" value="6">6</div>
+            <div class="button l" value="-">−</div>
+          </div>
+          <div class="calc-button-row">
+            <div class="button" value="1">1</div>
+            <div class="button" value="2">2</div>
+            <div class="button" value="3">3</div>
+            <div class="button l" value="+">+</div>
+          </div>
+          <div class="calc-button-row">
+            <div class="button" value=".">.</div>
+            <div class="button" value="0">0</div>
+            <div class="button l" value="-()">+/-</div>
+            <div class="button l" value="=">=</div>
+          </div>
+        </div>
+    </div>
+    <!-- <div id="demo"></div> -->
+<script>
+     let keys = document.getElementsByClassName('button');
+     let opArr = [];
+     for (let i = 0; i < keys.length; i++) {
+        // keys[i].setAttribute('value',keys[i].innerHTML)
+        keys[i].addEventListener("click", function() {
+                let keyType = typeOfClickedKey(keys[i].getAttribute('value'));
+                if(keyType != 'equl'){
+                    if(keyType == 'number'){
+                        let lastAdd ='';
+                         lastAdd = opArr[opArr.length - 1];
+                        // console.log(lastAdd)
+                        if(opArr.length > 0 && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1))!= 'sgin' && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1))!= 'openBra' && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1))!= 'closeBre'){
+                            // console.log(lastAdd.charAt(lastAdd.length - 1))
+                            opArr[opArr.length - 1] = lastAdd + keys[i].getAttribute('value');
+                            // console.log(opArr)
+                            renderScreen(opArr)
+                        }else{
+                            opArr.push( keys[i].getAttribute('value'))
+                            // console.log(opArr)
+                            renderScreen(opArr)
+                        }
+                    }else if(keyType == 'point'){
+                        let lastAdd ='';
+                         lastAdd = opArr[opArr.length - 1];
+                            // console.log(lastAdd)
+                            if(opArr.length > 0 && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) == 'number' && !lastAdd.includes(".")){
+                                // console.log(lastAdd.charAt(lastAdd.length - 1))
+                                opArr[opArr.length - 1] = lastAdd + keys[i].getAttribute('value');
+                                // console.log(opArr);
+                                renderScreen(opArr)
+                            }else{
+                                // opArr.push( keys[i].getAttribute('value'))
+                            }
+                     }else if(keyType == 'sgin'){
+                        let lastAdd ='';
+                        lastAdd = opArr[opArr.length - 1];
+                            // console.log(lastAdd) 
+                            if(opArr.length > 0 && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'sgin' && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'undifined'){
+                                // console.log(typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)));   
+                                opArr.push(keys[i].getAttribute('value'));
+                                // console.log(opArr);  
+                                renderScreen(opArr)
+                            }else{
+                            }
+                     }else if(keyType == 'openBra'){    
+                            if(opArr.length > 0 ){
+                                let lastAdd ='';
+                                    lastAdd = opArr[opArr.length - 1];
+                                    // console.log(lastAdd) 
+                                if(typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'point' && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'openBra' && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'closeBre'&& typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'number' && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'undifined'){
+                                    // console.log(typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1))); 
+                                    opArr.push( keys[i].getAttribute('value'))
+                                    renderScreen(opArr)
+                                }else{ 
+                                }
+                            }else{
+                                opArr.push( keys[i].getAttribute('value'))
+                                    // console.log(opArr)
+                                    renderScreen(opArr)
+                            }
+                    }else if(keyType == 'closeBre'){    
+                            if(opArr.length > 0 ){
+                                let lastAdd ='';
+                                    lastAdd = opArr[opArr.length - 1];
+                                    // console.log(lastAdd) 
+                                    //&& typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'closeBre'
+                                if(typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'point' && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'openBra'  && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'undifined'){
+                                    // console.log(typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1))); 
+                                    opArr.push( keys[i].getAttribute('value'))
+                                    renderScreen(opArr)
+                                }else{ 
+                                }
+                            }else{
+                                // opArr.push( keys[i].getAttribute('value'))
+                                //     // console.log(opArr)
+                                //     renderScreen(opArr)
+                            }
+                    }else if(keyType == 'negNum'){ 
+                        // empaty 
+                        // sgin
+                        // openBra
+                        if(opArr.length > 0 ){
+                                let lastAdd ='';
+                                    lastAdd = opArr[opArr.length - 1];
+                                    // console.log(lastAdd) 
+                                if(typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'point' && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'closeBre'&& typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'number' && typeOfClickedKey(lastAdd.charAt(lastAdd.length - 1)) != 'undifined'){
+                                    opArr.push('(')
+                                    opArr.push('-')
+                                    // console.log(opArr)
+                                    renderScreen(opArr)
+                                }else{ 
+                                }
+                            }else{
+                                opArr.push('(')
+                                opArr.push('-')
+                                    // console.log(opArr)
+                                    renderScreen(opArr)
+                            }
+                    
+                    }else{
+                        console.log('New Key keyType:',keyType)
+                     }
+                }else if(keyType == 'equl'){
+                    getRes(opArr);
+                    
+                }
+                
+            });
+     }
+
+// return equl number point sgin openBra closeBre negNum undifined
+// not added ( ) -()
+function typeOfClickedKey(value){
+    switch(value) {
+        case '1':
+            return 'number';
+            break;
+        case '2':
+            return 'number';
+            break;
+        case '3':
+            return 'number';
+            break;
+        case '4':
+            return 'number';
+            break;
+        case '5':
+            return 'number';
+            break;
+        case '6':
+            return 'number';
+            break;
+        case '7':
+            return 'number';
+            break;
+        case '8':
+            return 'number';
+            break;
+        case '9':
+            return 'number';
+            break;
+        case '*':
+            return 'sgin';
+            break;
+        case '/':
+            return 'sgin';
+            break;
+        case '-':
+            return 'sgin';
+            break;
+        case '+':
+            return 'sgin';
+            break;
+        case '=':
+            return 'equl';
+            break;
+        case '.':
+            return 'point';
+            break;
+        case '0':
+            return 'number';
+            break;
+        case '(':
+            return 'openBra';
+            break;
+        case ')':
+            return 'closeBre';
+            break;
+        case '-()':
+            return 'negNum';
+            break;
+        default:
+            return 'undifined';
+        }
+}
+
+function renderScreen(opArr){
+    const screen = document.getElementById('calc-operation');
+    screen.innerHTML = '';
+    opArr.forEach(ele => {
+        screen.innerHTML += ele+'  ';
+    });
+
+}
+function getRes(){
+    // console.log('length: ',opArr.length,'opArr: ',opArr)
+    if(opArr.length > 0){
+        let openBrCuont=0
+        let closeBrCuont=0
+        opArr.forEach(ele => {
+            if(ele == '('){openBrCuont++}
+            if(ele == ')'){closeBrCuont++}
+        });
+        if(openBrCuont === closeBrCuont){
+            let opStr = document.getElementById('calc-operation').innerHTML;
+            // console.log(parse(opStr));
+            try {
+                document.getElementById('calc-typed').innerHTML =  parse(opStr);
+                opArr =[];
+                opArr.push(`${parse(opStr)}`)
+                document.getElementById('calc-operation').innerHTML = parse(opStr);
+                // document.getElementById('calc-operation').innerHTML = '';
+            }
+            catch(err) {
+                console.log(err)
+                document.getElementById("calc-typed").innerHTML = 'Unvalid entry';
+                opArr =[];
+                document.getElementById('calc-operation').innerHTML = '';
+            }
+            
+        }else{
+            // console.log('open: ',openBrCuont,'close: ',closeBrCuont)
+            // console.log(opArr);
+            document.getElementById("calc-typed").innerHTML = 'Unclosed bracket';
+            opArr =[];
+            document.getElementById('calc-operation').innerHTML = '';
+            
+        }
+        
+    }else{
+        // console.log('opArr is empty');
+        document.getElementById('calc-typed').innerHTML = '';
+        opArr =[];
+        document.getElementById('calc-operation').innerHTML = '';
+    }
+}
+
+function parse(str) {
+  return Function(`'use strict'; return (${str})`)()
+}
+function reset(){
+    opArr =[];
+    document.getElementById('calc-typed').innerHTML = '';
+    document.getElementById('calc-operation').innerHTML = '';
+}
+
+function deleteFunc(){
+    var removed = opArr.splice(-1);
+    renderScreen(opArr)
+
+}
+/*
+1 = 97 
+2 = 98
+3 = 99
+4 = 100
+5 = 101
+6 = 102
+7 = 103
+8 = 104
+9 = 105
+/ = 111
+* = 106
+- = 109
++ = 107
+. = 110
+( = 57
+) = 48
+*/
+document.addEventListener("keydown", function(event) {
+    switch (event.which) {
+        case 96:
+            event.preventDefault();
+            document.querySelector("[value='0']").click()
+            break;
+        case 97:
+            event.preventDefault();
+            document.querySelector("[value='1']").click()
+            break;
+        case 98:
+            event.preventDefault();
+            document.querySelector("[value='2']").click()
+            break;
+        case 99:
+            event.preventDefault();
+            document.querySelector("[value='3']").click()
+            break;
+        case 100:
+            event.preventDefault();
+            document.querySelector("[value='4']").click()
+            break;
+        case 101:
+            event.preventDefault();
+            document.querySelector("[value='5']").click()
+            break;
+        case 102:
+            event.preventDefault();
+            document.querySelector("[value='6']").click()
+            break;
+        case 103:
+            event.preventDefault();
+            document.querySelector("[value='7']").click()
+            break;
+        case 104:
+            event.preventDefault();
+            document.querySelector("[value='8']").click()
+            break;
+        case 105:
+            event.preventDefault();
+            document.querySelector("[value='9']").click()
+            break;
+        case 111:// /
+            event.preventDefault();
+            document.querySelector("[value='/']").click()
+            break;
+        case 106:// *
+            event.preventDefault();
+            document.querySelector("[value='*']").click()
+            break;
+        case 109:// -
+            event.preventDefault();
+            document.querySelector("[value='-']").click()
+            break;
+        case 107:// +
+            event.preventDefault();
+            document.querySelector("[value='+']").click()
+            break;
+        case 110:// .
+            event.preventDefault();
+            document.querySelector("[value='.']").click()
+            break;
+        case 57:// (
+            event.preventDefault();
+             if (event.shiftKey) {
+                document.querySelector("[value='(']").click()
+             }
+
+            break;
+        case 48:// )
+            event.preventDefault();
+             if (event.shiftKey) {
+                document.querySelector("[value=')']").click()
+             }
+            break;
+        case 13:// enter
+            event.preventDefault();
+            document.querySelector("[value='=']").click()
+            break;
+        case 8:// backspaese
+            event.preventDefault();
+            deleteFunc();
+            break;
+        case 46:// delete
+            event.preventDefault();
+            deleteFunc();
+            break;
+    }
+})
+</script>
+</body>
+</html>
+
