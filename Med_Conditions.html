@@ -1,286 +1,822 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-png" href="https://cdn-icons-png.flaticon.com/512/3887/3887775.png">
     <title>Med_Conditions_For_Tort</title>
 <style>
-    /* google font  */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: 'Oswald', sans-serif;
-    font-family: 'Roboto', sans-serif;
+      /* google font  */
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+  :root{
+    --bs-dark-bg-subtle: #ffffffbf !important;
+  }
+.testDiv{
+  border: 1px solid red;
+  min-height: 80%;
 }
 
-body {
-    background: linear-gradient(190deg, #00000047, #00000047),url(https://i.postimg.cc/GhXK1FGD/MedBG.jpg);
-    background-size: cover;
-    background-position: center center;
+span.descriptionSpan,
+span.textToAudioSpan,
+span.stopAudioSpan,
+span.copySpan,
+span.showHideSetingsSpan {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background: rgba(13,110,253,.25);
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.5s;
 }
-.container {
-    /* height: 100vh; */
-    /* padding: 5px; */
-    /* dis flex  */
+span.descriptionSpan:hover,
+span.textToAudioSpan:hover,
+span.stopAudioSpan:hover,
+span.copySpan:hover,
+span.showHideSetingsSpan:hover {
+  background: rgba(255,255,255);
+}
+span.descriptionSpan i,
+span.textToAudioSpan i,
+span.stopAudioSpan i,
+span.copySpan i,
+span.showHideSetingsSpan i{
+  font-size: 12px;
+}
+
+span#welcome {
+    display: block;
+    width: 100vw;/*
+    height: 100vw; */
+    position: absolute;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    background: white;
+}
+
+body{
+  background: linear-gradient(190deg, #00000047, #00000047),url(https://i.postimg.cc/GhXK1FGD/MedBG.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+span#welBtn {
+    font-size: 40px;
+    font-weight: 600;
+    color: blue;
+    cursor: pointer;
+}
+
+
+div#cont {
+  background-color:  #151719;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.waviy {
+  position: relative;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+  font-size: 60px;
+}
+.waviy span {
+  font-family: 'Alfa Slab One', cursive;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  animation: waviy 1s infinite;
+  animation-delay: calc(.1s * var(--i));
+  
+}
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+}
+
+span.showHideSetingsSpan {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+#nav{
+  background-color: rgb(255 255 255 / 51%) !important;
+  width: 90%;
+  margin: 0px auto;
+  border-radius: 10px;
+  box-shadow: 0px 5px 50px;
+}
+a.navbar-brand {
+  font-weight: 600;
+  font-size: 25px;
+  color: #795548;
+  cursor: pointer;
+}
+span.navbar-text {
     display: flex;
-    flex-direction: column;
-    /* width: 90%; */
-    margin: 0px auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
     align-items: center;
     gap: 10px;
-    /* height: 100vh; */
-    justify-content: flex-start;
 }
-ul {
-    list-style: auto;
-    margin:  0px;
-    padding: 0px;
-}
-
-
-.row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-.col {
-    border: 1px solid black;
-    margin: 5px;
-    padding: 20px;
-    padding-left: 40px;
-    background: #9e9e9e7d;
-    border-radius: 15px;
-}
-.col.ListDiv1 {
-    grid-row: 1/3;
-}
-div.row div ul li.titleLi {
-    /* border-bottom: 0.5px solid #9e9e9e; */
-    display: inline-block;
-    font-weight: 600;
-    margin-bottom: 15px;
-    letter-spacing: 4px;
-    color: #4b2b83;
-    text-transform: uppercase;
-}
-div.row div ul li {
-    color: black;
-    /* margin: 5px 0px; */
-    text-transform: capitalize;
-    line-height: 19px;
-    font-weight: 500;
-}
-div.row div ul li:hover:not(.titleLi) {
-    background: #393838;
-    color: #abaaaa;
-}
- /* nav par  */
- a {
-       text-decoration: none;
-    color: white;
-}
- .header {
-    display: flex;
-    width: 90%;
-    background: linear-gradient(180deg, #009688e0, transparent);
-    justify-content: space-between;
-    align-items: baseline;
-    border-radius: 2px;
-    margin-top: 15px;
-    padding: 10px 20px;
-}
-ul.navUl {
-    list-style: none;
-}
-li.navLi {
-    display: inline-block;
-    margin: 0px 20px;
+.navA{
+  text-decoration: none;
+  color: #03405d !important;
+  font-weight: 600;
 }
 a.navA::after {
-    content: '';
-    width: 100%;
-    height: 3px;
-    border-radius: 2px;
-    background: #bfe4ff;
-    display: block;
-    visibility: hidden;
+  content: '';
+  width: 0px;
+  height: 3px;
+  border-radius: 2px;
+  background: #bfe4ff;
+  display: block;
+  visibility: visible;
+  transition: width 0.5s;
 }
 a.navA:hover::after {
-    visibility: visible;
+    width: 100%;
 }
-h1.logo {
-    color: whitesmoke;
-}
-/* footer */
-.footer {
-    position: fixed;
-    bottom: 0px;
-    left: 5px;
-    color: whitesmoke;
-    background: #01010187;
+
+span.lastupdateSpan {
+    background: #9e9e9e7d;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 20px;
 }
 </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+<script src="https://kit.fontawesome.com/11ed468396.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1 class="logo">Medical Conditions For Tort</h1>
-         <ul class="navUl">
-           <li class="navLi"><a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/TrotDupChecker.html">Old Tort Dup</a></li>
-      	   <li class="navLi"><a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/NewTrotDupChecker.html">New Tort Dup</a></li>
-           <!-- <li class="navLi"><a class="navA" href="#">NAV1</a></li> -->
-         </ul>
+
+<span id="welcome">
+    <div id="cont">
+        <!-- <span id="welBtn">open</span> -->
+
+        <div class="waviy">
+            <span style="--i:1">W</span>
+            <span style="--i:2">E</span>
+            <span style="--i:3">L</span>
+            <span style="--i:4">C</span>
+            <span style="--i:5">O</span>
+            <span style="--i:6">M</span>
+            <span style="--i:7">E</span>
+            <br>
+            <!-- <span style="--i:8"> </span>
+            <span style="--i:9">S</span>
+            <span style="--i:10">T</span>
+            <span style="--i:11">A</span>
+            <span style="--i:12">R</span> 
+            <span style="--i:13">T</span>  -->
+            <span style="--i:10; font-size: 20px;" class="mySpan">click anywhere to start</span>
+         </div>
+
+
     </div>
-    <div class="row">
-        <div class="col ListDiv1">
-            <ul id="cancerUl">
-                <li class="titleLi">CANCER CONDITIONS: <hr></li>
-                <!-- <li class="Myli1" id="litest">anal cancer</li>
-                <li class="Myli1">appendix cancer</li>
-                <li class="Myli1">basal cell carcinoma (skin cancer)</li>
-                <li class="Myli1">bile duct cancer</li>
-                <li class="Myli1">bladder cancer</li>
-                <li class="Myli1">bone cancer</li>
-                <li class="Myli1">brain cancer</li>
-                <li class="Myli1">breast cancer</li>
-                <li class="Myli1">cervical cancer</li>
-                <li class="Myli1">childhood and adolescent cancer</li>
-                <li class="Myli1">endocrine syndromes/neoplasm (endocrine tumors )</li>
-                <li class="Myli1">esophageal cancer</li>
-                <li class="Myli1">eye cancer</li>
-                <li class="Myli1">fallopian tube cancer</li>
-                <li class="Myli1">hairy cell leukemia</li>
-                <li class="Myli1">head and neck cancers</li>
-                <li class="Myli1">kidney cancer</li>
-                <li class="Myli1">laryngeal cancer</li>
-                <li class="Myli1">leukemias (all types, including myelodysplastic syndromes)</li>
-                <li class="Myli1">liver cancer</li>
-                <li class="Myli1">lung cancer</li>
-                <li class="Myli1">male breast cancer</li>
-                <li class="Myli1">Myelodysplastic Syndromes (blood Cancer)</li>
-                <li class="Myli1">non-hodgkin lymphoma (lymphatic system cancer)</li>
-                <li class="Myli1">ovarian cancer</li>
-                <li class="Myli1">pancreatic cancer</li>
-                <li class="Myli1">penile cancer</li>
-                <li class="Myli1">pituitary cancer</li>
-                <li class="Myli1">primary cns lymphoma (malignant cancer in the brain and/or spinal cord)</li>
-                <li class="Myli1">prostate cancer</li>
-                <li class="Myli1">rectal cancer</li>
-                <li class="Myli1">stomach cancer</li>
-                <li class="Myli1">testicular cancer</li>
-                <li class="Myli1">thyroid cancer</li>
-                <li class="Myli1">uterine cancer</li> -->
-                  <li class="Myli1">Appendix cancer</li>
-                  <li class="Myli1">Bladder cancer</li>
-                  <li class="Myli1">Brain cancer</li>
-                  <li class="Myli1">Breast cancer</li>
-                  <li class="Myli1">Bile duct cancer</li>
-                  <li class="Myli1">Colorectal cancer</li>
-                  <li class="Myli1">Esophageal cancer</li>
-                  <li class="Myli1">Gallbladder cancer</li>
-                  <li class="Myli1">Intestinal cancer</li>
-                  <li class="Myli1">Kidney cancer</li>
-                  <li class="Myli1">Leukemia</li>
-                  <li class="Myli1">Liver cancer</li>
-                  <li class="Myli1">Lung cancer</li>
-                  <li class="Myli1">Multiple myeloma</li>
-                  <li class="Myli1">Non-Hodgkin’s lymphoma</li>
-                  <li class="Myli1">Pancreatic cancer</li>
-                  <li class="Myli1">Sinus cancer</li>
-                  <li class="Myli1">Soft tissue sarcoma</li>
-                  <li class="Myli1">Spinal cancer</li>
-                  <li class="Myli1">Thyroid cancer</li>
-            </ul>
-        </div>
-        <div class="col ListDiv2">
-            <ul id="DigestiveUl">
-                <li class="titleLi">others: <hr></li>
-<!--            <li class="Myli2">hepatic steatosis (fatty liver disease)</li>
-                <li class="Myli2">kidney disease (end-stage renal disease)</li>
-                <li class="Myli2">renal toxicity (kidney problem due to chemical toxicity)</li> -->
-                  <li class="Myli2">Amyotrophic Lateral Sclerosis (ALS)</li>
-                  <li class="Myli2">Aplastic anemia (and other myelodysplastic syndromes)</li>
-                  <li class="Myli2">Hepatic steatosis</li>
-                  <li class="Myli2">Myelodysplastic Syndromes</li>
-                  <li class="Myli2">Parkinson’s Disease</li>
-                  <li class="Myli2">Kidney (aka renal) failure end stage renal disease</li>
-                  <li class="Myli2">Renal Toxicity</li>
-                  <li class="Myli2">Scleroderma</li>
-            </ul>
-        </div>
-        <div class="col ListDiv3">
-            <ul id="ElderlyUl">
-                <li class="titleLi">AUTOIMMUNE: <hr></li>
-<!--                 <li class="Myli3">parkinson’s disease</li>
-                <li class="Myli3">cognitive disability (kaag-nuh-tuhv) (intellectual disability like  Alzheimer's)</li>
-                <li class="Myli3">neurobehavioral effects due to documented chemical toxicity</li>
-                <li class="Myli3">delayed reactions times problems with memory problems with attention or concentration problems with motor functions hand tremors/posturalsway</li> -->
-                  <li class="Myli3">Type 1 diabetes</li>
-                  <li class="Myli3">Addison disease</li>
-                  <li class="Myli3">Dermatomyositis</li>
-                  <li class="Myli3">Inflammatory bowel diseases (Ulcerative colitis, Crohn’s disease, celiac disease)</li>
-                  <li class="Myli3">Hashimoto thyroiditis</li>
-                  <li class="Myli3">Graves disease</li>
-                  <li class="Myli3">Guillain Bare Syndrome</li>
-                  <li class="Myli3">Chronic thyroiditis (Hashimoto Disease)</li>
-                  <li class="Myli3">Chronic inflammatory demyelinating polyneuropathy</li>
-                  <li class="Myli3">Lupus</li>
-                  <li class="Myli3">Multiple sclerosis</li>
-                  <li class="Myli3">Myasthenia gravis</li>
-                  <li class="Myli3">Psoriatic arthritis</li>
-                  <li class="Myli3">Pernicious anemia</li>
-                  <li class="Myli3">Rheumatoid arthritis</li>
-                  <li class="Myli3">Sjögren syndrome</li>
-                  <li class="Myli3">Systemic lupus erythematosus</li>
-                  <li class="Myli3">Vasculitis</li>
-            </ul>
-        </div>
-        <div class="col ListDiv4">
-            <ul id="OtherUl">
-                <li class="titleLi">Neurobehavioral: <hr></li>
-<!--                 <li class="Myli4">Scleroderma (hard, thickened areas of skin)</li>
-                <li class="Myli4">aplastic anemia (body stops producing enough new blood cells)</li>
-                <li class="Myli4">myeloproliferative neoplasms (myelo-pro-lif-er-a-tive)(bone marrow makes too many red blood cells)</li>
-                <li class="Myli4">lupus  (autoimmune disease) (immune system attacks your own tissues and organs)</li> -->
-                  <li class="Myli4">Confusion - Must be under 70 years of age</li>
-                  <li class="Myli4">Lack of coordination - Must be under 70 years of age</li>
-                  <li class="Myli4">Depression</li>
-                  <li class="Myli4">Fatigue</li>
-                  <li class="Myli4">Sensory disturbances</li>
-                  <li class="Myli4">Tension</li>
-                  <li class="Myli4">Trouble concentrating</li>
-                  <li class="Myli4">Headache - NO PTSD</li>
-            </ul>
-        </div>
-        <div class="col ListDiv5">
-            <ul id="FemaleUl">
-                <li class="titleLi">Birth Defects and Reproductive:<hr></li>
-<!--                 <li class="Myli5">female infertility</li>
-                <li class="Myli5">miscarriage</li>
-                <li class="Myli5">Conjoined twins</li>
-                <li class="Myli5">cardiac birth defects (defects baby's heart)</li>
-                <li class="Myli5">eye defects (defects baby's eyes)</li>
-                <li class="Myli5">congenital malformation (microcephaly)(baby's head very small)</li>
-                <li class="Myli5">gestational trophoblastic disease (GTD)(abnormal  cells grow inside the uterus after conception)</li> -->
-                  <li class="Myli5">Birth Defect/Malformations</li>
-                  <li class="Myli5">Conjoined Twins</li>
-                  <li class="Myli5">Congenital malformation (microcephaly)</li>
-                  <li class="Myli5">Male or Female Infertility</li>
-                  <li class="Myli5">Miscarriage (female only)</li>
-                  <li class="Myli5">Premature birth</li>
-                  <li class="Myli5">Cognitive disability (of child)</li>
-                  <li class="Myli5">Developmental disorder and type</li>
-            </ul>
-        </div>
+</span>
+<nav class="navbar bg-body-tertiary" id="nav">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Medical Conditions For Tort</a>
+    <span class="navbar-text">
+      <!-- Navbar text with an inline element -->
+      <a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/TrotDupChecker.html">Old Tort Dup</a>
+      <a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/NewTrotDupChecker.html">New Tort Dup</a>
+    </span>
+  </div>
+</nav>
+<div id='Mycontainer' class="Mycontainer">
+  <span onclick="showHideSetings()" class="showHideSetingsSpan"><i class="fa-solid fa-gear"></i></span>
+  <div id="setings" class="bg-dark-subtle p-5">
+    <!-- <div class="w-75 d-flex flex-column justify-content-center  align-items-center p-2"> -->
+      <div class="w-100">
+        <!-- voice: which voice to be used to speak. -->
+        <label for="voice" class="form-label me-2 text-capitalize fs-4">voice:</label>
+        <select name="voice" id="voice" class="form-select d-block w-75"></select>
+      </div>
+  
+      <div class="w-100 mt-2">
+        <!-- pitch: sets a pitch(the relative highness or lowness of a tone) for the output spoken words. It has a range from 0 to 2. -->
+        <label for="pitchRange" class="form-label me-2 text-capitalize fs-4">pitch:</label>
+        <span id="pitchRangeSpan">50 %</span>
+        <input type="range" class="form-range d-block w-75" min="0" max="2" value='1' step="0.1" id="pitchRange">
+      </div>
+  
+      <div class="w-100 mt-2">
+        <!-- rate: the speed at which the text is spoken. rate ranges from 0.1 to 10. -->
+        <label for="rateRange" class="form-label me-2 text-capitalize fs-4">rate:</label>
+        <span id="rateRangeSpan">50 %</span>
+        <input type="range" class="form-range d-block w-75" min="0.5" max="2" step="0.1" value='1' id="rateRange">
+      </div>
+  
+      <div class="w-100 mt-2">
+        <!-- volume: The output volume. It ranges from 0 to 1. -->
+        <label for="volumeRange" class="form-label me-2 text-capitalize fs-4">volume:</label>
+        <span id="volumeRangeSpan">100 %</span>
+        <input type="range" class="form-range d-block w-75" min="0" max="1" step="0.1"  value='1' id="volumeRange">
+      </div>
+    <!-- </div> -->
+  </div>
+    <div class="container-fluid ">
+      <div id="root" class="row align-items-start">
+      </div>    
     </div>
 </div>
 <div class="footer">
-    <p class="lastupdateP"><span class=""> ---Designed by Walid-Ali(Leo-Adams)--- </span></p>
+    <p class="lastupdateP" id="lastupdateP"><span class="lastupdateSpan"> ---Designed by Walid-Ali(Leo-Adams)--- </span></p>
 </div>
-<script>   
+
+
+<button type="button" class="btn btn-primary d-none" id="liveToastBtn">Show live toast</button>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="" class="rounded me-2" alt="">
+      <strong class="me-auto">Notification</strong>
+      <small></small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Health condition name was Copyed to the clipboard :)
+    </div>
+  </div>
+</div>
+<script>
+
+
+var voiceSelect = document.getElementById('voice');
+
+function loadVoices() {
+	var voices = speechSynthesis.getVoices();
+  
+	voices.forEach(function(voice, i) {
+		var option = document.createElement('option');
+    
+		option.value = voice.voiceURI;
+    option.dataset.lang = voice.lang;
+		option.innerHTML = voice.name;
+		  //Google US English
+      if(voice.voiceURI == 'Google US English'){
+        option.selected = 'selected'
+      }
+		voiceSelect.appendChild(option);
+	});
+}
+
+loadVoices();
+window.speechSynthesis.onvoiceschanged = function(e) {
+  loadVoices();
+};
+
+function textToAudio(msg,span) {
+  console.log(span)
+  // const msg = document.getElementById("text-to-speech").value;
+  let speech = new SpeechSynthesisUtterance();
+
+	if (voiceSelect.value) {
+    var selectedVoice = speechSynthesis.getVoices().filter(function(voice) { return voice.voiceURI == voiceSelect.value; })[0];
+		speech.voiceURI = selectedVoice.voiceURI;
+    speech.lang = selectedVoice.lang;
+    speech.voice = selectedVoice;
+    speech.text = msg;
+    console.log('speech.voiceURI = ',selectedVoice.voiceURI,' speech.lang = ',selectedVoice.lang,' speech.voice = ',selectedVoice)
+
+    let pitchIn = Number($('#pitchRange').val());
+    let rateIn = Number($('#rateRange').val());
+    let volumeIn = Number($('#volumeRange').val());
+      speech.pitch = pitchIn;
+      speech.rate = rateIn;
+      speech.volume = volumeIn;
+	}
+  const synth = window.speechSynthesis;
+  
+	synth.speak(speech);
+
+
+
+
+  function everyTime() {
+    if(!synth.speaking){
+        clearInterval(myInterval);
+        $(span).show(250);
+        $(span).next().hide(250);
+    }else{
+      if($(span).is(":visible")){
+        $(span).hide(250);
+        $(span).next().show(250);
+      }
+    }
+  }
+
+  var myInterval = setInterval(everyTime, 50);
+  
+}
+
+
+function stopAudio(){
+  window.speechSynthesis.cancel();
+}
+
+$('#pitchRange').on("change", (event) => {
+  $('#pitchRangeSpan').html(parseInt(($('#pitchRange').val()/2)*100)+' %')
+});
+$('#rateRange').on("change", (event) => {
+  $('#rateRangeSpan').html(parseInt(($('#rateRange').val()/2)*100)+' %')
+});
+$('#volumeRange').on("change", (event) => {
+  $('#volumeRangeSpan').html(parseInt(($('#volumeRange').val()/2)*100)+' %')
+});
+
+$('#setings').hide();
+function showHideSetings(){
+  $('#setings').toggle(500)
+}
+
+const cancerList = [
+  {
+    condition: "Appendix cancer",
+    description: "Appendix cancer is a rare type of cancer that starts in the cells of the appendix, a small pouch attached to the large intestine.",
+    Pronunciation: "uh-pen-diks kan-ser"
+  },
+  {
+    condition: "Bladder cancer",
+    description: "Bladder cancer is a type of cancer that begins in the cells of the bladder, which is the organ responsible for storing urine.",
+    Pronunciation: "blah-der kan-ser"
+  },
+  {
+    condition: "Brain cancer",
+    description: "Brain cancer refers to the abnormal growth of cells in the brain, which can lead to tumors and affect brain function.",
+    Pronunciation: "breyn kan-ser"
+  },
+  {
+    condition: "Breast cancer",
+    description: "Breast cancer is a type of cancer that forms in the cells of the breasts, typically in the ducts or lobules.",
+    Pronunciation: "brest kan-ser"
+  },
+  {
+    condition: "Bile duct cancer",
+    description: "Bile duct cancer, also known as cholangiocarcinoma, starts in the bile ducts, which are the tubes that carry bile from the liver to the small intestine.",
+    Pronunciation: "byl duhkt kan-ser"
+  },
+  {
+    condition: "Colorectal cancer",
+    description: "Colorectal cancer, also known as colon cancer or rectal cancer, refers to the cancerous growths in the colon or rectum.",
+    Pronunciation: "kuh-loh-rek-tuhl kan-ser"
+  },
+  {
+    condition: "Esophageal cancer",
+    description: "Esophageal cancer is a type of cancer that develops in the esophagus, the tube that carries food from the throat to the stomach.",
+    Pronunciation: "ih-sof-uh-jee-uhl kan-ser"
+  },
+  {
+    condition: "Gallbladder cancer",
+    description: "Gallbladder cancer is a rare type of cancer that begins in the gallbladder, a small organ that stores bile.",
+    Pronunciation: "gawl-blah-der kan-ser"
+  },
+  {
+    condition: "Intestinal cancer",
+    description: "Intestinal cancer refers to cancerous growths that occur in the small intestine, which is part of the digestive system.",
+    Pronunciation: "in-tuh-stahy-nl kan-ser"
+  },
+  {
+    condition: "Kidney cancer",
+    description: "Kidney cancer, also known as renal cancer, is a type of cancer that starts in the cells of the kidneys.",
+    Pronunciation: "kid-nee kan-ser"
+  },
+  {
+    condition: "Leukemia",
+    description: "Leukemia is a cancer of the blood or bone marrow, characterized by the abnormal production of white blood cells.",
+    Pronunciation: "loo-kee-mee-uh"
+  },
+  {
+    condition: "Liver cancer",
+    description: "Liver cancer, or hepatic cancer, starts in the cells of the liver and can be either primary (originating in the liver) or secondary (spread from other parts of the body).",
+    Pronunciation: "liv-er kan-ser"
+  },
+  {
+    condition: "Lung cancer",
+    description: "Lung cancer is a type of cancer that forms in the tissues of the lungs, usually in the cells lining the air passages.",
+    Pronunciation: "luhng kan-ser"
+  },
+  {
+    condition: "Multiple myeloma",
+    description: "Multiple myeloma is a cancer that forms in plasma cells, a type of white blood cell, and primarily affects bone marrow.",
+    Pronunciation: "muhl-tuh-pul mahy-uh-loh-muh"
+  },
+  {
+    condition: "Non-Hodgkin’s lymphoma",
+    description: "Non-Hodgkin’s lymphoma is a group of cancers that originate in the lymphatic system, which is part of the body's immune system.",
+    Pronunciation: "non-hoj-kinz lim-foh-muh"
+  },
+  {
+    condition: "Pancreatic cancer",
+    description: "Pancreatic cancer begins in the cells of the pancreas, an organ located in the abdomen that plays a key role in digestion and blood sugar regulation.",
+    Pronunciation: "pan-kree-at-ik kan-ser"
+  },
+  {
+    condition: "Sinus cancer",
+    description: "Sinus cancer is a rare type of cancer that occurs in the sinuses, which are hollow spaces in the bones of the face.",
+    Pronunciation: "sahy-nuhs kan-ser"
+  },
+  {
+    condition: "Soft tissue sarcoma",
+    description: "Soft tissue sarcoma refers to a group of cancers that develop in the soft tissues of the body, including muscles, fat, blood vessels, nerves, and tendons.",
+    Pronunciation: "sawft tish-oo sar-koh-muh"
+  },
+  {
+    condition: "Spinal cancer",
+    description: "Spinal cancer, also known as spinal tumor, refers to the abnormal growth of cells in or near the spinal cord.",
+    Pronunciation: "spahy-nl kan-ser"
+  },
+  {
+    condition: "Thyroid cancer",
+    description: "Thyroid cancer is a type of cancer that forms in the cells of the thyroid gland, which is located in the front of the neck.",
+    Pronunciation: "thahy-roid kan-ser"
+  }
+];
+
+const OthersList = [
+    {
+      condition: "Amyotrophic Lateral Sclerosis (ALS)",
+      description: "Amyotrophic Lateral Sclerosis (ALS), also known as Lou Gehrig's disease, is a progressive neurodegenerative disease that affects nerve cells responsible for controlling voluntary muscles.",
+      Pronunciation: "ay-my-uh-trof-ik lat-uh-rul skluh-roh-sis"
+    },
+    {
+      condition: "Aplastic anemia (and other myelodysplastic syndromes)",
+      description: "Aplastic anemia is a rare condition where the bone marrow does not produce enough new blood cells. Myelodysplastic syndromes refer to a group of disorders characterized by abnormal development of blood cells in the bone marrow.",
+      Pronunciation: "uh-plas-tik uh-nee-mee-uh (and uh-thur mahy-uh-loh-dis-plas-tik sin-drohmz)"
+    },
+    {
+      condition: "Hepatic steatosis",
+      description: "Hepatic steatosis, commonly known as fatty liver disease, is a condition characterized by the buildup of fat in the liver cells, which may lead to liver inflammation and damage.",
+      Pronunciation: "hi-pat-ik stee-uh-toh-sis"
+    },
+    {
+      condition: "Myelodysplastic Syndromes",
+      description: "Myelodysplastic Syndromes (MDS) refer to a group of disorders characterized by abnormal development of blood cells in the bone marrow. MDS can result in low blood cell counts and an increased risk of developing leukemia.",
+      Pronunciation: "mahy-uh-loh-dis-plas-tik sin-drohmz"
+    },
+    {
+      condition: "Parkinson’s Disease",
+      description: "Parkinson's Disease is a degenerative disorder of the nervous system that affects movement. It is characterized by symptoms such as tremors, stiffness, and difficulty with balance and coordination.",
+      Pronunciation: "par-kin-suhnz di-zeez"
+    },
+    {
+      condition: "Kidney (aka renal) failure end-stage renal disease",
+      description: "Kidney failure, also known as end-stage renal disease, occurs when the kidneys are no longer able to function properly, resulting in the accumulation of waste and fluid in the body.",
+      Pronunciation: "kid-nee (ey-kay ree-nl) fayl-yur end-steyj ree-nl di-zeez"
+    },
+    {
+      condition: "Renal Toxicity",
+      description: "Renal toxicity refers to kidney damage or impairment caused by exposure to certain substances, such as medications, chemicals, or toxins.",
+      Pronunciation: "ree-nl tahk-si-si-tee"
+    },
+    {
+      condition: "Scleroderma",
+      description: "Scleroderma is a chronic autoimmune disease that affects the connective tissues, causing hardening and tightening of the skin and other organs.",
+      Pronunciation: "skleer-uh-dur-muh"
+    }
+];
+
+const autoimmuneList = [
+  {
+    condition: "Type 1 diabetes",
+    description: "Type 1 diabetes, also known as juvenile diabetes or insulin-dependent diabetes, is a chronic condition in which the pancreas produces little or no insulin, resulting in high blood sugar levels.",
+    Pronunciation: "tahyp wuhn dahy-uh-bee-tees"
+  },
+  {
+    condition: "Addison disease",
+    description: "Addison's disease, also called adrenal insufficiency, occurs when the adrenal glands do not produce enough hormones, leading to symptoms such as fatigue, weight loss, and low blood pressure.",
+    Pronunciation: "uh-dih-suhn di-zeez"
+  },
+  {
+    condition: "Dermatomyositis",
+    description: "Dermatomyositis is a rare inflammatory disease characterized by muscle weakness and skin rash. It affects the muscles and skin, causing muscle pain, weakness, and skin changes.",
+    Pronunciation: "dur-muh-toh-mahy-uh-sy-tis"
+  },
+  {
+    condition: "Inflammatory bowel diseases (Ulcerative colitis, Crohn’s disease, celiac disease)",
+    description: "Inflammatory bowel diseases (IBD) are chronic conditions that cause inflammation in the digestive tract. Ulcerative colitis and Crohn's disease are the two main types of IBD, while celiac disease is an autoimmune condition triggered by gluten consumption.",
+    Pronunciation: "in-flam-uh-tawr-ee boh-uhl di-zeez-iz (uhl-sur-uh-tiv koh-lahy-tis, krohnz di-zeez, see-lee-ak di-zeez)"
+  },
+  {
+    condition: "Hashimoto thyroiditis",
+    description: "Hashimoto's thyroiditis is an autoimmune disorder that causes chronic inflammation of the thyroid gland, leading to an underactive thyroid (hypothyroidism).",
+    Pronunciation: "hah-shee-moh-toh thy-royd-ahy-tis"
+  },
+  {
+    condition: "Graves disease",
+    description: "Graves' disease is an autoimmune disorder that causes overactivity of the thyroid gland, leading to hyperthyroidism. It is characterized by symptoms such as weight loss, rapid heartbeat, and irritability.",
+    Pronunciation: "greyvz di-zeez"
+  },
+  {
+    condition: "Guillain-Barré Syndrome",
+    description: "Guillain-Barré Syndrome (GBS) is a rare neurological disorder in which the body's immune system mistakenly attacks the peripheral nerves, resulting in muscle weakness, numbness, and, in severe cases, paralysis.",
+    Pronunciation: "gi-yan buh-rey sin-drohm"
+  },
+  {
+    condition: "Chronic thyroiditis (Hashimoto Disease)",
+    description: "Chronic thyroiditis, also known as Hashimoto's disease, is an autoimmune condition that causes inflammation and gradual destruction of the thyroid gland, leading to hypothyroidism.",
+    Pronunciation: "kron-ik thy-royd-ahy-tis (hah-shee-moh-toh di-zeez)"
+  },
+  {
+    condition: "Chronic inflammatory demyelinating polyneuropathy",
+    description: "Chronic inflammatory demyelinating polyneuropathy (CIDP) is a neurological disorder characterized by progressive weakness and impaired sensory function due to inflammation and damage to the peripheral nerves.",
+    Pronunciation: "kron-ik in-flam-uh-tawr-ee dih-my-uh-luh-nuhng pahy-luh-noo-rop-uh-thee"
+  },
+  {
+    condition: "Lupus",
+    description: "Lupus, or systemic lupus erythematosus (SLE), is an autoimmune disease that can affect various organs and systems in the body, causing symptoms such as joint pain, skin rashes, fatigue, and organ damage.",
+    Pronunciation: "loo-puhs (sis-tem-ik loo-puhs er-uh-thee-muh-toh-suhs)"
+  },
+  {
+    condition: "Multiple sclerosis",
+    description: "Multiple sclerosis (MS) is a chronic autoimmune disease that affects the central nervous system, causing damage to the protective covering of nerve fibers. It can result in various neurological symptoms and impairments.",
+    Pronunciation: "muhl-tuh-puhl skluh-roh-suhs"
+  },
+  {
+    condition: "Myasthenia gravis",
+    description: "Myasthenia gravis is a neuromuscular disorder characterized by weakness and rapid fatigue of voluntary muscles. It occurs when communication between nerve cells and muscles is impaired.",
+    Pronunciation: "mahy-uh-sthee-nee-uh grey-vis"
+  },
+  {
+    condition: "Psoriatic arthritis",
+    description: "Psoriatic arthritis is a form of arthritis that affects some individuals with psoriasis, a chronic skin condition. It causes joint pain, stiffness, and swelling, often in combination with skin lesions.",
+    Pronunciation: "sor-ee-at-ik ar-thry-tis"
+  },
+  {
+    condition: "Pernicious anemia",
+    description: "Pernicious anemia is a type of anemia caused by the body's inability to absorb vitamin B12, resulting in low levels of red blood cells. It can lead to fatigue, weakness, and other symptoms.",
+    Pronunciation: "per-ni-shuhs uh-nee-mee-uh"
+  },
+  {
+    condition: "Rheumatoid arthritis",
+    description: "Rheumatoid arthritis is an autoimmune disease that primarily affects the joints, causing chronic inflammation, pain, and stiffness. It can lead to joint deformity and other complications.",
+    Pronunciation: "roo-muh-toyd ar-thry-tis"
+  },
+  {
+    condition: "Sjögren syndrome",
+    description: "Sjögren's syndrome is an autoimmune disorder that primarily affects the glands that produce tears and saliva, leading to dry eyes and mouth. It can also cause systemic symptoms and affect other organs.",
+    Pronunciation: "shoh-gruhnz sin-drohm"
+  },
+  {
+    condition: "Systemic lupus erythematosus",
+    description: "Systemic lupus erythematosus (SLE), commonly known as lupus, is a chronic autoimmune disease that can affect multiple organs and systems in the body, leading to a wide range of symptoms and complications.",
+    Pronunciation: "sis-tem-ik loo-puhs er-uh-thee-muh-toh-suhs"
+  },
+  {
+    condition: "Vasculitis",
+    description: "Vasculitis is a group of disorders characterized by inflammation of blood vessels, which can affect blood flow and damage various organs. The severity and specific symptoms depend on the type and location of the vasculitis.",
+    Pronunciation: "vas-kyuh-lahy-tis"
+  }
+];
+
+const NeurobehavioralList = [
+  {
+    condition: "Confusion - Must be under 70 years of age",
+    description: "Confusion is a state of disorientation and difficulty thinking clearly. In this case, it is specified that the confusion must occur in individuals under 70 years of age.",
+    Pronunciation: "kuhn-fyoo-zhuhn"
+  },
+  {
+    condition: "Lack of coordination - Must be under 70 years of age",
+    description: "Lack of coordination refers to difficulties in controlling movements and maintaining balance. It is specified that this condition must occur in individuals under 70 years of age.",
+    Pronunciation: "lak uhv koh-or-dn-ey-shuhn"
+  },
+  {
+    condition: "Depression",
+    description: "Depression is a mood disorder characterized by persistent feelings of sadness, loss of interest or pleasure in activities, changes in appetite or sleep patterns, and a lack of energy.",
+    Pronunciation: "dih-presh-uhn"
+  },
+  {
+    condition: "Fatigue",
+    description: "Fatigue is a state of extreme tiredness or exhaustion that can interfere with daily activities and functioning. It is often accompanied by a lack of energy and motivation.",
+    Pronunciation: "fuh-teeg"
+  },
+  {
+    condition: "Sensory disturbances",
+    description: "Sensory disturbances refer to abnormal sensations or changes in sensory perception, such as numbness, tingling, or altered sensitivity to touch, temperature, or pain.",
+    Pronunciation: "sen-suh-ree dis-tur-buhn-siz"
+  },
+  {
+    condition: "Tension",
+    description: "Tension refers to a state of mental or emotional strain and stress, often characterized by feelings of unease, irritability, and physical muscle tension.",
+    Pronunciation: "ten-shuhn"
+  },
+  {
+    condition: "Trouble concentrating",
+    description: "Trouble concentrating, or difficulty focusing attention, can be a symptom of various underlying conditions, such as attention-deficit/hyperactivity disorder (ADHD), anxiety, or depression.",
+    Pronunciation: "truh-buhl kuhn-suhn-trey-ting"
+  },
+  {
+    condition: "Headache - NO PTSD",
+    description: "Headache refers to pain or discomfort in the head or upper neck region. In this case, it is specified that the headache should not be associated with post-traumatic stress disorder (PTSD).",
+    Pronunciation: "hed-eyk (noh pee-tee-es-dee)"
+  }
+];
+
+const ReproductiveList = [
+  {
+    condition: "Birth Defect/Malformations",
+    description: "Birth defects or malformations refer to structural abnormalities or functional impairments that occur during fetal development. They can affect various body parts or systems and may result in lifelong disabilities or health conditions.",
+    Pronunciation: "burth dih-fekts/mal-for-mey-shuhnz"
+  },
+  {
+    condition: "Conjoined Twins",
+    description: "Conjoined twins are identical twins who are physically joined together at birth. This rare condition occurs when the fertilized egg does not fully separate during early development, leading to the twins sharing certain body parts or organs.",
+    Pronunciation: "kuhn-joind twins"
+  },
+  {
+    condition: "Congenital malformation (microcephaly)",
+    description: "Congenital malformation, specifically microcephaly, is a condition in which a baby's head is significantly smaller than expected due to incomplete brain development. It can result in intellectual disabilities, developmental delays, and other complications.",
+    Pronunciation: "kuhn-jen-i-tl mal-for-mey-shuhn (my-kroh-sef-uh-lee)"
+  },
+  {
+    condition: "Male or Female Infertility",
+    description: "Infertility refers to the inability to conceive a child or carry a pregnancy to full term. Both males and females can experience infertility, which can be caused by various factors such as hormonal imbalances, structural abnormalities, or reproductive disorders.",
+    Pronunciation: "meyl or fee-meyl in-fer-til-i-tee"
+  },
+  {
+    condition: "Miscarriage (female only)",
+    description: "A miscarriage, also known as a spontaneous abortion, is the loss of a pregnancy before the 20th week. It typically occurs due to fetal abnormalities or maternal health issues and is specific to females.",
+    Pronunciation: "mi-skar-ij (fee-meyl ohn-lee)"
+  },
+  {
+    condition: "Premature birth",
+    description: "A premature birth, also known as preterm birth, occurs when a baby is born before completing 37 weeks of gestation. Premature babies may face various health challenges due to their underdeveloped organs and systems.",
+    Pronunciation: "pri-muh-cher birth"
+  },
+  {
+    condition: "Cognitive disability (of child)",
+    description: "Cognitive disability, also referred to as intellectual disability, is a condition characterized by limitations in intellectual functioning and adaptive behaviors. It affects a child's cognitive abilities, such as learning, problem-solving, and social interactions.",
+    Pronunciation: "kog-ni-tiv dis-uh-bil-i-tee (uhv chahyld)"
+  },
+  {
+    condition: "Developmental disorder and type",
+    description: "Developmental disorders encompass a range of conditions that affect a child's physical, cognitive, language, and social-emotional development. Examples include autism spectrum disorder, attention-deficit/hyperactivity disorder (ADHD), and specific learning disorders.",
+    Pronunciation: "dee-vel-op-men-tl dis-or-der and tahyp"
+  }
+];
+renderUL(cancerList,'root','col-3','cancerList');
+renderUL(NeurobehavioralList,'root','col-3','NeurobehavioralList');
+renderUL(autoimmuneList,'root','col-3','autoimmuneList');
+renderUL(ReproductiveList,'NeurobehavioralList','col','ReproductiveList');
+renderUL(OthersList,'root','col-3','OthersList');
+
+function renderUL(Obj,divId,colClass='col',listDivID=''){
+  const container = document.getElementById(divId);
+  // <div class="list-group">
+  let links  = `
+  <div class="${colClass} mt-3" id='${listDivID}'>
+    <ul class="list-group "  id='${listDivID}Ol'>
+  `;
+  Obj.forEach( (item, index) => {
+    /*
+    conditionName = "${item.condition}"
+      description = "${item.description}"
+      Pronunciation = "${item.Pronunciation}"
+      */
+    let elementA = `
+    <li  
+      class="list-group-item list-group-item-action list-group-item-dark fw-medium text-capitalize"
+      style='line-height: 1;'  
+    >
+      ${index + 1}- ${item.condition}
+
+      <span onclick="textToAudio('${item.condition}',this)" class='textToAudioSpan ms-2' id='' title='Play'><i class="fa-solid fa-volume-high"></i></span>
+
+      <span onclick="stopAudio()" class='stopAudioSpan ms-2' id='' style='display:none' title='Stop'><i class="fa-regular fa-circle-stop"></i></span>
+
+      <span class="descriptionSpan ms-2" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="${item.description}" title='Description'>
+        <i class="fa-solid fa-info"></i>
+      </span>
+
+      <span onclick="copyToClipboard('${item.condition}')" class="copySpan ms-2"><i class="fa-solid fa-clipboard" title='Copy'></i></span>
+
+    </li>
+
+    `;
+    links += elementA;
+  });
+  links += `</ul></div>`;
+container.innerHTML += links;
+}
+  // initialize bootstrap popovers
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+  // initialize bootstrap live Toast
+  const toastTrigger = document.getElementById('liveToastBtn')
+  const toastLiveExample = document.getElementById('liveToast')
+
+if (toastTrigger) {
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+  toastTrigger.addEventListener('click', () => {
+    toastBootstrap.show()
+  })
+}
+
+
+function copyToClipboard(text) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val(text).select();
+    document.execCommand("copy");
+    $temp.remove();
+    $('#liveToastBtn').click()
+}
+
+function sayWelcome(){
+  console.log('btn clicked start')
+  let speech = new SpeechSynthesisUtterance();
+      speech.voiceURI =  'Google US English';  
+      speech.lang =  'en-US';
+      speech.text = 'Welcome To Tort Medical Conditions Designed by Walid-Ali(Leo-Adams)';
+  const synth = window.speechSynthesis;
+	synth.speak(speech);
+  console.log('btn clicked end')
+}
+// setTimeout(function(){document.getElementById('welcomeBTN').click()},5000);
+$('#Mycontainer').hide();
+document.getElementById('cont').addEventListener('click',function(){
+  sayWelcome();
+  $('#welcome').hide(500);
+  $('#Mycontainer').show(500);
+
+})
 </script>
+<script>
+  
+// // Get all the "show_description" spans
+// var showDescriptionSpans = document.getElementsByClassName("show_description");
+// // Iterate through each "show_description" span
+// for (var i = 0; i < showDescriptionSpans.length; i++) {
+
+   
+
+//     showDescriptionSpans[i].setAttribute('id',`show_description_${i}`)
+//     // Get the corresponding description span
+//     var descriptionSpan = showDescriptionSpans[i].parentNode.getElementsByClassName("description")[0];
+
+//      // Set the initial state of the description span
+//      descriptionSpan.style.display = "none";
+
+//     descriptionSpan.setAttribute('id',`description_${i}`)
+
+//     showDisc(`show_description_${i}`,`description_${i}`);
+// }
+
+// function showDisc(id1,id2){
+//  let Showdescription = document.getElementById(id1);
+//  let descriptionSpan = document.getElementById(id2);
+//  Showdescription.addEventListener("mouseenter", function() {
+//     // Calculate the position of the "show_description" span
+//     var showDescriptionRect = this.getBoundingClientRect();
+//     var topPosition = showDescriptionRect.top - descriptionSpan.offsetHeight - 40;
+//     var leftPosition = showDescriptionRect.left + (showDescriptionRect.width / 2) - (descriptionSpan.offsetWidth / 2) + 10;
+//     console.log('descriptionSpan.clientHeight:',descriptionSpan.clientHeight,' px') //0 px
+//     // console.log('showDescriptionRect.width:',showDescriptionRect.width,' px') 
+//     console.log('descriptionSpan.offsetWidth:',descriptionSpan.offsetWidth,' px')//0 px
+//     // console.log('topPosition:',topPosition,' px')
+//     // console.log('leftPosition:',leftPosition,' px')
+
+// //     // Position the description span
+//     descriptionSpan.style.position = "absolute";
+//     descriptionSpan.style.top = topPosition + "px";
+//     descriptionSpan.style.left = leftPosition + "px";
+//     descriptionSpan.style.display = "block";
+//     descriptionSpan.classList.remove("hidden");
+
+//  });
+//  // Add event listener for mouseout event
+//  Showdescription.addEventListener("mouseout", function() {
+//     // Hide the description span
+//     descriptionSpan.style.display = "none";
+//   });
+// }
+
+
+</script>
+
 </body>
 </html>
