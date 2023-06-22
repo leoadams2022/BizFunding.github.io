@@ -203,6 +203,10 @@ Head.insertAdjacentHTML("afterbegin", `
 	  .d-default {
 	    display: initial;
 	  }
+   	.comments{
+    			font-size: 15px;
+       			font-wight: 600px;
+	  }
 
 	</stlye>
 `);
