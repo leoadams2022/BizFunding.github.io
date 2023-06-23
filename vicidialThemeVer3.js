@@ -205,7 +205,7 @@ Head.insertAdjacentHTML("afterbegin", `
 	  }
    	#comments{
     			font-size: 15px;
-       			font-wight: 600px;
+       			font-weight: 600px;
 	  }
 
 	</stlye>
