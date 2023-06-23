@@ -69,144 +69,147 @@ const Head = document.querySelector("head");
 Head.insertAdjacentHTML("afterbegin", `
 	<style>
 		\n* {
-			\ncolor: white !important;
-			\n
-		}
+    \ncolor: white !important;
+    \n
+}
 
-		\nhtml {
-			\nbackground: #2e4f53 !important;
-			\n
-		}
+\nhtml {
+    \nbackground: #2e4f53 !important;
+    \n
+}
 
-		\ntd {
-			\n background: #2e4f53 !important;
-			\n color: white !important;
-			\n font-weight: bold;
-			\nfont-size: 20px !important;
-			\n
-		}
+\ntd {
+    \n background: #2e4f53 !important;
+    \n color: white !important;
+    \n font-weight: bold;
+    \nfont-size: 20px !important;
+    \n
+}
 
-		\na {
-			\ncolor: #03a9f4 !important;
-			\n
-		}
+\na {
+    \ncolor: #03a9f4 !important;
+    \n
+}
 
-		\ninput {
-			\ncolor: black !important;
-			\n font-size: 12px !important;
-			\n font-weight: 700 !important;
-			\n
-		}
+\ninput {
+    \ncolor: black !important;
+    \n font-size: 12px !important;
+    \n font-weight: 700 !important;
+    \n
+}
 
-		\nspan#AgentViewStatus table tbody tr td {
-			\nbackground: none !important;
-			\n
-		}
+\nspan#AgentViewStatus table tbody tr td {
+    \nbackground: none !important;
+    \n
+}
 
-		\nspan#AgentViewStatus table tbody tr td font {
-			\ncolor: black !important;
-			\n
-		}
+\nspan#AgentViewStatus table tbody tr td font {
+    \ncolor: black !important;
+    \n
+}
 
-		\nspan#AgentViewSpan {
-			\nbackground: #2e4f53 !important;
-			\nright: 0px !important;
-			\nleft: auto !important;
-			\nheight: auto !important;
-			\noverflow: auto !important;
-			\n
-		}
+\nspan#AgentViewSpan {
+    \nbackground: #2e4f53 !important;
+    \nright: 0px !important;
+    \nleft: auto !important;
+    \nheight: auto !important;
+    \noverflow: auto !important;
+    \n
+}
 
-		\nspan#MainStatuSSpan {
-			\nbackground: none !important;
-			\n
-		}
+\nspan#MainStatuSSpan {
+    \nbackground: none !important;
+    \n
+}
 
-		\n textarea#comments {
-			color: black !important;
-			width: 100%;
-		}
+\n textarea#comments {
+    color: black !important;
+    width: 100%;
+}
 
-	
 
-		.myBtn {
-			margin: 5px;
-			color: black !important;
-			font-size: 15px;
-			font-weight: 600;
-			border: none;
-			border-radius: 10px;
-			padding: 5px 10px;
-			cursor: pointer;
-			
-	   }
 
-		.myBtn:hover {
-			 background: #d8bfd8;
-			
-	   }
+.myBtn {
+    margin: 5px;
+    color: black !important;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
 
-	   select#FormSelect,
-	   select#FormSelect option {
-		   color: black !important;
-	   }
+}
 
-	   select#FormSelect,
-	   select.FormSelect {
-			height: 27px;
-			border-radius: 10px;
-			font-weight: bold;
-			margin: 5px;
-			color: black !important;
-			font-size: 15px;
-			font-weight: 600;
-			border: none;
-			border-radius: 10px;
-			padding: 5px 10px;
-			
-	   }
+.myBtn:hover {
+    background: #d8bfd8;
 
-		input#calltime {
-			width: 50px;
-			
-	   }
+}
 
-		span.OnOffSapn {
-		   font-size: 16px;
-		   font-weight: 600;
-		   padding: 5px;
-	   }
+select#FormSelect,
+select#FormSelect option {
+    color: black !important;
+}
 
-	   .greenSpan {
-		   color: #00ff0a !important;
-	   }
-	   .redSpan {
-		   color: #ff9999 !important;
-	   }
+select#FormSelect,
+select.FormSelect {
+    height: 27px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 5px;
+    color: black !important;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
 
-		span#RecorDMute  {
-		   /*display: none;*/
-	   }
+}
 
-	   .MyOptionsDiv{
-		opacity: 0;
-		transition: opacity 0.5s;
-		}
+input#calltime {
+    width: 50px;
 
-		.show{
-			opacity: 1;
-		}
-		
-	  .d-none{
-	    display: none;
-	  }
-	  .d-default {
-	    display: initial;
-	  }
-   	#comments{
-    			font-size: 15px;
-       			font-weight: 600;
-	  }
+}
+
+span.OnOffSapn {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.greenSpan {
+    color: #00ff0a !important;
+}
+
+.redSpan {
+    color: #ff9999 !important;
+}
+
+span#RecorDMute {
+    /*display: none;*/
+}
+
+.MyOptionsDiv {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.show {
+    opacity: 1;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-default {
+    display: initial;
+}
+
+#comments {
+    font-size: 15px;
+    font-weight: 600;
+}
 
 	</stlye>
 `);
