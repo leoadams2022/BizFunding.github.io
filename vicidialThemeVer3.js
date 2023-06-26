@@ -1,4 +1,4 @@
-//*************12.32
+// 12.34
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -249,7 +249,7 @@ function Switcher(spanId, spanOnVal, spanOffVal, OnOffObj)//(string,string,strin
 }
 // autoMute function
 // CHANGE
-let AutMuOnOff = { case: 'On', ToF: false };
+let AutMuOnOff = { case: 'Off', ToF: false };
 // let AutMuOnOff = 'Off';
 // let isItMuted = false;
 // function autoMute() {
