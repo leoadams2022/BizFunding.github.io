@@ -404,7 +404,7 @@ function CustHungUp() {
 			td = tr.getElementsByTagName('td')[3],
 			img = td.getElementsByTagName('img')[0];
 		var ImgSrc = img.getAttribute('src');
-		if (ImgSrc == 'https://ngs1.mscall.net/agc/images/agc_live_call_DEAD.gif' || ImgSrc == 'https://ngs2.mscall.net/agc/images/agc_live_call_DEAD.gif') {
+		if (ImgSrc == 'https://ngs1.mscall.net/agc/images/agc_live_call_DEAD.gif' || ImgSrc == 'https://ngs2.mscall.net/agc/images/agc_live_call_DEAD.gif' || ImgSrc == 'https://ngs3.mscall.net/agc/images/agc_live_call_DEAD.gif') {
 			console.log('%cCust haungup', 'color: blue;');
 			var HungUpSpan = document.getElementById('HangupControl'),
 				HungUpA = HungUpSpan.getElementsByTagName('a')[0],
