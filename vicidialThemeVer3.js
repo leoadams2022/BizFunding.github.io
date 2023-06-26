@@ -1,4 +1,4 @@
-//1.26
+
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -365,9 +365,10 @@ function AutoHangup() {
 		timeOftheCall = document.getElementById('calltime').value;
 	}
 	var funcOn = '';
-	var HungUpSpan = document.getElementById('HangupControl'),
-		HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-	if (typeof HungUpA === 'undefined') { //check if there is a call
+	// var HungUpSpan = document.getElementById('HangupControl'),
+	// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+	// if (typeof HungUpA === 'undefined') 
+	if (ativeCallCheack()) { //check if there is a call
 		funcOn = 'off'; //there is no call
 		console.log('%cthere is no active call have setTimeout for the func as 1000', 'color: green;');
 	} else { //there is call
@@ -380,11 +381,12 @@ function AutoHangup() {
 		function hungup() {
 			if (OnOff.case === 'On') {
 				console.log('%cOnOff is On', 'color: green;');
-				var HungUpSpan = document.getElementById('HangupControl'),
-					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-					HungUpImg = HungUpA.getElementsByTagName('img')[0];
-				var ImgSrc = HungUpImg.getAttribute('src');
-				if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+				// var HungUpSpan = document.getElementById('HangupControl'),
+				// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+				// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
+				// var ImgSrc = HungUpImg.getAttribute('src');
+				// if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') 
+				if (ativeCallCheack()) {
 					dialedcall_send_hangup('', '', '', '', 'YES');
 					CallDispo = dispoCode;
 					CallLogFunction();
@@ -398,10 +400,11 @@ function AutoHangup() {
 		}; // the time of the call let's call it X
 		hungupFun = setTimeout(hungup, Number(timeOftheCall) * 1000);
 		function Dispo() {
-			const DispoSelectBox = document.querySelector('#DispoSelectBox');
-			const visibility = DispoSelectBox.style.visibility;
-			//makeing sure that the Dispo page is visibleq	
-			if (visibility === 'visible') {
+			// const DispoSelectBox = document.querySelector('#DispoSelectBox');
+			// const visibility = DispoSelectBox.style.visibility;
+			// //makeing sure that the Dispo page is visibleq	
+			// if (visibility === 'visible') 
+			if (visibleDispoPanlCheack()) {
 				console.log('%cDispo table is visible', 'color: green;');
 				DispoSelectContent_create(fullDispo);
 				DispoSelect_submit('', '', 'YES');
