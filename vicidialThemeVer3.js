@@ -1,4 +1,4 @@
-//12:28
+//*************12.32
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -32,7 +32,7 @@ comments.insertAdjacentHTML("afterend", `
 
 			<button class=\"myBtn OnOffBtn\" onclick=\"Switcher('FucnOnOffSapn', 'AutOn', 'AutOff', OnOff)\">Aut</button>
 
-			<button class=\"myBtn OnOffBtn\" onclick=\"randomAutoHungupOnOff()\">Ran</button>
+			<button class=\"myBtn OnOffBtn\" onclick=\"Switcher('randomFucnOnOffSapn', 'RanOn', 'RanOff', randomOnOff)\">Ran</button>
 				
 			<button class=\"myBtn OnOffBtn\" onclick=\"autotextToAudioOnOffFunc()\">AutTalk</button>
 			
