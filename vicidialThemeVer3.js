@@ -1,13 +1,4 @@
-// reset the autoHnangup when user hungup
-function IhungedUpFun() {
-    clearTimeout(hungupFun);
-    clearTimeout(DispoFun);
-    clearTimeout(AutoHangupFun);
-    setTimeout(AutoHangup, 1000);
-    GetDispo();
-    console.log('%cIhungedUpFun clicked', 'color: green;');
-}
-//                ---------------------------
+//--------------------------------------------------------------------------------10:54//--------------------------------------------------------------------------------
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -52,8 +43,8 @@ comments.insertAdjacentHTML("afterend", `
 			<span class=\'OnOffSapn redSpan\' id=\'autotextToAudioOnOffSpan\'>AutTalkOn</span>
 			
 			<br>
-
-			<button class=\"myBtn OnOffBtn\" onclick=\"autoMute()\">AutMu</button>
+			<!--CHANGE-->
+			<button class=\"myBtn OnOffBtn\" onclick=\"Switcher('AutMuSpan', 'AutMuOn', 'AutMuOff', AutMuOnOff)\">AutMu</button>
 
 			<button class=\"myBtn OnOffBtn\" onclick=\"MuteRecordingOnOff()\">RecMu</button>
 
@@ -215,79 +206,111 @@ span#RecorDMute {
 `);
 //                ---------------------------
 //ShowOptions function
-function ShowOptions(divId){
+function ShowOptions(divId) {
 	let MyOptionsDiv = document.getElementById(divId);
 	MyOptionsDiv.classList.toggle('show');
 }
 //                ---------------------------
-// autoMute function
-let AutMuOnOff = 'Off';
-let isItMuted = false;
-function autoMute(){
-	var resSpan = document.getElementById('AutMuSpan');
-	if(AutMuOnOff === 'On'){
-		AutMuOnOff = 'Off';
-		resSpan.innerHTML ='AutMuOff';
+// reset the autoHnangup when user hungup
+function IhungedUpFun() {
+	clearTimeout(hungupFun);
+	clearTimeout(DispoFun);
+	clearTimeout(AutoHangupFun);
+	setTimeout(AutoHangup, 1000);
+	GetDispo();
+	console.log('%cIhungedUpFun clicked', 'color: green;');
+}
+//                ---------------------------
+//let AutMuOnOff = { case: 'On', ToF: false };
+// onclick="Switcher('AutMuSpan', 'AutMuOn', 'AutMuOff', AutMuOnOff)"
+function Switcher(spanId, spanOnVal, spanOffVal, OnOffObj)//(string,string,string varStr, bloean )
+{
+	const resSpan = document.getElementById(spanId);
+	if (OnOffObj.case === 'On') {
+		OnOffObj.case = 'Off';
+		resSpan.innerHTML = spanOffVal;
 		resSpan.classList.remove('redSpan');
 		resSpan.classList.add('greenSpan');
-		isItMuted = true;
-	}else if(AutMuOnOff === 'Off'){
-		AutMuOnOff = 'On';
-		resSpan.innerHTML ='AutMuOn';
+		if (!OnOffObj.ToF) {
+			OnOffObj.ToF = true;
+		}
+	} else if (OnOffObj.case === 'Off') {
+		OnOffObj.case = 'On';
+		resSpan.innerHTML = spanOnVal;
 		resSpan.classList.add('redSpan');
 		resSpan.classList.remove('greenSpan');
-	}	
+	}
 }
+// autoMute function
+// CHANGE
+let AutMuOnOff = { case: 'On', ToF: false };
+// let AutMuOnOff = 'Off';
+// let isItMuted = false;
+// function autoMute() {
+// 	var resSpan = document.getElementById('AutMuSpan');
+// 	if (AutMuOnOff === 'On') {
+// 		AutMuOnOff = 'Off';
+// 		resSpan.innerHTML = 'AutMuOff';
+// 		resSpan.classList.remove('redSpan');
+// 		resSpan.classList.add('greenSpan');
+// 		isItMuted = true;
+// 	} else if (AutMuOnOff === 'Off') {
+// 		AutMuOnOff = 'On';
+// 		resSpan.innerHTML = 'AutMuOn';
+// 		resSpan.classList.add('redSpan');
+// 		resSpan.classList.remove('greenSpan');
+// 	}
+// }
 //                ---------------------------
 //MuteRecording function
 let isRecMuted = false;
-function MuteRecordingOnOff(){
+function MuteRecordingOnOff() {
 	var resSpan = document.getElementById('RecMuSapn');
-	if(isRecMuted == true){
+	if (isRecMuted == true) {
 		MuteRecording('off');
 		isRecMuted = false;
-		resSpan.innerHTML ='RecMuOff';
+		resSpan.innerHTML = 'RecMuOff';
 		resSpan.classList.remove('redSpan');
 		resSpan.classList.add('greenSpan');
-	}else if(isRecMuted == false){
+	} else if (isRecMuted == false) {
 		MuteRecording('on');
 		isRecMuted = true;
-		resSpan.innerHTML ='RecMuOn';
+		resSpan.innerHTML = 'RecMuOn';
 		resSpan.classList.add('redSpan');
 		resSpan.classList.remove('greenSpan');
 	}
 }
 //                ---------------------------
 let OnOff = 'Off';
-function AutoHungupOnOff(){
-    var resSpan = document.getElementById('FucnOnOffSapn');
-        if(OnOff === 'On'){
-            OnOff = 'Off';
-            resSpan.innerHTML ='AutOff';
-			resSpan.classList.remove('redSpan');
-			resSpan.classList.add('greenSpan');
-        }else if(OnOff === 'Off'){
-            OnOff = 'On';
-            resSpan.innerHTML ='AutOn';
-			resSpan.classList.add('redSpan');
-			resSpan.classList.remove('greenSpan');
-        }
+function AutoHungupOnOff() {
+	var resSpan = document.getElementById('FucnOnOffSapn');
+	if (OnOff === 'On') {
+		OnOff = 'Off';
+		resSpan.innerHTML = 'AutOff';
+		resSpan.classList.remove('redSpan');
+		resSpan.classList.add('greenSpan');
+	} else if (OnOff === 'Off') {
+		OnOff = 'On';
+		resSpan.innerHTML = 'AutOn';
+		resSpan.classList.add('redSpan');
+		resSpan.classList.remove('greenSpan');
+	}
 }
 //                ---------------------------
 let randomOnOff = 'On';
-function randomAutoHungupOnOff(){
-    var resSpan = document.getElementById('randomFucnOnOffSapn');
-        if(randomOnOff === 'On'){
-            randomOnOff = 'Off';
-            resSpan.innerHTML ='RanOff';
-			resSpan.classList.remove('redSpan');
-			resSpan.classList.add('greenSpan');
-        }else if(randomOnOff === 'Off'){
-            randomOnOff = 'On';
-            resSpan.innerHTML ='RanOn';
-			resSpan.classList.add('redSpan');
-			resSpan.classList.remove('greenSpan');
-        }
+function randomAutoHungupOnOff() {
+	var resSpan = document.getElementById('randomFucnOnOffSapn');
+	if (randomOnOff === 'On') {
+		randomOnOff = 'Off';
+		resSpan.innerHTML = 'RanOff';
+		resSpan.classList.remove('redSpan');
+		resSpan.classList.add('greenSpan');
+	} else if (randomOnOff === 'Off') {
+		randomOnOff = 'On';
+		resSpan.innerHTML = 'RanOn';
+		resSpan.classList.add('redSpan');
+		resSpan.classList.remove('greenSpan');
+	}
 }
 //                ---------------------------
 // var's to setTimeout so we can reset it outside the  AutoHangup function
@@ -296,98 +319,98 @@ var DispoFun;
 var AutoHangupFun;
 //                ---------------------------
 // function to get a randome Disop
-function randomDspo(){
-	let Arr1,ArrRes,dispoCode,fullDispo;
-	Arr1=["\'N\'","\'A\'","\'NI\'","\'NV\'"];
-	dispoCode = Arr1[Math.floor(Math.random()*Arr1.length)];
-	fullDispo =  fullDispo + ", \'ADD\', \'YES\'";
-	ArrRes = {'fullDispo':fullDispo,'dispoCode':dispoCode};
+function randomDspo() {
+	let Arr1, ArrRes, dispoCode, fullDispo;
+	Arr1 = ["\'N\'", "\'A\'", "\'NI\'", "\'NV\'"];
+	dispoCode = Arr1[Math.floor(Math.random() * Arr1.length)];
+	fullDispo = fullDispo + ", \'ADD\', \'YES\'";
+	ArrRes = { 'fullDispo': fullDispo, 'dispoCode': dispoCode };
 	return ArrRes;
 }
 //                ---------------------------
 // function to get a randome Number btween 5 and 30 or any other numbers
-function randomNum(fiveToThirty=true,num1=5,num2=30){
-	let numsArr =[];
-	if(fiveToThirty == false){
-		for(let i=num1;i <= num2;i++){
-		numsArr.push(i);
+function randomNum(fiveToThirty = true, num1 = 5, num2 = 30) {
+	let numsArr = [];
+	if (fiveToThirty == false) {
+		for (let i = num1; i <= num2; i++) {
+			numsArr.push(i);
 		}
-	}else{
-		numsArr = [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+	} else {
+		numsArr = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 	}
-	let randomNum = numsArr[Math.floor(Math.random()*numsArr.length)];
-	ArrRes = {'randomNum':randomNum	,'numsArr':numsArr};
+	let randomNum = numsArr[Math.floor(Math.random() * numsArr.length)];
+	ArrRes = { 'randomNum': randomNum, 'numsArr': numsArr };
 	return ArrRes;
 }
 //                ---------------------------
 // the AutoHangup function
 function AutoHangup() {
 	var timeOftheCall;
-	if(randomOnOff == 'On'){
+	if (randomOnOff == 'On') {
 		timeOftheCall = randomNum()['randomNum'];
-	}else{
+	} else {
 		//this is the time of the call by SEC's you can change is as u like
 		timeOftheCall = document.getElementById('calltime').value;
 	}
-    var funcOn = '';
-    var HungUpSpan = document.getElementById('HangupControl'),
-        HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-    if (typeof HungUpA === 'undefined') { //check if there is a call
-        funcOn = 'off'; //there is no call
+	var funcOn = '';
+	var HungUpSpan = document.getElementById('HangupControl'),
+		HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+	if (typeof HungUpA === 'undefined') { //check if there is a call
+		funcOn = 'off'; //there is no call
 		console.log('%cthere is no active call have setTimeout for the func as 1000', 'color: green;');
-    } else { //there is call
-        funcOn = 'on'
+	} else { //there is call
+		funcOn = 'on'
 		console.log('%ccall is active func started', 'color: green;');
 		// getimg a random dspo rady;
 		let randomDispoObj = randomDspo();
 		let fullDispo = randomDispoObj['fullDispo'];
 		let dispoCode = randomDispoObj['dispoCode'];
-        function hungup() {
-            if (OnOff === 'On') {
+		function hungup() {
+			if (OnOff === 'On') {
 				console.log('%cOnOff is On', 'color: green;');
-                var HungUpSpan = document.getElementById('HangupControl'),
-                    HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-                    HungUpImg = HungUpA.getElementsByTagName('img')[0];
-                var ImgSrc = HungUpImg.getAttribute('src');
-                if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
-                    dialedcall_send_hangup('', '', '', '', 'YES');
+				var HungUpSpan = document.getElementById('HangupControl'),
+					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+					HungUpImg = HungUpA.getElementsByTagName('img')[0];
+				var ImgSrc = HungUpImg.getAttribute('src');
+				if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+					dialedcall_send_hangup('', '', '', '', 'YES');
 					CallDispo = dispoCode;
-                    CallLogFunction();
+					CallLogFunction();
 					console.log('%cImgSrc is good just hungedup the call', 'color: green;');
-                } else {
-                    console.log('%cImgSrc is not good cant hungup', 'color: red;');
-                }
-            } else if (OnOff === 'Off') {
-                console.log('%cOnOff is Off didnt hungup the call', 'color: red;');
-            }
-        }; // the time of the call let's call it X
-        hungupFun = setTimeout(hungup, Number(timeOftheCall) * 1000);
-        function Dispo() {
-            const DispoSelectBox = document.querySelector('#DispoSelectBox');
-            const visibility = DispoSelectBox.style.visibility;
-            //makeing sure that the Dispo page is visibleq	
-            if (visibility === 'visible') {
-		console.log('%cDispo table is visible', 'color: green;');
-                DispoSelectContent_create(fullDispo);
-                DispoSelect_submit('', '', 'YES');
-		console.log('%chave Disopstioned as '+fullDispo, 'color: green;');
-                var resSpan = document.getElementById('Dispospan');
-                resSpan.innerHTML = 'AH '+fullDispo;
-                setTimeout(() => {
-                    resSpan.innerHTML = '';
-                }, 3000);
-            } else {
-                console.log('%cdid not Disopstion the Disop table is =  ' + visibility, 'color: red;');
-            }
-        } //this have to be X+2
-        DispoFun = setTimeout(Dispo, (Number(timeOftheCall) + 2) * 1000);
-    }
-    if (funcOn === 'off') {
-        AutoHangupFun = setTimeout(AutoHangup, 1000); //this shuld always be 1000
-    } else if (funcOn === 'on') {
-        AutoHangupFun = setTimeout(AutoHangup, (Number(timeOftheCall) + 3) * 1000); // this have to always be X+3
-		console.log('%chave setTimeout for the func as ' + Number(timeOftheCall) , 'color: green;');
-    }
+				} else {
+					console.log('%cImgSrc is not good cant hungup', 'color: red;');
+				}
+			} else if (OnOff === 'Off') {
+				console.log('%cOnOff is Off didnt hungup the call', 'color: red;');
+			}
+		}; // the time of the call let's call it X
+		hungupFun = setTimeout(hungup, Number(timeOftheCall) * 1000);
+		function Dispo() {
+			const DispoSelectBox = document.querySelector('#DispoSelectBox');
+			const visibility = DispoSelectBox.style.visibility;
+			//makeing sure that the Dispo page is visibleq	
+			if (visibility === 'visible') {
+				console.log('%cDispo table is visible', 'color: green;');
+				DispoSelectContent_create(fullDispo);
+				DispoSelect_submit('', '', 'YES');
+				console.log('%chave Disopstioned as ' + fullDispo, 'color: green;');
+				var resSpan = document.getElementById('Dispospan');
+				resSpan.innerHTML = 'AH ' + fullDispo;
+				setTimeout(() => {
+					resSpan.innerHTML = '';
+				}, 3000);
+			} else {
+				console.log('%cdid not Disopstion the Disop table is =  ' + visibility, 'color: red;');
+			}
+		} //this have to be X+2
+		DispoFun = setTimeout(Dispo, (Number(timeOftheCall) + 2) * 1000);
+	}
+	if (funcOn === 'off') {
+		AutoHangupFun = setTimeout(AutoHangup, 1000); //this shuld always be 1000
+	} else if (funcOn === 'on') {
+		AutoHangupFun = setTimeout(AutoHangup, (Number(timeOftheCall) + 3) * 1000); // this have to always be X+3
+		console.log('%chave setTimeout for the func as ' + Number(timeOftheCall), 'color: green;');
+	}
 }
 setTimeout(AutoHangup, 1000); //this shuld always be 1000
 //                ---------------------------
@@ -407,8 +430,7 @@ function CustHungUp() {
 		let ImgSrcArr = ImgSrc.split('/');
 		let ImgName = ImgSrcArr[ImgSrcArr.length - 1];
 		// if (ImgSrc == 'https://ngs1.mscall.net/agc/images/agc_live_call_DEAD.gif' || ImgSrc == 'https://ngs2.mscall.net/agc/images/agc_live_call_DEAD.gif' || ImgSrc == 'https://ngs3.mscall.net/agc/images/agc_live_call_DEAD.gif') 
-		if(ImgName == 'agc_live_call_DEAD.gif')
-		{
+		if (ImgName == 'agc_live_call_DEAD.gif') {
 			console.log('%cCust haungup', 'color: blue;');
 			var HungUpSpan = document.getElementById('HangupControl'),
 				HungUpA = HungUpSpan.getElementsByTagName('a')[0],
@@ -435,145 +457,145 @@ function CustHungUp() {
 					resSpan.innerHTML = '';
 				}, 4000);
 			}
-		} else {}
+		} else { }
 	}
 }
 setInterval(CustHungUp, 1000);
 //                ---------------------------
 // the hungup with the keyboared function
 document.getElementById('post_phone_time_diff_span').style.visibility = 'visible';
-document.addEventListener("keydown", function(event) {
-    var resSpan = document.getElementById('Dispospan');
-    switch (event.which) {
-        case 112:
-            event.preventDefault();
-            var HungUpSpan = document.getElementById('HangupControl'),
-                HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-            if (typeof HungUpA === 'undefined') {
-                alert('There is no active call to hungup');
-            } else {
-                var HungUpSpan = document.getElementById('HangupControl'),
-                    HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-                    HungUpImg = HungUpA.getElementsByTagName('img')[0];
-                var ImgSrc = HungUpImg.getAttribute('src');
-                if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+document.addEventListener("keydown", function (event) {
+	var resSpan = document.getElementById('Dispospan');
+	switch (event.which) {
+		case 112:
+			event.preventDefault();
+			var HungUpSpan = document.getElementById('HangupControl'),
+				HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+			if (typeof HungUpA === 'undefined') {
+				alert('There is no active call to hungup');
+			} else {
+				var HungUpSpan = document.getElementById('HangupControl'),
+					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+					HungUpImg = HungUpA.getElementsByTagName('img')[0];
+				var ImgSrc = HungUpImg.getAttribute('src');
+				if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
 					clearTimeout(hungupFun);
 					clearTimeout(DispoFun);
 					clearTimeout(AutoHangupFun);
 					console.log('%cIhungedUpFun clicked', 'color: green;');
-                    dialedcall_send_hangup('', '', '', '', 'YES');
+					dialedcall_send_hangup('', '', '', '', 'YES');
 					CallDispo = 'N';
-                    CallLogFunction();
-                    setTimeout(() => {
-                        DispoSelectContent_create('N', 'ADD', 'YES');
-                        DispoSelect_submit('', '', 'YES');
-                    }, 1000);
+					CallLogFunction();
+					setTimeout(() => {
+						DispoSelectContent_create('N', 'ADD', 'YES');
+						DispoSelect_submit('', '', 'YES');
+					}, 1000);
 					setTimeout(AutoHangup, 2000);
-                    resSpan.innerHTML = 'No Answer';
-                    setTimeout(() => {
-                        resSpan.innerHTML = '';
-                    }, 4000);
-                }
-            }
-            break;
-        case 113:
-            event.preventDefault();
-            var HungUpSpan = document.getElementById('HangupControl'),
-                HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-            if (typeof HungUpA === 'undefined') {
-                alert('There is no active call to hungup');
-            } else {
-                var HungUpSpan = document.getElementById('HangupControl'),
-                    HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-                    HungUpImg = HungUpA.getElementsByTagName('img')[0];
-                var ImgSrc = HungUpImg.getAttribute('src');
-                if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+					resSpan.innerHTML = 'No Answer';
+					setTimeout(() => {
+						resSpan.innerHTML = '';
+					}, 4000);
+				}
+			}
+			break;
+		case 113:
+			event.preventDefault();
+			var HungUpSpan = document.getElementById('HangupControl'),
+				HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+			if (typeof HungUpA === 'undefined') {
+				alert('There is no active call to hungup');
+			} else {
+				var HungUpSpan = document.getElementById('HangupControl'),
+					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+					HungUpImg = HungUpA.getElementsByTagName('img')[0];
+				var ImgSrc = HungUpImg.getAttribute('src');
+				if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
 					clearTimeout(hungupFun);
 					clearTimeout(DispoFun);
 					clearTimeout(AutoHangupFun);
 					console.log('%cIhungedUpFun clicked', 'color: green;');
-                    dialedcall_send_hangup('', '', '', '', 'YES');
+					dialedcall_send_hangup('', '', '', '', 'YES');
 					CallDispo = 'A';
-                    CallLogFunction();
-                    setTimeout(() => {
-                        DispoSelectContent_create('A', 'ADD', 'YES');
-                        DispoSelect_submit('', '', 'YES');
-                    }, 1000);
+					CallLogFunction();
+					setTimeout(() => {
+						DispoSelectContent_create('A', 'ADD', 'YES');
+						DispoSelect_submit('', '', 'YES');
+					}, 1000);
 					setTimeout(AutoHangup, 2000);
-                    resSpan.innerHTML = 'Answering Machine';
-                    setTimeout(() => {
-                        resSpan.innerHTML = '';
-                    }, 4000);
-                }
-            }
-            break;
-        case 114:
-            event.preventDefault();
-            var HungUpSpan = document.getElementById('HangupControl'),
-                HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-            if (typeof HungUpA === 'undefined') {
-                alert('There is no active call to hungup');
-            } else {
-                var HungUpSpan = document.getElementById('HangupControl'),
-                    HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-                    HungUpImg = HungUpA.getElementsByTagName('img')[0];
-                var ImgSrc = HungUpImg.getAttribute('src');
-                if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+					resSpan.innerHTML = 'Answering Machine';
+					setTimeout(() => {
+						resSpan.innerHTML = '';
+					}, 4000);
+				}
+			}
+			break;
+		case 114:
+			event.preventDefault();
+			var HungUpSpan = document.getElementById('HangupControl'),
+				HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+			if (typeof HungUpA === 'undefined') {
+				alert('There is no active call to hungup');
+			} else {
+				var HungUpSpan = document.getElementById('HangupControl'),
+					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+					HungUpImg = HungUpA.getElementsByTagName('img')[0];
+				var ImgSrc = HungUpImg.getAttribute('src');
+				if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
 					clearTimeout(hungupFun);
 					clearTimeout(DispoFun);
 					clearTimeout(AutoHangupFun);
 					console.log('%cIhungedUpFun clicked', 'color: green;');
-                    dialedcall_send_hangup('', '', '', '', 'YES');
+					dialedcall_send_hangup('', '', '', '', 'YES');
 					CallDispo = 'NI';
-                    CallLogFunction();
-                    setTimeout(() => {
-                        DispoSelectContent_create('NI', 'ADD', 'YES');
-                        DispoSelect_submit('', '', 'YES');
-                    }, 1000);
+					CallLogFunction();
+					setTimeout(() => {
+						DispoSelectContent_create('NI', 'ADD', 'YES');
+						DispoSelect_submit('', '', 'YES');
+					}, 1000);
 					setTimeout(AutoHangup, 2000);
-                    resSpan.innerHTML = 'Not Interested';
-                    setTimeout(() => {
-                        resSpan.innerHTML = '';
-                    }, 4000);
-                }
-            }
-            break;
-        case 115:
-            event.preventDefault();
-            var HungUpSpan = document.getElementById('HangupControl'),
-                HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-            if (typeof HungUpA === 'undefined') {
-                alert('There is no active call to hungup');
-            } else {
-                var HungUpSpan = document.getElementById('HangupControl'),
-                    HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-                    HungUpImg = HungUpA.getElementsByTagName('img')[0];
-                var ImgSrc = HungUpImg.getAttribute('src');
-                if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+					resSpan.innerHTML = 'Not Interested';
+					setTimeout(() => {
+						resSpan.innerHTML = '';
+					}, 4000);
+				}
+			}
+			break;
+		case 115:
+			event.preventDefault();
+			var HungUpSpan = document.getElementById('HangupControl'),
+				HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+			if (typeof HungUpA === 'undefined') {
+				alert('There is no active call to hungup');
+			} else {
+				var HungUpSpan = document.getElementById('HangupControl'),
+					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+					HungUpImg = HungUpA.getElementsByTagName('img')[0];
+				var ImgSrc = HungUpImg.getAttribute('src');
+				if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
 					clearTimeout(hungupFun);
 					clearTimeout(DispoFun);
 					clearTimeout(AutoHangupFun);
 					console.log('%cIhungedUpFun clicked', 'color: green;');
-                    dialedcall_send_hangup('', '', '', '', 'YES');
+					dialedcall_send_hangup('', '', '', '', 'YES');
 					CallDispo = 'NV';
-                    CallLogFunction();
-                    setTimeout(() => {
-                        DispoSelectContent_create('NV', 'ADD', 'YES');
-                        DispoSelect_submit('', '', 'YES');
-                    }, 1000);
+					CallLogFunction();
+					setTimeout(() => {
+						DispoSelectContent_create('NV', 'ADD', 'YES');
+						DispoSelect_submit('', '', 'YES');
+					}, 1000);
 					setTimeout(AutoHangup, 2000);
-                    resSpan.innerHTML = 'Not Vetran';
-                    setTimeout(() => {
-                        resSpan.innerHTML = '';
-                    }, 4000);
-                }
-            }
-            break;
-        case 123:
-            event.preventDefault();
+					resSpan.innerHTML = 'Not Vetran';
+					setTimeout(() => {
+						resSpan.innerHTML = '';
+					}, 4000);
+				}
+			}
+			break;
+		case 123:
+			event.preventDefault();
 			AutoHungupOnOff();
 			break;
-    }
+	}
 })
 //                ---------------------------
 //Copy function
@@ -660,35 +682,36 @@ function AutoCheckDupFun() {
 		// console.log('There is no active call to hungup');
 		res.innerHTML = "";
 		// auto mute part
-		if(AutMuOnOff === 'On'){
-			if(isItMuted == true){
+		if (AutMuOnOff.case === 'On') {
+			if (AutMuOnOff.ToF == true) {
 				console.log('%calready Muted,  NO-Active call', 'color: blue;')
-			}else if(isItMuted == false){
-				volume_control('MUTING',agentchannel,'AgenT');
-				isItMuted = true;
+			} else if (AutMuOnOff.ToF == false) {
+				volume_control('MUTING', agentchannel, 'AgenT');
+				AutMuOnOff.ToF = true;
 				console.log('%ci have Muted, isItMuted set to true, NO-Active call', 'color: blue;');
 			}
 		}
 		/////////////////auto mute part
-		
+
 	} else {
-		// auto mute part
-		if(AutMuOnOff === 'On'){
-			if(isItMuted == true){
-				volume_control('UNMUTE',agentchannel,'AgenT');
-				isItMuted = false;
+		// auto mute part  {case: 'On',ToF: false }
+		if (AutMuOnOff.case === 'On') {
+			if (AutMuOnOff.ToF == true) {
+				volume_control('UNMUTE', agentchannel, 'AgenT');
+				AutMuOnOff.ToF = false;
 				console.log('%ci have UN-Muted, isItMuted set to false, Active call', 'color: blue;');
-			}else if(isItMuted == false){
+			} else if (AutMuOnOff.ToF == false) {
 				console.log('%calready UN-Muted, Active call', 'color: blue;');
 			}
 		}
 		/////////////////auto mute part
-		
+
 		// auto text To Audio part
-		let phone_numberDISP = document.getElementById("phone_numberDISP").innerText;
-		autotextToAudio(phone_numberDISP);
+		//CHANGE
+		// let phone_numberDISP = document.getElementById("phone_numberDISP").innerText; 
+		autotextToAudio(Num);
 		/////////////////auto text To Audio part
-		
+
 		var SelVal = document.getElementById("FormSelect").value;
 		if (SelVal === 'New') {
 			var TorFONew = DupListNew.includes(Num);
@@ -761,14 +784,14 @@ function CallLogFunction() {
 		var resSpan2 = document.getElementById('Dispospan2');
 		var TorF = NumbersArray.includes(number);
 		if (TorF == true) {
-					CallLogObject.forEach(Element => {
-						if(Element[0].number == number){
-							let time = new Date();
-							time = time.toLocaleString("en-US");
-                            Element[0].ReCallDate += `//  ReCallDate: ${time}  //`;
-							localStorage.setItem('CallLogLocalStorage', JSON.stringify(CallLogObject));
-						}
-					})
+			CallLogObject.forEach(Element => {
+				if (Element[0].number == number) {
+					let time = new Date();
+					time = time.toLocaleString("en-US");
+					Element[0].ReCallDate += `//  ReCallDate: ${time}  //`;
+					localStorage.setItem('CallLogLocalStorage', JSON.stringify(CallLogObject));
+				}
+			})
 		} else {
 			NumbersArray.push(number);
 			var first = document.getElementById('first_name').value;
@@ -814,67 +837,67 @@ function GetDispo() {
 		var DispoTable = document.getElementById('DispoSelectBox').style.visibility; //hidden  visible
 		if (DispoTable == 'visible') {
 			var A = document.querySelector('[onclick="DispoSelectContent_create(\'A\',\'ADD\',\'YES\');return false;"]');
-			A.addEventListener("click", function() {
+			A.addEventListener("click", function () {
 				CallDispo = 'A';
 				CallLogFunction();
 			});
 			var B = document.querySelector('[onclick="DispoSelectContent_create(\'B\',\'ADD\',\'YES\');return false;"]');
-			B.addEventListener("click", function() {
+			B.addEventListener("click", function () {
 				CallDispo = 'B';
 				CallLogFunction();
 			});
 			var CALLBK = document.querySelector('[onclick="DispoSelectContent_create(\'CALLBK\',\'ADD\',\'YES\');return false;"]');
-			CALLBK.addEventListener("click", function() {
+			CALLBK.addEventListener("click", function () {
 				CallDispo = 'CALLBK';
 				CallLogFunction();
 			});
 			var DAIR = document.querySelector('[onclick="DispoSelectContent_create(\'DAIR\',\'ADD\',\'YES\');return false;"]');
-			DAIR.addEventListener("click", function() {
+			DAIR.addEventListener("click", function () {
 				CallDispo = 'DAIR';
 				CallLogFunction();
 			});
 			var DC = document.querySelector('[onclick="DispoSelectContent_create(\'DC\',\'ADD\',\'YES\');return false;"]');
-			DC.addEventListener("click", function() {
+			DC.addEventListener("click", function () {
 				CallDispo = 'DC';
 				CallLogFunction();
 			});
 			var DEC = document.querySelector('[onclick="DispoSelectContent_create(\'DEC\',\'ADD\',\'YES\');return false;"]');
-			DEC.addEventListener("click", function() {
+			DEC.addEventListener("click", function () {
 				CallDispo = 'DEC';
 				CallLogFunction();
 			});
 			var DNC = document.querySelector('[onclick="DispoSelectContent_create(\'DNC\',\'ADD\',\'YES\');return false;"]');
-			DNC.addEventListener("click", function() {
+			DNC.addEventListener("click", function () {
 				CallDispo = 'DNC';
 				CallLogFunction();
 			});
 			var N = document.querySelector('[onclick="DispoSelectContent_create(\'N\',\'ADD\',\'YES\');return false;"]');
-			N.addEventListener("click", function() {
+			N.addEventListener("click", function () {
 				CallDispo = 'N';
 				CallLogFunction();
 			});
 			var NI = document.querySelector('[onclick="DispoSelectContent_create(\'NI\',\'ADD\',\'YES\');return false;"]');
-			NI.addEventListener("click", function() {
+			NI.addEventListener("click", function () {
 				CallDispo = 'NI';
 				CallLogFunction();
 			});
 			var NP = document.querySelector('[onclick="DispoSelectContent_create(\'NP\',\'ADD\',\'YES\');return false;"]');
-			NP.addEventListener("click", function() {
+			NP.addEventListener("click", function () {
 				CallDispo = 'NP';
 				CallLogFunction();
 			});
 			var NV = document.querySelector('[onclick="DispoSelectContent_create(\'NV\',\'ADD\',\'YES\');return false;"]');
-			NV.addEventListener("click", function() {
+			NV.addEventListener("click", function () {
 				CallDispo = 'NV';
 				CallLogFunction();
 			});
 			var SALE = document.querySelector('[onclick="DispoSelectContent_create(\'SALE\',\'ADD\',\'YES\');return false;"]');
-			SALE.addEventListener("click", function() {
+			SALE.addEventListener("click", function () {
 				CallDispo = 'SALE';
 				CallLogFunction();
 			});
 			var XFER = document.querySelector('[onclick="DispoSelectContent_create(\'XFER\',\'ADD\',\'YES\');return false;"]');
-			XFER.addEventListener("click", function() {
+			XFER.addEventListener("click", function () {
 				CallDispo = 'XFER';
 				CallLogFunction();
 			});
@@ -886,63 +909,63 @@ function GetDispo() {
 //                ---------------------------
 // Text To Speech function
 let autotextToAudioOnOff = 'On';
-function autotextToAudioOnOffFunc(){
+function autotextToAudioOnOffFunc() {
 	var resSpan = document.getElementById('autotextToAudioOnOffSpan');
-	if(autotextToAudioOnOff === 'On'){
+	if (autotextToAudioOnOff === 'On') {
 		autotextToAudioOnOff = 'Off';
-		resSpan.innerHTML ='AutTalkOff';
+		resSpan.innerHTML = 'AutTalkOff';
 		resSpan.classList.remove('redSpan');
 		resSpan.classList.add('greenSpan');
-	}else{
+	} else {
 		autotextToAudioOnOff = 'On';
-		resSpan.innerHTML ='AutTalkOn';
+		resSpan.innerHTML = 'AutTalkOn';
 		resSpan.classList.add('redSpan');
 		resSpan.classList.remove('greenSpan');
 	}
 }
 let oldNumber = 'no number';
-function autotextToAudio(newNumber){
-	
-	if(autotextToAudioOnOff === 'On'){
-		if(oldNumber != newNumber){
-		let textToAudioBtn = document.getElementById("textToAudioBtn");
-		textToAudio(textToAudioBtn);
-		oldNumber = newNumber;
+function autotextToAudio(newNumber) {
+
+	if (autotextToAudioOnOff === 'On') {
+		if (oldNumber != newNumber) {
+			let textToAudioBtn = document.getElementById("textToAudioBtn");
+			textToAudio(textToAudioBtn);
+			oldNumber = newNumber;
 		}
 	}
 }
-function stopTextToAudio(){
-  window.speechSynthesis.cancel();
+function stopTextToAudio() {
+	window.speechSynthesis.cancel();
 }
 function textToAudio(span) {
-    const first_name = document.getElementById("first_name").value;
-    const last_name = document.getElementById("last_name").value;
-    const msg =  first_name +' '+ last_name
-    let speech = new SpeechSynthesisUtterance();
-      speech.voiceURI = 'Google US English';
-      speech.lang = 'en-US';
-      speech.name = 'Google US English';
-      speech.text = msg;
-    const synth = window.speechSynthesis;
-    synth.speak(speech);
-  // console.log(span.nextElementSibling)
+	const first_name = document.getElementById("first_name").value;
+	const last_name = document.getElementById("last_name").value;
+	const msg = first_name + ' ' + last_name
+	let speech = new SpeechSynthesisUtterance();
+	speech.voiceURI = 'Google US English';
+	speech.lang = 'en-US';
+	speech.name = 'Google US English';
+	speech.text = msg;
+	const synth = window.speechSynthesis;
+	synth.speak(speech);
+	// console.log(span.nextElementSibling)
 
-  function everyTime() {
-    if(!synth.speaking){
-        clearInterval(myInterval);
-        span.classList.remove('d-none');
-        span.classList.add('d-default');
-        span.nextElementSibling.classList.add('d-none');
-        span.nextElementSibling.classList.remove('d-default');
-    }else{
-      if(span.classList.contains('d-default')){
-        span.classList.remove('d-default');
-        span.classList.add('d-none');
-        span.nextElementSibling.classList.add('d-default');
-        span.nextElementSibling.classList.remove('d-none');
-      }
-    }
-  }
-  var myInterval = setInterval(everyTime, 50);
-  
+	function everyTime() {
+		if (!synth.speaking) {
+			clearInterval(myInterval);
+			span.classList.remove('d-none');
+			span.classList.add('d-default');
+			span.nextElementSibling.classList.add('d-none');
+			span.nextElementSibling.classList.remove('d-default');
+		} else {
+			if (span.classList.contains('d-default')) {
+				span.classList.remove('d-default');
+				span.classList.add('d-none');
+				span.nextElementSibling.classList.add('d-default');
+				span.nextElementSibling.classList.remove('d-none');
+			}
+		}
+	}
+	var myInterval = setInterval(everyTime, 50);
+
 }
