@@ -1,4 +1,4 @@
-
+//.10.141
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -433,12 +433,16 @@ setTimeout(AutoHangup, 1000); //this shuld always be 1000
 // cheak if there is a active call 
 function ativeCallCheack() {
 	var HungUpSpan = document.getElementById('HangupControl'),
-		HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-		HungUpImg = HungUpA.getElementsByTagName('img')[0];
-	var ImgSrc = HungUpImg.getAttribute('src');
-	let imgSrcArr = ImgSrc.split('/');
-	let imgName = imgSrcArr[imgSrcArr.length - 1];
-	if (imgName == 'vdc_LB_hangupcustomer.gif') {
+		HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+	if (typeof HungUpA === 'undefined')
+	// var HungUpSpan = document.getElementById('HangupControl'),
+	// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+	// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
+	// var ImgSrc = HungUpImg.getAttribute('src');
+	// let imgSrcArr = ImgSrc.split('/');
+	// let imgName = imgSrcArr[imgSrcArr.length - 1];
+	// if (imgName == 'vdc_LB_hangupcustomer.gif') 
+	{
 		// there is an active call
 		return true;
 	} else {
