@@ -1,4 +1,4 @@
-//12.51
+//1.17
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -427,28 +427,61 @@ function AutoHangup() {
 setTimeout(AutoHangup, 1000); //this shuld always be 1000
 //                ---------------------------
 // auto hung up when cust hungs up function
+// cheak if there is a active call 
+function ativeCallCheack() {
+	var HungUpSpan = document.getElementById('HangupControl'),
+		HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+		HungUpImg = HungUpA.getElementsByTagName('img')[0];
+	var ImgSrc = HungUpImg.getAttribute('src');
+	let imgSrcArr = ImgSrc.split('/');
+	let imgName = imgSrcArr[imgSrcArr.length - 1];
+	if (imgName == 'vdc_LB_hangupcustomer.gif') {
+		// there is an active call
+		return true;
+	} else {
+		// there is no active call
+		return false;
+	}
+}
+// chaeck for visible dispo panl
+function visibleDispoPanlCheack() {
+	const DispoSelectBox = document.querySelector('#DispoSelectBox');
+	const visibility = DispoSelectBox.style.visibility;
+	//makeing sure that the Dispo page is visibleq	
+	if (visibility === 'visible') {
+		return true;
+	} else {
+		return false;
+	}
+}
+//chaeck if cust hungup
+function custHungupCheack() {
+	var TabsSpan = document.getElementById('Tabs'),
+		table = TabsSpan.getElementsByTagName('table')[0],
+		tbody = table.getElementsByTagName('tbody')[0],
+		tr = tbody.getElementsByTagName('tr')[0],
+		td = tr.getElementsByTagName('td')[3],
+		img = td.getElementsByTagName('img')[0];
+	var ImgSrc = img.getAttribute('src');
+	let ImgSrcArr = ImgSrc.split('/');
+	let ImgName = ImgSrcArr[ImgSrcArr.length - 1];
+	// if (ImgSrc == 'https://ngs1.mscall.net/agc/images/agc_live_call_DEAD.gif' || ImgSrc == 'https://ngs2.mscall.net/agc/images/agc_live_call_DEAD.gif' || ImgSrc == 'https://ngs3.mscall.net/agc/images/agc_live_call_DEAD.gif') 
+	if (ImgName == 'agc_live_call_DEAD.gif') {
+		return true;
+	} else {
+		return false;
+	}
+}
 function CustHungUp() {
 	var TransferVisibility = document.querySelector('#TransferMain').style.visibility;
 	if (TransferVisibility === 'visible') {
-		/*alert('Cust Hung Up')*/
+		/*transfer panl is on wont do anything*/
 	} else {
-		var TabsSpan = document.getElementById('Tabs'),
-			table = TabsSpan.getElementsByTagName('table')[0],
-			tbody = table.getElementsByTagName('tbody')[0],
-			tr = tbody.getElementsByTagName('tr')[0],
-			td = tr.getElementsByTagName('td')[3],
-			img = td.getElementsByTagName('img')[0];
-		var ImgSrc = img.getAttribute('src');
-		let ImgSrcArr = ImgSrc.split('/');
-		let ImgName = ImgSrcArr[ImgSrcArr.length - 1];
-		// if (ImgSrc == 'https://ngs1.mscall.net/agc/images/agc_live_call_DEAD.gif' || ImgSrc == 'https://ngs2.mscall.net/agc/images/agc_live_call_DEAD.gif' || ImgSrc == 'https://ngs3.mscall.net/agc/images/agc_live_call_DEAD.gif') 
-		if (ImgName == 'agc_live_call_DEAD.gif') {
+		let custHungupCheack = custHungupCheack();
+		if (custHungupCheack) {
 			console.log('%cCust haungup', 'color: blue;');
-			var HungUpSpan = document.getElementById('HangupControl'),
-				HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-				HungUpImg = HungUpA.getElementsByTagName('img')[0];
-			var ImgSrc = HungUpImg.getAttribute('src');
-			if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+			let ativeCallCheack = ativeCallCheack();
+			if (ativeCallCheack) {
 				dialedcall_send_hangup('', '', '', '', 'YES');
 				CallDispo = 'NI';
 				CallLogFunction();
@@ -458,9 +491,12 @@ function CustHungUp() {
 				clearTimeout(AutoHangupFun);
 				console.log('%ccanceled timeout for hungupFun & DispoFun & AutoHangupFun and have set timeout as 1000', 'color: blue;');
 				setTimeout(() => {
-					DispoSelectContent_create('NI', 'ADD', 'YES');
-					DispoSelect_submit('', '', 'YES');
-					console.log('%chave Disopstioned as ANS', 'color: blue;');
+					let visibleDispoPanlCheack = visibleDispoPanlCheack();
+					if (visibleDispoPanlCheack) {
+						DispoSelectContent_create('NI', 'ADD', 'YES');
+						DispoSelect_submit('', '', 'YES');
+						console.log('%chave Disopstioned as ANS', 'color: blue;');
+					}
 				}, 1000);
 				setTimeout(AutoHangup, 2000);
 				var resSpan = document.getElementById('Dispospan');
