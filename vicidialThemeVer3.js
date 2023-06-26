@@ -1,4 +1,4 @@
-//.10.141
+//1.42
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -444,10 +444,10 @@ function ativeCallCheack() {
 	// if (imgName == 'vdc_LB_hangupcustomer.gif') 
 	{
 		// there is an active call
-		return true;
+		return false;
 	} else {
 		// there is no active call
-		return false;
+		return true;
 	}
 }
 // chaeck for visible dispo panl
