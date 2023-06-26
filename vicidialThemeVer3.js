@@ -1,4 +1,4 @@
-//                                12:21
+//12:28
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -336,7 +336,7 @@ function randomDspo() {
 	Arr1 = ["\'N\'", "\'A\'", "\'NI\'", "\'NV\'"];
 	dispoCode = Arr1[Math.floor(Math.random() * Arr1.length)];
 	fullDispo = dispoCode + ", \'ADD\', \'YES\'";
-	ArrRes = { 'fullDispo': fullDispo, 'dispoCode': dispoCode };
+	ArrRes = { fullDispo: fullDispo, dispoCode: dispoCode };
 	return ArrRes;
 }
 //                ---------------------------
@@ -375,8 +375,8 @@ function AutoHangup() {
 		console.log('%ccall is active func started', 'color: green;');
 		// getimg a random dspo rady;
 		let randomDispoObj = randomDspo();
-		let fullDispo = randomDispoObj['fullDispo'];
-		let dispoCode = randomDispoObj['dispoCode'];
+		let fullDispo = randomDispoObj.fullDispo;
+		let dispoCode = randomDispoObj.dispoCode;
 		function hungup() {
 			if (OnOff.case === 'On') {
 				console.log('%cOnOff is On', 'color: green;');
