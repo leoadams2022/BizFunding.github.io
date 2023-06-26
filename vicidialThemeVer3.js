@@ -1,4 +1,4 @@
-// 12.34
+
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -34,7 +34,7 @@ comments.insertAdjacentHTML("afterend", `
 
 			<button class=\"myBtn OnOffBtn\" onclick=\"Switcher('randomFucnOnOffSapn', 'RanOn', 'RanOff', randomOnOff)\">Ran</button>
 				
-			<button class=\"myBtn OnOffBtn\" onclick=\"autotextToAudioOnOffFunc()\">AutTalk</button>
+			<button class=\"myBtn OnOffBtn\" onclick=\"Switcher('autotextToAudioOnOffSpan', 'AutTalkOn', 'AutTalkOff', autotextToAudioOnOff)\">AutTalk</button>
 			
 			<span class=\'OnOffSapn greenSpan\' id=\'FucnOnOffSapn\'>AutOff</span>
 
@@ -920,21 +920,23 @@ function GetDispo() {
 }
 //                ---------------------------
 // Text To Speech function
-let autotextToAudioOnOff = 'On';
-function autotextToAudioOnOffFunc() {
-	var resSpan = document.getElementById('autotextToAudioOnOffSpan');
-	if (autotextToAudioOnOff === 'On') {
-		autotextToAudioOnOff = 'Off';
-		resSpan.innerHTML = 'AutTalkOff';
-		resSpan.classList.remove('redSpan');
-		resSpan.classList.add('greenSpan');
-	} else {
-		autotextToAudioOnOff = 'On';
-		resSpan.innerHTML = 'AutTalkOn';
-		resSpan.classList.add('redSpan');
-		resSpan.classList.remove('greenSpan');
-	}
-}
+let autotextToAudioOnOff = {case:'On'};
+// Switcher('autotextToAudioOnOffSpan', 'AutTalkOn', 'AutTalkOff', autotextToAudioOnOff)
+// let autotextToAudioOnOff = 'On';
+// function autotextToAudioOnOffFunc() {
+// 	var resSpan = document.getElementById('autotextToAudioOnOffSpan');
+// 	if (autotextToAudioOnOff === 'On') {
+// 		autotextToAudioOnOff = 'Off';
+// 		resSpan.innerHTML = 'AutTalkOff';
+// 		resSpan.classList.remove('redSpan');
+// 		resSpan.classList.add('greenSpan');
+// 	} else {
+// 		autotextToAudioOnOff = 'On';
+// 		resSpan.innerHTML = 'AutTalkOn';
+// 		resSpan.classList.add('redSpan');
+// 		resSpan.classList.remove('greenSpan');
+// 	}
+// }
 let oldNumber = 'no number';
 function autotextToAudio(newNumber) {
 
