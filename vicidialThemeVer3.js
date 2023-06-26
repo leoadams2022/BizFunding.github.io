@@ -1,4 +1,4 @@
-
+//12.51
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -920,7 +920,7 @@ function GetDispo() {
 }
 //                ---------------------------
 // Text To Speech function
-let autotextToAudioOnOff = {case:'On'};
+let autotextToAudioOnOff = { case: 'On' };
 // Switcher('autotextToAudioOnOffSpan', 'AutTalkOn', 'AutTalkOff', autotextToAudioOnOff)
 // let autotextToAudioOnOff = 'On';
 // function autotextToAudioOnOffFunc() {
@@ -940,7 +940,7 @@ let autotextToAudioOnOff = {case:'On'};
 let oldNumber = 'no number';
 function autotextToAudio(newNumber) {
 
-	if (autotextToAudioOnOff === 'On') {
+	if (autotextToAudioOnOff.case === 'On') {
 		if (oldNumber != newNumber) {
 			let textToAudioBtn = document.getElementById("textToAudioBtn");
 			textToAudio(textToAudioBtn);
