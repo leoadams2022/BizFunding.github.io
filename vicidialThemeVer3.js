@@ -1,4 +1,4 @@
-//1.17
+
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -477,11 +477,11 @@ function CustHungUp() {
 	if (TransferVisibility === 'visible') {
 		/*transfer panl is on wont do anything*/
 	} else {
-		let custHungupCheack = custHungupCheack();
-		if (custHungupCheack) {
+		let custHungupCheackV = custHungupCheack();
+		if (custHungupCheackV) {
 			console.log('%cCust haungup', 'color: blue;');
-			let ativeCallCheack = ativeCallCheack();
-			if (ativeCallCheack) {
+			let ativeCallCheackV = ativeCallCheack();
+			if (ativeCallCheackV) {
 				dialedcall_send_hangup('', '', '', '', 'YES');
 				CallDispo = 'NI';
 				CallLogFunction();
@@ -491,8 +491,8 @@ function CustHungUp() {
 				clearTimeout(AutoHangupFun);
 				console.log('%ccanceled timeout for hungupFun & DispoFun & AutoHangupFun and have set timeout as 1000', 'color: blue;');
 				setTimeout(() => {
-					let visibleDispoPanlCheack = visibleDispoPanlCheack();
-					if (visibleDispoPanlCheack) {
+					let visibleDispoPanlCheackV = visibleDispoPanlCheack();
+					if (visibleDispoPanlCheackV) {
 						DispoSelectContent_create('NI', 'ADD', 'YES');
 						DispoSelect_submit('', '', 'YES');
 						console.log('%chave Disopstioned as ANS', 'color: blue;');
