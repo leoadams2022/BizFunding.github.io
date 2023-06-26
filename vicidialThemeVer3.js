@@ -1,4 +1,4 @@
-// ----------------------------------------------------- 11:46
+//                                12:21
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -289,7 +289,7 @@ let isRecMuted = { case: 'Off', OnFunc: function () { MuteRecording('on') }, Off
 // 	}
 // }
 //                ---------------------------
-let OnOff = {case:'Off'};
+let OnOff = { case: 'Off' };
 //Switcher('FucnOnOffSapn', 'AutOn', 'AutOff', OnOff)
 // let OnOff = 'Off';
 // function AutoHungupOnOff() {
@@ -307,21 +307,23 @@ let OnOff = {case:'Off'};
 // 	}
 // }
 //                ---------------------------
-let randomOnOff = 'On';
-function randomAutoHungupOnOff() {
-	var resSpan = document.getElementById('randomFucnOnOffSapn');
-	if (randomOnOff === 'On') {
-		randomOnOff = 'Off';
-		resSpan.innerHTML = 'RanOff';
-		resSpan.classList.remove('redSpan');
-		resSpan.classList.add('greenSpan');
-	} else if (randomOnOff === 'Off') {
-		randomOnOff = 'On';
-		resSpan.innerHTML = 'RanOn';
-		resSpan.classList.add('redSpan');
-		resSpan.classList.remove('greenSpan');
-	}
-}
+let randomOnOff = { case: 'On' };
+// Switcher('randomFucnOnOffSapn', 'RanOn', 'RanOff', randomOnOff)
+// let randomOnOff = 'On';
+// function randomAutoHungupOnOff() {
+// 	var resSpan = document.getElementById('randomFucnOnOffSapn');
+// 	if (randomOnOff === 'On') {
+// 		randomOnOff = 'Off';
+// 		resSpan.innerHTML = 'RanOff';
+// 		resSpan.classList.remove('redSpan');
+// 		resSpan.classList.add('greenSpan');
+// 	} else if (randomOnOff === 'Off') {
+// 		randomOnOff = 'On';
+// 		resSpan.innerHTML = 'RanOn';
+// 		resSpan.classList.add('redSpan');
+// 		resSpan.classList.remove('greenSpan');
+// 	}
+// }
 //                ---------------------------
 // var's to setTimeout so we can reset it outside the  AutoHangup function
 var hungupFun;
@@ -333,7 +335,7 @@ function randomDspo() {
 	let Arr1, ArrRes, dispoCode, fullDispo;
 	Arr1 = ["\'N\'", "\'A\'", "\'NI\'", "\'NV\'"];
 	dispoCode = Arr1[Math.floor(Math.random() * Arr1.length)];
-	fullDispo = fullDispo + ", \'ADD\', \'YES\'";
+	fullDispo = dispoCode + ", \'ADD\', \'YES\'";
 	ArrRes = { 'fullDispo': fullDispo, 'dispoCode': dispoCode };
 	return ArrRes;
 }
@@ -356,7 +358,7 @@ function randomNum(fiveToThirty = true, num1 = 5, num2 = 30) {
 // the AutoHangup function
 function AutoHangup() {
 	var timeOftheCall;
-	if (randomOnOff == 'On') {
+	if (randomOnOff.case == 'On') {
 		timeOftheCall = randomNum()['randomNum'];
 	} else {
 		//this is the time of the call by SEC's you can change is as u like
