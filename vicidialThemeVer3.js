@@ -1,4 +1,4 @@
-//--------------------------------------------------------------------------------10:54//--------------------------------------------------------------------------------
+//-------------------------------------------------------11:38
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -46,7 +46,7 @@ comments.insertAdjacentHTML("afterend", `
 			<!--CHANGE-->
 			<button class=\"myBtn OnOffBtn\" onclick=\"Switcher('AutMuSpan', 'AutMuOn', 'AutMuOff', AutMuOnOff)\">AutMu</button>
 
-			<button class=\"myBtn OnOffBtn\" onclick=\"MuteRecordingOnOff()\">RecMu</button>
+			<button class=\"myBtn OnOffBtn\" onclick=\"Switcher('RecMuSapn', 'RecMuOn', 'RecMuOff', isRecMuted)\">RecMu</button>
 
 			<span class=\'OnOffSapn greenSpan\' id=\'AutMuSpan\'>AutMuOff</span>
 
@@ -222,7 +222,7 @@ function IhungedUpFun() {
 }
 //                ---------------------------
 //let AutMuOnOff = { case: 'On', ToF: false };
-// onclick="Switcher('AutMuSpan', 'AutMuOn', 'AutMuOff', AutMuOnOff)"
+// onclick="Switcher('RecMuSapn', 'RecMuOn', 'RecMuOff', isRecMuted)"
 function Switcher(spanId, spanOnVal, spanOffVal, OnOffObj)//(string,string,string varStr, bloean )
 {
 	const resSpan = document.getElementById(spanId);
@@ -231,14 +231,20 @@ function Switcher(spanId, spanOnVal, spanOffVal, OnOffObj)//(string,string,strin
 		resSpan.innerHTML = spanOffVal;
 		resSpan.classList.remove('redSpan');
 		resSpan.classList.add('greenSpan');
-		if (!OnOffObj.ToF) {
+		if ("ToF" in OnOffObj) {
 			OnOffObj.ToF = true;
+		}
+		if ("OffFunc" in OnOffObj) {
+			OnOffObj.OffFunc();
 		}
 	} else if (OnOffObj.case === 'Off') {
 		OnOffObj.case = 'On';
 		resSpan.innerHTML = spanOnVal;
 		resSpan.classList.add('redSpan');
 		resSpan.classList.remove('greenSpan');
+		if ("OnFunc" in OnOffObj) {
+			OnOffObj.OnFunc();
+		}
 	}
 }
 // autoMute function
@@ -263,23 +269,25 @@ let AutMuOnOff = { case: 'On', ToF: false };
 // }
 //                ---------------------------
 //MuteRecording function
-let isRecMuted = false;
-function MuteRecordingOnOff() {
-	var resSpan = document.getElementById('RecMuSapn');
-	if (isRecMuted == true) {
-		MuteRecording('off');
-		isRecMuted = false;
-		resSpan.innerHTML = 'RecMuOff';
-		resSpan.classList.remove('redSpan');
-		resSpan.classList.add('greenSpan');
-	} else if (isRecMuted == false) {
-		MuteRecording('on');
-		isRecMuted = true;
-		resSpan.innerHTML = 'RecMuOn';
-		resSpan.classList.add('redSpan');
-		resSpan.classList.remove('greenSpan');
-	}
-}
+// CHANGE 
+let isRecMuted = { case: 'Off', OnFunc: function () { MuteRecording('on') }, OffFunc: function () { MuteRecording('off') } };
+// let isRecMuted = false;
+// function MuteRecordingOnOff() {
+// 	var resSpan = document.getElementById('RecMuSapn');
+// 	if (isRecMuted == true) {
+// 		MuteRecording('off');
+// 		isRecMuted = false;
+// 		resSpan.innerHTML = 'RecMuOff';
+// 		resSpan.classList.remove('redSpan');
+// 		resSpan.classList.add('greenSpan');
+// 	} else if (isRecMuted == false) {
+// 		MuteRecording('on');
+// 		isRecMuted = true;
+// 		resSpan.innerHTML = 'RecMuOn';
+// 		resSpan.classList.add('redSpan');
+// 		resSpan.classList.remove('greenSpan');
+// 	}
+// }
 //                ---------------------------
 let OnOff = 'Off';
 function AutoHungupOnOff() {
