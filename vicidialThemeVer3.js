@@ -1,4 +1,4 @@
-//-------------------------------------------------------11:38
+// ----------------------------------------------------- 11:46
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -30,7 +30,7 @@ comments.insertAdjacentHTML("afterend", `
 		<div id="moreOptionDiv" class="MyOptionsDiv">
 			<input type=\'number\' id=\'calltime\' value=\'10\'>
 
-			<button class=\"myBtn OnOffBtn\" onclick=\"AutoHungupOnOff()\">Aut</button>
+			<button class=\"myBtn OnOffBtn\" onclick=\"Switcher('FucnOnOffSapn', 'AutOn', 'AutOff', OnOff)\">Aut</button>
 
 			<button class=\"myBtn OnOffBtn\" onclick=\"randomAutoHungupOnOff()\">Ran</button>
 				
@@ -289,21 +289,23 @@ let isRecMuted = { case: 'Off', OnFunc: function () { MuteRecording('on') }, Off
 // 	}
 // }
 //                ---------------------------
-let OnOff = 'Off';
-function AutoHungupOnOff() {
-	var resSpan = document.getElementById('FucnOnOffSapn');
-	if (OnOff === 'On') {
-		OnOff = 'Off';
-		resSpan.innerHTML = 'AutOff';
-		resSpan.classList.remove('redSpan');
-		resSpan.classList.add('greenSpan');
-	} else if (OnOff === 'Off') {
-		OnOff = 'On';
-		resSpan.innerHTML = 'AutOn';
-		resSpan.classList.add('redSpan');
-		resSpan.classList.remove('greenSpan');
-	}
-}
+let OnOff = {case:'Off'};
+//Switcher('FucnOnOffSapn', 'AutOn', 'AutOff', OnOff)
+// let OnOff = 'Off';
+// function AutoHungupOnOff() {
+// 	var resSpan = document.getElementById('FucnOnOffSapn');
+// 	if (OnOff === 'On') {
+// 		OnOff = 'Off';
+// 		resSpan.innerHTML = 'AutOff';
+// 		resSpan.classList.remove('redSpan');
+// 		resSpan.classList.add('greenSpan');
+// 	} else if (OnOff === 'Off') {
+// 		OnOff = 'On';
+// 		resSpan.innerHTML = 'AutOn';
+// 		resSpan.classList.add('redSpan');
+// 		resSpan.classList.remove('greenSpan');
+// 	}
+// }
 //                ---------------------------
 let randomOnOff = 'On';
 function randomAutoHungupOnOff() {
@@ -374,7 +376,7 @@ function AutoHangup() {
 		let fullDispo = randomDispoObj['fullDispo'];
 		let dispoCode = randomDispoObj['dispoCode'];
 		function hungup() {
-			if (OnOff === 'On') {
+			if (OnOff.case === 'On') {
 				console.log('%cOnOff is On', 'color: green;');
 				var HungUpSpan = document.getElementById('HangupControl'),
 					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
@@ -388,7 +390,7 @@ function AutoHangup() {
 				} else {
 					console.log('%cImgSrc is not good cant hungup', 'color: red;');
 				}
-			} else if (OnOff === 'Off') {
+			} else if (OnOff.case === 'Off') {
 				console.log('%cOnOff is Off didnt hungup the call', 'color: red;');
 			}
 		}; // the time of the call let's call it X
