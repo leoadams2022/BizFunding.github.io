@@ -1,3 +1,4 @@
+//1.11
 //adding  html elements
 const commentss = document.querySelector("#comments");
 commentss.insertAdjacentHTML("afterend", `
@@ -459,12 +460,12 @@ function MyGoogleForm() {
         alert('There is No Active Call');
     } else {
         setAllVars();
-        var NewOld = '';
-        if (SelVal === 'New') {
-            NewOld = "New Tort"
-        } else if (SelVal === 'Old') {
-            NewOld = "Old Tort"
-        }
+        var NewOld = 'ngs';
+        // if (SelVal === 'New') {
+        //     NewOld = "New Tort"
+        // } else if (SelVal === 'Old') {
+        //     NewOld = "Old Tort"
+        // }
         window.open(`https://docs.google.com/forms/d/e/1FAIpQLSdZpEg__LoOqaKDENr2V8i8EbWQ4lY6mCVf-F_OQu0aZk3aMw/viewform?usp=pp_url&entry.1714741896=${firstName}+${lastName}&entry.79476890=${phoneNumber}&entry.1938784237=${address}+${city}+${state}+${zip}&entry.1521110734=${email}&entry.1004047280=${comments}&entry.2042514721=${NewOld}`);
     }
 }
@@ -578,17 +579,21 @@ async function CustHungUp() {
         if (cheackCustHungUP()) {
             // cust did hung up
             console.log('%cCust haungup', 'color: blue;');
-            let hungupAnddispo = hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
-                CallDispo = 'NI';
-                CallLogFunction();
-                /* still not diffiend
-                clearTimeout(hungupFun);
-                clearTimeout(DispoFun);
-                clearTimeout(AutoHangupFun);
-                */
-            });
-            console.log('hungupAnddispo: ', hungupAnddispo);
-            setTimeout(AutoHangup, 2000);
+            try {
+                let hungupAnddispo = hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
+                    CallDispo = 'NI';
+                    CallLogFunction();
+                    /* still not diffiend
+                    clearTimeout(hungupFun);
+                    clearTimeout(DispoFun);
+                    clearTimeout(AutoHangupFun);
+                    */
+                });
+                console.log('hungupAnddispo: ', hungupAnddispo);
+            } catch (error) {
+                console.log(error);
+            }
+            // setTimeout(AutoHangup, 2000); //  AutoHangup still not diffaied
             var resSpan = document.getElementById('Dispospan');
             resSpan.innerHTML = 'Cust HungUp Not Interested';
             setTimeout(() => {
@@ -600,7 +605,7 @@ async function CustHungUp() {
 setInterval(CustHungUp, 1000);
 //                ---------------------------
 // auto mute function
-async function AutoMuteFunc() {
+function AutoMuteFunc() {
     if (cheackActiveCall()) {
         if (AutMuOnOff === 'On') {
             if (isItMuted == true) {
@@ -775,5 +780,104 @@ function GetDispo() {
         }
     }, 1000);
 }
+//                ---------------------------
+// the hungup with the keyboared function
+document.addEventListener("keydown", async function (event) {
+    var resSpan = document.getElementById('Dispospan');
+    switch (event.which) {
+        case 112:
+            event.preventDefault();
+            try {
+                let hungupAnddispo = hungupAndDispo("\'N\', \'ADD\', \'YES\'", 'both', () => {
+                    CallDispo = 'N';
+                    CallLogFunction();
+                    /* still not diffiend
+                    clearTimeout(hungupFun);
+                    clearTimeout(DispoFun);
+                    clearTimeout(AutoHangupFun);
+                    */
+                });
+                console.log('hungupAnddispo: ', hungupAnddispo);
+                // setTimeout(AutoHangup, 2000); //still not diffiend
+                resSpan.innerHTML = 'No Answer';
+                setTimeout(() => {
+                    resSpan.innerHTML = '';
+                }, 4000);
+            } catch (error) {
+                console.log(error);
+            }
+            break;
+        case 113:
+            event.preventDefault();
+            try {
+                let hungupAnddispo = hungupAndDispo("\'A\', \'ADD\', \'YES\'", 'both', () => {
+                    CallDispo = 'A';
+                    CallLogFunction();
+                    /* still not diffiend
+                    clearTimeout(hungupFun);
+                    clearTimeout(DispoFun);
+                    clearTimeout(AutoHangupFun);
+                    */
+                });
+                console.log('hungupAnddispo: ', hungupAnddispo);
+                // setTimeout(AutoHangup, 2000); //still not diffiend
+                resSpan.innerHTML = 'Answering Machine';
+                setTimeout(() => {
+                    resSpan.innerHTML = '';
+                }, 4000);
+            } catch (error) {
+                console.log(error);
+            }
+            break;
+        case 114:
+            event.preventDefault();
+            try {
+                let hungupAnddispo = hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
+                    CallDispo = 'NI';
+                    CallLogFunction();
+                    /* still not diffiend
+                    clearTimeout(hungupFun);
+                    clearTimeout(DispoFun);
+                    clearTimeout(AutoHangupFun);
+                    */
+                });
+                console.log('hungupAnddispo: ', hungupAnddispo);
+                // setTimeout(AutoHangup, 2000); //still not diffiend
+                resSpan.innerHTML = 'Not Interested';
+                setTimeout(() => {
+                    resSpan.innerHTML = '';
+                }, 4000);
+            } catch (error) {
+                console.log(error);
+            }
+            break;
+        case 115:
+            event.preventDefault();
+            try {
+                let hungupAnddispo = hungupAndDispo("\'NV\', \'ADD\', \'YES\'", 'both', () => {
+                    CallDispo = 'NV';
+                    CallLogFunction();
+                    /* still not diffiend
+                    clearTimeout(hungupFun);
+                    clearTimeout(DispoFun);
+                    clearTimeout(AutoHangupFun);
+                    */
+                });
+                console.log('hungupAnddispo: ', hungupAnddispo);
+                // setTimeout(AutoHangup, 2000); //still not diffiend
+                resSpan.innerHTML = 'Not Vetran';
+                setTimeout(() => {
+                    resSpan.innerHTML = '';
+                }, 4000);
+            } catch (error) {
+                console.log(error);
+            }
+            break;
+        case 123:
+            event.preventDefault();
+            AutoHungupOnOff();
+            break;
+    }
+})
 //                ---------------------------
 //   --------------------------- //Secound Row Functions  ---------------------------
