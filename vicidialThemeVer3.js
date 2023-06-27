@@ -1,3 +1,4 @@
+//1.35
 //adding  html elements
 const commentss = document.querySelector("#comments");
 commentss.insertAdjacentHTML("afterend", `
@@ -575,7 +576,7 @@ async function CustHungUp() {
     if (TransferVisibility === 'visible') {
         //Transfer panl Visibility is visible dont hungup
     } else {
-        if (cheackCustHungUP()) {
+        if (cheackCustHungUP() === true) {
             // cust did hung up
             console.log('%cCust haungup', 'color: blue;');
             try {
@@ -590,7 +591,7 @@ async function CustHungUp() {
                 });
                 console.log('hungupAnddispo: ', hungupAnddispo);
             } catch (error) {
-                console.log(error);
+                console.log('case: ', error.case, 'reason: ', error.reason);
             }
             // setTimeout(AutoHangup, 2000); //  AutoHangup still not diffaied
             var resSpan = document.getElementById('Dispospan');
@@ -803,7 +804,8 @@ document.addEventListener("keydown", async function (event) {
                     resSpan.innerHTML = '';
                 }, 4000);
             } catch (error) {
-                console.log(error);
+                console.log('case: ', error.case, 'reason: ', error.reason);
+                alert(error.reason)
             }
             break;
         case 113:
@@ -825,7 +827,8 @@ document.addEventListener("keydown", async function (event) {
                     resSpan.innerHTML = '';
                 }, 4000);
             } catch (error) {
-                console.log(error);
+                console.log('case: ', error.case, 'reason: ', error.reason);
+                alert(error.reason)
             }
             break;
         case 114:
@@ -847,7 +850,8 @@ document.addEventListener("keydown", async function (event) {
                     resSpan.innerHTML = '';
                 }, 4000);
             } catch (error) {
-                console.log(error);
+                console.log('case: ', error.case, 'reason: ', error.reason);
+                alert(error.reason)
             }
             break;
         case 115:
@@ -869,7 +873,8 @@ document.addEventListener("keydown", async function (event) {
                     resSpan.innerHTML = '';
                 }, 4000);
             } catch (error) {
-                console.log(error);
+                console.log('case: ', error.case, 'reason: ', error.reason);
+                alert(error.reason)
             }
             break;
         case 123:
