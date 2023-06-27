@@ -1,4 +1,4 @@
-//9.15
+
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -355,32 +355,17 @@ function randomNum(fiveToThirty = true, num1 = 5, num2 = 30) {
 	return ArrRes;
 }
 //                ---------------------------
-function HungUpAndDispo(action = 'hungupAndDiop', fullDispo = "\'NI\', \'ADD\', \'YES\'", funcBeforDispo = () => { console.log('funcBeforDispo') }) {
-	if (ativeCallCheack()) { // there is an active call
-		if (action === 'hungupAndDiop') {
-			dialedcall_send_hangup('', '', '', '', 'YES');
-			funcBeforDispo();
-			setTimeout(() => { // give it a sec to show the dispo panl
-				if (visibleDispoPanlCheack()) { // the dispo panle is visibale 
-					DispoSelectContent_create(fullDispo);
-					DispoSelect_submit('', '', 'YES');
-					return { case: true };
-				} else { return { case: false, reason: 'dispo panl not visibale' } }
-			}, 1000);
-		} else if (action === 'justHungup') {
-			dialedcall_send_hangup('', '', '', '', 'YES');
-			return { case: true }
-		} else if (action === 'justDiosp') {
-			if (visibleDispoPanlCheack()) { // the dispo panle is visibale 
-				DispoSelectContent_create(fullDispo);
-				DispoSelect_submit('', '', 'YES');
-				return { case: true }
-			} else { return { case: false, reason: 'dispo panl not visibale' } }
-		}
-	} else {
-		return { case: false, reason: 'no active call' }
-	}
-}
+// function HungUpAndDispo(fullDispo) {
+// 	if (ativeCallCheack()) { // there is an active call
+// 		dialedcall_send_hangup('', '', '', '', 'YES');
+// 		setTimeout(() => { // give it a sec to show the dispo panl
+// 			if (visibleDispoPanlCheack()) { // the dispo panle is visibale 
+// 				DispoSelectContent_create(fullDispo);
+// 				DispoSelect_submit('', '', 'YES');
+// 			}
+// 		}, 1000);
+// 	}
+// }
 // the AutoHangup function
 function AutoHangup() {
 	var timeOftheCall;
@@ -531,38 +516,30 @@ function CustHungUp() {
 			var ImgSrc = HungUpImg.getAttribute('src');
 			if (ImgSrc == './images/vdc_LB_hangupcustomer.gif')
 			*/
-			let hungupwithdispo = HungUpAndDispo('hungupAndDiop', "\'NI\', \'ADD\', \'YES\'", () => {
-				clearTimeout(hungupFun)
-				clearTimeout(DispoFun)
-				clearTimeout(AutoHangupFun)
+			if (ativeCallCheack('img')) {
+				dialedcall_send_hangup('', '', '', '', 'YES');
 				CallDispo = 'NI';
 				CallLogFunction();
-			});
-			console.log('%chave hungup with dispo ', hungupwithdispo.case, ' ', hungupwithdispo.reason, 'color: blue;');
-			// if (ativeCallCheack('img')) {
-			// CallDispo = 'NI';
-			// CallLogFunction();
-			// dialedcall_send_hangup('', '', '', '', 'YES');
-			// console.log('%cImgSrc is good just hungedup the call', 'color: blue;');
-			// clearTimeout(hungupFun);
-			// clearTimeout(DispoFun);
-			// clearTimeout(AutoHangupFun);
-			// console.log('%ccanceled timeout for hungupFun & DispoFun & AutoHangupFun and have set timeout as 1000', 'color: blue;');
-			// setTimeout(() => {
-			// 	// let visibleDispoPanlCheackV = visibleDispoPanlCheack();
-			// 	if (visibleDispoPanlCheack()) {
-			// 		DispoSelectContent_create('NI', 'ADD', 'YES');
-			// 		DispoSelect_submit('', '', 'YES');
-			// 		console.log('%chave Disopstioned as ANS', 'color: blue;');
-			// 	}
-			// }, 1000);
-			setTimeout(AutoHangup, 2000);
-			var resSpan = document.getElementById('Dispospan');
-			resSpan.innerHTML = 'Cust HungUp Not Interested';
-			setTimeout(() => {
-				resSpan.innerHTML = '';
-			}, 4000);
-			// }
+				console.log('%cImgSrc is good just hungedup the call', 'color: blue;');
+				clearTimeout(hungupFun);
+				clearTimeout(DispoFun);
+				clearTimeout(AutoHangupFun);
+				console.log('%ccanceled timeout for hungupFun & DispoFun & AutoHangupFun and have set timeout as 1000', 'color: blue;');
+				setTimeout(() => {
+					// let visibleDispoPanlCheackV = visibleDispoPanlCheack();
+					if (visibleDispoPanlCheack()) {
+						DispoSelectContent_create('NI', 'ADD', 'YES');
+						DispoSelect_submit('', '', 'YES');
+						console.log('%chave Disopstioned as ANS', 'color: blue;');
+					}
+				}, 1000);
+				setTimeout(AutoHangup, 2000);
+				var resSpan = document.getElementById('Dispospan');
+				resSpan.innerHTML = 'Cust HungUp Not Interested';
+				setTimeout(() => {
+					resSpan.innerHTML = '';
+				}, 4000);
+			}
 		} else { }
 	}
 }
@@ -585,36 +562,24 @@ document.addEventListener("keydown", function (event) {
 				// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
 				// var ImgSrc = HungUpImg.getAttribute('src');
 				// if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') 
-				HungUpAndDispo('hungupAndDiop', "\'N\', \'ADD\', \'YES\'", () => {
-					clearTimeout(hungupFun)
-					clearTimeout(DispoFun)
-					clearTimeout(AutoHangupFun)
+				if (ativeCallCheack('img')) {
+					clearTimeout(hungupFun);
+					clearTimeout(DispoFun);
+					clearTimeout(AutoHangupFun);
+					console.log('%cIhungedUpFun clicked', 'color: green;');
+					dialedcall_send_hangup('', '', '', '', 'YES');
 					CallDispo = 'N';
 					CallLogFunction();
-				});
-				setTimeout(AutoHangup, 2000);
-				resSpan.innerHTML = 'No Answer';
-				setTimeout(() => {
-					resSpan.innerHTML = '';
-				}, 4000);
-				// if (ativeCallCheack('img')) {
-				// 	clearTimeout(hungupFun);
-				// 	clearTimeout(DispoFun);
-				// 	clearTimeout(AutoHangupFun);
-				// 	console.log('%cIhungedUpFun clicked', 'color: green;');
-				// 	dialedcall_send_hangup('', '', '', '', 'YES');
-				// 	CallDispo = 'N';
-				// 	CallLogFunction();
-				// 	setTimeout(() => {
-				// 		DispoSelectContent_create('N', 'ADD', 'YES');
-				// 		DispoSelect_submit('', '', 'YES');
-				// 	}, 1000);
-				// 	setTimeout(AutoHangup, 2000);
-				// 	resSpan.innerHTML = 'No Answer';
-				// 	setTimeout(() => {
-				// 		resSpan.innerHTML = '';
-				// 	}, 4000);
-				// }
+					setTimeout(() => {
+						DispoSelectContent_create('N', 'ADD', 'YES');
+						DispoSelect_submit('', '', 'YES');
+					}, 1000);
+					setTimeout(AutoHangup, 2000);
+					resSpan.innerHTML = 'No Answer';
+					setTimeout(() => {
+						resSpan.innerHTML = '';
+					}, 4000);
+				}
 			}
 			break;
 		case 113:
@@ -630,36 +595,24 @@ document.addEventListener("keydown", function (event) {
 				// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
 				// var ImgSrc = HungUpImg.getAttribute('src');
 				// if (ImgSrc == './images/vdc_LB_hangupcustomer.gif')
-				HungUpAndDispo('hungupAndDiop', "\'A\', \'ADD\', \'YES\'", () => {
-					clearTimeout(hungupFun)
-					clearTimeout(DispoFun)
-					clearTimeout(AutoHangupFun)
-					CallDispo = 'N';
+				if (ativeCallCheack('img')) {
+					clearTimeout(hungupFun);
+					clearTimeout(DispoFun);
+					clearTimeout(AutoHangupFun);
+					console.log('%cIhungedUpFun clicked', 'color: green;');
+					dialedcall_send_hangup('', '', '', '', 'YES');
+					CallDispo = 'A';
 					CallLogFunction();
-				});
-				setTimeout(AutoHangup, 2000);
-				resSpan.innerHTML = 'Answering Machine';
-				setTimeout(() => {
-					resSpan.innerHTML = '';
-				}, 4000);
-				// if (ativeCallCheack('img')) {
-				// 	clearTimeout(hungupFun);
-				// 	clearTimeout(DispoFun);
-				// 	clearTimeout(AutoHangupFun);
-				// 	console.log('%cIhungedUpFun clicked', 'color: green;');
-				// 	dialedcall_send_hangup('', '', '', '', 'YES');
-				// 	CallDispo = 'A';
-				// 	CallLogFunction();
-				// 	setTimeout(() => {
-				// 		DispoSelectContent_create('A', 'ADD', 'YES');
-				// 		DispoSelect_submit('', '', 'YES');
-				// 	}, 1000);
-				// 	setTimeout(AutoHangup, 2000);
-				// 	resSpan.innerHTML = 'Answering Machine';
-				// 	setTimeout(() => {
-				// 		resSpan.innerHTML = '';
-				// 	}, 4000);
-				// }
+					setTimeout(() => {
+						DispoSelectContent_create('A', 'ADD', 'YES');
+						DispoSelect_submit('', '', 'YES');
+					}, 1000);
+					setTimeout(AutoHangup, 2000);
+					resSpan.innerHTML = 'Answering Machine';
+					setTimeout(() => {
+						resSpan.innerHTML = '';
+					}, 4000);
+				}
 			}
 			break;
 		case 114:
@@ -675,36 +628,24 @@ document.addEventListener("keydown", function (event) {
 				// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
 				// var ImgSrc = HungUpImg.getAttribute('src');
 				// if (ImgSrc == './images/vdc_LB_hangupcustomer.gif')
-				HungUpAndDispo('hungupAndDiop', "\'NI\', \'ADD\', \'YES\'", () => {
-					clearTimeout(hungupFun)
-					clearTimeout(DispoFun)
-					clearTimeout(AutoHangupFun)
-					CallDispo = 'N';
+				if (ativeCallCheack('img')) {
+					clearTimeout(hungupFun);
+					clearTimeout(DispoFun);
+					clearTimeout(AutoHangupFun);
+					console.log('%cIhungedUpFun clicked', 'color: green;');
+					dialedcall_send_hangup('', '', '', '', 'YES');
+					CallDispo = 'NI';
 					CallLogFunction();
-				});
-				setTimeout(AutoHangup, 2000);
-				resSpan.innerHTML = 'Not Interested';
-				setTimeout(() => {
-					resSpan.innerHTML = '';
-				}, 4000);
-				// if (ativeCallCheack('img')) {
-				// 	clearTimeout(hungupFun);
-				// 	clearTimeout(DispoFun);
-				// 	clearTimeout(AutoHangupFun);
-				// 	console.log('%cIhungedUpFun clicked', 'color: green;');
-				// 	dialedcall_send_hangup('', '', '', '', 'YES');
-				// 	CallDispo = 'NI';
-				// 	CallLogFunction();
-				// 	setTimeout(() => {
-				// 		DispoSelectContent_create('NI', 'ADD', 'YES');
-				// 		DispoSelect_submit('', '', 'YES');
-				// 	}, 1000);
-				// 	setTimeout(AutoHangup, 2000);
-				// 	resSpan.innerHTML = 'Not Interested';
-				// 	setTimeout(() => {
-				// 		resSpan.innerHTML = '';
-				// 	}, 4000);
-				// }
+					setTimeout(() => {
+						DispoSelectContent_create('NI', 'ADD', 'YES');
+						DispoSelect_submit('', '', 'YES');
+					}, 1000);
+					setTimeout(AutoHangup, 2000);
+					resSpan.innerHTML = 'Not Interested';
+					setTimeout(() => {
+						resSpan.innerHTML = '';
+					}, 4000);
+				}
 			}
 			break;
 		case 115:
@@ -720,36 +661,24 @@ document.addEventListener("keydown", function (event) {
 				// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
 				// var ImgSrc = HungUpImg.getAttribute('src');
 				// if (ImgSrc == './images/vdc_LB_hangupcustomer.gif')
-				HungUpAndDispo('hungupAndDiop', "\'NV\', \'ADD\', \'YES\'", () => {
-					clearTimeout(hungupFun)
-					clearTimeout(DispoFun)
-					clearTimeout(AutoHangupFun)
-					CallDispo = 'N';
+				if (ativeCallCheack('img')) {
+					clearTimeout(hungupFun);
+					clearTimeout(DispoFun);
+					clearTimeout(AutoHangupFun);
+					console.log('%cIhungedUpFun clicked', 'color: green;');
+					dialedcall_send_hangup('', '', '', '', 'YES');
+					CallDispo = 'NV';
 					CallLogFunction();
-				});
-				setTimeout(AutoHangup, 2000);
-				resSpan.innerHTML = 'Not Vetran';
-				setTimeout(() => {
-					resSpan.innerHTML = '';
-				}, 4000);
-				// if (ativeCallCheack('img')) {
-				// 	clearTimeout(hungupFun);
-				// 	clearTimeout(DispoFun);
-				// 	clearTimeout(AutoHangupFun);
-				// 	console.log('%cIhungedUpFun clicked', 'color: green;');
-				// 	dialedcall_send_hangup('', '', '', '', 'YES');
-				// 	CallDispo = 'NV';
-				// 	CallLogFunction();
-				// 	setTimeout(() => {
-				// 		DispoSelectContent_create('NV', 'ADD', 'YES');
-				// 		DispoSelect_submit('', '', 'YES');
-				// 	}, 1000);
-				// 	setTimeout(AutoHangup, 2000);
-				// 	resSpan.innerHTML = 'Not Vetran';
-				// 	setTimeout(() => {
-				// 		resSpan.innerHTML = '';
-				// 	}, 4000);
-				// }
+					setTimeout(() => {
+						DispoSelectContent_create('NV', 'ADD', 'YES');
+						DispoSelect_submit('', '', 'YES');
+					}, 1000);
+					setTimeout(AutoHangup, 2000);
+					resSpan.innerHTML = 'Not Vetran';
+					setTimeout(() => {
+						resSpan.innerHTML = '';
+					}, 4000);
+				}
 			}
 			break;
 		case 123:
