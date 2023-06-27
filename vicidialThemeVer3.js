@@ -1,4 +1,4 @@
-//8.51
+//9.15
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -359,12 +359,12 @@ function HungUpAndDispo(action = 'hungupAndDiop', fullDispo = "\'NI\', \'ADD\', 
 	if (ativeCallCheack()) { // there is an active call
 		if (action === 'hungupAndDiop') {
 			dialedcall_send_hangup('', '', '', '', 'YES');
-			funcBeforDispo()
+			funcBeforDispo();
 			setTimeout(() => { // give it a sec to show the dispo panl
 				if (visibleDispoPanlCheack()) { // the dispo panle is visibale 
 					DispoSelectContent_create(fullDispo);
 					DispoSelect_submit('', '', 'YES');
-					return { case: true }
+					return { case: true };
 				} else { return { case: false, reason: 'dispo panl not visibale' } }
 			}, 1000);
 		} else if (action === 'justHungup') {
@@ -412,15 +412,14 @@ function AutoHangup() {
 				// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
 				// var ImgSrc = HungUpImg.getAttribute('src');
 				// if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') 
-				// if (ativeCallCheack()) {//
-				// dialedcall_send_hangup('', '', '', '', 'YES');
-				let hungupFunc = HungUpAndDispo('justHungup')
-				CallDispo = dispoCode;
-				CallLogFunction();
-				console.log('%c', hungupFunc.case + hungupFunc.reason, 'color: green;');
-				// } else {
-				// console.log('%cImgSrc is not good cant hungup', 'color: red;');
-				// }
+				if (ativeCallCheack()) {
+					dialedcall_send_hangup('', '', '', '', 'YES');
+					CallDispo = dispoCode;
+					CallLogFunction();
+					console.log('%cImgSrc is good just hungedup the call', 'color: green;');
+				} else {
+					console.log('%cImgSrc is not good cant hungup', 'color: red;');
+				}
 			} else if (OnOff.case === 'Off') {
 				console.log('%cOnOff is Off didnt hungup the call', 'color: red;');
 			}
@@ -431,21 +430,20 @@ function AutoHangup() {
 			// const visibility = DispoSelectBox.style.visibility;
 			// //makeing sure that the Dispo page is visibleq	
 			// if (visibility === 'visible') 
-			// if (visibleDispoPanlCheack()) {
-			// let visibility = 'true';
-			// console.log('%cDispo table is visible', 'color: green;');
-			// DispoSelectContent_create(fullDispo);
-			// DispoSelect_submit('', '', 'YES');
-			let dispoFunc = HungUpAndDispo('justDiosp', fullDispo)
-			console.log('%chave Disopstioned as ' + fullDispo, dispoFunc.case + dispoFunc.reason, 'color: green;');
-			var resSpan = document.getElementById('Dispospan');
-			resSpan.innerHTML = fullDispo;
-			setTimeout(() => {
-				resSpan.innerHTML = '';
-			}, 3000);
-			// } else {
-			// 	console.log('%cdid not Disopstion the Disop table is =  ' + visibleDispoPanlCheack(), 'color: red;');
-			// }
+			if (visibleDispoPanlCheack()) {
+				// let visibility = 'true';
+				console.log('%cDispo table is visible', 'color: green;');
+				DispoSelectContent_create(fullDispo);
+				DispoSelect_submit('', '', 'YES');
+				console.log('%chave Disopstioned as ' + fullDispo, 'color: green;');
+				var resSpan = document.getElementById('Dispospan');
+				resSpan.innerHTML = 'AH ' + fullDispo;
+				setTimeout(() => {
+					resSpan.innerHTML = '';
+				}, 3000);
+			} else {
+				console.log('%cdid not Disopstion the Disop table is =  ' + visibleDispoPanlCheack(), 'color: red;');
+			}
 		} //this have to be X+2
 		DispoFun = setTimeout(Dispo, (Number(timeOftheCall) + 2) * 1000);
 	}
