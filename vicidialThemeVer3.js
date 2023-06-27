@@ -1,4 +1,3 @@
-//1.11
 //adding  html elements
 const commentss = document.querySelector("#comments");
 commentss.insertAdjacentHTML("afterend", `
@@ -580,7 +579,7 @@ async function CustHungUp() {
             // cust did hung up
             console.log('%cCust haungup', 'color: blue;');
             try {
-                let hungupAnddispo = hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
+                let hungupAnddispo = await hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
                     CallDispo = 'NI';
                     CallLogFunction();
                     /* still not diffiend
@@ -788,7 +787,7 @@ document.addEventListener("keydown", async function (event) {
         case 112:
             event.preventDefault();
             try {
-                let hungupAnddispo = hungupAndDispo("\'N\', \'ADD\', \'YES\'", 'both', () => {
+                let hungupAnddispo = await hungupAndDispo("\'N\', \'ADD\', \'YES\'", 'both', () => {
                     CallDispo = 'N';
                     CallLogFunction();
                     /* still not diffiend
@@ -810,7 +809,7 @@ document.addEventListener("keydown", async function (event) {
         case 113:
             event.preventDefault();
             try {
-                let hungupAnddispo = hungupAndDispo("\'A\', \'ADD\', \'YES\'", 'both', () => {
+                let hungupAnddispo = await hungupAndDispo("\'A\', \'ADD\', \'YES\'", 'both', () => {
                     CallDispo = 'A';
                     CallLogFunction();
                     /* still not diffiend
@@ -832,7 +831,7 @@ document.addEventListener("keydown", async function (event) {
         case 114:
             event.preventDefault();
             try {
-                let hungupAnddispo = hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
+                let hungupAnddispo = await hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
                     CallDispo = 'NI';
                     CallLogFunction();
                     /* still not diffiend
@@ -854,7 +853,7 @@ document.addEventListener("keydown", async function (event) {
         case 115:
             event.preventDefault();
             try {
-                let hungupAnddispo = hungupAndDispo("\'NV\', \'ADD\', \'YES\'", 'both', () => {
+                let hungupAnddispo = await hungupAndDispo("\'NV\', \'ADD\', \'YES\'", 'both', () => {
                     CallDispo = 'NV';
                     CallLogFunction();
                     /* still not diffiend
