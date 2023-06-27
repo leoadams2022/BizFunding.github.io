@@ -1,4 +1,4 @@
-//1.35
+// 1.40
 //adding  html elements
 const commentss = document.querySelector("#comments");
 commentss.insertAdjacentHTML("afterend", `
@@ -578,27 +578,29 @@ async function CustHungUp() {
     } else {
         if (cheackCustHungUP() === true) {
             // cust did hung up
-            console.log('%cCust haungup', 'color: blue;');
-            try {
-                let hungupAnddispo = await hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
-                    CallDispo = 'NI';
-                    CallLogFunction();
-                    /* still not diffiend
-                    clearTimeout(hungupFun);
-                    clearTimeout(DispoFun);
-                    clearTimeout(AutoHangupFun);
-                    */
-                });
-                console.log('hungupAnddispo: ', hungupAnddispo);
-            } catch (error) {
-                console.log('case: ', error.case, 'reason: ', error.reason);
-            }
-            // setTimeout(AutoHangup, 2000); //  AutoHangup still not diffaied
-            var resSpan = document.getElementById('Dispospan');
-            resSpan.innerHTML = 'Cust HungUp Not Interested';
-            setTimeout(() => {
-                resSpan.innerHTML = '';
-            }, 4000);
+            setTimeout(() => { // get it to be 500ms late to give time for me to hungup if i want to :)
+                console.log('%cCust haungup', 'color: blue;');
+                try {
+                    let hungupAnddispo = await hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
+                        CallDispo = 'NI';
+                        CallLogFunction();
+                        /* still not diffiend
+                        clearTimeout(hungupFun);
+                        clearTimeout(DispoFun);
+                        clearTimeout(AutoHangupFun);
+                        */
+                    });
+                    console.log('hungupAnddispo: ', hungupAnddispo);
+                } catch (error) {
+                    console.log('case: ', error.case, 'reason: ', error.reason);
+                }
+                // setTimeout(AutoHangup, 2000); //  AutoHangup still not diffaied
+                var resSpan = document.getElementById('Dispospan');
+                resSpan.innerHTML = 'Cust HungUp Not Interested';
+                setTimeout(() => {
+                    resSpan.innerHTML = '';
+                }, 4000);
+            }, 500);
         } else { }
     }
 }
