@@ -1,4 +1,4 @@
-//1.42
+//6.57
 //adding  html elements
 const comments = document.querySelector("#comments");
 comments.insertAdjacentHTML("afterend", `
@@ -405,6 +405,7 @@ function AutoHangup() {
 			// //makeing sure that the Dispo page is visibleq	
 			// if (visibility === 'visible') 
 			if (visibleDispoPanlCheack()) {
+				let visibility = true;
 				console.log('%cDispo table is visible', 'color: green;');
 				DispoSelectContent_create(fullDispo);
 				DispoSelect_submit('', '', 'YES');
@@ -431,23 +432,32 @@ setTimeout(AutoHangup, 1000); //this shuld always be 1000
 //                ---------------------------
 // auto hung up when cust hungs up function
 // cheak if there is a active call 
-function ativeCallCheack() {
-	var HungUpSpan = document.getElementById('HangupControl'),
-		HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-	if (typeof HungUpA === 'undefined')
-	// var HungUpSpan = document.getElementById('HangupControl'),
-	// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-	// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
-	// var ImgSrc = HungUpImg.getAttribute('src');
-	// let imgSrcArr = ImgSrc.split('/');
-	// let imgName = imgSrcArr[imgSrcArr.length - 1];
-	// if (imgName == 'vdc_LB_hangupcustomer.gif') 
-	{
-		// there is an active call
-		return false;
-	} else {
-		// there is no active call
-		return true;
+function ativeCallCheack(type = 'a') {
+	if (type === 'a') {
+		var HungUpSpan = document.getElementById('HangupControl'),
+			HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+		if (typeof HungUpA === 'undefined') {
+			// there is an active call
+			return false;
+		} else {
+			// there is no active call
+			return true;
+		}
+	} else if (type === 'img') {
+		var HungUpSpan = document.getElementById('HangupControl'),
+			HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+			HungUpImg = HungUpA.getElementsByTagName('img')[0];
+		var ImgSrc = HungUpImg.getAttribute('src');
+		let imgSrcArr = ImgSrc.split('/');
+		let imgName = imgSrcArr[imgSrcArr.length - 1];
+		if (imgName == 'vdc_LB_hangupcustomer.gif') {
+			// there is an active call
+			return true;
+		} else {
+			// there is no active call
+			return false;
+		}
+
 	}
 }
 // chaeck for visible dispo panl
@@ -488,7 +498,14 @@ function CustHungUp() {
 		if (custHungupCheack()) {
 			console.log('%cCust haungup', 'color: blue;');
 			// let ativeCallCheackV = ativeCallCheack();
-			if (ativeCallCheack()) {
+			/*
+			ar HungUpSpan = document.getElementById('HangupControl'),
+				HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+				HungUpImg = HungUpA.getElementsByTagName('img')[0];
+			var ImgSrc = HungUpImg.getAttribute('src');
+			if (ImgSrc == './images/vdc_LB_hangupcustomer.gif')
+			*/
+			if (ativeCallCheack('img')) {
 				dialedcall_send_hangup('', '', '', '', 'YES');
 				CallDispo = 'NI';
 				CallLogFunction();
@@ -524,16 +541,17 @@ document.addEventListener("keydown", function (event) {
 	switch (event.which) {
 		case 112:
 			event.preventDefault();
-			var HungUpSpan = document.getElementById('HangupControl'),
-				HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-			if (typeof HungUpA === 'undefined') {
+			// var HungUpSpan = document.getElementById('HangupControl'),
+			// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+			if (!ativeCallCheack()) {
 				alert('There is no active call to hungup');
 			} else {
-				var HungUpSpan = document.getElementById('HangupControl'),
-					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-					HungUpImg = HungUpA.getElementsByTagName('img')[0];
-				var ImgSrc = HungUpImg.getAttribute('src');
-				if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+				// var HungUpSpan = document.getElementById('HangupControl'),
+				// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+				// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
+				// var ImgSrc = HungUpImg.getAttribute('src');
+				// if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') 
+				if (ativeCallCheack('img')) {
 					clearTimeout(hungupFun);
 					clearTimeout(DispoFun);
 					clearTimeout(AutoHangupFun);
@@ -555,16 +573,18 @@ document.addEventListener("keydown", function (event) {
 			break;
 		case 113:
 			event.preventDefault();
-			var HungUpSpan = document.getElementById('HangupControl'),
-				HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-			if (typeof HungUpA === 'undefined') {
+			// var HungUpSpan = document.getElementById('HangupControl'),
+			// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+			// if (typeof HungUpA === 'undefined')
+			if (!ativeCallCheack()) {
 				alert('There is no active call to hungup');
 			} else {
-				var HungUpSpan = document.getElementById('HangupControl'),
-					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-					HungUpImg = HungUpA.getElementsByTagName('img')[0];
-				var ImgSrc = HungUpImg.getAttribute('src');
-				if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+				// var HungUpSpan = document.getElementById('HangupControl'),
+				// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+				// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
+				// var ImgSrc = HungUpImg.getAttribute('src');
+				// if (ImgSrc == './images/vdc_LB_hangupcustomer.gif')
+				if (ativeCallCheack('img')) {
 					clearTimeout(hungupFun);
 					clearTimeout(DispoFun);
 					clearTimeout(AutoHangupFun);
@@ -586,16 +606,18 @@ document.addEventListener("keydown", function (event) {
 			break;
 		case 114:
 			event.preventDefault();
-			var HungUpSpan = document.getElementById('HangupControl'),
-				HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-			if (typeof HungUpA === 'undefined') {
+			// var HungUpSpan = document.getElementById('HangupControl'),
+			// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+			// if (typeof HungUpA === 'undefined')
+			if (!ativeCallCheack()) {
 				alert('There is no active call to hungup');
 			} else {
-				var HungUpSpan = document.getElementById('HangupControl'),
-					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-					HungUpImg = HungUpA.getElementsByTagName('img')[0];
-				var ImgSrc = HungUpImg.getAttribute('src');
-				if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+				// var HungUpSpan = document.getElementById('HangupControl'),
+				// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+				// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
+				// var ImgSrc = HungUpImg.getAttribute('src');
+				// if (ImgSrc == './images/vdc_LB_hangupcustomer.gif')
+				if (ativeCallCheack('img')) {
 					clearTimeout(hungupFun);
 					clearTimeout(DispoFun);
 					clearTimeout(AutoHangupFun);
@@ -617,16 +639,18 @@ document.addEventListener("keydown", function (event) {
 			break;
 		case 115:
 			event.preventDefault();
-			var HungUpSpan = document.getElementById('HangupControl'),
-				HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-			if (typeof HungUpA === 'undefined') {
+			// var HungUpSpan = document.getElementById('HangupControl'),
+			// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+			// if (typeof HungUpA === 'undefined')
+			if (!ativeCallCheack()) {
 				alert('There is no active call to hungup');
 			} else {
-				var HungUpSpan = document.getElementById('HangupControl'),
-					HungUpA = HungUpSpan.getElementsByTagName('a')[0],
-					HungUpImg = HungUpA.getElementsByTagName('img')[0];
-				var ImgSrc = HungUpImg.getAttribute('src');
-				if (ImgSrc == './images/vdc_LB_hangupcustomer.gif') {
+				// var HungUpSpan = document.getElementById('HangupControl'),
+				// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0],
+				// 	HungUpImg = HungUpA.getElementsByTagName('img')[0];
+				// var ImgSrc = HungUpImg.getAttribute('src');
+				// if (ImgSrc == './images/vdc_LB_hangupcustomer.gif')
+				if (ativeCallCheack('img')) {
 					clearTimeout(hungupFun);
 					clearTimeout(DispoFun);
 					clearTimeout(AutoHangupFun);
@@ -663,9 +687,10 @@ function Copy() {
 //                ---------------------------
 // google Form 
 function googleForm() {
-	var HungUpSpan = document.getElementById('HangupControl'),
-		HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-	if (typeof HungUpA === 'undefined') {
+	// var HungUpSpan = document.getElementById('HangupControl'),
+	// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+	// if (typeof HungUpA === 'undefined')
+	if (!ativeCallCheack()) {
 		alert('There is No Active Call');
 	} else {
 		var number = document.getElementById('phone_numberDISP').innerText;
@@ -689,9 +714,10 @@ function googleForm() {
 //                ---------------------------
 // MY  google Form 
 function MyGoogleForm() {
-	var HungUpSpan = document.getElementById('HangupControl'),
-		HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-	if (typeof HungUpA === 'undefined') {
+	// var HungUpSpan = document.getElementById('HangupControl'),
+	// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+	// if (typeof HungUpA === 'undefined')
+	if (!ativeCallCheack()) {
 		alert('There is No Active Call');
 	} else {
 		var number = document.getElementById('phone_numberDISP').innerText;
@@ -727,38 +753,62 @@ const SavedListNew = JSON.parse(localStorage.getItem("DupListNew"));
 if (null == SavedListNew) alert('no New dup list in the lucalstorge');
 else null != SavedListNew && (DupListNew = SavedListNew);
 //                ---------------------------
-// auto check Dup
-function AutoCheckDupFun() {
-	var HungUpSpan = document.getElementById('HangupControl'),
-		HungUpA = HungUpSpan.getElementsByTagName('a')[0];
-	var res = document.getElementById("dupspan");
-	var Num = document.getElementById('phone_numberDISP').innerText
-	if (typeof HungUpA === 'undefined') {
-		// console.log('There is no active call to hungup');
-		res.innerHTML = "";
-		// auto mute part
-		if (AutMuOnOff.case === 'On') {
-			if (AutMuOnOff.ToF == true) {
+// suto mute function;
+function autoMute(action) {
+	if (AutMuOnOff.case === 'On') {
+		if (AutMuOnOff.ToF == true) {//muted
+			if (action === 'mute') {
 				console.log('%calready Muted,  NO-Active call', 'color: blue;')
-			} else if (AutMuOnOff.ToF == false) {
+			} else if (action === 'unmute') {
+				volume_control('UNMUTE', agentchannel, 'AgenT');
+				AutMuOnOff.ToF = false;
+				console.log('%ci have UN-Muted, isItMuted set to false, Active call', 'color: blue;');
+			}
+		} else if (AutMuOnOff.ToF == false) {// not muted	
+			if (action === 'mute') {
 				volume_control('MUTING', agentchannel, 'AgenT');
 				AutMuOnOff.ToF = true;
 				console.log('%ci have Muted, isItMuted set to true, NO-Active call', 'color: blue;');
+			} else if (action === 'unmute') {
+				console.log('%calready UN-Muted, Active call', 'color: blue;');
 			}
 		}
+	}
+}
+// auto check Dup
+function AutoCheckDupFun() {
+	// var HungUpSpan = document.getElementById('HangupControl'),
+	// 	HungUpA = HungUpSpan.getElementsByTagName('a')[0];
+	var res = document.getElementById("dupspan");
+	var Num = document.getElementById('phone_numberDISP').innerText
+	if (!ativeCallCheack()) {
+		// console.log('There is no active call to hungup');
+		res.innerHTML = "";
+		// auto mute part
+		// if (AutMuOnOff.case === 'On') {
+		// 	if (AutMuOnOff.ToF == true) {
+		// 		console.log('%calready Muted,  NO-Active call', 'color: blue;')
+		// 	} else if (AutMuOnOff.ToF == false) {
+		// 		volume_control('MUTING', agentchannel, 'AgenT');
+		// 		AutMuOnOff.ToF = true;
+		// 		console.log('%ci have Muted, isItMuted set to true, NO-Active call', 'color: blue;');
+		// 	}
+		// }
+		autoMute('mute');
 		/////////////////auto mute part
 
 	} else {
 		// auto mute part  {case: 'On',ToF: false }
-		if (AutMuOnOff.case === 'On') {
-			if (AutMuOnOff.ToF == true) {
-				volume_control('UNMUTE', agentchannel, 'AgenT');
-				AutMuOnOff.ToF = false;
-				console.log('%ci have UN-Muted, isItMuted set to false, Active call', 'color: blue;');
-			} else if (AutMuOnOff.ToF == false) {
-				console.log('%calready UN-Muted, Active call', 'color: blue;');
-			}
-		}
+		// if (AutMuOnOff.case === 'On') {
+		// 	if (AutMuOnOff.ToF == true) {
+		// 		volume_control('UNMUTE', agentchannel, 'AgenT');
+		// 		AutMuOnOff.ToF = false;
+		// 		console.log('%ci have UN-Muted, isItMuted set to false, Active call', 'color: blue;');
+		// 	} else if (AutMuOnOff.ToF == false) {
+		// 		console.log('%calready UN-Muted, Active call', 'color: blue;');
+		// 	}
+		// }
+		autoMute('unmute')
 		/////////////////auto mute part
 
 		// auto text To Audio part
@@ -769,33 +819,46 @@ function AutoCheckDupFun() {
 
 		var SelVal = document.getElementById("FormSelect").value;
 		if (SelVal === 'New') {
-			var TorFONew = DupListNew.includes(Num);
-			if (TorFONew == true) {
-				res.innerHTML = "New=BAD :(";
+			if (DupListNew.length === 0) {
+				res.innerHTML = "No New dup list in the lucalstorge";
 				res.classList.add('redSpan');
 				res.classList.remove('greenSpan');
 			} else {
-				res.innerHTML = "New=Good :)";
-				res.classList.remove('redSpan');
-				res.classList.add('greenSpan');
+
+				var TorFONew = DupListNew.includes(Num);
+				if (TorFONew == true) {
+					res.innerHTML = "New=BAD :(";
+					res.classList.add('redSpan');
+					res.classList.remove('greenSpan');
+				} else {
+					res.innerHTML = "New=Good :)";
+					res.classList.remove('redSpan');
+					res.classList.add('greenSpan');
+				}
 			}
 		} else if (SelVal === 'Old') {
-			var TorFOld = DupListOld.includes(Num);
-			if (TorFOld == true) {
-				res.innerHTML = "Old=BAD :(";
+			if (DupListOld.length === 0) {
+				res.innerHTML = 'No Old dup list in the lucalstorge';
 				res.classList.add('redSpan');
 				res.classList.remove('greenSpan');
 			} else {
-				res.innerHTML = "Old=Good :)";
-				res.classList.remove('redSpan');
-				res.classList.add('greenSpan');
+				var TorFOld = DupListOld.includes(Num);
+				if (TorFOld == true) {
+					res.innerHTML = "Old=BAD :(";
+					res.classList.add('redSpan');
+					res.classList.remove('greenSpan');
+				} else {
+					res.innerHTML = "Old=Good :)";
+					res.classList.remove('redSpan');
+					res.classList.add('greenSpan');
+				}
 			}
 		}
-		var number = document.getElementById('phone_numberDISP').innerText;
+		// var number = document.getElementById('phone_numberDISP').innerText;
 		var resSpan2 = document.getElementById('Dispospan2');
-		var TorF = NumbersArray.includes(number);
+		var TorF = NumbersArray.includes(Num);
 		if (TorF == true) {
-			resSpan2.innerHTML = "ReC" + number;
+			resSpan2.innerHTML = "ReC" + Num;
 		} else {
 			resSpan2.innerHTML = '';
 		}
