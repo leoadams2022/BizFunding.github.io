@@ -1,4 +1,3 @@
-// 1.40
 //adding  html elements
 const commentss = document.querySelector("#comments");
 commentss.insertAdjacentHTML("afterend", `
@@ -388,28 +387,34 @@ function cheackDispoPanlVisibalty() {
     }
 }
 // hungup and dispo function
-function hungupAndDispo(fullDispo = "\'NI\', \'ADD\', \'YES\'", action = 'both', callBackFunc = () => { console.log('hungupAndDispo callBackFunc') }) {
+function hungupAndDispo(fullDispo = "\'NI\', \'ADD\', \'YES\'", action = 'both', callBackFunc = () => { console.log('hungupAndDispo callBackFunc') }, hungupDelay = 0, dispoDelay = 1000) {
     return new Promise((resolve, reject) => {
         if (cheackActiveCall()) {
             if (action === 'both') {
-                dialedcall_send_hangup('', '', '', '', 'YES');
-                callBackFunc();
+                setTimeout(() => {
+                    dialedcall_send_hangup('', '', '', '', 'YES');
+                    callBackFunc();
+                }, hungupDelay);
                 setTimeout(() => {
                     if (cheackDispoPanlVisibalty()) {
                         DispoSelectContent_create(fullDispo);
                         DispoSelect_submit('', '', 'YES');
                         resolve(true);
                     } else { reject({ case: false, reason: 'Dispo Panl not Visible' }) }
-                }, 1000);
+                }, dispoDelay);
             } else if (action === 'hungup') {
-                dialedcall_send_hangup('', '', '', '', 'YES');
-                resolve(true);
-            } else if (action === 'dispo') {
-                if (cheackDispoPanlVisibalty()) {
-                    DispoSelectContent_create(fullDispo);
-                    DispoSelect_submit('', '', 'YES');
+                setTimeout(() => {
+                    dialedcall_send_hangup('', '', '', '', 'YES');
                     resolve(true);
-                } else { reject({ case: false, reason: 'Dispo Panl not Visible' }) }
+                }, hungupDelay);
+            } else if (action === 'dispo') {
+                setTimeout(() => {
+                    if (cheackDispoPanlVisibalty()) {
+                        DispoSelectContent_create(fullDispo);
+                        DispoSelect_submit('', '', 'YES');
+                        resolve(true);
+                    } else { reject({ case: false, reason: 'Dispo Panl not Visible' }) }
+                }, dispoDelay);
             }
         } else { reject({ case: false, reason: 'no active call' }) }
     });
@@ -578,29 +583,27 @@ async function CustHungUp() {
     } else {
         if (cheackCustHungUP() === true) {
             // cust did hung up
-            // setTimeout(() => { // get it to be 500ms late to give time for me to hungup if i want to :)
-                console.log('%cCust haungup', 'color: blue;');
-                try {
-                    let hungupAnddispo = await hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
-                        CallDispo = 'NI';
-                        CallLogFunction();
-                        /* still not diffiend
-                        clearTimeout(hungupFun);
-                        clearTimeout(DispoFun);
-                        clearTimeout(AutoHangupFun);
-                        */
-                    });
-                    console.log('hungupAnddispo: ', hungupAnddispo);
-                } catch (error) {
-                    console.log('case: ', error.case, 'reason: ', error.reason);
-                }
-                // setTimeout(AutoHangup, 2000); //  AutoHangup still not diffaied
-                var resSpan = document.getElementById('Dispospan');
-                resSpan.innerHTML = 'Cust HungUp Not Interested';
-                setTimeout(() => {
-                    resSpan.innerHTML = '';
-                }, 4000);
-            // }, 500);
+            console.log('%cCust haungup', 'color: blue;');
+            try {
+                let hungupAnddispo = await hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
+                    CallDispo = 'NI';
+                    CallLogFunction();
+                    /* still not diffiend
+                    clearTimeout(hungupFun);
+                    clearTimeout(DispoFun);
+                    clearTimeout(AutoHangupFun);
+                    */
+                }, 1000, 2000);//1000 is the hungupDelay and 2000 is the dispoDelay
+                console.log('hungupAnddispo: ', hungupAnddispo);
+            } catch (error) {
+                console.log('case: ', error.case, 'reason: ', error.reason);
+            }
+            // setTimeout(AutoHangup, 2000); //  AutoHangup still not diffaied
+            var resSpan = document.getElementById('Dispospan');
+            resSpan.innerHTML = 'Cust HungUp Not Interested';
+            setTimeout(() => {
+                resSpan.innerHTML = '';
+            }, 4000);
         } else { }
     }
 }
@@ -786,7 +789,7 @@ function GetDispo() {
 // the hungup with the keyboared function
 document.addEventListener("keydown", async function (event) {
     var resSpan = document.getElementById('Dispospan');
-    switch (event.which) {
+    switch (event) { //event.which
         case 112:
             event.preventDefault();
             try {
