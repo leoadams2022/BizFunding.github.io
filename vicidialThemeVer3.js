@@ -1,3 +1,4 @@
+//6.38
 //adding  html elements
 const commentss = document.querySelector("#comments");
 commentss.insertAdjacentHTML("afterend", `
