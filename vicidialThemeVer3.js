@@ -578,7 +578,7 @@ async function CustHungUp() {
     } else {
         if (cheackCustHungUP() === true) {
             // cust did hung up
-            setTimeout(() => { // get it to be 500ms late to give time for me to hungup if i want to :)
+            // setTimeout(() => { // get it to be 500ms late to give time for me to hungup if i want to :)
                 console.log('%cCust haungup', 'color: blue;');
                 try {
                     let hungupAnddispo = await hungupAndDispo("\'NI\', \'ADD\', \'YES\'", 'both', () => {
@@ -600,7 +600,7 @@ async function CustHungUp() {
                 setTimeout(() => {
                     resSpan.innerHTML = '';
                 }, 4000);
-            }, 500);
+            // }, 500);
         } else { }
     }
 }
