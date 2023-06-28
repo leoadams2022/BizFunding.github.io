@@ -576,6 +576,7 @@ setInterval(AutoCheckDupFun, 1000);
 
 //   --------------------------- Secound Row Functions  ---------------------------
 // auto hung up when cust hungs up function
+let CustHungUpTimeout;
 async function CustHungUp() {
     var TransferVisibility = document.querySelector('#TransferMain').style.visibility;
     if (TransferVisibility === 'visible') {
@@ -606,6 +607,7 @@ async function CustHungUp() {
             }, 4000);
         } else { }
     }
+    // CustHungUpTimeout = setTimeout()
 }
 setInterval(CustHungUp, 1000);
 //                ---------------------------
@@ -801,7 +803,7 @@ document.addEventListener("keydown", async function (event) {
                     clearTimeout(DispoFun);
                     clearTimeout(AutoHangupFun);
                     */
-                });
+                }, 0, 1000);
                 console.log('hungupAnddispo: ', hungupAnddispo);
                 // setTimeout(AutoHangup, 2000); //still not diffiend
                 resSpan.innerHTML = 'No Answer';
