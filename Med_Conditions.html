@@ -1,823 +1,1050 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-png" href="https://cdn-icons-png.flaticon.com/512/3887/3887775.png">
     <title>Med_Conditions_For_Tort</title>
-<style>
-      /* google font  */
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    <style>
+        /* google font  */
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-  :root{
-    --bs-dark-bg-subtle: #ffffffbf !important;
-  }
-.testDiv{
-  border: 1px solid red;
-  min-height: 80%;
-}
+        :root {
+            --bs-dark-bg-subtle: #ffffffbf !important;
+        }
 
-span.descriptionSpan,
-span.textToAudioSpan,
-span.stopAudioSpan,
-span.copySpan,
-span.showHideSetingsSpan {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 15px;
-    height: 15px;
-    background: rgba(13,110,253,.25);
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.5s;
-}
-span.descriptionSpan:hover,
-span.textToAudioSpan:hover,
-span.stopAudioSpan:hover,
-span.copySpan:hover,
-span.showHideSetingsSpan:hover {
-  background: rgba(255,255,255);
-}
-span.descriptionSpan i,
-span.textToAudioSpan i,
-span.stopAudioSpan i,
-span.copySpan i,
-span.showHideSetingsSpan i{
-  font-size: 12px;
-}
+        body {
+            overflow-x: hidden;
+        }
 
-span#welcome {
-    display: block;
-    width: 100vw;/*
-    height: 100vw; */
-    position: absolute;
-    z-index: 100;
-    top: 0px;
-    left: 0px;
-    background: white;
-}
-
-body{
-  background: linear-gradient(190deg, #00000047, #00000047),url(https://i.postimg.cc/GhXK1FGD/MedBG.jpg);
-  background-size: cover;
-  background-position: center center;
-}
-
-span#welBtn {
-    font-size: 40px;
-    font-weight: 600;
-    color: blue;
-    cursor: pointer;
-}
+        @media (min-width: 700px) {
+            .w-md-80 {
+                width: 80% !important;
+            }
+        }
 
 
-div#cont {
-  background-color:  #151719;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+        .mytooltip {
+            position: relative;
+        }
 
-.waviy {
-  position: relative;
-  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
-  font-size: 60px;
-}
-.waviy span {
-  font-family: 'Alfa Slab One', cursive;
-  position: relative;
-  display: inline-block;
-  color: #fff;
-  text-transform: uppercase;
-  animation: waviy 1s infinite;
-  animation-delay: calc(.1s * var(--i));
-  
-}
-@keyframes waviy {
-  0%,40%,100% {
-    transform: translateY(0)
-  }
-  20% {
-    transform: translateY(-20px)
-  }
-}
+        .mytooltip .mytooltip-text {
+            visibility: hidden;
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            /* bottom: 125%; */
+            /* left: 50%; */
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
 
-span.showHideSetingsSpan {
-    position: absolute;
-    top: 10px;
-    left: 5px;
-}
-#nav{
-  background-color: rgb(255 255 255 / 51%) !important;
-  width: 90%;
-  margin: 0px auto;
-  border-radius: 10px;
-  box-shadow: 0px 5px 50px;
-}
-a.navbar-brand {
-  font-weight: 600;
-  font-size: 25px;
-  color: #795548;
-  cursor: pointer;
-}
-span.navbar-text {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-.navA{
-  text-decoration: none;
-  color: #03405d !important;
-  font-weight: 600;
-}
-a.navA::after {
-  content: '';
-  width: 0px;
-  height: 3px;
-  border-radius: 2px;
-  background: #bfe4ff;
-  display: block;
-  visibility: visible;
-  transition: width 0.5s;
-}
-a.navA:hover::after {
-    width: 100%;
-}
+        .mytooltip:hover .mytooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css"
+        integrity="sha512-72OVeAaPeV8n3BdZj7hOkaPSEk/uwpDkaGyP4W2jSzAC8tfiO4LMEDWoL3uFp5mcZu+8Eehb4GhZWFwvrss69Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-span.lastupdateSpan {
-    background: #9e9e9e7d;
-    padding: 5px;
-    border-radius: 2px;
-    box-shadow: 0px 2px 20px;
-}
-</style>
-<!-- 	 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"   integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"-->
-<link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.min.js"
+        integrity="sha512-eHx4nbBTkIr2i0m9SANm/cczPESd0DUEcfl84JpIuutE6oDxPhXvskMR08Wmvmfx5wUpVjlWdi82G5YLvqqJdA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://kit.fontawesome.com/11ed468396.js" crossorigin="anonymous"></script>
-<!--  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous -->
-<script src="bootstrap/bootstrap.bundle.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/11ed468396.js" crossorigin="anonymous"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
+
 <body>
 
-<span id="welcome">
-    <div id="cont">
-        <!-- <span id="welBtn">open</span> -->
 
-        <div class="waviy">
-            <span style="--i:1">W</span>
-            <span style="--i:2">E</span>
-            <span style="--i:3">L</span>
-            <span style="--i:4">C</span>
-            <span style="--i:5">O</span>
-            <span style="--i:6">M</span>
-            <span style="--i:7">E</span>
-            <br>
-            <!-- <span style="--i:8"> </span>
-            <span style="--i:9">S</span>
-            <span style="--i:10">T</span>
-            <span style="--i:11">A</span>
-            <span style="--i:12">R</span> 
-            <span style="--i:13">T</span>  -->
-            <span style="--i:10; font-size: 20px;" class="mySpan">click anywhere to start</span>
-         </div>
+    <nav class="navbar bg-body-tertiary" id="nav">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Medical Conditions For Tort</a>
+            <span class="navbar-text">
+                <!--Navbar text with an inline element -->
+                <a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/TrotDupChecker.html">Old Tort
+                    Dup</a>
+                <a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/NewTrotDupChecker.html">New
+                    Tort Dup</a>
+            </span>
+        </div>
+    </nav>
+    <div id='Mycontainer' class="Mycontainer">
+        <span onclick="showHideSetings()" class="showHideSetingsSpan"><i class="fa-solid fa-gear"></i></span>
+        <div id="setings" class="bg-dark-subtle p-5">
+            <!-- <div class="w-75 d-flex flex-column justify-content-center  align-items-center p-2"> -->
+            <div class="w-100">
+                <!-- voice: which voice to be used to speak. -->
+                <label for="voice" class="form-label me-2 text-capitalize fs-4">voice:</label>
+                <select name="voice" id="voice" class="form-select d-block w-75"></select>
+            </div>
 
+            <div class="w-100 mt-2">
+                <!-- pitch: sets a pitch(the relative highness or lowness of a tone) for the output spoken words. It has a range from 0 to 2. -->
+                <label for="pitchRange" class="form-label me-2 text-capitalize fs-4">pitch:</label>
+                <span id="pitchRangeSpan">50 %</span>
+                <input type="range" class="form-range d-block w-75" min="0" max="2" value='1' step="0.1"
+                    id="pitchRange">
+            </div>
 
+            <div class="w-100 mt-2">
+                <!-- rate: the speed at which the text is spoken. rate ranges from 0.1 to 10. -->
+                <label for="rateRange" class="form-label me-2 text-capitalize fs-4">rate:</label>
+                <span id="rateRangeSpan">50 %</span>
+                <input type="range" class="form-range d-block w-75" min="0.5" max="2" step="0.1" value='1'
+                    id="rateRange">
+            </div>
+
+            <div class="w-100 mt-2">
+                <!-- volume: The output volume. It ranges from 0 to 1. -->
+                <label for="volumeRange" class="form-label me-2 text-capitalize fs-4">volume:</label>
+                <span id="volumeRangeSpan">100 %</span>
+                <input type="range" class="form-range d-block w-75" min="0" max="1" step="0.1" value='1'
+                    id="volumeRange">
+            </div>
+            <!-- </div> -->
+        </div>
+        <div class="container-fluid w-md-80">
+            <div id="root" class="row justify-content-center align-items-start">
+            </div>
+        </div>
     </div>
-</span>
-<nav class="navbar bg-body-tertiary" id="nav">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Medical Conditions For Tort</a>
-    <span class="navbar-text">
-      <!-- Navbar text with an inline element -->
-      <a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/TrotDupChecker.html">Old Tort Dup</a>
-      <a class="navA" href="https://leoadams2022.github.io/BizFunding.github.io/NewTrotDupChecker.html">New Tort Dup</a>
-    </span>
-  </div>
-</nav>
-<div id='Mycontainer' class="Mycontainer">
-  <span onclick="showHideSetings()" class="showHideSetingsSpan"><i class="fa-solid fa-gear"></i></span>
-  <div id="setings" class="bg-dark-subtle p-5">
-    <!-- <div class="w-75 d-flex flex-column justify-content-center  align-items-center p-2"> -->
-      <div class="w-100">
-        <!-- voice: which voice to be used to speak. -->
-        <label for="voice" class="form-label me-2 text-capitalize fs-4">voice:</label>
-        <select name="voice" id="voice" class="form-select d-block w-75"></select>
-      </div>
-  
-      <div class="w-100 mt-2">
-        <!-- pitch: sets a pitch(the relative highness or lowness of a tone) for the output spoken words. It has a range from 0 to 2. -->
-        <label for="pitchRange" class="form-label me-2 text-capitalize fs-4">pitch:</label>
-        <span id="pitchRangeSpan">50 %</span>
-        <input type="range" class="form-range d-block w-75" min="0" max="2" value='1' step="0.1" id="pitchRange">
-      </div>
-  
-      <div class="w-100 mt-2">
-        <!-- rate: the speed at which the text is spoken. rate ranges from 0.1 to 10. -->
-        <label for="rateRange" class="form-label me-2 text-capitalize fs-4">rate:</label>
-        <span id="rateRangeSpan">50 %</span>
-        <input type="range" class="form-range d-block w-75" min="0.5" max="2" step="0.1" value='1' id="rateRange">
-      </div>
-  
-      <div class="w-100 mt-2">
-        <!-- volume: The output volume. It ranges from 0 to 1. -->
-        <label for="volumeRange" class="form-label me-2 text-capitalize fs-4">volume:</label>
-        <span id="volumeRangeSpan">100 %</span>
-        <input type="range" class="form-range d-block w-75" min="0" max="1" step="0.1"  value='1' id="volumeRange">
-      </div>
-    <!-- </div> -->
-  </div>
-    <div class="container-fluid ">
-      <div id="root" class="row align-items-start">
-      </div>    
+    <div class="footer">
+        <p class="lastupdateP" id="lastupdateP"><span class="lastupdateSpan"> ---Designed by Walid-Ali(Leo-Adams)---
+            </span></p>
     </div>
-</div>
-<div class="footer">
-    <p class="lastupdateP" id="lastupdateP"><span class="lastupdateSpan"> ---Designed by Walid-Ali(Leo-Adams)--- </span></p>
-</div>
 
 
-<button type="button" class="btn btn-primary d-none" id="liveToastBtn">Show live toast</button>
+    <button type="button" class="btn btn-primary d-none" id="liveToastBtn">Show live toast</button>
 
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="" class="rounded me-2" alt="">
-      <strong class="me-auto">Notification</strong>
-      <small></small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="" class="rounded me-2" alt="">
+                <strong class="me-auto">Notification</strong>
+                <small></small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Health condition name was Copyed to the clipboard :)
+            </div>
+        </div>
     </div>
-    <div class="toast-body">
-      Health condition name was Copyed to the clipboard :)
-    </div>
-  </div>
-</div>
-<script>
+    <script>
 
 
-var voiceSelect = document.getElementById('voice');
+        var voiceSelect = document.getElementById('voice');
 
-function loadVoices() {
-	var voices = speechSynthesis.getVoices();
-  
-	voices.forEach(function(voice, i) {
-		var option = document.createElement('option');
-    
-		option.value = voice.voiceURI;
-    option.dataset.lang = voice.lang;
-		option.innerHTML = voice.name;
-		  //Google US English
-      if(voice.voiceURI == 'Google US English'){
-        option.selected = 'selected'
-      }
-		voiceSelect.appendChild(option);
-	});
-}
+        function loadVoices() {
+            var voices = speechSynthesis.getVoices();
 
-loadVoices();
-window.speechSynthesis.onvoiceschanged = function(e) {
-  loadVoices();
-};
+            voices.forEach(function (voice, i) {
+                var option = document.createElement('option');
 
-function textToAudio(msg,span) {
-  console.log(span)
-  // const msg = document.getElementById("text-to-speech").value;
-  let speech = new SpeechSynthesisUtterance();
+                option.value = voice.voiceURI;
+                option.dataset.lang = voice.lang;
+                option.innerHTML = voice.name;
+                //Google US English
+                if (voice.voiceURI == 'Google US English') {
+                    option.selected = 'selected'
+                }
+                voiceSelect.appendChild(option);
+            });
+        }
 
-	if (voiceSelect.value) {
-    var selectedVoice = speechSynthesis.getVoices().filter(function(voice) { return voice.voiceURI == voiceSelect.value; })[0];
-		speech.voiceURI = selectedVoice.voiceURI;
-    speech.lang = selectedVoice.lang;
-    speech.voice = selectedVoice;
-    speech.text = msg;
-    console.log('speech.voiceURI = ',selectedVoice.voiceURI,' speech.lang = ',selectedVoice.lang,' speech.voice = ',selectedVoice)
+        loadVoices();
+        window.speechSynthesis.onvoiceschanged = function (e) {
+            loadVoices();
+        };
 
-    let pitchIn = Number($('#pitchRange').val());
-    let rateIn = Number($('#rateRange').val());
-    let volumeIn = Number($('#volumeRange').val());
-      speech.pitch = pitchIn;
-      speech.rate = rateIn;
-      speech.volume = volumeIn;
-	}
-  const synth = window.speechSynthesis;
-  
-	synth.speak(speech);
+        function textToAudio(msg, span) {
+            console.log(span)
+            // const msg = document.getElementById("text-to-speech").value;
+            let speech = new SpeechSynthesisUtterance();
+
+            if (voiceSelect.value) {
+                var selectedVoice = speechSynthesis.getVoices().filter(function (voice) { return voice.voiceURI == voiceSelect.value; })[0];
+                speech.voiceURI = selectedVoice.voiceURI;
+                speech.lang = selectedVoice.lang;
+                speech.voice = selectedVoice;
+                speech.text = msg;
+                console.log('speech.voiceURI = ', selectedVoice.voiceURI, ' speech.lang = ', selectedVoice.lang, ' speech.voice = ', selectedVoice)
+
+                let pitchIn = Number($('#pitchRange').val());
+                let rateIn = Number($('#rateRange').val());
+                let volumeIn = Number($('#volumeRange').val());
+                speech.pitch = pitchIn;
+                speech.rate = rateIn;
+                speech.volume = volumeIn;
+            }
+            const synth = window.speechSynthesis;
+
+            synth.speak(speech);
 
 
 
 
-  function everyTime() {
-    if(!synth.speaking){
-        clearInterval(myInterval);
-        $(span).show(250);
-        $(span).next().hide(250);
-    }else{
-      if($(span).is(":visible")){
-        $(span).hide(250);
-        $(span).next().show(250);
-      }
-    }
-  }
+            function everyTime() {
+                if (!synth.speaking) {
+                    clearInterval(myInterval);
+                    $(span).show(250);
+                    $(span).next().hide(250);
+                } else {
+                    if ($(span).is(":visible")) {
+                        $(span).hide(250);
+                        $(span).next().show(250);
+                    }
+                }
+            }
 
-  var myInterval = setInterval(everyTime, 50);
-  
-}
+            var myInterval = setInterval(everyTime, 50);
 
-
-function stopAudio(){
-  window.speechSynthesis.cancel();
-}
-
-$('#pitchRange').on("change", (event) => {
-  $('#pitchRangeSpan').html(parseInt(($('#pitchRange').val()/2)*100)+' %')
-});
-$('#rateRange').on("change", (event) => {
-  $('#rateRangeSpan').html(parseInt(($('#rateRange').val()/2)*100)+' %')
-});
-$('#volumeRange').on("change", (event) => {
-  $('#volumeRangeSpan').html(parseInt(($('#volumeRange').val()/2)*100)+' %')
-});
-
-$('#setings').hide();
-function showHideSetings(){
-  $('#setings').toggle(500)
-}
-
-const cancerList = [
-  {
-    condition: "Appendix cancer",
-    description: "Appendix cancer is a rare type of cancer that starts in the cells of the appendix, a small pouch attached to the large intestine.",
-    Pronunciation: "uh-pen-diks kan-ser"
-  },
-  {
-    condition: "Bladder cancer",
-    description: "Bladder cancer is a type of cancer that begins in the cells of the bladder, which is the organ responsible for storing urine.",
-    Pronunciation: "blah-der kan-ser"
-  },
-  {
-    condition: "Brain cancer",
-    description: "Brain cancer refers to the abnormal growth of cells in the brain, which can lead to tumors and affect brain function.",
-    Pronunciation: "breyn kan-ser"
-  },
-  {
-    condition: "Breast cancer",
-    description: "Breast cancer is a type of cancer that forms in the cells of the breasts, typically in the ducts or lobules.",
-    Pronunciation: "brest kan-ser"
-  },
-  {
-    condition: "Bile duct cancer",
-    description: "Bile duct cancer, also known as cholangiocarcinoma, starts in the bile ducts, which are the tubes that carry bile from the liver to the small intestine.",
-    Pronunciation: "byl duhkt kan-ser"
-  },
-  {
-    condition: "Colorectal cancer",
-    description: "Colorectal cancer, also known as colon cancer or rectal cancer, refers to the cancerous growths in the colon or rectum.",
-    Pronunciation: "kuh-loh-rek-tuhl kan-ser"
-  },
-  {
-    condition: "Esophageal cancer",
-    description: "Esophageal cancer is a type of cancer that develops in the esophagus, the tube that carries food from the throat to the stomach.",
-    Pronunciation: "ih-sof-uh-jee-uhl kan-ser"
-  },
-  {
-    condition: "Gallbladder cancer",
-    description: "Gallbladder cancer is a rare type of cancer that begins in the gallbladder, a small organ that stores bile.",
-    Pronunciation: "gawl-blah-der kan-ser"
-  },
-  {
-    condition: "Intestinal cancer",
-    description: "Intestinal cancer refers to cancerous growths that occur in the small intestine, which is part of the digestive system.",
-    Pronunciation: "in-tuh-stahy-nl kan-ser"
-  },
-  {
-    condition: "Kidney cancer",
-    description: "Kidney cancer, also known as renal cancer, is a type of cancer that starts in the cells of the kidneys.",
-    Pronunciation: "kid-nee kan-ser"
-  },
-  {
-    condition: "Leukemia",
-    description: "Leukemia is a cancer of the blood or bone marrow, characterized by the abnormal production of white blood cells.",
-    Pronunciation: "loo-kee-mee-uh"
-  },
-  {
-    condition: "Liver cancer",
-    description: "Liver cancer, or hepatic cancer, starts in the cells of the liver and can be either primary (originating in the liver) or secondary (spread from other parts of the body).",
-    Pronunciation: "liv-er kan-ser"
-  },
-  {
-    condition: "Lung cancer",
-    description: "Lung cancer is a type of cancer that forms in the tissues of the lungs, usually in the cells lining the air passages.",
-    Pronunciation: "luhng kan-ser"
-  },
-  {
-    condition: "Multiple myeloma",
-    description: "Multiple myeloma is a cancer that forms in plasma cells, a type of white blood cell, and primarily affects bone marrow.",
-    Pronunciation: "muhl-tuh-pul mahy-uh-loh-muh"
-  },
-  {
-    condition: "Non-Hodgkin’s lymphoma",
-    description: "Non-Hodgkin’s lymphoma is a group of cancers that originate in the lymphatic system, which is part of the body's immune system.",
-    Pronunciation: "non-hoj-kinz lim-foh-muh"
-  },
-  {
-    condition: "Pancreatic cancer",
-    description: "Pancreatic cancer begins in the cells of the pancreas, an organ located in the abdomen that plays a key role in digestion and blood sugar regulation.",
-    Pronunciation: "pan-kree-at-ik kan-ser"
-  },
-  {
-    condition: "Sinus cancer",
-    description: "Sinus cancer is a rare type of cancer that occurs in the sinuses, which are hollow spaces in the bones of the face.",
-    Pronunciation: "sahy-nuhs kan-ser"
-  },
-  {
-    condition: "Soft tissue sarcoma",
-    description: "Soft tissue sarcoma refers to a group of cancers that develop in the soft tissues of the body, including muscles, fat, blood vessels, nerves, and tendons.",
-    Pronunciation: "sawft tish-oo sar-koh-muh"
-  },
-  {
-    condition: "Spinal cancer",
-    description: "Spinal cancer, also known as spinal tumor, refers to the abnormal growth of cells in or near the spinal cord.",
-    Pronunciation: "spahy-nl kan-ser"
-  },
-  {
-    condition: "Thyroid cancer",
-    description: "Thyroid cancer is a type of cancer that forms in the cells of the thyroid gland, which is located in the front of the neck.",
-    Pronunciation: "thahy-roid kan-ser"
-  }
-];
-
-const OthersList = [
-    {
-      condition: "Amyotrophic Lateral Sclerosis (ALS)",
-      description: "Amyotrophic Lateral Sclerosis (ALS), also known as Lou Gehrig's disease, is a progressive neurodegenerative disease that affects nerve cells responsible for controlling voluntary muscles.",
-      Pronunciation: "ay-my-uh-trof-ik lat-uh-rul skluh-roh-sis"
-    },
-    {
-      condition: "Aplastic anemia (and other myelodysplastic syndromes)",
-      description: "Aplastic anemia is a rare condition where the bone marrow does not produce enough new blood cells. Myelodysplastic syndromes refer to a group of disorders characterized by abnormal development of blood cells in the bone marrow.",
-      Pronunciation: "uh-plas-tik uh-nee-mee-uh (and uh-thur mahy-uh-loh-dis-plas-tik sin-drohmz)"
-    },
-    {
-      condition: "Hepatic steatosis",
-      description: "Hepatic steatosis, commonly known as fatty liver disease, is a condition characterized by the buildup of fat in the liver cells, which may lead to liver inflammation and damage.",
-      Pronunciation: "hi-pat-ik stee-uh-toh-sis"
-    },
-    {
-      condition: "Myelodysplastic Syndromes",
-      description: "Myelodysplastic Syndromes (MDS) refer to a group of disorders characterized by abnormal development of blood cells in the bone marrow. MDS can result in low blood cell counts and an increased risk of developing leukemia.",
-      Pronunciation: "mahy-uh-loh-dis-plas-tik sin-drohmz"
-    },
-    {
-      condition: "Parkinson’s Disease",
-      description: "Parkinson's Disease is a degenerative disorder of the nervous system that affects movement. It is characterized by symptoms such as tremors, stiffness, and difficulty with balance and coordination.",
-      Pronunciation: "par-kin-suhnz di-zeez"
-    },
-    {
-      condition: "Kidney (aka renal) failure end-stage renal disease",
-      description: "Kidney failure, also known as end-stage renal disease, occurs when the kidneys are no longer able to function properly, resulting in the accumulation of waste and fluid in the body.",
-      Pronunciation: "kid-nee (ey-kay ree-nl) fayl-yur end-steyj ree-nl di-zeez"
-    },
-    {
-      condition: "Renal Toxicity",
-      description: "Renal toxicity refers to kidney damage or impairment caused by exposure to certain substances, such as medications, chemicals, or toxins.",
-      Pronunciation: "ree-nl tahk-si-si-tee"
-    },
-    {
-      condition: "Scleroderma",
-      description: "Scleroderma is a chronic autoimmune disease that affects the connective tissues, causing hardening and tightening of the skin and other organs.",
-      Pronunciation: "skleer-uh-dur-muh"
-    }
-];
-
-const autoimmuneList = [
-  {
-    condition: "Type 1 diabetes",
-    description: "Type 1 diabetes, also known as juvenile diabetes or insulin-dependent diabetes, is a chronic condition in which the pancreas produces little or no insulin, resulting in high blood sugar levels.",
-    Pronunciation: "tahyp wuhn dahy-uh-bee-tees"
-  },
-  {
-    condition: "Addison disease",
-    description: "Addison's disease, also called adrenal insufficiency, occurs when the adrenal glands do not produce enough hormones, leading to symptoms such as fatigue, weight loss, and low blood pressure.",
-    Pronunciation: "uh-dih-suhn di-zeez"
-  },
-  {
-    condition: "Dermatomyositis",
-    description: "Dermatomyositis is a rare inflammatory disease characterized by muscle weakness and skin rash. It affects the muscles and skin, causing muscle pain, weakness, and skin changes.",
-    Pronunciation: "dur-muh-toh-mahy-uh-sy-tis"
-  },
-  {
-    condition: "Inflammatory bowel diseases (Ulcerative colitis, Crohn’s disease, celiac disease)",
-    description: "Inflammatory bowel diseases (IBD) are chronic conditions that cause inflammation in the digestive tract. Ulcerative colitis and Crohn's disease are the two main types of IBD, while celiac disease is an autoimmune condition triggered by gluten consumption.",
-    Pronunciation: "in-flam-uh-tawr-ee boh-uhl di-zeez-iz (uhl-sur-uh-tiv koh-lahy-tis, krohnz di-zeez, see-lee-ak di-zeez)"
-  },
-  {
-    condition: "Hashimoto thyroiditis",
-    description: "Hashimoto's thyroiditis is an autoimmune disorder that causes chronic inflammation of the thyroid gland, leading to an underactive thyroid (hypothyroidism).",
-    Pronunciation: "hah-shee-moh-toh thy-royd-ahy-tis"
-  },
-  {
-    condition: "Graves disease",
-    description: "Graves' disease is an autoimmune disorder that causes overactivity of the thyroid gland, leading to hyperthyroidism. It is characterized by symptoms such as weight loss, rapid heartbeat, and irritability.",
-    Pronunciation: "greyvz di-zeez"
-  },
-  {
-    condition: "Guillain-Barré Syndrome",
-    description: "Guillain-Barré Syndrome (GBS) is a rare neurological disorder in which the body's immune system mistakenly attacks the peripheral nerves, resulting in muscle weakness, numbness, and, in severe cases, paralysis.",
-    Pronunciation: "gi-yan buh-rey sin-drohm"
-  },
-  {
-    condition: "Chronic thyroiditis (Hashimoto Disease)",
-    description: "Chronic thyroiditis, also known as Hashimoto's disease, is an autoimmune condition that causes inflammation and gradual destruction of the thyroid gland, leading to hypothyroidism.",
-    Pronunciation: "kron-ik thy-royd-ahy-tis (hah-shee-moh-toh di-zeez)"
-  },
-  {
-    condition: "Chronic inflammatory demyelinating polyneuropathy",
-    description: "Chronic inflammatory demyelinating polyneuropathy (CIDP) is a neurological disorder characterized by progressive weakness and impaired sensory function due to inflammation and damage to the peripheral nerves.",
-    Pronunciation: "kron-ik in-flam-uh-tawr-ee dih-my-uh-luh-nuhng pahy-luh-noo-rop-uh-thee"
-  },
-  {
-    condition: "Lupus",
-    description: "Lupus, or systemic lupus erythematosus (SLE), is an autoimmune disease that can affect various organs and systems in the body, causing symptoms such as joint pain, skin rashes, fatigue, and organ damage.",
-    Pronunciation: "loo-puhs (sis-tem-ik loo-puhs er-uh-thee-muh-toh-suhs)"
-  },
-  {
-    condition: "Multiple sclerosis",
-    description: "Multiple sclerosis (MS) is a chronic autoimmune disease that affects the central nervous system, causing damage to the protective covering of nerve fibers. It can result in various neurological symptoms and impairments.",
-    Pronunciation: "muhl-tuh-puhl skluh-roh-suhs"
-  },
-  {
-    condition: "Myasthenia gravis",
-    description: "Myasthenia gravis is a neuromuscular disorder characterized by weakness and rapid fatigue of voluntary muscles. It occurs when communication between nerve cells and muscles is impaired.",
-    Pronunciation: "mahy-uh-sthee-nee-uh grey-vis"
-  },
-  {
-    condition: "Psoriatic arthritis",
-    description: "Psoriatic arthritis is a form of arthritis that affects some individuals with psoriasis, a chronic skin condition. It causes joint pain, stiffness, and swelling, often in combination with skin lesions.",
-    Pronunciation: "sor-ee-at-ik ar-thry-tis"
-  },
-  {
-    condition: "Pernicious anemia",
-    description: "Pernicious anemia is a type of anemia caused by the body's inability to absorb vitamin B12, resulting in low levels of red blood cells. It can lead to fatigue, weakness, and other symptoms.",
-    Pronunciation: "per-ni-shuhs uh-nee-mee-uh"
-  },
-  {
-    condition: "Rheumatoid arthritis",
-    description: "Rheumatoid arthritis is an autoimmune disease that primarily affects the joints, causing chronic inflammation, pain, and stiffness. It can lead to joint deformity and other complications.",
-    Pronunciation: "roo-muh-toyd ar-thry-tis"
-  },
-  {
-    condition: "Sjögren syndrome",
-    description: "Sjögren's syndrome is an autoimmune disorder that primarily affects the glands that produce tears and saliva, leading to dry eyes and mouth. It can also cause systemic symptoms and affect other organs.",
-    Pronunciation: "shoh-gruhnz sin-drohm"
-  },
-  {
-    condition: "Systemic lupus erythematosus",
-    description: "Systemic lupus erythematosus (SLE), commonly known as lupus, is a chronic autoimmune disease that can affect multiple organs and systems in the body, leading to a wide range of symptoms and complications.",
-    Pronunciation: "sis-tem-ik loo-puhs er-uh-thee-muh-toh-suhs"
-  },
-  {
-    condition: "Vasculitis",
-    description: "Vasculitis is a group of disorders characterized by inflammation of blood vessels, which can affect blood flow and damage various organs. The severity and specific symptoms depend on the type and location of the vasculitis.",
-    Pronunciation: "vas-kyuh-lahy-tis"
-  }
-];
-
-const NeurobehavioralList = [
-  {
-    condition: "Confusion - Must be under 70 years of age",
-    description: "Confusion is a state of disorientation and difficulty thinking clearly. In this case, it is specified that the confusion must occur in individuals under 70 years of age.",
-    Pronunciation: "kuhn-fyoo-zhuhn"
-  },
-  {
-    condition: "Lack of coordination - Must be under 70 years of age",
-    description: "Lack of coordination refers to difficulties in controlling movements and maintaining balance. It is specified that this condition must occur in individuals under 70 years of age.",
-    Pronunciation: "lak uhv koh-or-dn-ey-shuhn"
-  },
-  {
-    condition: "Depression",
-    description: "Depression is a mood disorder characterized by persistent feelings of sadness, loss of interest or pleasure in activities, changes in appetite or sleep patterns, and a lack of energy.",
-    Pronunciation: "dih-presh-uhn"
-  },
-  {
-    condition: "Fatigue",
-    description: "Fatigue is a state of extreme tiredness or exhaustion that can interfere with daily activities and functioning. It is often accompanied by a lack of energy and motivation.",
-    Pronunciation: "fuh-teeg"
-  },
-  {
-    condition: "Sensory disturbances",
-    description: "Sensory disturbances refer to abnormal sensations or changes in sensory perception, such as numbness, tingling, or altered sensitivity to touch, temperature, or pain.",
-    Pronunciation: "sen-suh-ree dis-tur-buhn-siz"
-  },
-  {
-    condition: "Tension",
-    description: "Tension refers to a state of mental or emotional strain and stress, often characterized by feelings of unease, irritability, and physical muscle tension.",
-    Pronunciation: "ten-shuhn"
-  },
-  {
-    condition: "Trouble concentrating",
-    description: "Trouble concentrating, or difficulty focusing attention, can be a symptom of various underlying conditions, such as attention-deficit/hyperactivity disorder (ADHD), anxiety, or depression.",
-    Pronunciation: "truh-buhl kuhn-suhn-trey-ting"
-  },
-  {
-    condition: "Headache - NO PTSD",
-    description: "Headache refers to pain or discomfort in the head or upper neck region. In this case, it is specified that the headache should not be associated with post-traumatic stress disorder (PTSD).",
-    Pronunciation: "hed-eyk (noh pee-tee-es-dee)"
-  }
-];
-
-const ReproductiveList = [
-  {
-    condition: "Birth Defect/Malformations",
-    description: "Birth defects or malformations refer to structural abnormalities or functional impairments that occur during fetal development. They can affect various body parts or systems and may result in lifelong disabilities or health conditions.",
-    Pronunciation: "burth dih-fekts/mal-for-mey-shuhnz"
-  },
-  {
-    condition: "Conjoined Twins",
-    description: "Conjoined twins are identical twins who are physically joined together at birth. This rare condition occurs when the fertilized egg does not fully separate during early development, leading to the twins sharing certain body parts or organs.",
-    Pronunciation: "kuhn-joind twins"
-  },
-  {
-    condition: "Congenital malformation (microcephaly)",
-    description: "Congenital malformation, specifically microcephaly, is a condition in which a baby's head is significantly smaller than expected due to incomplete brain development. It can result in intellectual disabilities, developmental delays, and other complications.",
-    Pronunciation: "kuhn-jen-i-tl mal-for-mey-shuhn (my-kroh-sef-uh-lee)"
-  },
-  {
-    condition: "Male or Female Infertility",
-    description: "Infertility refers to the inability to conceive a child or carry a pregnancy to full term. Both males and females can experience infertility, which can be caused by various factors such as hormonal imbalances, structural abnormalities, or reproductive disorders.",
-    Pronunciation: "meyl or fee-meyl in-fer-til-i-tee"
-  },
-  {
-    condition: "Miscarriage (female only)",
-    description: "A miscarriage, also known as a spontaneous abortion, is the loss of a pregnancy before the 20th week. It typically occurs due to fetal abnormalities or maternal health issues and is specific to females.",
-    Pronunciation: "mi-skar-ij (fee-meyl ohn-lee)"
-  },
-  {
-    condition: "Premature birth",
-    description: "A premature birth, also known as preterm birth, occurs when a baby is born before completing 37 weeks of gestation. Premature babies may face various health challenges due to their underdeveloped organs and systems.",
-    Pronunciation: "pri-muh-cher birth"
-  },
-  {
-    condition: "Cognitive disability (of child)",
-    description: "Cognitive disability, also referred to as intellectual disability, is a condition characterized by limitations in intellectual functioning and adaptive behaviors. It affects a child's cognitive abilities, such as learning, problem-solving, and social interactions.",
-    Pronunciation: "kog-ni-tiv dis-uh-bil-i-tee (uhv chahyld)"
-  },
-  {
-    condition: "Developmental disorder and type",
-    description: "Developmental disorders encompass a range of conditions that affect a child's physical, cognitive, language, and social-emotional development. Examples include autism spectrum disorder, attention-deficit/hyperactivity disorder (ADHD), and specific learning disorders.",
-    Pronunciation: "dee-vel-op-men-tl dis-or-der and tahyp"
-  }
-];
-renderUL(cancerList,'root','col-3','cancerList');
-renderUL(NeurobehavioralList,'root','col-3','NeurobehavioralList');
-renderUL(autoimmuneList,'root','col-3','autoimmuneList');
-renderUL(ReproductiveList,'NeurobehavioralList','col','ReproductiveList');
-renderUL(OthersList,'root','col-3','OthersList');
-
-function renderUL(Obj,divId,colClass='col',listDivID=''){
-  const container = document.getElementById(divId);
-  // <div class="list-group">
-  let links  = `
-  <div class="${colClass} mt-3" id='${listDivID}'>
-    <ul class="list-group "  id='${listDivID}Ol'>
-  `;
-  Obj.forEach( (item, index) => {
-    /*
-    conditionName = "${item.condition}"
-      description = "${item.description}"
-      Pronunciation = "${item.Pronunciation}"
-      */
-    let elementA = `
-    <li  
-      class="list-group-item list-group-item-action list-group-item-dark fw-medium text-capitalize"
-      style='line-height: 1;'  
-    >
-      ${index + 1}- ${item.condition}
-
-      <span onclick="textToAudio('${item.condition}',this)" class='textToAudioSpan ms-2' id='' title='Play'><i class="fa-solid fa-volume-high"></i></span>
-
-      <span onclick="stopAudio()" class='stopAudioSpan ms-2' id='' style='display:none' title='Stop'><i class="fa-regular fa-circle-stop"></i></span>
-
-      <span class="descriptionSpan ms-2" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="${item.description}" title='Description'>
-        <i class="fa-solid fa-info"></i>
-      </span>
-
-      <span onclick="copyToClipboard('${item.condition}')" class="copySpan ms-2"><i class="fa-solid fa-clipboard" title='Copy'></i></span>
-
-    </li>
-
-    `;
-    links += elementA;
-  });
-  links += `</ul></div>`;
-container.innerHTML += links;
-}
-  // initialize bootstrap popovers
-  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
-  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
-  // initialize bootstrap live Toast
-  const toastTrigger = document.getElementById('liveToastBtn')
-  const toastLiveExample = document.getElementById('liveToast')
-
-if (toastTrigger) {
-  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-  toastTrigger.addEventListener('click', () => {
-    toastBootstrap.show()
-  })
-}
+        }
 
 
-function copyToClipboard(text) {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val(text).select();
-    document.execCommand("copy");
-    $temp.remove();
-    $('#liveToastBtn').click()
-}
+        function stopAudio() {
+            window.speechSynthesis.cancel();
+        }
 
-function sayWelcome(){
-  console.log('btn clicked start')
-  let speech = new SpeechSynthesisUtterance();
-      speech.voiceURI =  'Google US English';  
-      speech.lang =  'en-US';
-      speech.text = 'Welcome To Tort Medical Conditions Designed by Walid-Ali(Leo-Adams)';
-  const synth = window.speechSynthesis;
-	synth.speak(speech);
-  console.log('btn clicked end')
-}
-// setTimeout(function(){document.getElementById('welcomeBTN').click()},5000);
-$('#Mycontainer').hide();
-document.getElementById('cont').addEventListener('click',function(){
-  sayWelcome();
-  $('#welcome').hide(500);
-  $('#Mycontainer').show(500);
+        $('#pitchRange').on("change", (event) => {
+            $('#pitchRangeSpan').html(parseInt(($('#pitchRange').val() / 2) * 100) + ' %')
+        });
+        $('#rateRange').on("change", (event) => {
+            $('#rateRangeSpan').html(parseInt(($('#rateRange').val() / 2) * 100) + ' %')
+        });
+        $('#volumeRange').on("change", (event) => {
+            $('#volumeRangeSpan').html(parseInt(($('#volumeRange').val() / 2) * 100) + ' %')
+        });
 
-})
-</script>
-<script>
-  
-// // Get all the "show_description" spans
-// var showDescriptionSpans = document.getElementsByClassName("show_description");
-// // Iterate through each "show_description" span
-// for (var i = 0; i < showDescriptionSpans.length; i++) {
+        $('#setings').hide();
+        function showHideSetings() {
+            $('#setings').toggle(500)
+        }
 
-   
+        const cancerList = [
+            {
+                condition: "Appendix cancer",
+                description: "Appendix cancer is a rare type of cancer that starts in the cells of the appendix, a small pouch attached to the large intestine.",
+                Pronunciation: "uh-pen-diks kan-ser"
+            },
+            {
+                condition: "Bladder cancer",
+                description: "Bladder cancer is a type of cancer that begins in the cells of the bladder, which is the organ responsible for storing urine.",
+                Pronunciation: "blah-der kan-ser"
+            },
+            {
+                condition: "Brain cancer",
+                description: "Brain cancer refers to the abnormal growth of cells in the brain, which can lead to tumors and affect brain function.",
+                Pronunciation: "breyn kan-ser"
+            },
+            {
+                condition: "Breast cancer",
+                description: "Breast cancer is a type of cancer that forms in the cells of the breasts, typically in the ducts or lobules.",
+                Pronunciation: "brest kan-ser"
+            },
+            {
+                condition: "Bile duct cancer",
+                description: "Bile duct cancer, also known as cholangiocarcinoma, starts in the bile ducts, which are the tubes that carry bile from the liver to the small intestine.",
+                Pronunciation: "byl duhkt kan-ser"
+            },
+            {
+                condition: "Colorectal cancer",
+                description: "Colorectal cancer, also known as colon cancer or rectal cancer, refers to the cancerous growths in the colon or rectum.",
+                Pronunciation: "kuh-loh-rek-tuhl kan-ser"
+            },
+            {
+                condition: "Esophageal cancer",
+                description: "Esophageal cancer is a type of cancer that develops in the esophagus, the tube that carries food from the throat to the stomach.",
+                Pronunciation: "ih-sof-uh-jee-uhl kan-ser"
+            },
+            {
+                condition: "Gallbladder cancer",
+                description: "Gallbladder cancer is a rare type of cancer that begins in the gallbladder, a small organ that stores bile.",
+                Pronunciation: "gawl-blah-der kan-ser"
+            },
+            {
+                condition: "Intestinal cancer",
+                description: "Intestinal cancer refers to cancerous growths that occur in the small intestine, which is part of the digestive system.",
+                Pronunciation: "in-tuh-stahy-nl kan-ser"
+            },
+            {
+                condition: "Kidney cancer",
+                description: "Kidney cancer, also known as renal cancer, is a type of cancer that starts in the cells of the kidneys.",
+                Pronunciation: "kid-nee kan-ser"
+            },
+            {
+                condition: "Leukemia",
+                description: "Leukemia is a cancer of the blood or bone marrow, characterized by the abnormal production of white blood cells.",
+                Pronunciation: "loo-kee-mee-uh"
+            },
+            {
+                condition: "Liver cancer",
+                description: "Liver cancer, or hepatic cancer, starts in the cells of the liver and can be either primary (originating in the liver) or secondary (spread from other parts of the body).",
+                Pronunciation: "liv-er kan-ser"
+            },
+            {
+                condition: "Lung cancer",
+                description: "Lung cancer is a type of cancer that forms in the tissues of the lungs, usually in the cells lining the air passages.",
+                Pronunciation: "luhng kan-ser"
+            },
+            {
+                condition: "Multiple myeloma",
+                description: "Multiple myeloma is a cancer that forms in plasma cells, a type of white blood cell, and primarily affects bone marrow.",
+                Pronunciation: "muhl-tuh-pul mahy-uh-loh-muh"
+            },
+            {
+                condition: "Non-Hodgkin’s lymphoma",
+                description: "Non-Hodgkin’s lymphoma is a group of cancers that originate in the lymphatic system, which is part of the body's immune system.",
+                Pronunciation: "non-hoj-kinz lim-foh-muh"
+            },
+            {
+                condition: "Pancreatic cancer",
+                description: "Pancreatic cancer begins in the cells of the pancreas, an organ located in the abdomen that plays a key role in digestion and blood sugar regulation.",
+                Pronunciation: "pan-kree-at-ik kan-ser"
+            },
+            {
+                condition: "Sinus cancer",
+                description: "Sinus cancer is a rare type of cancer that occurs in the sinuses, which are hollow spaces in the bones of the face.",
+                Pronunciation: "sahy-nuhs kan-ser"
+            },
+            {
+                condition: "Soft tissue sarcoma",
+                description: "Soft tissue sarcoma refers to a group of cancers that develop in the soft tissues of the body, including muscles, fat, blood vessels, nerves, and tendons.",
+                Pronunciation: "sawft tish-oo sar-koh-muh"
+            },
+            {
+                condition: "Spinal cancer",
+                description: "Spinal cancer, also known as spinal tumor, refers to the abnormal growth of cells in or near the spinal cord.",
+                Pronunciation: "spahy-nl kan-ser"
+            },
+            {
+                condition: "Thyroid cancer",
+                description: "Thyroid cancer is a type of cancer that forms in the cells of the thyroid gland, which is located in the front of the neck.",
+                Pronunciation: "thahy-roid kan-ser"
+            }
+        ];
 
-//     showDescriptionSpans[i].setAttribute('id',`show_description_${i}`)
-//     // Get the corresponding description span
-//     var descriptionSpan = showDescriptionSpans[i].parentNode.getElementsByClassName("description")[0];
+        const OthersList = [
+            {
+                condition: "Amyotrophic Lateral Sclerosis (ALS)",
+                description: "Amyotrophic Lateral Sclerosis (ALS), also known as Lou Gehrig's disease, is a progressive neurodegenerative disease that affects nerve cells responsible for controlling voluntary muscles.",
+                Pronunciation: "ay-my-uh-trof-ik lat-uh-rul skluh-roh-sis"
+            },
+            {
+                condition: "Aplastic anemia (and other myelodysplastic syndromes)",
+                description: "Aplastic anemia is a rare condition where the bone marrow does not produce enough new blood cells. Myelodysplastic syndromes refer to a group of disorders characterized by abnormal development of blood cells in the bone marrow.",
+                Pronunciation: "uh-plas-tik uh-nee-mee-uh (and uh-thur mahy-uh-loh-dis-plas-tik sin-drohmz)"
+            },
+            {
+                condition: "Hepatic steatosis",
+                description: "Hepatic steatosis, commonly known as fatty liver disease, is a condition characterized by the buildup of fat in the liver cells, which may lead to liver inflammation and damage.",
+                Pronunciation: "hi-pat-ik stee-uh-toh-sis"
+            },
+            {
+                condition: "Myelodysplastic Syndromes",
+                description: "Myelodysplastic Syndromes (MDS) refer to a group of disorders characterized by abnormal development of blood cells in the bone marrow. MDS can result in low blood cell counts and an increased risk of developing leukemia.",
+                Pronunciation: "mahy-uh-loh-dis-plas-tik sin-drohmz"
+            },
+            {
+                condition: "Parkinson’s Disease",
+                description: "Parkinson's Disease is a degenerative disorder of the nervous system that affects movement. It is characterized by symptoms such as tremors, stiffness, and difficulty with balance and coordination.",
+                Pronunciation: "par-kin-suhnz di-zeez"
+            },
+            {
+                condition: "Kidney (aka renal) failure end-stage renal disease",
+                description: "Kidney failure, also known as end-stage renal disease, occurs when the kidneys are no longer able to function properly, resulting in the accumulation of waste and fluid in the body.",
+                Pronunciation: "kid-nee (ey-kay ree-nl) fayl-yur end-steyj ree-nl di-zeez"
+            },
+            {
+                condition: "Renal Toxicity",
+                description: "Renal toxicity refers to kidney damage or impairment caused by exposure to certain substances, such as medications, chemicals, or toxins.",
+                Pronunciation: "ree-nl tahk-si-si-tee"
+            },
+            {
+                condition: "Scleroderma",
+                description: "Scleroderma is a chronic autoimmune disease that affects the connective tissues, causing hardening and tightening of the skin and other organs.",
+                Pronunciation: "skleer-uh-dur-muh"
+            }
+        ];
 
-//      // Set the initial state of the description span
-//      descriptionSpan.style.display = "none";
+        const autoimmuneList = [
+            {
+                condition: "Type 1 diabetes",
+                description: "Type 1 diabetes, also known as juvenile diabetes or insulin-dependent diabetes, is a chronic condition in which the pancreas produces little or no insulin, resulting in high blood sugar levels.",
+                Pronunciation: "tahyp wuhn dahy-uh-bee-tees"
+            },
+            {
+                condition: "Addison disease",
+                description: "Addison's disease, also called adrenal insufficiency, occurs when the adrenal glands do not produce enough hormones, leading to symptoms such as fatigue, weight loss, and low blood pressure.",
+                Pronunciation: "uh-dih-suhn di-zeez"
+            },
+            {
+                condition: "Dermatomyositis",
+                description: "Dermatomyositis is a rare inflammatory disease characterized by muscle weakness and skin rash. It affects the muscles and skin, causing muscle pain, weakness, and skin changes.",
+                Pronunciation: "dur-muh-toh-mahy-uh-sy-tis"
+            },
+            {
+                condition: "Inflammatory bowel diseases (Ulcerative colitis, Crohn’s disease, celiac disease)",
+                description: "Inflammatory bowel diseases (IBD) are chronic conditions that cause inflammation in the digestive tract. Ulcerative colitis and Crohn's disease are the two main types of IBD, while celiac disease is an autoimmune condition triggered by gluten consumption.",
+                Pronunciation: "in-flam-uh-tawr-ee boh-uhl di-zeez-iz (uhl-sur-uh-tiv koh-lahy-tis, krohnz di-zeez, see-lee-ak di-zeez)"
+            },
+            {
+                condition: "Hashimoto thyroiditis",
+                description: "Hashimoto's thyroiditis is an autoimmune disorder that causes chronic inflammation of the thyroid gland, leading to an underactive thyroid (hypothyroidism).",
+                Pronunciation: "hah-shee-moh-toh thy-royd-ahy-tis"
+            },
+            {
+                condition: "Graves disease",
+                description: "Graves' disease is an autoimmune disorder that causes overactivity of the thyroid gland, leading to hyperthyroidism. It is characterized by symptoms such as weight loss, rapid heartbeat, and irritability.",
+                Pronunciation: "greyvz di-zeez"
+            },
+            {
+                condition: "Guillain-Barré Syndrome",
+                description: "Guillain-Barré Syndrome (GBS) is a rare neurological disorder in which the body's immune system mistakenly attacks the peripheral nerves, resulting in muscle weakness, numbness, and, in severe cases, paralysis.",
+                Pronunciation: "gi-yan buh-rey sin-drohm"
+            },
+            {
+                condition: "Chronic thyroiditis (Hashimoto Disease)",
+                description: "Chronic thyroiditis, also known as Hashimoto's disease, is an autoimmune condition that causes inflammation and gradual destruction of the thyroid gland, leading to hypothyroidism.",
+                Pronunciation: "kron-ik thy-royd-ahy-tis (hah-shee-moh-toh di-zeez)"
+            },
+            {
+                condition: "Chronic inflammatory demyelinating polyneuropathy",
+                description: "Chronic inflammatory demyelinating polyneuropathy (CIDP) is a neurological disorder characterized by progressive weakness and impaired sensory function due to inflammation and damage to the peripheral nerves.",
+                Pronunciation: "kron-ik in-flam-uh-tawr-ee dih-my-uh-luh-nuhng pahy-luh-noo-rop-uh-thee"
+            },
+            {
+                condition: "Lupus",
+                description: "Lupus, or systemic lupus erythematosus (SLE), is an autoimmune disease that can affect various organs and systems in the body, causing symptoms such as joint pain, skin rashes, fatigue, and organ damage.",
+                Pronunciation: "loo-puhs (sis-tem-ik loo-puhs er-uh-thee-muh-toh-suhs)"
+            },
+            {
+                condition: "Multiple sclerosis",
+                description: "Multiple sclerosis (MS) is a chronic autoimmune disease that affects the central nervous system, causing damage to the protective covering of nerve fibers. It can result in various neurological symptoms and impairments.",
+                Pronunciation: "muhl-tuh-puhl skluh-roh-suhs"
+            },
+            {
+                condition: "Myasthenia gravis",
+                description: "Myasthenia gravis is a neuromuscular disorder characterized by weakness and rapid fatigue of voluntary muscles. It occurs when communication between nerve cells and muscles is impaired.",
+                Pronunciation: "mahy-uh-sthee-nee-uh grey-vis"
+            },
+            {
+                condition: "Psoriatic arthritis",
+                description: "Psoriatic arthritis is a form of arthritis that affects some individuals with psoriasis, a chronic skin condition. It causes joint pain, stiffness, and swelling, often in combination with skin lesions.",
+                Pronunciation: "sor-ee-at-ik ar-thry-tis"
+            },
+            {
+                condition: "Pernicious anemia",
+                description: "Pernicious anemia is a type of anemia caused by the body's inability to absorb vitamin B12, resulting in low levels of red blood cells. It can lead to fatigue, weakness, and other symptoms.",
+                Pronunciation: "per-ni-shuhs uh-nee-mee-uh"
+            },
+            {
+                condition: "Rheumatoid arthritis",
+                description: "Rheumatoid arthritis is an autoimmune disease that primarily affects the joints, causing chronic inflammation, pain, and stiffness. It can lead to joint deformity and other complications.",
+                Pronunciation: "roo-muh-toyd ar-thry-tis"
+            },
+            {
+                condition: "Sjögren syndrome",
+                description: "Sjögren's syndrome is an autoimmune disorder that primarily affects the glands that produce tears and saliva, leading to dry eyes and mouth. It can also cause systemic symptoms and affect other organs.",
+                Pronunciation: "shoh-gruhnz sin-drohm"
+            },
+            {
+                condition: "Systemic lupus erythematosus",
+                description: "Systemic lupus erythematosus (SLE), commonly known as lupus, is a chronic autoimmune disease that can affect multiple organs and systems in the body, leading to a wide range of symptoms and complications.",
+                Pronunciation: "sis-tem-ik loo-puhs er-uh-thee-muh-toh-suhs"
+            },
+            {
+                condition: "Vasculitis",
+                description: "Vasculitis is a group of disorders characterized by inflammation of blood vessels, which can affect blood flow and damage various organs. The severity and specific symptoms depend on the type and location of the vasculitis.",
+                Pronunciation: "vas-kyuh-lahy-tis"
+            }
+        ];
 
-//     descriptionSpan.setAttribute('id',`description_${i}`)
+        const NeurobehavioralList = [
+            {
+                condition: "Confusion - Must be under 70 years of age",
+                description: "Confusion is a state of disorientation and difficulty thinking clearly. In this case, it is specified that the confusion must occur in individuals under 70 years of age.",
+                Pronunciation: "kuhn-fyoo-zhuhn"
+            },
+            {
+                condition: "Lack of coordination - Must be under 70 years of age",
+                description: "Lack of coordination refers to difficulties in controlling movements and maintaining balance. It is specified that this condition must occur in individuals under 70 years of age.",
+                Pronunciation: "lak uhv koh-or-dn-ey-shuhn"
+            },
+            {
+                condition: "Depression",
+                description: "Depression is a mood disorder characterized by persistent feelings of sadness, loss of interest or pleasure in activities, changes in appetite or sleep patterns, and a lack of energy.",
+                Pronunciation: "dih-presh-uhn"
+            },
+            {
+                condition: "Fatigue",
+                description: "Fatigue is a state of extreme tiredness or exhaustion that can interfere with daily activities and functioning. It is often accompanied by a lack of energy and motivation.",
+                Pronunciation: "fuh-teeg"
+            },
+            {
+                condition: "Sensory disturbances",
+                description: "Sensory disturbances refer to abnormal sensations or changes in sensory perception, such as numbness, tingling, or altered sensitivity to touch, temperature, or pain.",
+                Pronunciation: "sen-suh-ree dis-tur-buhn-siz"
+            },
+            {
+                condition: "Tension",
+                description: "Tension refers to a state of mental or emotional strain and stress, often characterized by feelings of unease, irritability, and physical muscle tension.",
+                Pronunciation: "ten-shuhn"
+            },
+            {
+                condition: "Trouble concentrating",
+                description: "Trouble concentrating, or difficulty focusing attention, can be a symptom of various underlying conditions, such as attention-deficit/hyperactivity disorder (ADHD), anxiety, or depression.",
+                Pronunciation: "truh-buhl kuhn-suhn-trey-ting"
+            },
+            {
+                condition: "Headache - NO PTSD",
+                description: "Headache refers to pain or discomfort in the head or upper neck region. In this case, it is specified that the headache should not be associated with post-traumatic stress disorder (PTSD).",
+                Pronunciation: "hed-eyk (noh pee-tee-es-dee)"
+            }
+        ];
 
-//     showDisc(`show_description_${i}`,`description_${i}`);
-// }
+        const ReproductiveList = [
+            {
+                condition: "Birth Defect/Malformations",
+                description: "Birth defects or malformations refer to structural abnormalities or functional impairments that occur during fetal development. They can affect various body parts or systems and may result in lifelong disabilities or health conditions.",
+                Pronunciation: "burth dih-fekts/mal-for-mey-shuhnz"
+            },
+            {
+                condition: "Conjoined Twins",
+                description: "Conjoined twins are identical twins who are physically joined together at birth. This rare condition occurs when the fertilized egg does not fully separate during early development, leading to the twins sharing certain body parts or organs.",
+                Pronunciation: "kuhn-joind twins"
+            },
+            {
+                condition: "Congenital malformation (microcephaly)",
+                description: "Congenital malformation, specifically microcephaly, is a condition in which a baby's head is significantly smaller than expected due to incomplete brain development. It can result in intellectual disabilities, developmental delays, and other complications.",
+                Pronunciation: "kuhn-jen-i-tl mal-for-mey-shuhn (my-kroh-sef-uh-lee)"
+            },
+            {
+                condition: "Male or Female Infertility",
+                description: "Infertility refers to the inability to conceive a child or carry a pregnancy to full term. Both males and females can experience infertility, which can be caused by various factors such as hormonal imbalances, structural abnormalities, or reproductive disorders.",
+                Pronunciation: "meyl or fee-meyl in-fer-til-i-tee"
+            },
+            {
+                condition: "Miscarriage (female only)",
+                description: "A miscarriage, also known as a spontaneous abortion, is the loss of a pregnancy before the 20th week. It typically occurs due to fetal abnormalities or maternal health issues and is specific to females.",
+                Pronunciation: "mi-skar-ij (fee-meyl ohn-lee)"
+            },
+            {
+                condition: "Premature birth",
+                description: "A premature birth, also known as preterm birth, occurs when a baby is born before completing 37 weeks of gestation. Premature babies may face various health challenges due to their underdeveloped organs and systems.",
+                Pronunciation: "pri-muh-cher birth"
+            },
+            {
+                condition: "Cognitive disability (of child)",
+                description: "Cognitive disability, also referred to as intellectual disability, is a condition characterized by limitations in intellectual functioning and adaptive behaviors. It affects a child's cognitive abilities, such as learning, problem-solving, and social interactions.",
+                Pronunciation: "kog-ni-tiv dis-uh-bil-i-tee (uhv chahyld)"
+            },
+            {
+                condition: "Developmental disorder and type",
+                description: "Developmental disorders encompass a range of conditions that affect a child's physical, cognitive, language, and social-emotional development. Examples include autism spectrum disorder, attention-deficit/hyperactivity disorder (ADHD), and specific learning disorders.",
+                Pronunciation: "dee-vel-op-men-tl dis-or-der and tahyp"
+            }
+        ];
 
-// function showDisc(id1,id2){
-//  let Showdescription = document.getElementById(id1);
-//  let descriptionSpan = document.getElementById(id2);
-//  Showdescription.addEventListener("mouseenter", function() {
-//     // Calculate the position of the "show_description" span
-//     var showDescriptionRect = this.getBoundingClientRect();
-//     var topPosition = showDescriptionRect.top - descriptionSpan.offsetHeight - 40;
-//     var leftPosition = showDescriptionRect.left + (showDescriptionRect.width / 2) - (descriptionSpan.offsetWidth / 2) + 10;
-//     console.log('descriptionSpan.clientHeight:',descriptionSpan.clientHeight,' px') //0 px
-//     // console.log('showDescriptionRect.width:',showDescriptionRect.width,' px') 
-//     console.log('descriptionSpan.offsetWidth:',descriptionSpan.offsetWidth,' px')//0 px
-//     // console.log('topPosition:',topPosition,' px')
-//     // console.log('leftPosition:',leftPosition,' px')
+        const healthConditions = [
+            {
+                condition: "Acute Lymphoblastic Leukemia",
+                description: "Acute lymphoblastic leukemia (ALL) is a cancer of the blood and bone marrow that affects white blood cells.",
+                pronunciation: "uh-kyoot lim-foh-blas-tik loo-kee-mee-uh"
+            },
+            {
+                condition: "Acute Myeloid Leukemia",
+                description: "Acute myeloid leukemia (AML) is a type of cancer that starts in the blood-forming cells of the bone marrow and invades the blood.",
+                pronunciation: "uh-kyoot my-uh-loid loo-kee-mee-uh"
+            },
+            {
+                condition: "Anaplastic Anemia and other myelodyplastic syndromes",
+                description: "Anaplastic anemia and myelodysplastic syndromes are a group of disorders characterized by insufficient production of healthy blood cells.",
+                pronunciation: "uh-nuh-plas-tik uh-nee-mee-uh and uhd-er my-uh-loh-dis-plas-tik sin-drohmz"
+            },
+            {
+                condition: "Bladder Cancer",
+                description: "Bladder cancer is a type of cancer that begins in the cells of the bladder, the organ that stores urine.",
+                pronunciation: "blad-er kan-ser"
+            },
+            {
+                condition: "Breast Cancer",
+                description: "Breast cancer is a cancer that forms in the cells of the breasts, typically in the ducts or lobules.",
+                pronunciation: "brest kan-ser"
+            },
+            {
+                condition: "Chronic lymphocytic leukemia (CLL)",
+                description: "Chronic lymphocytic leukemia (CLL) is a type of cancer that starts in the white blood cells called lymphocytes.",
+                pronunciation: "kron-ik lim-foh-sit-ik loo-kee-mee-uh (CLL)"
+            },
+            {
+                condition: "Chronic myelogenous leukemia (CML)",
+                description: "Chronic myelogenous leukemia (CML) is a type of cancer that begins in the blood-forming cells of the bone marrow and invades the blood.",
+                pronunciation: "kron-ik my-uh-loh-jen-us loo-kee-mee-uh (CML)"
+            },
+            {
+                condition: "Esophageal cancer",
+                description: "Esophageal cancer develops in the esophagus, the muscular tube that connects the mouth to the stomach.",
+                pronunciation: "ee-sof-uh-jee-ul kan-ser"
+            },
+            {
+                condition: "Female infertility",
+                description: "Female infertility refers to the inability to become pregnant or carry a pregnancy to full term.",
+                pronunciation: "fee-male in-fur-til-i-tee"
+            },
+            {
+                condition: "Hepatic steatosis",
+                description: "Hepatic steatosis, also known as fatty liver disease, is the accumulation of fat in liver cells.",
+                pronunciation: "hi-pat-ik stee-uh-toh-sis"
+            },
+            {
+                condition: "Kidney cancer",
+                description: "Kidney cancer, or renal cancer, originates in the kidneys and can spread to other parts of the body.",
+                pronunciation: "kid-nee kan-ser"
+            },
+            {
+                condition: "Liver cancer",
+                description: "Liver cancer is a type of cancer that starts in the cells of the liver. It can be primary or metastatic.",
+                pronunciation: "liv-er kan-ser"
+            },
+            {
+                condition: "Leukemia",
+                description: "Leukemia is a group of blood cancers that affect the bone marrow and blood-forming cells.",
+                pronunciation: "loo-kee-mee-uh"
+            },
+            {
+                condition: "Lung cancer",
+                description: "Lung cancer begins in the cells of the lungs and may spread to other parts of the body through the bloodstream or lymphatic system.",
+                pronunciation: "lung kan-ser"
+            },
+            {
+                condition: "Miscarriage",
+                description: "Miscarriage is the spontaneous loss of a pregnancy before the 20th week. It's also known as pregnancy loss or spontaneous abortion.",
+                pronunciation: "mis-kar-ij"
+            },
+            {
+                condition: "Multiple myeloma/plasma cell neoplasms",
+                description: "Multiple myeloma is a cancer of plasma cells in the bone marrow. Plasma cell neoplasms are abnormal growths of plasma cells.",
+                pronunciation: "muhl-tuh-pul my-uh-loh-muh/plaz-muh sel nee-uh-plazms"
+            },
+            {
+                condition: "Mycosis Fungoides",
+                description: "Mycosis fungoides is the most common type of cutaneous T-cell lymphoma, a rare cancer that affects the skin.",
+                pronunciation: "my-koh-sis fun-goy-deez"
+            },
+            {
+                condition: "Neurobehavioral effects due to documented chemical toxicity",
+                description: "Neurobehavioral effects due to documented chemical toxicity refer to cognitive, emotional, and behavioral changes caused by exposure to harmful chemicals.",
+                pronunciation: "noo-roh-beh-hayv-yor-ul ih-fekts doo toh dah-k-yuh-men-tid kem-i-kul tok-sis-i-tee"
+            },
+            {
+                condition: "Non-Hodgkin’s lymphoma (NHL)",
+                description: "Non-Hodgkin’s lymphoma (NHL) is a diverse group of blood cancers that begin in lymphocytes, a type of white blood cell.",
+                pronunciation: "non-hoj-kinz lim-foh-muh (NHL)"
+            },
+            {
+                condition: "Parkinson’s disease",
+                description: "Parkinson’s disease is a progressive nervous system disorder that affects movement, often causing tremors, stiffness, and impaired coordination.",
+                pronunciation: "par-kin-sunz di-zeez"
+            },
+            {
+                condition: "Scleroderma",
+                description: "Scleroderma is a group of rare diseases that involve the hardening and tightening of the skin and connective tissues.",
+                pronunciation: "sklair-oh-dur-muh"
+            }
+        ];
 
-// //     // Position the description span
-//     descriptionSpan.style.position = "absolute";
-//     descriptionSpan.style.top = topPosition + "px";
-//     descriptionSpan.style.left = leftPosition + "px";
-//     descriptionSpan.style.display = "block";
-//     descriptionSpan.classList.remove("hidden");
+        const healthConditions_2 = [
+            {
+                condition: "Bile duct cancer",
+                description: "Bile duct cancer, or cholangiocarcinoma, is a type of cancer that forms in the bile ducts, which are tubes that carry bile from the liver to the small intestine.",
+                pronunciation: "byl duhkt kan-ser"
+            },
+            {
+                condition: "Bone cancer",
+                description: "Bone cancer refers to cancers that originate in the bone tissue. They can be primary bone cancers or cancers that have spread from other parts of the body.",
+                pronunciation: "bohn kan-ser"
+            },
+            {
+                condition: "Brain cancer",
+                description: "Brain cancer is a type of cancer that originates in the brain cells. It can be primary (starting in the brain) or secondary (spreading to the brain from other areas).",
+                pronunciation: "brayn kan-ser"
+            },
+            {
+                condition: "Childhood and adolescent cancer",
+                description: "Childhood and adolescent cancer refers to cancers that occur in individuals during their childhood and teenage years.",
+                pronunciation: "chahyld-hood and ad-uh-les-uhnt kan-ser"
+            },
+            {
+                condition: "Endocrine syndromes/neoplasm",
+                description: "Endocrine syndromes and neoplasms are disorders related to the endocrine system, which produces hormones. Neoplasms are abnormal growths that can be benign or cancerous.",
+                pronunciation: "en-doh-krin sin-drohmz/nee-uh-plazm"
+            },
+            {
+                condition: "Eye cancer",
+                description: "Eye cancer can refer to various cancers that affect different parts of the eye, such as retinoblastoma (affecting the retina) or ocular melanoma (affecting the eye's pigmented cells).",
+                pronunciation: "ahy kan-ser"
+            },
+            {
+                condition: "Hairy cell leukemia",
+                description: "Hairy cell leukemia is a rare type of chronic leukemia that involves abnormal B cells and can cause enlargement of the spleen and other symptoms.",
+                pronunciation: "heir-ee sel loo-kee-mee-uh"
+            },
+            {
+                condition: "Laryngeal cancer",
+                description: "Laryngeal cancer starts in the larynx (voice box). It can affect the voice and breathing and may require surgical or other medical interventions.",
+                pronunciation: "luh-rin-jee-ul kan-ser"
+            },
+            {
+                condition: "Myeloproliferative neoplasms",
+                description: "Myeloproliferative neoplasms are a group of rare blood disorders characterized by the overproduction of blood cells in the bone marrow.",
+                pronunciation: "my-uh-loh-proh-lif-uh-ruh-tiv nee-uh-plazmz"
+            },
+            {
+                condition: "Pancreatic cancer",
+                description: "Pancreatic cancer begins in the cells of the pancreas, an organ that plays a crucial role in digestion and blood sugar regulation.",
+                pronunciation: "pan-kree-at-ik kan-ser"
+            },
+            {
+                condition: "Primary CNS lymphoma",
+                description: "Primary CNS lymphoma is a rare type of non-Hodgkin's lymphoma that originates in the central nervous system (CNS), which includes the brain and spinal cord.",
+                pronunciation: "pry-mair-ee CNS lim-foh-muh"
+            },
+            {
+                condition: "Renal toxicity",
+                description: "Renal toxicity refers to the harmful effects of substances on the kidneys, potentially leading to kidney damage and impaired function.",
+                pronunciation: "ree-nl tok-sis-i-tee"
+            },
+            {
+                condition: "Thyroid cancer",
+                description: "Thyroid cancer starts in the cells of the thyroid gland, a butterfly-shaped organ in the neck that produces hormones.",
+                pronunciation: "thahy-roid kan-ser"
+            }
+        ];
 
-//  });
-//  // Add event listener for mouseout event
-//  Showdescription.addEventListener("mouseout", function() {
-//     // Hide the description span
-//     descriptionSpan.style.display = "none";
-//   });
-// }
+        const healthConditions_3 = [
+            {
+                condition: "Anal Cancer",
+                description: "Anal cancer is a type of cancer that forms in the tissues of the anus. It's relatively rare and can cause symptoms such as bleeding and pain.",
+                pronunciation: "ay-nuhl kan-ser"
+            },
+            {
+                condition: "Appendix Cancer",
+                description: "Appendix cancer is a rare type of cancer that starts in the cells of the appendix, a small pouch attached to the large intestine.",
+                pronunciation: "uh-pen-diks kan-ser"
+            },
+            {
+                condition: "Basal Cell Carcinoma",
+                description: "Basal cell carcinoma is the most common type of skin cancer. It usually appears as a slow-growing, painless bump or lesion on the skin.",
+                pronunciation: "bay-suhl sel kar-suh-noh-muh"
+            },
+            {
+                condition: "Cervical Cancer",
+                description: "Cervical cancer forms in the cervix, the lower part of the uterus. It's often caused by human papillomavirus (HPV) infection.",
+                pronunciation: "ser-vi-kuhl kan-ser"
+            },
+            {
+                condition: "Colon Cancer",
+                description: "Colon cancer, also known as colorectal cancer, develops in the colon or rectum. It often starts as polyps and can be preventable and treatable if detected early.",
+                pronunciation: "koh-luhn kan-ser"
+            },
+            {
+                condition: "Fallopian Tube Cancer",
+                description: "Fallopian tube cancer is a rare cancer that begins in the fallopian tubes, which connect the ovaries to the uterus in females.",
+                pronunciation: "fuh-loh-pee-uhn toob kan-ser"
+            },
+            {
+                condition: "Gastrointestinal Cancer",
+                description: "Gastrointestinal cancer refers to cancers that develop in the digestive system, including the esophagus, stomach, liver, pancreas, and more.",
+                pronunciation: "gas-troh-in-te-stuh-nl kan-ser"
+            },
+            {
+                condition: "Gestational Trophoblastic Disease",
+                description: "Gestational trophoblastic disease is a group of rare conditions that involve abnormal growth of cells inside a woman's uterus after pregnancy.",
+                pronunciation: "jes-tuh-tion-ul troh-fuh-blas-tik di-zeez"
+            },
+            {
+                condition: "Head and Neck Cancers",
+                description: "Head and neck cancers include various cancers that develop in the tissues of the head and neck, such as oral, throat, and nasal cavity cancers.",
+                pronunciation: "hed and nek kan-serz"
+            },
+            {
+                condition: "Hodgkin Lymphoma",
+                description: "Hodgkin lymphoma is a type of cancer that affects the lymphatic system, usually starting in lymph nodes and spreading through the body.",
+                pronunciation: "hoj-kin lim-foh-muh"
+            },
+            {
+                condition: "Penile Cancer",
+                description: "Penile cancer forms on or in the penis. It's rare and often appears as growths or sores on the penis.",
+                pronunciation: "pee-nail kan-ser"
+            },
+            {
+                condition: "Pituitary Cancer",
+                description: "Pituitary cancer is a rare type of cancer that forms in the pituitary gland, a small organ at the base of the brain that regulates hormones.",
+                pronunciation: "pi-too-i-ter-ee kan-ser"
+            },
+            {
+                condition: "Prostate Cancer",
+                description: "Prostate cancer develops in the prostate gland, a small organ in males that produces seminal fluid. It's one of the most common cancers in men.",
+                pronunciation: "pros-teyt kan-ser"
+            },
+            {
+                condition: "Rectal Cancer",
+                description: "Rectal cancer forms in the rectum, the last part of the large intestine. It's similar to colon cancer and can cause similar symptoms.",
+                pronunciation: "rek-tuhl kan-ser"
+            },
+            {
+                condition: "Stomach Cancer",
+                description: "Stomach cancer, also known as gastric cancer, begins in the lining of the stomach. It can cause various symptoms related to digestion.",
+                pronunciation: "stuhm-uhk kan-ser"
+            },
+            {
+                condition: "Testicular Cancer",
+                description: "Testicular cancer forms in the testicles, the male reproductive organs. It's one of the most treatable types of cancer and often affects young men.",
+                pronunciation: "tes-tik-yuh-lur kan-ser"
+            },
+            {
+                condition: "Uterine Cancer",
+                description: "Uterine cancer starts in the lining of the uterus, the female reproductive organ where a fertilized egg implants and grows.",
+                pronunciation: "yoo-tuh-ryn kan-ser"
+            },
+            {
+                condition: "Vascular Tumors",
+                description: "Vascular tumors are growths that develop in blood vessels or lymphatic vessels. They can be benign (non-cancerous) or malignant (cancerous).",
+                pronunciation: "vas-kyuh-lur too-morz"
+            }
+        ];
+
+        const healthConditions_4 = [
+            {
+                condition: "Parkinson’s Disease",
+                description: "Parkinson’s disease is a progressive nervous system disorder that affects movement, often causing tremors, stiffness, and impaired coordination.",
+                pronunciation: "par-kin-sunz di-zeez"
+            },
+            {
+                condition: "Kidney Cancer",
+                description: "Kidney cancer, or renal cancer, originates in the kidneys and can spread to other parts of the body.",
+                pronunciation: "kid-nee kan-ser"
+            },
+            {
+                condition: "Non-Hodgkin’s Lymphoma",
+                description: "Non-Hodgkin’s lymphoma (NHL) is a diverse group of blood cancers that begin in lymphocytes, a type of white blood cell.",
+                pronunciation: "non-hoj-kinz lim-foh-muh (NHL)"
+            },
+            {
+                condition: "Leukemias",
+                description: "Leukemias are a group of blood cancers that affect the bone marrow and blood-forming cells.",
+                pronunciation: "loo-kee-mee-uhz"
+            },
+            {
+                condition: "Liver Cancer",
+                description: "Liver cancer is a type of cancer that starts in the cells of the liver. It can be primary or metastatic.",
+                pronunciation: "liv-er kan-ser"
+            },
+            {
+                condition: "Bladder Cancer",
+                description: "Bladder cancer is a type of cancer that begins in the cells of the bladder, the organ that stores urine.",
+                pronunciation: "blad-er kan-ser"
+            },
+            {
+                condition: "Multiple Myeloma",
+                description: "Multiple myeloma is a cancer of plasma cells in the bone marrow. Plasma cell neoplasms are abnormal growths of plasma cells.",
+                pronunciation: "muhl-tuh-pul my-uh-loh-muh"
+            },
+            {
+                condition: "Kidney Disease End Stage",
+                description: "Kidney disease end stage refers to the final stage of chronic kidney disease when the kidneys have lost most of their function, requiring dialysis or transplant.",
+                pronunciation: "kid-nee di-zeez end stayj"
+            },
+            {
+                condition: "Renal Toxicity",
+                description: "Renal toxicity refers to the harmful effects of substances on the kidneys, potentially leading to kidney damage and impaired function.",
+                pronunciation: "ree-nl tok-sis-i-tee"
+            },
+            {
+                condition: "Aplastic Anemia and other Myelodysplastic Syndromes",
+                description: "Aplastic anemia and myelodysplastic syndromes are a group of disorders characterized by insufficient production of healthy blood cells.",
+                pronunciation: "uh-plas-tik uh-nee-mee-uh and uhd-er my-uh-loh-dis-plas-tik sin-drohmz"
+            },
+            {
+                condition: "Systemic Sclerosis / Scleroderma",
+                description: "Systemic sclerosis, also known as scleroderma, is a group of rare diseases that involve the hardening and tightening of the skin and connective tissues.",
+                pronunciation: "sis-tem-ik skler-oh-sis / skleer-oh-dur-muh"
+            },
+            {
+                condition: "Miscarriage",
+                description: "Miscarriage is the spontaneous loss of a pregnancy before the 20th week. It's also known as pregnancy loss or spontaneous abortion.",
+                pronunciation: "mis-kar-ij"
+            }
+        ];
 
 
-</script>
+        renderUL(healthConditions_4, 'root', 'w-100 col-md-6', 'healthConditions_4', 'NGS 1 symptoms');
+        renderUL(healthConditions, 'root', 'w-100 col-md-6', 'healthConditions', 'Primary Conditions NGS2');
+        renderUL(healthConditions_2, 'root', 'w-100 col-md-6', 'healthConditions_2', 'Secondary Qualifying Conditions Tier 1 NGS2');
+        renderUL(healthConditions_3, 'root', 'w-100 col-md-6', 'healthConditions_3', 'Secondary Qualifying Conditions Tier 2 NGS2');
+        // renderUL(ReproductiveList, 'NeurobehavioralList', 'col', 'ReproductiveList');
+        // renderUL(OthersList, 'root', 'col-3', 'OthersList');
+
+        function renderUL(Obj, divId, colClass = 'col', listDivID = '', title = false) {
+            const container = document.getElementById(divId);
+            // <div class="list-group">
+            let links = `<div class="${colClass} mt-3" id='${listDivID}'>
+                ${title !== false ? '<h3>' + title + '</h3>' : null}
+                            <ul class="list-group "  id='${listDivID}Ol'> `;
+            Obj.forEach((item, index) => {
+                /*
+                conditionName = "${item.condition}"
+                  description = "${item.description}"
+                  Pronunciation = "${item.Pronunciation}"
+                  */
+                let elementA = `
+                <li  
+                    class="list-group-item list-group-item-action list-group-item-dark fw-medium text-capitalize"
+                    style='line-height: 1;'  
+                >
+                    ${index + 1}- ${item.condition}
+
+                    <span onclick="textToAudio('${item.condition}',this)" class='textToAudioSpan ms-2' id='' title='Play'>
+                        <i class="fa-solid fa-volume-high"></i>
+                    </span>
+
+                    <span onclick="stopAudio()" class='stopAudioSpan ms-2' id='' style='display:none' title='Stop'>
+                        <i class="fa-regular fa-circle-stop"></i>
+                    </span>
+
+                    <span class="mytooltip-btn descriptionSpan ms-2" tabindex="0" data-mytooltip="${item.description}" title='Description'>
+                        <i class="fa-solid fa-info"></i>
+                    </span>
+
+                    <span onclick="copyToClipboard('${item.condition}')" class="copySpan ms-2">
+                        <i class="fa-solid fa-clipboard" title='Copy'></i>
+                    </span>
+
+                </li>`;
+                links += elementA;
+            });
+            links += `</ul></div>`;
+            container.innerHTML += links;
+        }
+
+        // initialize bootstrap live Toast
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
+
+        if (toastTrigger) {
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show()
+            })
+        }
+
+
+        function copyToClipboard(text) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(text).select();
+            document.execCommand("copy");
+            $temp.remove();
+            $('#liveToastBtn').click()
+        }
+
+
+
+        class MyTooltip {
+            constructor(element) {
+                this.element = element;
+                this.tooltipText = element.getAttribute('data-mytooltip');
+                this.tooltipElement = document.createElement('span');
+                this.tooltipElement.className = 'mytooltip-text';
+                this.tooltipElement.textContent = this.tooltipText;
+                this.element.classList.add('mytooltip');
+                this.element.appendChild(this.tooltipElement);
+
+                this.element.addEventListener('mouseenter', () => {
+                    this.positionTooltip();
+                    this.tooltipElement.classList.add('active');
+                });
+
+                this.element.addEventListener('mouseleave', () => {
+                    this.tooltipElement.classList.remove('active');
+                });
+            }
+
+            positionTooltip() {
+                const buttonRect = this.element.getBoundingClientRect();
+                const tooltipRect = this.tooltipElement.getBoundingClientRect();
+
+                const spaceToLeft = buttonRect.left;
+                const spaceToRight = window.innerWidth - buttonRect.right;
+
+                const spaceToTop = buttonRect.top;
+                const spaceToBottom = window.innerHeight - buttonRect.bottom;
+
+                const tooltipSpace = 10; // Adjust this value to control the space
+
+                let left, right, top, bottom;
+                console.log('spaceToTop', spaceToTop, 'spaceToBottom', spaceToBottom)
+                console.log('spaceToLeft', spaceToLeft, 'spaceToRight', spaceToRight)
+
+                if (spaceToLeft > spaceToRight) {
+                    // Position on the left side
+                    // left = buttonRect.right - tooltipRect.width //buttonRect.left - tooltipRect.width - tooltipSpace;
+                    // right = 'auto';
+                    right = buttonRect.width - tooltipRect.width / 2;
+                    left = 'auto';
+                } else {
+                    // Position on the right side
+                    // left = 'auto';
+                    // right = buttonRect.left - tooltipRect.width//window.innerWidth - buttonRect.right + tooltipSpace;
+                    left = buttonRect.width + tooltipRect.width / 2;
+                    right = 'auto'
+                }
+
+                if (spaceToTop > spaceToBottom) {
+                    // Position on the left side
+                    // left = buttonRect.right - tooltipRect.width //buttonRect.left - tooltipRect.width - tooltipSpace;
+                    // right = 'auto';
+                    bottom = buttonRect.height// - tooltipRect.height / 2;
+                    top = 'auto';
+                } else {
+                    // Position on the right side
+                    // left = 'auto';
+                    // right = buttonRect.left - tooltipRect.width//window.innerWidth - buttonRect.right + tooltipSpace;
+                    top = buttonRect.height// + tooltipRect.height / 2;
+                    bottom = 'auto'
+                }
+                console.log('left', left, 'right', right, 'top', top, 'bottom', bottom)
+                // this.tooltipElement.style.top = `${buttonRect.height}px`;
+                this.tooltipElement.style.left = left !== 'auto' ? `${left}px` : left;
+                this.tooltipElement.style.right = right !== 'auto' ? `${right}px` : right;
+                this.tooltipElement.style.top = top !== 'auto' ? `${top}px` : top;
+                this.tooltipElement.style.bottom = bottom !== 'auto' ? `${bottom}px` : bottom;
+            }
+        }
+
+        // Initialize tooltips
+        const myTooltipElements = document.querySelectorAll('.mytooltip-btn');
+        myTooltipElements.forEach(element => {
+            new MyTooltip(element);
+        });
+
+
+    </script>
+
 
 </body>
+
 </html>
