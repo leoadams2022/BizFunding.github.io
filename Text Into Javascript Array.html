@@ -1,0 +1,172 @@
+<html>
+
+<head>
+  <title>Text Into Javascript Array</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Raleway" rel="stylesheet">
+  <style>
+    .header {
+      background-color: #B0DFEE;
+      padding: 10px;
+
+    }
+
+    h1 {
+      font-family: 'Raleway', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    body {
+      background-color: #54A4BE;
+    }
+
+    p {
+      font-family: 'Raleway', sans-serif;
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .box {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+
+    h1 {
+      color: #FFFFFF;
+    }
+
+    button {
+      width: 20%;
+      float: left;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      /* Green */
+      border: 1px solid green;
+      color: white;
+
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      height: 3em;
+      cursor: pointer;
+      /* float: left; */
+      margin: 6px;
+    }
+
+    .button:hover {
+      background-color: #3e8e41;
+    }
+
+    @media all and (min-width: 960px) {
+      h1 {
+        font-size: 50px;
+      }
+
+      .box {
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+    }
+
+    @media all and (max-width: 959px) and (min-width: 600px) {
+      h1 {
+        font-size: 5vw;
+      }
+    }
+
+    @media all and (max-width: 599px) and (min-width: 50px) {
+      h1 {
+        font-size: 10vw;
+      }
+
+      /* button {
+        width: 50%; 
+
+      } */
+    }
+
+    textarea {
+      padding-left: 5px;
+      border: solid #8FB0EB 1px;
+      background-color: #FFFFFF;
+      resize: none;
+      width: 100%;
+      height: 200px;
+      display: block;
+      margin-top: 10px;
+    }
+
+    #input-area {
+      background-color: #FFD36B;
+    }
+
+    #output-area {
+      background-color: #FFA08F;
+    }
+
+    #button-container {
+      margin: 10px 0px 0px 0px;
+      padding: 0px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="header">
+    <h1>Javascript Array Maker</h1>
+  </div>
+  <div class="box">
+    <p>Enter your values into the input field and click the button to convert them to a string array.</p>
+    <textarea id="input-area" placeholder="Input text"></textarea>
+    <textarea id="output-area" placeholder="Output text"></textarea>
+    <div id="button-container">
+      <button id="make-javascript-array-btn" class="button">Make JS Array</button>
+      <button id="" onclick="copyAll()" class="button">Copy JS Array</button>
+      <button id="" onclick="clearAll()" class="button">Clear All</button>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#make-javascript-array-btn").on("click", function () {
+        var input = $("#input-area").val().split("\n");
+        var output = "[";
+        for (var i = 0; i < input.length; i++) {
+          output += "\'" + input[i] + "\'";
+          if (i < input.length - 1) {
+            output += ",";
+          }
+        }
+        output += "]";
+        $("#output-area").val(output);
+      })
+
+
+    })
+
+
+    function copyAll() {
+      var copyText = document.getElementById("output-area");
+      copyText.select();
+      navigator.clipboard.writeText(copyText.value);
+    }
+
+
+    function clearAll() {
+      var input = document.getElementById("input-area");
+      var output = document.getElementById("output-area");
+      input.value = ' ';
+      output.value = ' ';
+    }
+  </script>
+</body>
+
+</html>
