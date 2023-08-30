@@ -1,44 +1,76 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	        <!-- Latest compiled and minified CSS -->
-	        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizFunding Index</title>
+    <style>
+        body {
+            background: cadetblue;
+            color: black;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-<title>
-Leo Adams index
-</title>
-<style>
-body {
-  background: #595959;
-}
-ul {
-  text-align: center;
-  font-size: 15px;
-  font-weight: bold;
-  list-style: none;
-  margin: 10% auto 0px auto;
-  padding: 0px !important;
-  width: 80%;
-}
-li {
-  padding: 1%;
-}
-</style>
+        div.output {
+            border: 1px solid #fff;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            background: whitesmoke;
+        }
+
+        ul.Links_Ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        li.Links_Li {
+            padding: 0.5rem;
+        }
+
+        a.Links_A {
+            text-decoration: none;
+            text-transform: capitalize;
+            color: black;
+            font-size: 2rem;
+            font-weight: 600;
+            font-family: cursive;
+        }
+
+        a.Links_A:hover {
+            color: #673AB7;
+        }
+    </style>
 </head>
-<body>
-<ul>
-  <li><a class="list-group-item list-group-item-info" href="bgm.html">BGM</a></li>
- <li><a class="list-group-item list-group-item-info" href="SolarChecker.html">Solar Checker</a></li>
-<!--<li><a class="list-group-item list-group-item-info" href="2ArraySearch.html">BGM & coved-19 DUP</a></li>
-  <li><a class="list-group-item list-group-item-info" href="bizfunding.html">Biz Funding</a></li>
-  <li><a class="list-group-item list-group-item-info" href="cgxandimmun.html">CGX & Immun</a></li>
-  <li><a class="list-group-item list-group-item-info" href="coved19.html">Coved-19</a></li>-->
-  <li><a class="list-group-item list-group-item-info" href="coved19dup.html">Coved-19-DUP List</a></li>
-  <!--<li><a class="list-group-item list-group-item-info" href="coved19ver2.html">Coved-19 Ver2</a></li>
-  <li><a class="list-group-item list-group-item-info" href="notessever.html">Notes save</a></li>
-  <li><a class="list-group-item list-group-item-info" href="ukform.html">UK Script</a></li>
-  <li><a class="list-group-item list-group-item-info" href="usst.html">States of America</a></li>-->
 
+<body>
+    <div class="output" id="output"></div>
+
+    <script>
+        let allGetHupHTML = ['Calculator', 'Index_StateWithTime', 'Med_Conditions', 'NewTrotDupChecker', 'Text Into Javascript Array', 'notessever',];
+        let output = document.getElementById('output');
+        let UlElement = document.createElement('ul');
+        UlElement.classList.add('Links_Ul');
+        allGetHupHTML.forEach(pageName => {
+            let LiEelement = document.createElement('li');
+            LiEelement.classList.add('Links_Li');
+            let AEelement = document.createElement('a');
+            AEelement.href = `https://leoadams2022.github.io/BizFunding.github.io/${pageName}.html`;
+            AEelement.target = '_blank';
+            AEelement.textContent = `${pageName}`
+            AEelement.classList.add('Links_A');
+            LiEelement.appendChild(AEelement);
+            UlElement.appendChild(LiEelement);
+        });
+        output.appendChild(UlElement)
+    </script>
 </body>
+
 </html>
