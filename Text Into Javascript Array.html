@@ -115,40 +115,216 @@
       margin: 10px 0px 0px 0px;
       padding: 0px;
     }
+
+    /* toggle  */
+    .toggle_div {
+      /* position: relative; */
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.5rem;
+    }
+
+    .toggle_div label:first-child {
+      text-transform: capitalize;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .toggle_div label:first-child:after {
+      content: ':';
+      display: inline-block;
+    }
+
+    label.toggle_label {
+      position: relative;
+    }
+
+    label.toggle_label::before {
+      content: '';
+      width: 50px;
+      height: 25px;
+      display: block;
+      background: #9E9E9E;
+      border-radius: 25px;
+      transition: 0.5s all;
+      border: 1px solid gray;
+      /* box-sizing: border-box; */
+    }
+
+    label.toggle_label.active::before {
+      background: #ffa08f;
+    }
+
+    label.toggle_label::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 6%;
+      transition: 0.5s all;
+      /* right: 5%; */
+      border: 1px solid;
+      border-color: transparent;
+    }
+
+    label.toggle_label.active::after {
+      background: #4caf50;
+      transform: translateX(25px);
+      /* border: 1px solid; */
+      border-color: gray;
+    }
+
+    input.toggle_checkbox {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
   </style>
 
 </head>
 
 <body>
   <div class="header">
+
     <h1>Javascript Array Maker</h1>
+
+    <div class="toggle_div">
+      <label for="removerdup">remover dup</label>
+      <label class="toggle_label">
+        <input id="removerdup" type="checkbox" class="toggle_checkbox" checked onchange="togggleRemoveDups()">
+      </label>
+    </div>
+
+
+    <div class="toggle_div">
+      <label for="RemoveEmpty">remove Empty</label>
+      <label class="toggle_label">
+        <input id="RemoveEmpty" type="checkbox" class="toggle_checkbox" checked onchange="togggleRemoveEmpty()">
+      </label>
+    </div>
+
+    <div class="toggle_div">
+      <label for="AccpetNumbers">Only Numbers</label>
+      <label class="toggle_label">
+        <input id="AccpetNumbers" type="checkbox" class="toggle_checkbox" onchange="togggleAccpetNumbers()">
+      </label>
+    </div>
+
   </div>
   <div class="box">
     <p>Enter your values into the input field and click the button to convert them to a string array.</p>
     <textarea id="input-area" placeholder="Input text"></textarea>
-    <textarea id="output-area" placeholder="Output text"></textarea>
+    <textarea id="output-area" placeholder="Output text" readonly></textarea>
     <div id="button-container">
       <button id="make-javascript-array-btn" class="button">Make JS Array</button>
       <button id="" onclick="copyAll()" class="button">Copy JS Array</button>
       <button id="" onclick="clearAll()" class="button">Clear All</button>
+      <button id="" onclick="LogArray()" class="button">Log Array</button>
     </div>
   </div>
 
   <script>
-     $(document).ready(function () {
+    let allToggles = document.querySelectorAll('.toggle_div');
+    allToggles.forEach(togDiv => {
+      let label = togDiv.querySelector('.toggle_label');
+      let input = label.querySelector('.toggle_checkbox');
+      if (input.checked) {
+        label.classList.add('active')
+      }
+      input.addEventListener('click', () => {
+        label.classList.toggle('active');
+
+      })
+    });
+
+    function togggleRemoveDups() {
+      if (removeDups === true) {
+        removeDups = false
+      } else if (removeDups === false) {
+        removeDups = true
+      }
+      // console.log(removeDups)
+    }
+    function togggleRemoveEmpty() {
+      if (removeEmpty === true) {
+        removeEmpty = false
+      } else if (removeEmpty === false) {
+        removeEmpty = true
+      }
+      // console.log(removeEmpty)
+    }
+    function togggleAccpetNumbers() {
+      if (accpetNumbers === true) {
+        accpetNumbers = false
+      } else if (accpetNumbers === false) {
+        accpetNumbers = true
+      }
+      // console.log(removeEmpty)
+    }
+    function LogArray() {
+      if (outputArr.length !== 0) {
+        console.log(outputArr)
+      } else (
+        console.log('Empty Array')
+      )
+    }
+    function parseNumber(inputString) {
+      const number = parseFloat(inputString);
+      if (!isNaN(number)) {
+        return number;
+      } else {
+        return false;
+      }
+    }
+    let removeEmpty = true;
+    let removeDups = true;
+    let accpetNumbers = false;
+    let outputArr = [];
+    $(document).ready(function () {
       $("#make-javascript-array-btn").on("click", function () {
         var input = $("#input-area").val().split("\n");
-        var output = "[";
+        outputArr = []
         for (var i = 0; i < input.length; i++) {
-          // console.log(input[i].trim())
-          if (input[i].trim() !== '') {
-            output += "\'" + input[i] + "\'";
-            if (i < input.length - 1) {
-              output += ",";
+
+          if (input[i].trim() !== '' && removeEmpty === true) {
+            if (accpetNumbers === true && parseNumber(input[i].trim()) !== false) {
+              outputArr.push(parseNumber(input[i].trim()));
+            } else if (accpetNumbers === false) {
+              outputArr.push(input[i].trim());
+            }
+          } else if (removeEmpty === false) {
+            if (accpetNumbers === true && parseNumber(input[i].trim()) !== false) {
+              outputArr.push(parseNumber(input[i].trim()));
+            } else if (accpetNumbers === false) {
+              outputArr.push(input[i].trim());
             }
           }
         }
-        output += "]";
+        if (removeDups === true) {
+          outputArr = [...new Set(outputArr)];
+        }
+        if (accpetNumbers === true) {
+          let braket = true
+        }
+        let output = '[';
+        outputArr.forEach((item, i) => {
+          let camma = true;
+          if (i === (outputArr.length - 1)) {
+            camma = false
+          }
+          output += `${accpetNumbers ? "" : "'"}${item}${accpetNumbers ? "" : "'"}${camma ? ',' : ''}`
+        });
+        output += ']';
+
         $("#output-area").val(output);
       })
     })
@@ -166,7 +342,9 @@
       var output = document.getElementById("output-area");
       input.value = ' ';
       output.value = ' ';
+      outputArr = []
     }
+
   </script>
 </body>
 
