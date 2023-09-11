@@ -2095,8 +2095,12 @@
       for (const state of states) {
         // key "95dd1ae2f94a4291827d8a4afc7507d2"
         try {
+          const headers = {
+  'Content-Type': 'application/json',
+};
           const response = await fetch(`https://api.ipgeolocation.io/timezone?apiKey=95dd1ae2f94a4291827d8a4afc7507d2&tz=${state.timeZone}`, {
-            method: 'GET'
+            method: 'GET',
+            headers: headers
           });
 
           if (response.ok) {
