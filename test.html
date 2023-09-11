@@ -21,7 +21,7 @@
   <table id="stateTable">
     <thead>
       <tr>
-        <th>State</th>
+        <th>1.13</th>
         <th>Time Zone</th>
       </tr>
     </thead>
@@ -2090,16 +2090,18 @@
     ]
 
 
+    
     async function fetchStateTimezones() {
       for (const state of states) {
+        // key "95dd1ae2f94a4291827d8a4afc7507d2"
         try {
-          const response = await fetch(`https://timeapi.io/api/Time/current/zone?timeZone=${state.timeZone}`, {
+          const response = await fetch(`https://api.ipgeolocation.io/timezone?apiKey=95dd1ae2f94a4291827d8a4afc7507d2&tz=${state.timeZone}`, {
             method: 'GET'
           });
 
           if (response.ok) {
             const data = await response.json();
-            console.log(data.dstActive);
+            console.log(data.is_dst);
 
           } else {
             console.error(`Failed to fetch data for ${state.name}`);
