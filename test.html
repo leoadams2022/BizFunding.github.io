@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.0.1/luxon.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data-10-year-range.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
+
+
+
+  <title>US_states_with_time_</title>
+</head>
+
+<body>
+  <table id="stateTable">
+    <thead>
+      <tr>
+        <th>State</th>
+        <th>Time Zone</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script>
+    // function renderStateTable() {
+    //   const stateTable = document.getElementById('stateTable');
+    //   const tbody = stateTable.querySelector('tbody');
+
+    //   // Define an array of state names and their time zone names.
+    //   const states = [
+    //     { name: 'Alabama', timeZone: 'America/Chicago' },
+    //     { name: 'Alaska', timeZone: 'America/Anchorage' },
+    //     // Add more states here...
+    //   ];
+
+    //   // Loop through the states and populate the table.
+    //   states.forEach((state) => {
+    //     const { name, timeZone } = state;
+    //     const currentTime = moment().tz(timeZone);
+    //     const formattedTime = currentTime.format('hh:mm a');
+
+    //     const row = document.createElement('tr');
+    //     row.innerHTML = `
+    //   <td>${name}</td>
+    //   <td>${formattedTime}</td>
+    // `;
+
+    //     tbody.appendChild(row);
+    //   });
+    // }
+
+    // // Call the function to render the table.
+    // renderStateTable();
+
+    const states = [
+      {
+        "name": "Alabama",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "205": [
+            "Birmingham",
+            "Alabaster",
+            "Bessemer"
+          ],
+          "251": [
+            "Mobile",
+            "Prichard",
+            ""
+          ],
+          "256": [
+            "Huntsville",
+            "Anniston",
+            "Decatur"
+          ],
+          "334": [
+            "Montgomery",
+            "Auburn",
+            "Dothan"
+          ],
+          "938": [
+            "Huntsville",
+            "",
+            ""
+          ]
+        },
+        "abbreviation": "AL"
+      },
+      {
+        "name": "Alaska",
+        "timeZone": "America/Anchorage",
+        "dstActive": null,
+        "AreaCodes": {
+          "907": [
+            "Anchorage",
+            "College",
+            "Fairbanks(UTC-9)"
+          ]
+        },
+        "abbreviation": "AK"
+      },
+      {
+        "name": "Arizona",
+        "timeZone": "America/Phoenix",
+        "dstActive": null,
+        "AreaCodes": {
+          "480": [
+            "Mesa",
+            "ApacheJunction",
+            "Chandler"
+          ],
+          "520": [
+            "Tucson",
+            "CasaAdobes",
+            "CasaGrande"
+          ],
+          "602": [
+            "Phoenix",
+            "",
+            ""
+          ],
+          "623": [
+            "Phoenix",
+            "Avondale",
+            "Glendale"
+          ],
+          "928": [
+            "Yuma",
+            "BullheadCity",
+            "Flagstaff"
+          ]
+        },
+        "abbreviation": "AZ"
+      },
+      {
+        "name": "Arkansas",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "479": [
+            "FortSmith",
+            "Fayetteville",
+            "Rogers"
+          ],
+          "501": [
+            "LittleRock",
+            "Benton",
+            "Conway"
+          ],
+          "870": [
+            "Jonesboro",
+            "ElDorado",
+            "Paragould"
+          ]
+        },
+        "abbreviation": "AR"
+      },
+      {
+        "name": "California",
+        "timeZone": "America/Los_Angeles",
+        "dstActive": null,
+        "AreaCodes": {
+          "209": [
+            "Stockton",
+            "Atwater",
+            "Ceres"
+          ],
+          "213": [
+            "LosAngeles",
+            "",
+            ""
+          ],
+          "279": [
+            "Sacramento",
+            "",
+            ""
+          ],
+          "310": [
+            "LosAngeles",
+            "BeverlyHills",
+            "Carson"
+          ],
+          "323": [
+            "LosAngeles",
+            "Bell",
+            "BellGardens"
+          ],
+          "408": [
+            "SanJose",
+            "Campbell",
+            "Gilroy"
+          ],
+          "415": [
+            "SanFrancisco",
+            "Novato",
+            "SanAnselmo"
+          ],
+          "424": [
+            "LosAngeles",
+            "BeverlyHills",
+            "Carson"
+          ],
+          "442": [
+            "Oceanside",
+            "",
+            ""
+          ],
+          "510": [
+            "Oakland",
+            "Alameda",
+            "Berkeley"
+          ],
+          "530": [
+            "Redding",
+            "Chico",
+            "Davis"
+          ],
+          "559": [
+            "Fresno",
+            "Clovis",
+            "Hanford"
+          ],
+          "562": [
+            "LongBeach",
+            "Bellflower",
+            "Cerritos"
+          ],
+          "619": [
+            "SanDiego",
+            "ChulaVista",
+            "Coronado"
+          ],
+          "626": [
+            "Pasadena",
+            "Alhambra",
+            "Altadena"
+          ],
+          "628": [
+            "SanFrancisco",
+            "",
+            ""
+          ],
+          "650": [
+            "SanMateo",
+            "Belmont",
+            "Burlingame"
+          ],
+          "657": [
+            "Anaheim",
+            "Brea",
+            "BuenaPark"
+          ],
+          "661": [
+            "Bakersfield",
+            "Delano",
+            "Lancaster"
+          ],
+          "669": [
+            "SanJose",
+            "Campbell",
+            "Gilroy"
+          ],
+          "707": [
+            "SantaRosa",
+            "Benicia",
+            "Eureka"
+          ],
+          "714": [
+            "Anaheim",
+            "Brea",
+            "BuenaPark"
+          ],
+          "747": [
+            "LosAngeles",
+            "",
+            ""
+          ],
+          "760": [
+            "Oceanside",
+            "AppleValley",
+            "Barstow"
+          ],
+          "805": [
+            "Oxnard",
+            "Atascadero",
+            "Camarillo"
+          ],
+          "818": [
+            "LosAngeles",
+            "AgouraHills",
+            "Burbank"
+          ],
+          "820": [
+            "Oxnard",
+            "",
+            ""
+          ],
+          "831": [
+            "Salinas",
+            "Hollister",
+            "Marina"
+          ],
+          "858": [
+            "SanDiego",
+            "Poway",
+            ""
+          ],
+          "909": [
+            "SanBernardino",
+            "Chino",
+            "ChinoHills"
+          ],
+          "916": [
+            "Sacramento",
+            "Arden-arcade",
+            "Carmichael"
+          ],
+          "925": [
+            "Concord",
+            "Antioch",
+            "BayPoint"
+          ],
+          "949": [
+            "Irvine",
+            "AlisoViejo",
+            "CostaMesa"
+          ],
+          "951": [
+            "Riverside",
+            "Banning",
+            "Corona"
+          ]
+        },
+        "abbreviation": "CA"
+      },
+      {
+        "name": "Colorado",
+        "timeZone": "America/Denver",
+        "dstActive": null,
+        "AreaCodes": {
+          "303": [
+            "Denver",
+            "Arvada",
+            "Aurora"
+          ],
+          "719": [
+            "ColoradoSprings",
+            "Pueblo",
+            "Security-widefield"
+          ],
+          "720": [
+            "Denver",
+            "Arvada",
+            "Aurora"
+          ],
+          "970": [
+            "FortCollins",
+            "GrandJunction",
+            "Greeley"
+          ]
+        },
+        "abbreviation": "CO"
+      },
+      {
+        "name": "Connecticut",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "203": [
+            "Bridgeport",
+            "Danbury",
+            "EastHaven"
+          ],
+          "475": [
+            "Bridgeport",
+            "",
+            ""
+          ],
+          "860": [
+            "Hartford",
+            "Bristol",
+            "CentralManchester"
+          ],
+          "959": [
+            "Hartford",
+            "",
+            ""
+          ]
+        },
+        "abbreviation": "CT"
+      },
+      {
+        "name": "Delaware",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "302": [
+            "Wilmington",
+            "Dover",
+            "Newark"
+          ]
+        },
+        "abbreviation": "DE"
+      },
+      {
+        "name": "Florida",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "239": [
+            "CapeCoral",
+            "BonitaSprings",
+            "FortMyers"
+          ],
+          "305": [
+            "Miami",
+            "Aventura",
+            "CarolCity"
+          ],
+          "321": [
+            "Orlando",
+            "AltamonteSprings",
+            "Apopka"
+          ],
+          "352": [
+            "Gainesville",
+            "OaklandPark",
+            "Ocala"
+          ],
+          "386": [
+            "PalmCoast",
+            "DaytonaBeach",
+            "DeLand"
+          ],
+          "407": [
+            "Orlando",
+            "AltamonteSprings",
+            "Apopka"
+          ],
+          "561": [
+            "WestPalmBeach",
+            "BocaDelMar",
+            "BocaRaton"
+          ],
+          "727": [
+            "St.Petersburg",
+            "BayonetPoint",
+            "Clearwater"
+          ],
+          "754": [
+            "FortLauderdale",
+            "CoconutCreek",
+            "CooperCity"
+          ],
+          "772": [
+            "PortSt.Lucie",
+            "FortPierce",
+            "PalmCity"
+          ],
+          "786": [
+            "Miami",
+            "Aventura",
+            "CarolCity"
+          ],
+          "813": [
+            "Tampa",
+            "Brandon",
+            "CitrusPark"
+          ],
+          "850": [
+            "Tallahassee",
+            "Bellview",
+            "Brent"
+          ],
+          "863": [
+            "Lakeland",
+            "WinterHaven",
+            ""
+          ],
+          "904": [
+            "Jacksonville",
+            "JacksonvilleBeach",
+            "Lakeside"
+          ],
+          "941": [
+            "NorthPort",
+            "Bradenton",
+            "PortCharlotte"
+          ],
+          "954": [
+            "FortLauderdale",
+            "CoconutCreek",
+            "CooperCity"
+          ]
+        },
+        "abbreviation": "FL"
+      },
+      {
+        "name": "Georgia",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "229": [
+            "Albany",
+            "Valdosta",
+            ""
+          ],
+          "404": [
+            "Atlanta",
+            "Candler-mcafee",
+            "CollegePark"
+          ],
+          "470": [
+            "Atlanta",
+            "",
+            ""
+          ],
+          "478": [
+            "Macon",
+            "WarnerRobins",
+            ""
+          ],
+          "678": [
+            "Atlanta",
+            "Alpharetta",
+            "Candler-mcafee"
+          ],
+          "706": [
+            "Augusta",
+            "Athens",
+            "Columbus"
+          ],
+          "762": [
+            "Augusta",
+            "Athens",
+            "Columbus"
+          ],
+          "770": [
+            "Roswell",
+            "Alpharetta",
+            "Atlanta"
+          ],
+          "912": [
+            "Savannah",
+            "Hinesville",
+            "sboro"
+          ]
+        },
+        "abbreviation": "GA"
+      },
+      {
+        "name": "Hawaii",
+        "timeZone": "Pacific/Honolulu",
+        "dstActive": null,
+        "AreaCodes": {
+          "808": [
+            "UrbanHonolulu",
+            "Hilo",
+            "Honolulu"
+          ]
+        },
+        "abbreviation": "HI"
+      },
+      {
+        "name": "Idaho",
+        "timeZone": "America/Boise",
+        "dstActive": null,
+        "AreaCodes": {
+          "208": [
+            "BoiseCity",
+            "Caldwell",
+            "CoeurD'alene"
+          ],
+          "986": [
+            "BoiseCity",
+            "",
+            ""
+          ]
+        },
+        "abbreviation": "ID"
+      },
+      {
+        "name": "Illinois",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "217": [
+            "Springfield",
+            "Champaign",
+            "Charleston"
+          ],
+          "224": [
+            "Elgin",
+            "Algonquin",
+            "ArlingtonHeights"
+          ],
+          "309": [
+            "Peoria",
+            "Bloomington",
+            "EastMoline"
+          ],
+          "312": [
+            "Chicago",
+            "",
+            ""
+          ],
+          "331": [
+            "Aurora",
+            "Addison",
+            "Bartlett"
+          ],
+          "618": [
+            "Belleville",
+            "Alton",
+            "Carbondale"
+          ],
+          "630": [
+            "Aurora",
+            "Addison",
+            "Bartlett"
+          ],
+          "708": [
+            "Cicero",
+            "Bellwood",
+            "Berwyn"
+          ],
+          "773": [
+            "Chicago",
+            "",
+            ""
+          ],
+          "779": [
+            "Rockford",
+            "Belvidere",
+            "CrystalLake"
+          ],
+          "815": [
+            "Rockford",
+            "Belvidere",
+            "CrystalLake"
+          ],
+          "847": [
+            "Elgin",
+            "Algonquin",
+            "ArlingtonHeights"
+          ],
+          "872": [
+            "Chicago",
+            "",
+            ""
+          ]
+        },
+        "abbreviation": "IL"
+      },
+      {
+        "name": "Indiana",
+        "timeZone": "America/Indiana/Indianapolis",
+        "dstActive": null,
+        "AreaCodes": {
+          "219": [
+            "Hammond",
+            "EastChicago",
+            "Gary"
+          ],
+          "260": [
+            "FortWayne",
+            "",
+            ""
+          ],
+          "317": [
+            "Indianapolis",
+            "Carmel",
+            "Fishers"
+          ],
+          "463": [
+            "Indianapolis",
+            "",
+            ""
+          ],
+          "574": [
+            "SouthBend",
+            "Elkhart",
+            "Goshen"
+          ],
+          "765": [
+            "Muncie",
+            "Anderson",
+            "Kokomo"
+          ],
+          "812": [
+            "Evansville",
+            "Bloomington",
+            "Clarksville"
+          ],
+          "930": [
+            "Evansville",
+            "",
+            ""
+          ]
+        },
+        "abbreviation": "IN"
+      },
+      {
+        "name": "Iowa",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "319": [
+            "CedarRapids",
+            "Burlington",
+            "CedarFalls"
+          ],
+          "515": [
+            "DesMoines",
+            "Ames",
+            "Ankeny"
+          ],
+          "563": [
+            "Davenport",
+            "Bettendorf",
+            "Clinton"
+          ],
+          "641": [
+            "MasonCity",
+            "Marshalltown",
+            "Ottumwa"
+          ],
+          "712": [
+            "SiouxCity",
+            "CouncilBluffs",
+            ""
+          ]
+        },
+        "abbreviation": "IA"
+      },
+      {
+        "name": "Kansas",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "316": [
+            "Wichita",
+            "",
+            ""
+          ],
+          "620": [
+            "Hutchinson",
+            "DodgeCity",
+            "Emporia"
+          ],
+          "785": [
+            "Topeka",
+            "Hays",
+            "Lawrence"
+          ],
+          "913": [
+            "OverlandPark",
+            "KansasCity",
+            "Leavenworth"
+          ]
+        },
+        "abbreviation": "KS"
+      },
+      {
+        "name": "Kentucky",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "270": [
+            "BowlingGreen",
+            "Elizabethtown",
+            "Henderson"
+          ],
+          "364": [
+            "BowlingGreen",
+            "",
+            ""
+          ],
+          "502": [
+            "Louisville",
+            "Frankfort",
+            ""
+          ],
+          "606": [
+            "Ashland",
+            "",
+            ""
+          ],
+          "859": [
+            "Lexington-Fayette",
+            "Covington",
+            "Florence"
+          ]
+        },
+        "abbreviation": "KY"
+      },
+      {
+        "name": "Louisiana",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "225": [
+            "BatonRouge",
+            "",
+            ""
+          ],
+          "318": [
+            "Shreveport",
+            "Alexandria",
+            "BossierCity"
+          ],
+          "337": [
+            "Lafayette",
+            "LakeCharles",
+            "NewIberia"
+          ],
+          "504": [
+            "NewOrleans",
+            "Chalmette",
+            "Harvey"
+          ],
+          "985": [
+            "Houma",
+            "Laplace",
+            "Slidell"
+          ]
+        },
+        "abbreviation": "LA"
+      },
+      {
+        "name": "Maine",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "207": [
+            "Portland",
+            "Auburn",
+            "Augusta"
+          ]
+        },
+        "abbreviation": "ME"
+      },
+      {
+        "name": "Maryland",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "240": [
+            "Germantown",
+            "AspenHill",
+            "Bethesda"
+          ],
+          "301": [
+            "Germantown",
+            "AspenHill",
+            "Bethesda"
+          ],
+          "410": [
+            "Baltimore",
+            "Annapolis",
+            "Arbutus"
+          ],
+          "443": [
+            "Baltimore",
+            "Annapolis",
+            "Arbutus"
+          ],
+          "667": [
+            "Baltimore",
+            "Annapolis",
+            "Arbutus"
+          ]
+        },
+        "abbreviation": "MD"
+      },
+      {
+        "name": "Massachusetts",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "339": [
+            "Boston",
+            "Arlington",
+            "Braintree"
+          ],
+          "351": [
+            "Lowell",
+            "Beverly",
+            "Chelmsford"
+          ],
+          "413": [
+            "Springfield",
+            "Agawam",
+            "Chicopee"
+          ],
+          "508": [
+            "Worcester",
+            "Attleboro",
+            "BarnstableTown"
+          ],
+          "617": [
+            "Boston",
+            "Belmont",
+            "Brookline"
+          ],
+          "774": [
+            "Worcester",
+            "Attleboro",
+            "BarnstableTown"
+          ],
+          "781": [
+            "Boston",
+            "Arlington",
+            "Braintree"
+          ],
+          "857": [
+            "Boston",
+            "Belmont",
+            "Brookline"
+          ],
+          "978": [
+            "Lowell",
+            "Beverly",
+            "Chelmsford"
+          ]
+        },
+        "abbreviation": "MA"
+      },
+      {
+        "name": "Michigan",
+        "timeZone": "America/Detroit",
+        "dstActive": null,
+        "AreaCodes": {
+          "231": [
+            "Muskegon",
+            "NortonShores",
+            "Shelby"
+          ],
+          "248": [
+            "Troy",
+            "Bloomfield",
+            "FarmingtonHills"
+          ],
+          "269": [
+            "Kalamazoo",
+            "BattleCreek",
+            "Portage"
+          ],
+          "313": [
+            "Detroit",
+            "AllenPark",
+            "Dearborn"
+          ],
+          "517": [
+            "Lansing",
+            "Adrian",
+            "Clinton"
+          ],
+          "586": [
+            "Warren",
+            "Clinton",
+            "Eastpointe"
+          ],
+          "616": [
+            "GrandRapids",
+            "ForestHills",
+            "Holland"
+          ],
+          "734": [
+            "AnnArbor",
+            "Canton",
+            "GardenCity"
+          ],
+          "810": [
+            "Flint",
+            "Burton",
+            "PortHuron"
+          ],
+          "906": [
+            "Marquette",
+            "",
+            ""
+          ],
+          "947": [
+            "Troy",
+            "Bloomfield",
+            "FarmingtonHills"
+          ],
+          "989": [
+            "Saginaw",
+            "BayCity",
+            "Harrison"
+          ]
+        },
+        "abbreviation": "MI"
+      },
+      {
+        "name": "Minnesota",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "218": [
+            "Duluth",
+            "Andover",
+            "Moorhead"
+          ],
+          "320": [
+            "St.Cloud",
+            "",
+            ""
+          ],
+          "507": [
+            "Rochester",
+            "Austin",
+            "Faribault"
+          ],
+          "612": [
+            "Minneapolis",
+            "Crystal",
+            "GoldenValley"
+          ],
+          "651": [
+            "St.Paul",
+            "AppleValley",
+            "CottageGrove"
+          ],
+          "763": [
+            "BrooklynPark",
+            "Blaine",
+            "BrooklynCenter"
+          ],
+          "952": [
+            "Bloomington",
+            "Burnsville",
+            "Chanhassen"
+          ]
+        },
+        "abbreviation": "MN"
+      },
+      {
+        "name": "Mississippi",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "228": [
+            "Gulfport",
+            "Biloxi",
+            "Pascagoula"
+          ],
+          "601": [
+            "Jackson",
+            "Clinton",
+            "Hattiesburg"
+          ],
+          "662": [
+            "Southaven",
+            "Clarksdale",
+            "Columbus"
+          ],
+          "769": [
+            "Jackson",
+            "Clinton",
+            "Hattiesburg"
+          ]
+        },
+        "abbreviation": "MS"
+      },
+      {
+        "name": "Missouri",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "314": [
+            "St.Louis",
+            "Affton",
+            "Ferguson"
+          ],
+          "417": [
+            "Springfield",
+            "Joplin",
+            ""
+          ],
+          "573": [
+            "Columbia",
+            "CapeGirardeau",
+            "JeffersonCity"
+          ],
+          "636": [
+            "O'Fallon",
+            "Ballwin",
+            "Chesterfield"
+          ],
+          "660": [
+            "Sedalia",
+            "",
+            ""
+          ],
+          "816": [
+            "KansasCity",
+            "Belton",
+            "BlueSprings"
+          ]
+        },
+        "abbreviation": "MO"
+      },
+      {
+        "name": "Montana",
+        "timeZone": "America/Denver",
+        "dstActive": null,
+        "AreaCodes": {
+          "406": [
+            "Billings",
+            "Bozeman",
+            "Butte-silverBow"
+          ]
+        },
+        "abbreviation": "MT"
+      },
+      {
+        "name": "Nebraska",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "308": [
+            "GrandIsland",
+            "Kearney",
+            "NorthPlatte"
+          ],
+          "402": [
+            "Omaha",
+            "Bellevue",
+            "Columbus"
+          ],
+          "531": [
+            "Omaha",
+            "",
+            ""
+          ]
+        },
+        "abbreviation": "NE"
+      },
+      {
+        "name": "Nevada",
+        "timeZone": "America/Los_Angeles",
+        "dstActive": null,
+        "AreaCodes": {
+          "702": [
+            "LasVegas",
+            "Henderson",
+            "NorthLasVegas"
+          ],
+          "725": [
+            "LasVegas",
+            "Henderson",
+            "NorthLasVegas"
+          ],
+          "775": [
+            "Reno",
+            "CarsonCity",
+            "Pahrump"
+          ]
+        },
+        "abbreviation": "NV"
+      },
+      {
+        "name": "New Hampshire",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "603": [
+            "Manchester",
+            "Concord",
+            "Derry"
+          ]
+        },
+        "abbreviation": "NH"
+      },
+      {
+        "name": "New Jersey",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "201": [
+            "JerseyCity",
+            "Bayonne",
+            "Bergenfield"
+          ],
+          "551": [
+            "JerseyCity",
+            "Bayonne",
+            "Bergenfield"
+          ],
+          "609": [
+            "Trenton",
+            "AtlanticCity",
+            "Ewing"
+          ],
+          "640": [
+            "Trenton",
+            "",
+            ""
+          ],
+          "732": [
+            "TomsRiver",
+            "Brick",
+            "Carteret"
+          ],
+          "848": [
+            "TomsRiver",
+            "Brick",
+            "Carteret"
+          ],
+          "856": [
+            "Camden",
+            "Bridgeton",
+            "CherryHill"
+          ],
+          "862": [
+            "Newark",
+            "Belleville",
+            "Bloomfield"
+          ],
+          "908": [
+            "Elizabeth",
+            "Cranford",
+            "Hillside"
+          ],
+          "973": [
+            "Newark",
+            "Belleville",
+            "Bloomfield"
+          ]
+        },
+        "abbreviation": "NJ"
+      },
+      {
+        "name": "New Mexico",
+        "timeZone": "America/Denver",
+        "dstActive": null,
+        "AreaCodes": {
+          "505": [
+            "Albuquerque",
+            "Farmington",
+            "Gallup"
+          ],
+          "575": [
+            "LasCruces",
+            "Alamogordo",
+            "Carlsbad"
+          ]
+        },
+        "abbreviation": "NM"
+      },
+      {
+        "name": "New York",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "212": [
+            "NewYork",
+            "Manhattan",
+            "NewYorkCity"
+          ],
+          "315": [
+            "Syracuse",
+            "Auburn",
+            "Rome"
+          ],
+          "332": [
+            "NewYork",
+            "",
+            ""
+          ],
+          "347": [
+            "NewYork",
+            "Bronx",
+            "Brooklyn"
+          ],
+          "516": [
+            "Hempstead",
+            "Baldwin",
+            "EastMeadow"
+          ],
+          "518": [
+            "Albany",
+            "Rotterdam",
+            "SaratogaSprings"
+          ],
+          "585": [
+            "Rochester",
+            "Brighton",
+            "Irondequoit"
+          ],
+          "607": [
+            "Binghamton",
+            "Elmira",
+            "Ithaca"
+          ],
+          "631": [
+            "Brentwood",
+            "BayShore",
+            "Centereach"
+          ],
+          "646": [
+            "NewYork",
+            "Manhattan",
+            "NewYorkCity"
+          ],
+          "680": [
+            "Syracuse",
+            "",
+            ""
+          ],
+          "716": [
+            "Buffalo",
+            "Cheektowaga",
+            "Jamestown"
+          ],
+          "718": [
+            "NewYork",
+            "Bronx",
+            "Brooklyn"
+          ],
+          "838": [
+            "Albany",
+            "",
+            ""
+          ],
+          "845": [
+            "NewCity",
+            "Kingston",
+            "Middletown"
+          ],
+          "914": [
+            "Yonkers",
+            "Harrison",
+            "MountVernon"
+          ],
+          "917": [
+            "NewYork",
+            "Bronx",
+            "Brooklyn"
+          ],
+          "929": [
+            "NewYork",
+            "Bronx",
+            "Brooklyn"
+          ],
+          "934": [
+            "Brentwood",
+            "",
+            ""
+          ]
+        },
+        "abbreviation": "NY"
+      },
+      {
+        "name": "North Carolina",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "252": [
+            "Greenville",
+            "Havelock",
+            "Kinston"
+          ],
+          "336": [
+            "Greensboro",
+            "Asheboro",
+            "Burlington"
+          ],
+          "704": [
+            "Charlotte",
+            "Concord",
+            "Gastonia"
+          ],
+          "743": [
+            "Greensboro",
+            "",
+            ""
+          ],
+          "828": [
+            "Asheville",
+            "Hickory",
+            ""
+          ],
+          "910": [
+            "Fayetteville",
+            "FortBragg",
+            "Jacksonville"
+          ],
+          "919": [
+            "Raleigh",
+            "Apex",
+            "Cary"
+          ],
+          "980": [
+            "Charlotte",
+            "Concord",
+            "Gastonia"
+          ],
+          "984": [
+            "Raleigh",
+            "Apex",
+            "Cary"
+          ]
+        },
+        "abbreviation": "NC"
+      },
+      {
+        "name": "North Dakota",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "701": [
+            "Fargo",
+            "Bismarck",
+            "GrandForks"
+          ]
+        },
+        "abbreviation": "ND"
+      },
+      {
+        "name": "Ohio",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "216": [
+            "Cleveland",
+            "BrookPark",
+            "ClevelandHeights"
+          ],
+          "220": [
+            "Newark",
+            "",
+            ""
+          ],
+          "234": [
+            "Akron",
+            "Alliance",
+            "Austintown"
+          ],
+          "330": [
+            "Akron",
+            "Alliance",
+            "Austintown"
+          ],
+          "380": [
+            "Columbus",
+            "",
+            ""
+          ],
+          "419": [
+            "Toledo",
+            "Ashland",
+            "BowlingGreen"
+          ],
+          "440": [
+            "Parma",
+            "Ashtabula",
+            "Eastlake"
+          ],
+          "513": [
+            "Cincinnati",
+            "Fairfield",
+            "Hamilton"
+          ],
+          "567": [
+            "Toledo",
+            "Ashland",
+            "BowlingGreen"
+          ],
+          "614": [
+            "Columbus",
+            "Dublin",
+            "Gahanna"
+          ],
+          "740": [
+            "Newark",
+            "Athens",
+            "Chillicothe"
+          ],
+          "937": [
+            "Dayton",
+            "Beavercreek",
+            "Centerville"
+          ]
+        },
+        "abbreviation": "OH"
+      },
+      {
+        "name": "Oklahoma",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "405": [
+            "OklahomaCity",
+            "Bethany",
+            "DelCity"
+          ],
+          "539": [
+            "Tulsa",
+            "Bartlesville",
+            "BrokenArrow"
+          ],
+          "580": [
+            "Lawton",
+            "Altus",
+            "Ardmore"
+          ],
+          "918": [
+            "Tulsa",
+            "Bartlesville",
+            "BrokenArrow"
+          ]
+        },
+        "abbreviation": "OK"
+      },
+      {
+        "name": "Oregon",
+        "timeZone": "America/Los_Angeles",
+        "dstActive": null,
+        "AreaCodes": {
+          "458": [
+            "Eugene",
+            "",
+            ""
+          ],
+          "503": [
+            "Portland",
+            "Aloha",
+            "Beaverton"
+          ],
+          "541": [
+            "Eugene",
+            "Albany",
+            "Bend"
+          ],
+          "971": [
+            "Portland",
+            "Aloha",
+            "Beaverton"
+          ]
+        },
+        "abbreviation": "OR"
+      },
+      {
+        "name": "Pennsylvania",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "215": [
+            "Philadelphia",
+            "Levittown",
+            ""
+          ],
+          "223": [
+            "Lancaster",
+            "",
+            ""
+          ],
+          "267": [
+            "Philadelphia",
+            "Levittown",
+            ""
+          ],
+          "272": [
+            "Scranton",
+            "BackMountain",
+            "Hazleton"
+          ],
+          "412": [
+            "Pittsburgh",
+            "BethelPark",
+            "Mccandless"
+          ],
+          "445": [
+            "Philadelphia",
+            "",
+            ""
+          ],
+          "484": [
+            "Allentown",
+            "Bethlehem",
+            "Chester"
+          ],
+          "570": [
+            "Scranton",
+            "BackMountain",
+            "Hazleton"
+          ],
+          "610": [
+            "Allentown",
+            "Bethlehem",
+            "Chester"
+          ],
+          "717": [
+            "Lancaster",
+            "Harrisburg",
+            "Lebanon"
+          ],
+          "724": [
+            "NewCastle",
+            "Mccandless",
+            "Monroeville"
+          ],
+          "814": [
+            "Erie",
+            "Altoona",
+            "Johnstown"
+          ],
+          "878": [
+            "Pittsburgh",
+            "BethelPark",
+            "Mccandless"
+          ]
+        },
+        "abbreviation": "PA"
+      },
+      {
+        "name": "Rhode Island",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "401": [
+            "Providence",
+            "Bristol",
+            "Cranston"
+          ]
+        },
+        "abbreviation": "RI"
+      },
+      {
+        "name": "South Carolina",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "803": [
+            "Columbia",
+            "Aiken",
+            "RockHill"
+          ],
+          "843": [
+            "Charleston",
+            "Florence",
+            "GooseCreek"
+          ],
+          "854": [
+            "Charleston",
+            "",
+            ""
+          ],
+          "864": [
+            "Greenville",
+            "Anderson",
+            "Greenwood"
+          ]
+        },
+        "abbreviation": "SC"
+      },
+      {
+        "name": "South Dakota",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "605": [
+            "SiouxFalls",
+            "Aberdeen",
+            "Pierre"
+          ]
+        },
+        "abbreviation": "SD"
+      },
+      {
+        "name": "Tennessee",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "423": [
+            "Chattanooga",
+            "Bristol",
+            "Cleveland"
+          ],
+          "615": [
+            "Nashville",
+            "Brentwood",
+            "Franklin"
+          ],
+          "629": [
+            "Nashville",
+            "",
+            ""
+          ],
+          "731": [
+            "Jackson",
+            "",
+            ""
+          ],
+          "865": [
+            "Knoxville",
+            "Maryville",
+            "OakRidge"
+          ],
+          "901": [
+            "Memphis",
+            "Bartlett",
+            "Collierville"
+          ],
+          "931": [
+            "Clarksville",
+            "Columbia",
+            "Cookeville"
+          ]
+        },
+        "abbreviation": "TN"
+      },
+      {
+        "name": "Texas",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "210": [
+            "SanAntonio",
+            "",
+            ""
+          ],
+          "214": [
+            "Dallas",
+            "Allen",
+            "Arlington"
+          ],
+          "254": [
+            "Killeen",
+            "CopperasCove",
+            "FortHood"
+          ],
+          "281": [
+            "Houston",
+            "Alvin",
+            "Atascocita"
+          ],
+          "325": [
+            "Abilene",
+            "SanAngelo",
+            ""
+          ],
+          "346": [
+            "Houston",
+            "Alvin",
+            "Atascocita"
+          ],
+          "361": [
+            "CorpusChristi",
+            "Kingsville",
+            "Victoria"
+          ],
+          "409": [
+            "Beaumont",
+            "Galveston",
+            "PortArthur"
+          ],
+          "430": [
+            "Tyler",
+            "",
+            ""
+          ],
+          "432": [
+            "Midland",
+            "BigSpring",
+            "Odessa"
+          ],
+          "469": [
+            "Dallas",
+            "Allen",
+            "Carrollton"
+          ],
+          "512": [
+            "Austin",
+            "CedarPark",
+            "Georgetown"
+          ],
+          "682": [
+            "FortWorth",
+            "Arlington",
+            "Bedford"
+          ],
+          "713": [
+            "Houston",
+            "Alvin",
+            "Atascocita"
+          ],
+          "726": [
+            "SanAntonio",
+            "",
+            ""
+          ],
+          "737": [
+            "Austin",
+            "CedarPark",
+            "Georgetown"
+          ],
+          "806": [
+            "Lubbock",
+            "Amarillo",
+            "Plainview"
+          ],
+          "817": [
+            "FortWorth",
+            "Arlington",
+            "Bedford"
+          ],
+          "830": [
+            "NewBraunfels",
+            "DelRio",
+            "EaglePass"
+          ],
+          "832": [
+            "Houston",
+            "Alvin",
+            "Atascocita"
+          ],
+          "903": [
+            "Tyler",
+            "Corsicana",
+            "Denison"
+          ],
+          "915": [
+            "ElPaso",
+            "Socorro",
+            ""
+          ],
+          "936": [
+            "Conroe",
+            "Huntsville",
+            "Lufkin"
+          ],
+          "940": [
+            "Denton",
+            "Lewisville",
+            "WichitaFalls"
+          ],
+          "956": [
+            "Laredo",
+            "Brownsville",
+            "Edinburg"
+          ],
+          "972": [
+            "Dallas",
+            "Allen",
+            "Carrollton"
+          ],
+          "979": [
+            "CollegeStation",
+            "Bryan",
+            "LakeJackson"
+          ]
+        },
+        "abbreviation": "TX"
+      },
+      {
+        "name": "Utah",
+        "timeZone": "America/Denver",
+        "dstActive": null,
+        "AreaCodes": {
+          "385": [
+            "SaltLakeCity",
+            "",
+            ""
+          ],
+          "435": [
+            "St.George",
+            "CedarCity",
+            "Logan"
+          ],
+          "801": [
+            "SaltLakeCity",
+            "AmericanFork",
+            "Bountiful"
+          ]
+        },
+        "abbreviation": "UT"
+      },
+      {
+        "name": "Vermont",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "802": [
+            "Burlington",
+            "Montpelier",
+            ""
+          ]
+        },
+        "abbreviation": "VT"
+      },
+      {
+        "name": "Virginia",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "276": [
+            "Bristol",
+            "Richmond",
+            ""
+          ],
+          "434": [
+            "Lynchburg",
+            "Charlottesville",
+            "Danville"
+          ],
+          "540": [
+            "Roanoke",
+            "Blacksburg",
+            "CaveSpring"
+          ],
+          "571": [
+            "Arlington",
+            "Alexandria",
+            "Annandale"
+          ],
+          "703": [
+            "Arlington",
+            "Alexandria",
+            "Annandale"
+          ],
+          "757": [
+            "VirginiaBeach",
+            "Chesapeake",
+            "Hampton"
+          ],
+          "804": [
+            "Richmond",
+            "Hopewell",
+            "Mechanicsville"
+          ]
+        },
+        "abbreviation": "VA"
+      },
+      {
+        "name": "Washington",
+        "timeZone": "America/Los_Angeles",
+        "dstActive": null,
+        "AreaCodes": {
+          "206": [
+            "Seattle",
+            "BainbridgeIsland",
+            "Burien"
+          ],
+          "253": [
+            "Tacoma",
+            "Auburn",
+            "EastHill-meridian"
+          ],
+          "360": [
+            "Vancouver",
+            "Bellingham",
+            "Bremerton"
+          ],
+          "425": [
+            "Bellevue",
+            "Bothell",
+            "Cascade-fairwood"
+          ],
+          "509": [
+            "Spokane",
+            "Kennewick",
+            "Opportunity"
+          ],
+          "564": [
+            "Vancouver",
+            "",
+            ""
+          ]
+        },
+        "abbreviation": "WA"
+      },
+      {
+        "name": "West Virginia",
+        "timeZone": "America/New_York",
+        "dstActive": null,
+        "AreaCodes": {
+          "304": [
+            "Charleston",
+            "Huntington",
+            "Morgantown"
+          ],
+          "681": [
+            "Charleston",
+            "",
+            ""
+          ]
+        },
+        "abbreviation": "WV"
+      },
+      {
+        "name": "Wisconsin",
+        "timeZone": "America/Chicago",
+        "dstActive": null,
+        "AreaCodes": {
+          "262": [
+            "Kenosha",
+            "Brookfield",
+            "Caledonia"
+          ],
+          "414": [
+            "Milwaukee",
+            "Franklin",
+            "Greenfield"
+          ],
+          "534": [
+            "EauClaire",
+            "",
+            ""
+          ],
+          "608": [
+            "Madison",
+            "Beloit",
+            "Fitchburg"
+          ],
+          "715": [
+            "EauClaire",
+            "StevensPoint",
+            "Superior"
+          ],
+          "920": [
+            "GreenBay",
+            "Appleton",
+            "DePere"
+          ]
+        },
+        "abbreviation": "WI"
+      },
+      {
+        "name": "Wyoming",
+        "timeZone": "America/Denver",
+        "dstActive": null,
+        "AreaCodes": {
+          "307": [
+            "Cheyenne",
+            "Casper",
+            "Gillette"
+          ]
+        },
+        "abbreviation": "WY"
+      },
+      {
+        "name": "Washington",
+        "timeZone": "America/Los_Angeles",
+        "dstActive": null,
+        "AreaCodes": {
+          "206": [
+            "Seattle",
+            "BainbridgeIsland",
+            "Burien"
+          ],
+          "253": [
+            "Tacoma",
+            "Auburn",
+            "EastHill-meridian"
+          ],
+          "360": [
+            "Vancouver",
+            "Bellingham",
+            "Bremerton"
+          ],
+          "425": [
+            "Bellevue",
+            "Bothell",
+            "Cascade-fairwood"
+          ],
+          "509": [
+            "Spokane",
+            "Kennewick",
+            "Opportunity"
+          ],
+          "564": [
+            "Vancouver",
+            "",
+            ""
+          ]
+        },
+        "abbreviation": "DC"
+      }
+    ]
+
+
+    async function fetchStateTimezones() {
+      for (const state of states) {
+        try {
+          const response = await fetch(`https://timeapi.io/api/Time/current/zone?timeZone=${state.timeZone}`, {
+            method: 'GET'
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            console.log(data.dstActive);
+
+          } else {
+            console.error(`Failed to fetch data for ${state.name}`);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    }
+    fetchStateTimezones();
+  </script>
+</body>
+
+</html>
