@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en" class="" id="html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="../styles/output.css" /> -->
+    <style>
+      /*
+! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
+*/
+
+      /*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+        /* 1 */
+        border-width: 0;
+        /* 2 */
+        border-style: solid;
+        /* 2 */
+        border-color: #e5e7eb;
+        /* 2 */
+      }
+
+      ::before,
+      ::after {
+        --tw-content: "";
+      }
+
+      /*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+*/
+
+      html {
+        line-height: 1.5;
+        /* 1 */
+        -webkit-text-size-adjust: 100%;
+        /* 2 */
+        -moz-tab-size: 4;
+        /* 3 */
+        -o-tab-size: 4;
+        tab-size: 4;
+        /* 3 */
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          "Noto Color Emoji";
+        /* 4 */
+        font-feature-settings: normal;
+        /* 5 */
+        font-variation-settings: normal;
+        /* 6 */
+      }
+
+      /*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+      body {
+        margin: 0;
+        /* 1 */
+        line-height: inherit;
+        /* 2 */
+      }
+
+      /*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+      hr {
+        height: 0;
+        /* 1 */
+        color: inherit;
+        /* 2 */
+        border-top-width: 1px;
+        /* 3 */
+      }
+
+      /*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+      abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+
+      /*
+Remove the default font size and weight for headings.
+*/
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+
+      /*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+
+      /*
+Add the correct font weight in Edge and Safari.
+*/
+
+      b,
+      strong {
+        font-weight: bolder;
+      }
+
+      /*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+      code,
+      kbd,
+      samp,
+      pre {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        /* 1 */
+        font-size: 1em;
+        /* 2 */
+      }
+
+      /*
+Add the correct font size in all browsers.
+*/
+
+      small {
+        font-size: 80%;
+      }
+
+      /*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+
+      sub {
+        bottom: -0.25em;
+      }
+
+      sup {
+        top: -0.5em;
+      }
+
+      /*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+      table {
+        text-indent: 0;
+        /* 1 */
+        border-color: inherit;
+        /* 2 */
+        border-collapse: collapse;
+        /* 3 */
+      }
+
+      /*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        /* 1 */
+        font-feature-settings: inherit;
+        /* 1 */
+        font-variation-settings: inherit;
+        /* 1 */
+        font-size: 100%;
+        /* 1 */
+        font-weight: inherit;
+        /* 1 */
+        line-height: inherit;
+        /* 1 */
+        color: inherit;
+        /* 1 */
+        margin: 0;
+        /* 2 */
+        padding: 0;
+        /* 3 */
+      }
+
+      /*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+      button,
+      select {
+        text-transform: none;
+      }
+
+      /*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+      button,
+      [type="button"],
+      [type="reset"],
+      [type="submit"] {
+        -webkit-appearance: button;
+        /* 1 */
+        background-color: transparent;
+        /* 2 */
+        background-image: none;
+        /* 2 */
+      }
+
+      /*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+      :-moz-focusring {
+        outline: auto;
+      }
+
+      /*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+      :-moz-ui-invalid {
+        box-shadow: none;
+      }
+
+      /*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+      progress {
+        vertical-align: baseline;
+      }
+
+      /*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto;
+      }
+
+      /*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+      [type="search"] {
+        -webkit-appearance: textfield;
+        /* 1 */
+        outline-offset: -2px;
+        /* 2 */
+      }
+
+      /*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+
+      /*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        /* 1 */
+        font: inherit;
+        /* 2 */
+      }
+
+      /*
+Add the correct display in Chrome and Safari.
+*/
+
+      summary {
+        display: list-item;
+      }
+
+      /*
+Removes the default spacing and border for appropriate elements.
+*/
+
+      blockquote,
+      dl,
+      dd,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      hr,
+      figure,
+      p,
+      pre {
+        margin: 0;
+      }
+
+      fieldset {
+        margin: 0;
+        padding: 0;
+      }
+
+      legend {
+        padding: 0;
+      }
+
+      ol,
+      ul,
+      menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      /*
+Reset default styling for dialogs.
+*/
+
+      dialog {
+        padding: 0;
+      }
+
+      /*
+Prevent resizing textareas horizontally by default.
+*/
+
+      textarea {
+        resize: vertical;
+      }
+
+      /*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+      input::-moz-placeholder,
+      textarea::-moz-placeholder {
+        opacity: 1;
+        /* 1 */
+        color: #9ca3af;
+        /* 2 */
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        opacity: 1;
+        /* 1 */
+        color: #9ca3af;
+        /* 2 */
+      }
+
+      /*
+Set the default cursor for buttons.
+*/
+
+      button,
+      [role="button"] {
+        cursor: pointer;
+      }
+
+      /*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+      :disabled {
+        cursor: default;
+      }
+
+      /*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+      img,
+      svg,
+      video,
+      canvas,
+      audio,
+      iframe,
+      embed,
+      object {
+        display: block;
+        /* 1 */
+        vertical-align: middle;
+        /* 2 */
+      }
+
+      /*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Make elements with the HTML hidden attribute stay hidden by default */
+
+      [hidden] {
+        display: none;
+      }
+
+      *,
+      ::before,
+      ::after {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+      }
+
+      ::backdrop {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      @media (min-width: 640px) {
+        .container {
+          max-width: 640px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          max-width: 768px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .container {
+          max-width: 1024px;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .container {
+          max-width: 1280px;
+        }
+      }
+
+      @media (min-width: 1536px) {
+        .container {
+          max-width: 1536px;
+        }
+      }
+
+      .fixed {
+        position: fixed;
+      }
+
+      .absolute {
+        position: absolute;
+      }
+
+      .left-0 {
+        left: 0px;
+      }
+
+      .left-1\/2 {
+        left: 50%;
+      }
+
+      .left-full {
+        left: 100%;
+      }
+
+      .top-0 {
+        top: 0px;
+      }
+
+      .top-1\/2 {
+        top: 50%;
+      }
+
+      .mx-2 {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+
+      .inline-block {
+        display: inline-block;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .table {
+        display: table;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .h-6 {
+        height: 1.5rem;
+      }
+
+      .h-full {
+        height: 100%;
+      }
+
+      .h-screen {
+        height: 100vh;
+      }
+
+      .min-h-\[384px\] {
+        min-height: 384px;
+      }
+
+      .w-1\/2 {
+        width: 50%;
+      }
+
+      .w-6 {
+        width: 1.5rem;
+      }
+
+      .w-96 {
+        width: 24rem;
+      }
+
+      .w-auto {
+        width: auto;
+      }
+
+      .w-full {
+        width: 100%;
+      }
+
+      .w-screen {
+        width: 100vw;
+      }
+
+      .flex-1 {
+        flex: 1 1 0%;
+      }
+
+      .table-fixed {
+        table-layout: fixed;
+      }
+
+      .-translate-x-1\/2 {
+        --tw-translate-x: -50%;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+
+      .-translate-y-1\/2 {
+        --tw-translate-y: -50%;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+
+      .cursor-pointer {
+        cursor: pointer;
+      }
+
+      .resize-none {
+        resize: none;
+      }
+
+      .flex-col {
+        flex-direction: column;
+      }
+
+      .items-center {
+        align-items: center;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      .justify-between {
+        justify-content: space-between;
+      }
+
+      .justify-evenly {
+        justify-content: space-evenly;
+      }
+
+      .gap-2 {
+        gap: 0.5rem;
+      }
+
+      .gap-6 {
+        gap: 1.5rem;
+      }
+
+      .overflow-y-scroll {
+        overflow-y: scroll;
+      }
+
+      .rounded-sm {
+        border-radius: 0.125rem;
+      }
+
+      .border {
+        border-width: 1px;
+      }
+
+      .border-b {
+        border-bottom-width: 1px;
+      }
+
+      .border-slate-50 {
+        --tw-border-opacity: 1;
+        border-color: rgb(248 250 252 / var(--tw-border-opacity));
+      }
+
+      .border-slate-900 {
+        --tw-border-opacity: 1;
+        border-color: rgb(15 23 42 / var(--tw-border-opacity));
+      }
+
+      .bg-gray-800\/90 {
+        background-color: rgb(31 41 55 / 0.9);
+      }
+
+      .bg-green-500 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+      }
+
+      .bg-mustard {
+        --tw-bg-opacity: 1;
+        background-color: rgb(227 180 72 / var(--tw-bg-opacity));
+      }
+
+      .bg-red-500 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+      }
+
+      .bg-red-500\/30 {
+        background-color: rgb(239 68 68 / 0.3);
+      }
+
+      .bg-sage {
+        --tw-bg-opacity: 1;
+        background-color: rgb(203 209 143 / var(--tw-bg-opacity));
+      }
+
+      .bg-sky-700\/90 {
+        background-color: rgb(3 105 161 / 0.9);
+      }
+
+      .bg-slate-300\/80 {
+        background-color: rgb(203 213 225 / 0.8);
+      }
+
+      .bg-slate-400 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+      }
+
+      .bg-slate-800\/90 {
+        background-color: rgb(30 41 59 / 0.9);
+      }
+
+      .bg-slate-950 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(2 6 23 / var(--tw-bg-opacity));
+      }
+
+      .p-2 {
+        padding: 0.5rem;
+      }
+
+      .p-4 {
+        padding: 1rem;
+      }
+
+      .p-6 {
+        padding: 1.5rem;
+      }
+
+      .px-2 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+
+      .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      .py-3 {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .py-4 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      .text-left {
+        text-align: left;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+      }
+
+      .text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+
+      .text-sm {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+
+      .text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+
+      .text-xs {
+        font-size: 0.75rem;
+        line-height: 1rem;
+      }
+
+      .font-bold {
+        font-weight: 700;
+      }
+
+      .uppercase {
+        text-transform: uppercase;
+      }
+
+      .italic {
+        font-style: italic;
+      }
+
+      .text-red-500 {
+        --tw-text-opacity: 1;
+        color: rgb(239 68 68 / var(--tw-text-opacity));
+      }
+
+      .text-slate-100 {
+        --tw-text-opacity: 1;
+        color: rgb(241 245 249 / var(--tw-text-opacity));
+      }
+
+      .text-slate-50 {
+        --tw-text-opacity: 1;
+        color: rgb(248 250 252 / var(--tw-text-opacity));
+      }
+
+      .text-slate-950 {
+        --tw-text-opacity: 1;
+        color: rgb(2 6 23 / var(--tw-text-opacity));
+      }
+
+      .placeholder-slate-600::-moz-placeholder {
+        --tw-placeholder-opacity: 1;
+        color: rgb(71 85 105 / var(--tw-placeholder-opacity));
+      }
+
+      .placeholder-slate-600::placeholder {
+        --tw-placeholder-opacity: 1;
+        color: rgb(71 85 105 / var(--tw-placeholder-opacity));
+      }
+
+      .shadow-2xl {
+        --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+
+      .filter {
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+          var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
+          var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+      }
+
+      .transition-colors {
+        transition-property: color, background-color, border-color,
+          text-decoration-color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+
+      .duration-300 {
+        transition-duration: 300ms;
+      }
+
+      .myBtn {
+        border-radius: 0.125rem;
+        --tw-bg-opacity: 1;
+        background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        font-weight: 700;
+        --tw-text-opacity: 1;
+        color: rgb(2 6 23 / var(--tw-text-opacity));
+        --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+          0 2px 4px -2px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+
+      .myBtn:hover {
+        background-color: rgb(59 130 246 / 0.5);
+      }
+
+      :is(.dark .myBtn) {
+        --tw-bg-opacity: 1;
+        background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color: rgb(241 245 249 / var(--tw-text-opacity));
+      }
+
+      :is(.dark .myBtn:hover) {
+        background-color: rgb(29 78 216 / 0.5);
+      }
+
+      .myBtnRed {
+        border-radius: 0.125rem;
+        --tw-bg-opacity: 1;
+        background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        font-weight: 700;
+        --tw-text-opacity: 1;
+        color: rgb(2 6 23 / var(--tw-text-opacity));
+        --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+          0 2px 4px -2px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+
+      .myBtnRed:hover {
+        background-color: rgb(239 68 68 / 0.5);
+      }
+
+      :is(.dark .myBtnRed) {
+        --tw-bg-opacity: 1;
+        background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color: rgb(241 245 249 / var(--tw-text-opacity));
+      }
+
+      :is(.dark .myBtnRed:hover) {
+        background-color: rgb(185 28 28 / 0.5);
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(-25%);
+          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+
+        50% {
+          transform: none;
+          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+      }
+
+      .hover\:animate-bounce:hover {
+        animation: bounce 1s infinite;
+      }
+
+      .focus\:outline-blue-400:focus {
+        outline-color: #60a5fa;
+      }
+
+      :is(.dark .dark\:border-slate-100) {
+        --tw-border-opacity: 1;
+        border-color: rgb(241 245 249 / var(--tw-border-opacity));
+      }
+
+      :is(.dark .dark\:bg-gray-900\/90) {
+        background-color: rgb(17 24 39 / 0.9);
+      }
+
+      :is(.dark .dark\:bg-sky-950\/90) {
+        background-color: rgb(8 47 73 / 0.9);
+      }
+
+      :is(.dark .dark\:bg-slate-400\/90) {
+        background-color: rgb(148 163 184 / 0.9);
+      }
+
+      :is(.dark .dark\:bg-slate-800) {
+        --tw-bg-opacity: 1;
+        background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+      }
+
+      :is(.dark .dark\:bg-slate-950\/80) {
+        background-color: rgb(2 6 23 / 0.8);
+      }
+
+      :is(.dark .dark\:text-red-700) {
+        --tw-text-opacity: 1;
+        color: rgb(185 28 28 / var(--tw-text-opacity));
+      }
+
+      :is(.dark .dark\:text-slate-100) {
+        --tw-text-opacity: 1;
+        color: rgb(241 245 249 / var(--tw-text-opacity));
+      }
+    </style>
+  </head>
+  <body
+    class="dark:bg-slate-800 bg-slate-400 transition-colors duration-300 h-screen flex flex-col"
+  >
+    <nav
+      class="dark:bg-sky-950/90 bg-sky-700/90 dark:text-slate-100 text-slate-950 flex justify-between py-2 px-4 shadow-2xl"
+    >
+      <h1 class="text-3xl cursor-pointer font-bold">Repoert Maker</h1>
+
+      <button
+        onclick="toggleDarkmood()"
+        class="hover:animate-bounce"
+        id="darkmoodToggleBtn"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+          />
+        </svg>
+      </button>
+    </nav>
+    <main class="w-screen flex-1 flex flex-col gap-2">
+      <div class="px-6 py-4 flex-1 flex gap-6">
+        <div class="w-1/2">
+          <textarea
+            name="salesNameAndNumber"
+            id="salesNameAndNumber"
+            class="w-full h-full bg-mustard resize-none focus:outline-blue-400 text-slate-950 placeholder-slate-600 p-2"
+            placeholder="agent names and customer number"
+          ></textarea>
+        </div>
+        <div class="w-1/2">
+          <textarea
+            name="approvedSalesNumber"
+            id="approvedSalesNumber"
+            class="w-full h-full bg-sage resize-none focus:outline-blue-400 text-slate-950 placeholder-slate-600 p-2"
+            placeholder="approved sales numbers"
+          ></textarea>
+        </div>
+      </div>
+      <div
+        class="dark:bg-sky-950/90 bg-sky-700/90 mb-2 p-4 border rounded-sm dark:border-slate-100 border-slate-900 mx-2 flex justify-evenly items-center"
+      >
+        <button class="myBtn" onclick="createFullReport()">Get Report</button>
+      </div>
+      <!-- Report div  -->
+      <div
+        class="hidden fixed top-0 left-0 w-screen h-screen dark:bg-slate-950/80 dark:text-slate-100 bg-slate-300/80 text-slate-950 p-4 overflow-y-scroll"
+        id="reportDiv"
+      >
+        <h1 class="text-4xl font-bold">Final report</h1>
+        <!-- placeholder  --------------------------------------------------------------------------------->
+      </div>
+      <!-- popup div  -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen bg-red-500/30 hidden justify-center items-center"
+        id="errorDiv"
+      >
+        <div
+          class="dark:bg-slate-400/90 bg-slate-800/90 w-96 min-h-[384px] p-6 flex flex-col justify-evenly rounded-sm"
+        >
+          <p
+            class="italic text-xl text-red-500 dark:text-red-700"
+            id="errorText"
+          >
+            Hi i Found some Unvalid phone numbers and i will not take them into
+            count click the copy button to copy the Unvalid numbers
+          </p>
+          <button class="myBtn" onclick="copyText()">
+            Copy Unvalid numbers
+          </button>
+          <div class="">
+            <button class="myBtnRed" onclick="resetAll()">
+              cancel & clear all
+            </button>
+            <button class="myBtn" onclick="closeError();">
+              Ignore & continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="w-screen py-2 bg-gray-800/90 dark:bg-gray-900/90 text-slate-50 text-center"
+    >
+      ---Designed by Walid-Ali(Leo-Adams)---
+    </footer>
+    <!-- text area for copy  -->
+    <textarea
+      name="copyTextarea"
+      id="copyTextarea"
+      class="fixed left-full"
+    ></textarea>
+    <script>
+      // darkmood
+      // Get data from localStorage
+      const darkmood = localStorage.getItem("darkmood");
+      if (darkmood) {
+        const htmlTag = document.getElementById("html");
+        const darkmoodToggleBtn = document.getElementById("darkmoodToggleBtn");
+        if (JSON.parse(darkmood)) {
+          htmlTag.classList.add("dark");
+          darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" > <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/> </svg>`;
+        } else {
+          darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`;
+          htmlTag.classList.remove("dark");
+        }
+      } else {
+        console.error("darkmood not found in localStorage.");
+      }
+      function toggleDarkmood() {
+        const htmlTag = document.getElementById("html");
+        htmlTag.classList.toggle("dark");
+        const darkmoodToggleBtn = document.getElementById("darkmoodToggleBtn");
+
+        if (htmlTag.classList.contains("dark")) {
+          darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" > <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/> </svg>`;
+          localStorage.setItem("darkmood", "true");
+        } else {
+          darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`;
+          localStorage.setItem("darkmood", "false");
+        }
+      }
+      //---------------------------------------------------//dark mode
+
+      // handle error modele
+      const errorDiv = document.getElementById("errorDiv");
+      const errorText = document.getElementById("errorText");
+      function openError(msg) {
+        if (errorDiv.classList.contains("hidden")) {
+          errorText.innerText = msg;
+          errorDiv.classList.add("flex");
+          errorDiv.classList.remove("hidden");
+        }
+      }
+
+      function closeError() {
+        if (!errorDiv.classList.contains("hidden")) {
+          errorDiv.classList.add("hidden");
+          errorDiv.classList.remove("flex");
+          errorText.innerText = "";
+        }
+      }
+      //----------------------------------------------------// handle error modele
+      // copy function
+      let textTOcopy = "";
+      function copyText() {
+        var textarea = document.getElementById("copyTextarea");
+        textarea.value = textTOcopy;
+        setTimeout(() => {
+          var textToCopy = textarea.value;
+          if (navigator.clipboard) {
+            navigator.clipboard
+              .writeText(textToCopy)
+              .then(function () {
+                alert("copied to clipboard");
+              })
+              .catch(function (err) {
+                alert("Unable to copy to clipboard: " + err);
+              });
+          } else {
+            alert("Clipboard API not supported in this browser.");
+          }
+        }, 300);
+      }
+      //----------------------------------------------------// copy function
+
+      const transferDataTextarea =
+        document.getElementById("salesNameAndNumber");
+      const approvedDataTextarea = document.getElementById(
+        "approvedSalesNumber"
+      );
+
+      // reset all
+      function resetAll() {
+        closeError();
+        transferDataTextarea.value = "";
+        approvedDataTextarea.value = "";
+        errorDiv.value = "";
+        errorText.value = "";
+        textTOcopy = "";
+      }
+      //-----------------------------------------------------// reset all
+
+      // get the transferd numbers object
+      function getTrasnfersObj() {
+        const textareaValue = transferDataTextarea.value;
+        const lines = textareaValue.split("\n");
+        const transferdData = {};
+        let badTransfersNumbers = [];
+        lines.forEach((line) => {
+          if (line) {
+            let transferType, agentName, number;
+            [transferType, agentName, number] = line.split(/[\t\s]+(?=\S)/);
+            const pattern = /[a-zA-Z0-9]/;
+            if (transferType.length >= 3 && pattern.test(transferType)) {
+              if (!agentName && !number) {
+                agentName = "UnKnown_agentName";
+                transferType = "Unknown_camping";
+                number = line.trim();
+              }
+              if (!number && agentName) {
+                [agentName, number] = line.split(/[\t\s]+(?=\S)/);
+                transferType = "Unknown_camping";
+              }
+              // remove all _ and make it Lower Case
+              transferType =
+                transferType === "Unknown_camping"
+                  ? "Unknown_camping"
+                  : transferType.trim().replace(/_/g, "").toLowerCase();
+              agentName =
+                agentName === "UnKnown_agentName"
+                  ? "UnKnown_agentName"
+                  : agentName.trim().replace(/_/g, "").toLowerCase();
+              number = number.trim();
+              // -----------/// remove all _ and make it Lower Case
+
+              if (!transferdData[agentName]) {
+                transferdData[agentName] = {
+                  agentName: agentName,
+                  numbers: {},
+                };
+              }
+
+              if (!transferdData[agentName].numbers[transferType]) {
+                transferdData[agentName].numbers[transferType] = [];
+              }
+              if (number.length === 10) {
+                transferdData[agentName].numbers[transferType].push(number);
+              } else {
+                badTransfersNumbers.push(
+                  `name: ${agentName} type: ${transferType} bad number: ${number}`
+                );
+              }
+            } else {
+              console.error(
+                "camp name is to short must be 3 characters or more"
+              );
+            }
+          }
+        });
+
+        if (badTransfersNumbers.length > 0) {
+          textTOcopy = badTransfersNumbers.join(" --- ");
+          openError(
+            "Hi i Found some Unvalid phone numbers in the transferd numbers and i will not take them into count click the copy button to copy the Unvalid numbers"
+          );
+        }
+        const result = Object.values(transferdData);
+        return result;
+      }
+      //-----------------------------------------------------// get the transferd numbers object
+
+      // get the approved numbers array
+      function getAprrovedArray() {
+        const numbersText = approvedDataTextarea.value;
+        const numberList = numbersText.split("\n").map((num) => num.trim());
+        const uniqueNumbers = Array.from(new Set(numberList)).filter(
+          (num) => num.length === 10
+        );
+        const differentLengthNumbers = numberList.filter(
+          (num) => num.length !== 10 && num !== ""
+        );
+
+        if (differentLengthNumbers.length > 0) {
+          textTOcopy = differentLengthNumbers.join(" --- ");
+          openError(
+            "Hi i Found some Unvalid phone numbers in the approved numbers and i will not take them into count click the copy button to copy the Unvalid numbers"
+          );
+        }
+        return uniqueNumbers;
+      }
+      //-----------------------------------------------------// get the approved numbers array
+
+      // get the report object
+      function getReportObj(transObj, approvNums) {
+        let res = {};
+        transObj.forEach((obj) => {
+          for (const key in obj.numbers) {
+            for (const num of obj.numbers[key]) {
+              if (approvNums.includes(num)) {
+                if (!res[obj.agentName]) {
+                  res[obj.agentName] = {
+                    agentName: obj.agentName,
+                    approvedNumbers: {
+                      [key]: obj.numbers[key].filter((number) =>
+                        approvNums.includes(number)
+                      ),
+                    },
+                  };
+                } else {
+                  if (!res[obj.agentName].approvedNumbers[key]) {
+                    res[obj.agentName] = {
+                      agentName: obj.agentName,
+                      approvedNumbers: {
+                        ...obj.numbers,
+                        [key]: obj.numbers[key].filter((number) =>
+                          approvNums.includes(number)
+                        ),
+                      },
+                    };
+                  }
+                }
+              }
+            }
+          }
+        });
+        const result = Object.values(res);
+        return result;
+      }
+      //-----------------------------------------------------// get the report object
+
+      // get transferd numbers array
+      function getTransferdNumbersArrya(transObj) {
+        let transferdNumbersArray = [];
+        transObj.forEach((obj, i) => {
+          for (const key in obj.numbers) {
+            transferdNumbersArray.push(...obj.numbers[key]);
+          }
+        });
+        return transferdNumbersArray;
+      }
+      //-----------------------------------------------------// get transferd numbers array
+
+      // get Aprroved Not Transferd Numbers
+      function getAprrovedNotTransferdNumbers(approvNums, transNums) {
+        return approvNums.filter((num) => !transNums.includes(num));
+      }
+      //-----------------------------------------------------// get Aprroved Not Transferd Numbers
+
+      //  get Transferd Not Approved object
+      function getTransferdObjNotApproved(transObj, approvNums) {
+        let res = {};
+        transObj.forEach((obj) => {
+          for (const key in obj.numbers) {
+            for (const num of obj.numbers[key]) {
+              if (!approvNums.includes(num)) {
+                if (!res[obj.agentName]) {
+                  res[obj.agentName] = {
+                    ...obj,
+                    numbers: {
+                      ...obj.numbers,
+                      [key]: obj.numbers[key].filter(
+                        (number) => !approvNums.includes(number)
+                      ),
+                    },
+                  };
+                }
+              }
+            }
+          }
+        });
+        const result = Object.values(res);
+        return result;
+      }
+      //----------------------------------------------------- //get Transferd Not Approved object
+
+      // create a full report
+      function createFullReport() {
+        const transObj = getTrasnfersObj();
+        const approvNums = getAprrovedArray();
+        const transNums = getTransferdNumbersArrya(transObj);
+        const reportObj = getReportObj(transObj, approvNums);
+        const approvNotTransNums = getAprrovedNotTransferdNumbers(
+          approvNums,
+          transNums
+        );
+        const transNotApprovObj = getTransferdObjNotApproved(
+          transObj,
+          approvNums
+        );
+
+        console.log("transObj", transObj);
+        console.log("approvNums", approvNums);
+        console.log("reportObj", reportObj);
+        console.log("approvNotTransNums", approvNotTransNums);
+        console.log("transNotApprovObj", transNotApprovObj);
+        // Call the function to render the table
+        renderReportTable(reportObj, transObj);
+      }
+      //----------------------------------------------------------// create a full report
+
+      // rander report table
+      function renderReportTable(reportObj, transObj) {
+        // Create the main table element
+        const table = element("table", {
+          className: [
+            "inline-block",
+            "table-fixed",
+            "w-full",
+            "text-md",
+            "text-center",
+          ],
+        });
+
+        // Create the table header (thead)
+        const thead = element("thead", {
+          className: [
+            "text-xl",
+            "uppercase",
+            "bg-slate-950",
+            "text-slate-100",
+            "w-full",
+          ],
+        });
+        table.appendChild(thead);
+
+        // Define common table cell styles for header and body
+        const thStyles = [
+          "w-auto",
+          "px-2",
+          "py-2",
+          "border",
+          "border-text-slate-50",
+        ];
+
+        // Create 'Index' column header
+        const indexTh = element("th", {
+          innerText: `Index`,
+          className: [...thStyles],
+        });
+        thead.appendChild(indexTh);
+
+        // Create 'Agent Name' column header
+        const agentNameTh = element("th", {
+          innerText: `Agent Name`,
+          className: [...thStyles],
+        });
+        thead.appendChild(agentNameTh);
+
+        // Initialize an array to store all unique campings
+        let allCampings = [];
+
+        // Extract all unique campings from the reportObj
+        reportObj.forEach((obj) => {
+          for (const key in obj.approvedNumbers) {
+            allCampings.push(key);
+          }
+        });
+
+        // Remove duplicates and store unique campings
+        allCampings = new Set(allCampings);
+
+        // Create headers for each unique camping
+        allCampings.forEach((camping) => {
+          const th = element("th", {
+            innerText: `${camping}`,
+            className: [...thStyles],
+          });
+          thead.appendChild(th);
+        });
+
+        // Create 'Total' column header
+        const totalTh = element("th", {
+          innerText: `Total`,
+          className: [...thStyles],
+        });
+        thead.appendChild(totalTh);
+
+        // Create the table body (tbody)
+        const tbody = element("tbody", { className: ["w-full"] });
+
+        // Define common table cell styles for the body
+        const tdStyles = [
+          "w-auto",
+          "py-2",
+          "px-2",
+          "border",
+          "border-slate-50",
+        ];
+
+        // Iterate through the reportObj to populate the table rows
+        reportObj.forEach((obj, i) => {
+          const tr = element("tr", { className: ["border-b"] });
+
+          // Create 'Index' cell
+          const indexTd = element("td", {
+            innerText: `${i}`,
+            className: [...tdStyles],
+          });
+          tr.appendChild(indexTd);
+
+          // Create 'Agent Name' cell
+          const nameTd = element("td", {
+            innerText: `${obj.agentName}`,
+            className: [...tdStyles, "text-left"],
+          });
+          tr.appendChild(nameTd);
+
+          // Initialize a variable to calculate the total count for the agent
+          let ttl = 0;
+
+          // Iterate through unique campings and populate their cells
+          allCampings.forEach((camp) => {
+            let transferCount = 0;
+
+            // Iterate through transaction data to find transfer counts for the agent and camping
+            transObj.forEach((transferObj) => {
+              if (
+                transferObj.agentName.toLowerCase().trim() ===
+                obj.agentName.toLowerCase().trim()
+              ) {
+                if (transferObj.numbers[camp]) {
+                  transferCount = transferObj.numbers[camp].length;
+                }
+              }
+            });
+
+            if (obj.approvedNumbers[camp]) {
+              // Calculate and display transfer and approved counts
+              ttl += obj.approvedNumbers[camp].length;
+              const campCountTd = element("td", {
+                innerText: `Transferred: ${transferCount} -- Approved: ${obj.approvedNumbers[camp].length}`,
+                className: [...tdStyles],
+              });
+              tr.appendChild(campCountTd);
+            } else {
+              // Display transfer count when there are no approved numbers
+              const campCountTd = element("td", {
+                innerText: `Transferred: ${transferCount} -- Approved: 0`,
+                className: [...tdStyles],
+              });
+              tr.appendChild(campCountTd);
+            }
+          });
+
+          // Create 'Total' cell and highlight it based on the total count
+          const ttlTd = element("td", {
+            innerText: `${ttl}`,
+            className: [
+              `${ttl > 21 ? "bg-green-500" : "bg-red-500"}`,
+              ...tdStyles,
+            ],
+          });
+          tr.appendChild(ttlTd);
+
+          // Append the row to the table body
+          tbody.appendChild(tr);
+        });
+
+        // Append the table body to the main table
+        table.appendChild(tbody);
+
+        // Add the table to the HTML document
+        const container = document.getElementById("reportDiv");
+        container.appendChild(table);
+        container.classList.remove("hidden");
+      }
+      //-----------------------------------------------------------// rander report table
+
+      function element(eleTag, attributesObj = null, children = null) {
+        const newElement = document.createElement(eleTag);
+        if (attributesObj !== null) {
+          for (const key in attributesObj) {
+            if (
+              attributesObj.hasOwnProperty(key) &&
+              key !== "innerHTML" &&
+              key !== "innerText" &&
+              key !== "className"
+            ) {
+              newElement.setAttribute(key, attributesObj[key]);
+            } else if (attributesObj[key] && key === "innerHTML") {
+              newElement.innerHTML = attributesObj[key];
+            } else if (attributesObj[key] && key === "innerText") {
+              newElement.innerText = attributesObj[key];
+            } else if (attributesObj[key] && key === "className") {
+              newElement.classList.add(...attributesObj[key]);
+            }
+          }
+        }
+        if (children !== null) {
+          for (const key in children) {
+            newElement.innerHTML += `<!-- ${key} -->`;
+            newElement.appendChild(children[key]);
+          }
+        }
+        return newElement;
+      }
+    </script>
+  </body>
+</html>
