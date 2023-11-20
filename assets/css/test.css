@@ -1,5 +1,5 @@
 /*
-7 25 pm
+9 09 pm
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
 
@@ -812,6 +812,14 @@ video {
 
 .tw-w-screen {
   width: 100vw;
+}
+
+.tw-w-\[252px\] {
+  width: 252px;
+}
+
+.tw-w-\[260px\] {
+  width: 260px;
 }
 
 .tw-max-w-7xl {
