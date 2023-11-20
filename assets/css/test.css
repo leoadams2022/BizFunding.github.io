@@ -1,5 +1,5 @@
 /*
-9 09 pm
+10 44 pm
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
 
@@ -726,6 +726,10 @@ video {
   height: 100vh;
 }
 
+.tw-h-\[60px\] {
+  height: 60px;
+}
+
 .tw-max-h-\[150px\] {
   max-height: 150px;
 }
@@ -1013,6 +1017,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.tw-border-sky-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(14 165 233 / var(--tw-border-opacity));
+}
+
 .tw-bg-blue-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
@@ -1174,6 +1183,11 @@ video {
 .tw-text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.tw-text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .tw-font-bold {
