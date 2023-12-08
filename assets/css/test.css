@@ -1,5 +1,5 @@
 /*
-10 15 pm
+6 21 Drc 8
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
 
@@ -613,6 +613,10 @@ video {
 
 .tw-z-\[27\] {
   z-index: 27;
+}
+
+.tw-z-\[29\] {
+  z-index: 29;
 }
 
 .tw-order-1 {
