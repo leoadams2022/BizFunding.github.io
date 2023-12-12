@@ -1352,33 +1352,121 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       class="fixed left-full"
     ></textarea>
     <script>
-    //{
-    //  condition: "Acute Lymphoblastic Leukemia",
-    //  description:
-    //    "Acute lymphoblastic leukemia (ALL) is a cancer of the blood and bone marrow that affects white blood cells.",
-    //  pronunciation: "uh-kyoot lim-foh-blas-tik loo-kee-mee-uh",
-    //},
-    const ngs1_conditions = ["Kidney cancer","Liver cancer","Bladder cancer","Brain cancer","Blood cancer","Rectal Cancer","Esophageal Cancer","Male Breast Cancer","Central nervous system cancer","Leukemia","Acute Myeloid Leukemia (AML)","Non-Hodgkins lymphoma","Aplastic Anemia or myelodysplastic syndrome","End Stage Renal Disease","Multiple Myeloma","Parkinsons Disease","Renal Toxicity","Systemic Scleroderma - Systemic Sclerosis","Cardiac birth defect (Must be born with birth defect)","Anomalous pulmonary venous return","Aortic valve stenosis","Atrial septal defect and OL","Cardiomyopathy","Coarctation of the aorta and OL","Dextrocardia with minor lesions","Double outlet right ventricle","Double aortic arch","Endocardial cushion defect","Hypoplastic left or right heart","Ebsteins anomaly","Idiopathic hypertrophic subaortic stenosis (IHSS)","Interrupted aortic arch","Mitral regurgitation","Mitral stenosis","Pulmonary atresia","Pulmonary artery hypoplasia","Patent ductus arteriosus and OL","Pulmonary valve stenosis and OL","Subaortic stenosing ring","Taussig-Bing","Tricuspid atresia","Transposition of great vessels","Tetralogy of Fallot","Univentricular heart","Truncus arteriosus","Ventricular septal defect and OL","Hole in Heart","Missing Chamber","Cardiac Deformity","Miscarriage / Fetal Death (must have been treated on Camp Lejeune or in Jacksonville)"]
-    let ngs1_conditions_obj = ngs1_conditions.map(con=>({condition:con,description:'',pronunciation:''}))
-    const ngs2_conditions = ["Bladder cancer","Breast cancer","Kidney cancer","Liver cancer","Lung cancer","Bone cancer","Brain cancer","Bile duct / Pancreatic cancer","Childhood and adolescent cancer","Laryngeal cancer","Thyroid cancer","Esophageal cancer","All forms of Leukemia","Myeloproliferative neoplasms","Multiple myeloma / plasma cell neoplasms","Myelodysplastic syndromes","Non-Hodgkins lymphoma (NHL)","Mycosis Fungoides","Parkinsons disease","Scleroderma","Systemic Sclerosis","Hepatic steatosis (fatty liver)"]
-    let ngs2_conditions_obj = ngs2_conditions.map(con=>({condition:con,description:'',pronunciation:''}))
+      //{
+      //  condition: "Acute Lymphoblastic Leukemia",
+      //  description:
+      //    "Acute lymphoblastic leukemia (ALL) is a cancer of the blood and bone marrow that affects white blood cells.",
+      //  pronunciation: "uh-kyoot lim-foh-blas-tik loo-kee-mee-uh",
+      //},
+      const ngs1_conditions = [
+        "Kidney cancer",
+        "Leukemia",
+        "Liver cancer",
+        "Non-Hodgkins lymphoma (NHL)",
+        "Bladder cancer",
+        "Acute Myeloid Leukemia (AML)",
+        "Aplastic Anemia or myelodysplastic syndrome",
+        "Brain cancer",
+        "Blood cancer",
+        "Central nervous system cancer",
+        "End Stage Renal Disease",
+        "Esophageal Cancer",
+        "Multiple Myeloma",
+        "Parkinsons Disease",
+        "Rectal Cancer",
+        "Renal Toxicity",
+        "Systemic Scleroderma/ Systemic Sclerosis",
+        "Male Breast Cancer",
+        "Miscarriage Fetal Death Is the facility where the miscarriage was treated on Camp Lejeune or in Jacksonville, North Carolina? if no disqualify",
+      ];
+      let ngs1_conditions_obj = ngs1_conditions.map((con) => ({
+        condition: con,
+        description: "",
+        pronunciation: "",
+      }));
+      const ngs1_birth_defect = [
+        "Anomalous pulmonary venous return",
+        "Aortic valve stenosis",
+        "Atrial septal defect",
+        "Atrial septal defect + OL",
+        "Cardiomyopathy",
+        "Coarctation of the aorta",
+        "Coarctation of the aorta + OL",
+        "Dextrocardia with minor lesions",
+        "Double outlet right ventricle",
+        "Double aortic arch",
+        "Endocardial cushion defect",
+        "Hypoplastic left heart",
+        "Hypoplastic right heart",
+        "Ebsteins anomaly",
+        "Idiopathic hypertrophic subaortic stenosis (IHSS)",
+        "Interrupted aortic arch",
+        "Mitral regurgitation",
+        "Mitral stenosis",
+        "Pulmonary atresia",
+        "Pulmonary artery hypoplasia",
+        "Patent ductus arteriosus",
+        "Patent ductus arteriosus + OL",
+        "Pulmonary valve stenosis",
+        "Pulmonary valve stenosis + OL",
+        "Subaortic stenosing ring",
+        "Taussig-Bing",
+        "Tricuspid atresia",
+        "Transposition of great vessels",
+        "Tetralogy of Fallot",
+        "Univentricular heart",
+        "Truncus arteriosus",
+        "Ventricular septal defect",
+        "Ventricular septal defect + OL",
+        "Hole in Heart",
+        "Missing Chamber",
+        "Cardiac Deformity",
+      ];
+      let ngs1_birth_defect_obj = ngs1_birth_defect.map((con) => ({
+        condition: con,
+        description: "",
+        pronunciation: "",
+      }));
+      const ngs2_conditions = [
+        "Bladder cancer",
+        "Breast cancer",
+        "Kidney cancer",
+        "Liver cancer",
+        "Lung cancer",
+        "Bone cancer",
+        "Brain cancer",
+        "Bile duct / Pancreatic cancer",
+        "Childhood and adolescent cancer",
+        "Laryngeal cancer",
+        "Thyroid cancer",
+        "Esophageal cancer",
+        "All forms of Leukemia",
+        "Myeloproliferative neoplasms",
+        "Multiple myeloma / plasma cell neoplasms",
+        "Myelodysplastic syndromes",
+        "Non-Hodgkins lymphoma (NHL)",
+        "Mycosis Fungoides",
+        "Parkinsons disease",
+        "Scleroderma",
+        "Systemic Sclerosis",
+        "Hepatic steatosis (fatty liver)",
+      ];
+      let ngs2_conditions_obj = ngs2_conditions.map((con) => ({
+        condition: con,
+        description: "",
+        pronunciation: "",
+      }));
 
       // --------------------------------------------------
       // ------------------data objects--------------------
       // --------------------------------------------------
       renderList(ngs1_conditions_obj, "ngs1 conditions", "root");
+      renderList(
+        ngs1_birth_defect_obj,
+        "NGS1 Cardiac birth defect - Must be born with birth defect - If not born with birth defect DQ DX at birth, that the claimant was born with a birth defect. Its a DQ if they are DX at a later age.",
+        "root"
+      );
       renderList(ngs2_conditions_obj, "ngs2 conditions", "root");
-    //   renderList(ngs2_primary_conditions, "ngs2 primary conditions", "root");
-    //   renderList(
-    //     ngs2_secondary_conditions_tier1,
-    //     "ngs2 secondary conditions tier1",
-    //     "root"
-    //   );
-    //   renderList(
-    //     ngs2_secondary_conditions_tier2,
-    //     "ngs2 secondary conditions tier2",
-    //     "root"
-    //   );
 
       function renderList(dataObj, title, rootId) {
         //  main div
@@ -1502,7 +1590,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                             "relative",
                             "group",
                             "mytooltip",
-                            `${obj.description === ''&& 'hidden'}`
+                            `${obj.description === "" && "hidden"}`,
                           ],
                           innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path></svg>`,
                           title: "info",
