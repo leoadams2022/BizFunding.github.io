@@ -245,6 +245,7 @@ Remove the inheritance of text transform in Edge and Firefox.
       [type="reset"],
       [type="submit"] {
         -webkit-appearance: button;
+        appearance: button;
         /* 1 */
         background-color: transparent;
         /* 2 */
@@ -292,6 +293,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 
       [type="search"] {
         -webkit-appearance: textfield;
+        appearance: textfield;
         /* 1 */
         outline-offset: -2px;
         /* 2 */
@@ -432,7 +434,7 @@ Make sure disabled buttons don't get the pointer cursor.
       object {
         display: block;
         /* 1 */
-        vertical-align: middle;
+        /* vertical-align: middle; */
         /* 2 */
       }
 
@@ -594,6 +596,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         left: 50%;
       }
 
+      .left-4 {
+        left: 1rem;
+      }
+
       .left-full {
         left: 100%;
       }
@@ -610,12 +616,32 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         top: 50%;
       }
 
+      .top-14 {
+        top: 3.5rem;
+      }
+
+      .top-4 {
+        top: 1rem;
+      }
+
       .z-10 {
         z-index: 10;
       }
 
       .z-20 {
         z-index: 20;
+      }
+
+      .z-30 {
+        z-index: 30;
+      }
+
+      .z-40 {
+        z-index: 40;
+      }
+
+      .m-1 {
+        margin: 0.25rem;
       }
 
       .m-3 {
@@ -643,6 +669,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         display: block;
       }
 
+      .inline-block {
+        display: inline-block;
+      }
+
       .flex {
         display: flex;
       }
@@ -651,12 +681,28 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         display: none;
       }
 
+      .h-16 {
+        height: 4rem;
+      }
+
       .h-6 {
         height: 1.5rem;
       }
 
+      .h-8 {
+        height: 2rem;
+      }
+
+      .h-full {
+        height: 100%;
+      }
+
       .h-screen {
         height: 100vh;
+      }
+
+      .max-h-\[500px\] {
+        max-height: 500px;
       }
 
       .w-40 {
@@ -667,12 +713,20 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         width: 1.5rem;
       }
 
+      .w-8 {
+        width: 2rem;
+      }
+
       .w-80 {
         width: 20rem;
       }
 
       .w-96 {
         width: 24rem;
+      }
+
+      .w-\[60\%\] {
+        width: 60%;
       }
 
       .w-full {
@@ -705,6 +759,14 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
       .-translate-y-1\/2 {
         --tw-translate-y: -50%;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+
+      .-translate-y-full {
+        --tw-translate-y: -100%;
         transform: translate(var(--tw-translate-x), var(--tw-translate-y))
           rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
           skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
@@ -775,6 +837,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         gap: 1.5rem;
       }
 
+      .overflow-y-auto {
+        overflow-y: auto;
+      }
+
       .overflow-x-hidden {
         overflow-x: hidden;
       }
@@ -823,8 +889,18 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         border-color: rgb(31 41 55 / var(--tw-border-opacity));
       }
 
+      .bg-amber-200 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(253 230 138 / var(--tw-bg-opacity));
+      }
+
       .bg-amber-200\/70 {
         background-color: rgb(253 230 138 / 0.7);
+      }
+
+      .bg-amber-400 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(251 191 36 / var(--tw-bg-opacity));
       }
 
       .bg-amber-400\/70 {
@@ -846,6 +922,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         background-color: rgb(209 213 219 / var(--tw-bg-opacity));
       }
 
+      .bg-gray-300\/80 {
+        background-color: rgb(209 213 219 / 0.8);
+      }
+
       .bg-gray-400 {
         --tw-bg-opacity: 1;
         background-color: rgb(156 163 175 / var(--tw-bg-opacity));
@@ -865,17 +945,22 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         background-color: rgb(192 132 252 / var(--tw-bg-opacity));
       }
 
+      .bg-rose-600\/90 {
+        background-color: rgb(225 29 72 / 0.9);
+      }
+
       .bg-sky-500 {
         --tw-bg-opacity: 1;
         background-color: rgb(14 165 233 / var(--tw-bg-opacity));
       }
 
-      .bg-slate-600\/90 {
-        background-color: rgb(71 85 105 / 0.9);
+      .bg-slate-100\/50 {
+        background-color: rgb(241 245 249 / 0.5);
       }
 
-      .bg-rose-600\/90 {
-        background-color: rgb(225 29 72 / 0.9);
+      .bg-white {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
       }
 
       .p-1 {
@@ -892,6 +977,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
       .p-4 {
         padding: 1rem;
+      }
+
+      .px-1 {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+      }
+
+      .px-2 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
       }
 
       .px-4 {
@@ -927,6 +1022,14 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         padding-top: 0.25rem;
       }
 
+      .pt-4 {
+        padding-top: 1rem;
+      }
+
+      .pb-2 {
+        padding-bottom: 0.5rem;
+      }
+
       .text-center {
         text-align: center;
       }
@@ -954,6 +1057,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         text-transform: uppercase;
       }
 
+      .lowercase {
+        text-transform: lowercase;
+      }
+
       .capitalize {
         text-transform: capitalize;
       }
@@ -966,14 +1073,29 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         letter-spacing: 0.05em;
       }
 
-      .text-blue-950 {
+      .text-black {
         --tw-text-opacity: 1;
-        color: rgb(23 37 84 / var(--tw-text-opacity));
+        color: rgb(0 0 0 / var(--tw-text-opacity));
+      }
+
+      .text-blue-100 {
+        --tw-text-opacity: 1;
+        color: rgb(219 234 254 / var(--tw-text-opacity));
+      }
+
+      .text-gray-500 {
+        --tw-text-opacity: 1;
+        color: rgb(107 114 128 / var(--tw-text-opacity));
       }
 
       .text-gray-800 {
         --tw-text-opacity: 1;
         color: rgb(31 41 55 / var(--tw-text-opacity));
+      }
+
+      .text-red-800 {
+        --tw-text-opacity: 1;
+        color: rgb(153 27 27 / var(--tw-text-opacity));
       }
 
       .text-slate-100 {
@@ -1001,11 +1123,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         color: rgb(255 255 255 / var(--tw-text-opacity));
       }
 
-      .text-blue-100 {
-        --tw-text-opacity: 1;
-        color: rgb(219 234 254 / var(--tw-text-opacity));
-      }
-
       .opacity-0 {
         opacity: 0;
       }
@@ -1015,6 +1132,40 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
         box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
           var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+
+      .shadow-lg {
+        --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+          0 4px 6px -4px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+
+      .shadow-sm {
+        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+
+      .shadow-xl {
+        --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
+          0 8px 10px -6px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+
+      .ring {
+        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+          var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+          calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow, 0 0 #0000);
       }
 
       .filter {
@@ -1043,12 +1194,36 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         transition-duration: 150ms;
       }
 
+      .duration-200 {
+        transition-duration: 200ms;
+      }
+
       .duration-300 {
         transition-duration: 300ms;
       }
 
       .ease-in-out {
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        --tw-bg-opacity: 1;
+        background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 9999px;
+        --tw-bg-opacity: 1;
+        background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(71 85 105 / var(--tw-bg-opacity));
       }
 
       @keyframes bounce {
@@ -1078,6 +1253,34 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       }
 
+      .hover\:bg-slate-500\/80:hover {
+        background-color: rgb(100 116 139 / 0.8);
+      }
+
+      .hover\:text-gray-100:hover {
+        --tw-text-opacity: 1;
+        color: rgb(243 244 246 / var(--tw-text-opacity));
+      }
+
+      .focus\:border-blue-400:focus {
+        --tw-border-opacity: 1;
+        border-color: rgb(96 165 250 / var(--tw-border-opacity));
+      }
+
+      .focus\:outline-none:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+
+      .focus\:ring:focus {
+        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+          var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+          calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow, 0 0 #0000);
+      }
+
       .group:hover .group-hover\:visible {
         visibility: visible;
       }
@@ -1096,8 +1299,18 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         border-color: rgb(31 41 55 / var(--tw-border-opacity));
       }
 
+      :is(.dark .dark\:bg-amber-700) {
+        --tw-bg-opacity: 1;
+        background-color: rgb(180 83 9 / var(--tw-bg-opacity));
+      }
+
       :is(.dark .dark\:bg-amber-700\/70) {
         background-color: rgb(180 83 9 / 0.7);
+      }
+
+      :is(.dark .dark\:bg-amber-900) {
+        --tw-bg-opacity: 1;
+        background-color: rgb(120 53 15 / var(--tw-bg-opacity));
       }
 
       :is(.dark .dark\:bg-amber-900\/70) {
@@ -1137,9 +1350,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         background-color: rgb(3 105 161 / var(--tw-bg-opacity));
       }
 
-      :is(.dark .dark\:text-blue-100) {
-        --tw-text-opacity: 1;
-        color: rgb(219 234 254 / var(--tw-text-opacity));
+      :is(.dark .dark\:bg-slate-900\/50) {
+        background-color: rgb(15 23 42 / 0.5);
       }
 
       :is(.dark .dark\:text-gray-100) {
@@ -1173,11 +1385,13 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <link href="../styles/output.css" rel="stylesheet" />
   </head>
   <body class="bg-gray-300 dark:bg-gray-600 overflow-x-hidden">
     <nav
-      class="w-screen box-border px-8 py-4 flex justify-between items-center bg-rose-600/90 dark:bg-rose-900/90 text-slate-50 dark:text-slate-200 shadow-2xl sticky top-0 z-20"
+      class="w-screen box-border px-8 py-4 flex justify-between items-center bg-rose-600/90 dark:bg-rose-900/90 text-slate-50 dark:text-slate-200 shadow-xl sticky top-0 z-10"
     >
+      <!-- sidebar -->
       <div
         class="w-80 fixed top-0 left-0 transition duration-300 ease-in-out translate-x-[-100%] h-screen bg-purple-400 dark:bg-purple-800 text-slate-900 dark:text-slate-100 box-border p-4 z-10 shadow-2xl"
         id="sidebar"
@@ -1281,6 +1495,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           </div>
         </div>
       </div>
+      <!-- --//sidebar -->
+
       <div class="flex justify-between gap-4">
         <button class="hover:animate-pulse" onclick="toggleSidebar()">
           <svg
@@ -1300,17 +1516,77 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         </button>
         <a href="#" class="text-2xl font-bold"><h1>Medical Conditions</h1></a>
       </div>
-      <a
-        href="https://leoadams2022.github.io/BizFunding.github.io/TrotDupChecker.html"
-        class="text-md hover:animate-bounce text-blue-100"
-        >Duplicates Checker</a
-      >
+      <div class="flex justify-between items-center gap-2">
+        <button
+          class="w-6 h-6"
+          onclick="toggleSearchDiv();  inputElement.focus()"
+          title="Search Ctrl+K"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-ful h-full"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
+        </button>
+        <a
+          href="https://leoadams2022.github.io/BizFunding.github.io/TrotDupChecker.html"
+          class="text-md hover:animate-bounce text-blue-100"
+          >Duplicates Checker</a
+        >
+      </div>
     </nav>
-    <main id="root" class="px-4 py-2"></main>
+    <div
+      class="fixed top-0 left-0 -translate-y-full opacity-0 w-screen h-screen flex justify-center pt-4 box-border z-20 bg-gray-300/80 transition duration-300"
+      id="searchDiv"
+    >
+      <div class="bg-white shadow-lg absolute top-0 left-0 w-full h-16"></div>
+      <button
+        onclick="toggleSearchDiv()"
+        class="absolute top-4 left-4 w-8 h-8 text-red-800"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-fuh-fullh-full"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </button>
+      <div class="relative w-[60%]">
+        <input
+          type="text"
+          name="search"
+          id="searchInput"
+          class="w-full h-8 px-2 box-border inline-block text-black border focus:outline-none focus:ring focus:border-blue-400 rounded-sm shadow-lg"
+          placeholder="Search ..."
+        />
+        <ul
+          class="absolute top-14 text-gray-500 max-h-[500px] overflow-y-auto overflow-x-hidden box-border w-full"
+          id="autocomplete-list"
+        ></ul>
+      </div>
+    </div>
+    <main id="root" class="px-4"></main>
     <!-- notification div  -->
     <div
       id="notificationDiv"
-      class="fixed translate-x-full bottom-4 right-0 transition-transform duration-300 ease-in-out z-20 bg-gray-200 dark:bg-gray-400 w-96 border border-black rounded-md p-2"
+      class="fixed translate-x-full bottom-4 right-0 transition-transform duration-300 ease-in-out z-40 bg-gray-200 dark:bg-gray-400 w-96 border border-black rounded-md p-2"
     >
       <div
         class="bg-gray-300 px-4 py-1 rounded-sm text-slate-800 flex justify-between"
@@ -1341,7 +1617,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       </p>
     </div>
     <footer
-      class="fixed bottom-0 w-screen py-2 bg-gray-800/90 dark:bg-gray-900/90 text-slate-50 text-center"
+      class="sticky bottom-0 w-screen py-2 bg-gray-800/90 dark:bg-gray-900/90 text-slate-50 text-center z-30"
     >
       ---Designed by Walid-Ali(Leo-Adams)---
     </footer>
@@ -1352,22 +1628,17 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       class="fixed left-full"
     ></textarea>
     <script>
-      //{
-      //  condition: "Acute Lymphoblastic Leukemia",
-      //  description:
-      //    "Acute lymphoblastic leukemia (ALL) is a cancer of the blood and bone marrow that affects white blood cells.",
-      //  pronunciation: "uh-kyoot lim-foh-blas-tik loo-kee-mee-uh",
-      //},
       const ngs1_conditions = [
         "Kidney cancer",
         "Leukemia",
         "Liver cancer",
-        "Non-Hodgkins lymphoma (NHL)",
+        "Non-Hodgkins lymphoma",
         "Bladder cancer",
         "Acute Myeloid Leukemia (AML)",
         "Aplastic Anemia or myelodysplastic syndrome",
         "Brain cancer",
         "Blood cancer",
+        "Chronic Kidney Disease",
         "Central nervous system cancer",
         "End Stage Renal Disease",
         "Esophageal Cancer",
@@ -1375,14 +1646,15 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         "Parkinsons Disease",
         "Rectal Cancer",
         "Renal Toxicity",
-        "Systemic Scleroderma/ Systemic Sclerosis",
+        "Systemic Scleroderma / Systemic Sclerosis",
         "Male Breast Cancer",
-        "Miscarriage Fetal Death Is the facility where the miscarriage was treated on Camp Lejeune or in Jacksonville, North Carolina? if no disqualify",
+        "Miscarriage / Fetal Death - Is the facility where the miscarriage was treated on Camp Lejeune or in Jacksonville, North Carolina? – if no, disqualify",
       ];
       let ngs1_conditions_obj = ngs1_conditions.map((con) => ({
         condition: con,
         description: "",
         pronunciation: "",
+        camp: "NGS1",
       }));
       const ngs1_birth_defect = [
         "Anomalous pulmonary venous return",
@@ -1426,6 +1698,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         condition: con,
         description: "",
         pronunciation: "",
+        camp: "NGS1 Cardiac birth defect - Must be born with birth defect - If not born with birth defect DQ DX at birth, that the claimant was born with a birth defect. Its a DQ if they are DX at a later age",
       }));
       const ngs2_conditions = [
         "Bladder cancer",
@@ -1455,8 +1728,14 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         condition: con,
         description: "",
         pronunciation: "",
+        camp: "NGS2",
       }));
 
+      const allCondithions = [
+        ...ngs1_conditions_obj,
+        ...ngs1_birth_defect_obj,
+        ...ngs2_conditions_obj,
+      ];
       // --------------------------------------------------
       // ------------------data objects--------------------
       // --------------------------------------------------
@@ -1474,11 +1753,13 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           "div",
           {
             className: [
-              "shadow-2xl",
+              "shadow-sm",
               "border",
               "border-gray-600",
+              "dark:border-gray-300",
               "rounded-md",
-              "p-4",
+              "px-4",
+              "pb-2",
               "my-2",
             ],
             id: "testMainDIv",
@@ -1497,6 +1778,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 "py-1",
                 "text-center",
                 "uppercase",
+                "shadow-xl",
               ],
               innerText: title,
             }),
@@ -1719,7 +2001,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           localStorage.setItem("darkmood", "false");
         }
       }
-
       function copyToClipboard(textTOcopy) {
         var textarea = document.getElementById("copyTextarea");
         textarea.value = textTOcopy;
@@ -1898,6 +2179,154 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         }
         return newElement;
       }
+
+      function searchByCon(con) {
+        con = con.toLowerCase().trim(); // Convert input to lowercase for case-insensitive matching
+        const matchs = [];
+        for (let i = 0; i < allCondithions.length; i++) {
+          const condition = allCondithions[i].condition.toLowerCase();
+          if (condition.includes(con)) {
+            matchs.push(allCondithions[i]);
+          }
+        }
+
+        return matchs;
+      }
+
+      const inputElement = document.getElementById("searchInput");
+      const autocompleteList = document.getElementById("autocomplete-list");
+
+      function renderSuggestions(suggestionsArr) {
+        suggestionsArr.forEach((obj, i) => {
+          autocompleteList.appendChild(
+            // element("li", {
+            //   className: [
+            //     "cursor-pointer",
+            //     "transition",
+            //     "duration-200",
+            //     "text-center",
+            //     "hover:text-gray-100",
+            //     "hover:bg-slate-500/80",
+            //   ],
+            //   innerText: `${con.condition} -(${con.camp})`,
+            //   onclick: "sugest(this)",
+            // })
+            element(
+              "li",
+              {
+                innerHTML: `${obj.condition} <span class='px-1 rounded-sm dark:bg-slate-900/50 bg-slate-100/50'>(${obj.camp})</span>`,
+                className: [
+                  "border",
+                  "rounded-sm",
+                  "border-gray-800",
+                  "dark:border-gray-300",
+                  "p-2",
+                  "font-bold",
+                  "text-sm",
+                  "text-gray-800",
+                  "dark:text-gray-100",
+                  "flex",
+                  "items-center",
+                  "justify-between",
+                  "gap-2",
+                  `${i % 2 ? "bg-amber-200" : "bg-amber-400"}`,
+                  `${i % 2 ? "dark:bg-amber-900" : "dark:bg-amber-700"}`,
+                  "m-1",
+                  "shadow-sm",
+                ],
+              },
+              {
+                iconsDiv: element(
+                  "div",
+                  {
+                    className: ["flex", "justify-evenly", "gap-4"],
+                  },
+                  {
+                    PlayStopSpan: element(
+                      "spna",
+                      {
+                        className: ["relative", "cursor-pointer", "w-6", "h-6"],
+                      },
+                      {
+                        PlaySpan: element("span", {
+                          className: [
+                            "cursor-pointer",
+                            "absolute",
+                            "top-1/2",
+                            "left-1/2",
+                            "-translate-x-1/2",
+                            "-translate-y-1/2",
+                          ],
+                          title: "play",
+                          innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"></path></svg>`,
+                          onclick: ` textToAudio('${obj.condition}', this)`,
+                        }),
+                        StopSpan: element("span", {
+                          className: [
+                            "cursor-pointer",
+                            "hidden",
+                            "absolute",
+                            "top-1/2",
+                            "left-1/2",
+                            "-translate-x-1/2",
+                            "-translate-y-1/2",
+                          ],
+                          title: "stop",
+                          innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 019 14.437V9.564z"></path></svg>`,
+                          onclick: "stopAudio()",
+                        }),
+                      }
+                    ),
+                    infoSpan: element("span", {
+                      className: [
+                        "tooltip",
+                        "cursor-pointer",
+                        "relative",
+                        "group",
+                        "mytooltip",
+                        `${obj.description === "" && "hidden"}`,
+                      ],
+                      innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path></svg>`,
+                      title: "info",
+                      data_mytooltip: `${obj.description}`,
+                    }),
+                    copySpan: element("span", {
+                      className: ["cursor-pointer"],
+                      title: "copy",
+                      innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z"></path></svg>`,
+                      onclick: `copyToClipboard('${obj.condition}')`,
+                    }),
+                  }
+                ),
+              }
+            )
+          );
+        });
+      }
+      inputElement.addEventListener("input", function () {
+        autocompleteList.innerHTML = "";
+        if (inputElement.value === "" || inputElement.value.length < 1) return;
+        renderSuggestions(searchByCon(inputElement.value.toLowerCase()));
+      });
+
+      function toggleSearchDiv() {
+        document
+          .getElementById("searchDiv")
+          .classList.toggle("-translate-y-full");
+        document.getElementById("searchDiv").classList.toggle("opacity-0");
+        inputElement.value = "";
+        autocompleteList.innerHTML = "";
+      }
+      document.addEventListener("keydown", function (event) {
+        // Check if Ctrl (or Command on Mac) + K is pressed
+        if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+          // Prevent the default action of the key combination
+          event.preventDefault();
+          toggleSearchDiv();
+          // Focus on the search input
+          inputElement.focus();
+        }
+      });
     </script>
   </body>
 </html>
