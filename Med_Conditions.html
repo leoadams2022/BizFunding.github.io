@@ -1629,704 +1629,707 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     ></textarea>
     <script>
       const ngs1_conditions = [
-        "Kidney cancer",
-        "Leukemia",
-        "Liver cancer",
-        "Non-Hodgkins lymphoma (nhl)",
-        "Bladder cancer",
-        "Acute Myeloid Leukemia (AML)",
-        "Aplastic Anemia or myelodysplastic syndrome",
-        "Brain cancer",
-        "Blood cancer",
-        "Chronic Kidney Disease",
-        "Central nervous system cancer",
-        "End Stage Renal Disease",
-        "Esophageal Cancer",
-        "Multiple Myeloma",
-        "Parkinsons Disease",
-        "Rectal Cancer",
-        "Renal Toxicity",
-        "Systemic Scleroderma / Systemic Sclerosis",
-        "Male Breast Cancer",
-        "Miscarriage / Fetal Death - Is the facility where the miscarriage was treated on Camp Lejeune or in Jacksonville, North Carolina? – if no, disqualify",
-      ];
-      let ngs1_conditions_obj = ngs1_conditions.map((con) => ({
-        condition: con,
-        description: "",
-        pronunciation: "",
-        camp: "NGS1",
-      }));
-      const ngs1_birth_defect = [
-        "Anomalous pulmonary venous return",
-        "Aortic valve stenosis",
-        "Atrial septal defect",
-        "Atrial septal defect + OL",
-        "Cardiomyopathy",
-        "Coarctation of the aorta",
-        "Coarctation of the aorta + OL",
-        "Dextrocardia with minor lesions",
-        "Double outlet right ventricle",
-        "Double aortic arch",
-        "Endocardial cushion defect",
-        "Hypoplastic left heart",
-        "Hypoplastic right heart",
-        "Ebsteins anomaly",
-        "Idiopathic hypertrophic subaortic stenosis (IHSS)",
-        "Interrupted aortic arch",
-        "Mitral regurgitation",
-        "Mitral stenosis",
-        "Pulmonary atresia",
-        "Pulmonary artery hypoplasia",
-        "Patent ductus arteriosus",
-        "Patent ductus arteriosus + OL",
-        "Pulmonary valve stenosis",
-        "Pulmonary valve stenosis + OL",
-        "Subaortic stenosing ring",
-        "Taussig-Bing",
-        "Tricuspid atresia",
-        "Transposition of great vessels",
-        "Tetralogy of Fallot",
-        "Univentricular heart",
-        "Truncus arteriosus",
-        "Ventricular septal defect",
-        "Ventricular septal defect + OL",
-        "Hole in Heart",
-        "Missing Chamber",
-        "Cardiac Deformity",
-      ];
-      let ngs1_birth_defect_obj = ngs1_birth_defect.map((con) => ({
-        condition: con,
-        description: "",
-        pronunciation: "",
-        camp: "NGS1 Cardiac birth defect - Must be born with birth defect - If not born with birth defect DQ DX at birth, that the claimant was born with a birth defect. Its a DQ if they are DX at a later age",
-      }));
-      const ngs2_conditions = [
-        "Bladder cancer",
-        "Breast cancer",
-        "Kidney cancer",
-        "Liver cancer",
-        "Lung cancer",
-        "Bone cancer",
-        "Brain cancer",
-        "Bile duct / Pancreatic cancer",
-        "Childhood and adolescent cancer",
-        "Laryngeal cancer",
-        "Thyroid cancer",
-        "Esophageal cancer",
-        "All forms of Leukemia",
-        "Myeloproliferative neoplasms",
-        "Multiple myeloma / plasma cell neoplasms",
-        "Myelodysplastic syndromes",
-        "Non-Hodgkins lymphoma (NHL)",
-        "Mycosis Fungoides",
-        "Parkinsons disease",
-        "Scleroderma",
-        "Systemic Sclerosis",
-        "Hepatic steatosis (fatty liver)",
-      ];
-      let ngs2_conditions_obj = ngs2_conditions.map((con) => ({
-        condition: con,
-        description: "",
-        pronunciation: "",
-        camp: "NGS2",
-      }));
+  "Kidney cancer",
+  "Leukemia",
+  "Liver cancer",
+  "Non-Hodgkins lymphoma",
+  "Bladder cancer",
+  "Acute Myeloid Leukemia (AML)",
+  "Aplastic Anemia or myelodysplastic syndrome",
+  "Brain cancer",
+  "Blood cancer",
+  "Chronic Kidney Disease",
+  "Central nervous system cancer",
+  "End Stage Renal Disease",
+  "Esophageal Cancer",
+  "Multiple Myeloma",
+  "Parkinsons Disease",
+  "Rectal Cancer",
+  "Renal Toxicity",
+  "Systemic Scleroderma / Systemic Sclerosis",
+  "Male Breast Cancer",
+  "Miscarriage / Fetal Death - Is the facility where the miscarriage was treated on Camp Lejeune or in Jacksonville, North Carolina? – if no, disqualify",
+];
+let ngs1_conditions_obj = ngs1_conditions.map((con) => ({
+  condition: con,
+  description: "",
+  pronunciation: "",
+  camp: "NGS1",
+}));
+const ngs1_birth_defect = [
+  "Anomalous pulmonary venous return",
+  "Aortic valve stenosis",
+  "Atrial septal defect",
+  "Atrial septal defect + OL",
+  "Cardiomyopathy",
+  "Coarctation of the aorta",
+  "Coarctation of the aorta + OL",
+  "Dextrocardia with minor lesions",
+  "Double outlet right ventricle",
+  "Double aortic arch",
+  "Endocardial cushion defect",
+  "Hypoplastic left heart",
+  "Hypoplastic right heart",
+  "Ebsteins anomaly",
+  "Idiopathic hypertrophic subaortic stenosis (IHSS)",
+  "Interrupted aortic arch",
+  "Mitral regurgitation",
+  "Mitral stenosis",
+  "Pulmonary atresia",
+  "Pulmonary artery hypoplasia",
+  "Patent ductus arteriosus",
+  "Patent ductus arteriosus + OL",
+  "Pulmonary valve stenosis",
+  "Pulmonary valve stenosis + OL",
+  "Subaortic stenosing ring",
+  "Taussig-Bing",
+  "Tricuspid atresia",
+  "Transposition of great vessels",
+  "Tetralogy of Fallot",
+  "Univentricular heart",
+  "Truncus arteriosus",
+  "Ventricular septal defect",
+  "Ventricular septal defect + OL",
+  "Hole in Heart",
+  "Missing Chamber",
+  "Cardiac Deformity",
+];
+let ngs1_birth_defect_obj = ngs1_birth_defect.map((con) => ({
+  condition: con,
+  description: "",
+  pronunciation: "",
+  camp: "NGS1 Cardiac birth defect",
+}));
+const ngs2_conditions = [
+  "Acute Myeloid Leukemia (AML)",
+  "Bladder cancer (good For Dead Cust)",
+  "Brain cancer",
+  "Breast cancer",
+  "Central Nervous System cancer (CNS)",
+  "Cervical cancer",
+  "Esophageal cancer",
+  "Hodgkins Lymphoma",
+  "Kidney cancer (good For Dead Cust)",
+  "Leukemia (good For Dead Cust)",
+  "Liver cancer (good For Dead Cust)",
+  "Lung cancer",
+  "Multiple myeloma",
+  "Non-Hodgkins Lymphoma (nhl) (good For Dead Cust)",
+  "Ovarian cancer",
+  "Prostate cancer",
+  "Rectal cancer",
+  "Colon / Colorectal cancer",
+  "Thyroid cancer",
+  "ALS",
+  "Aplastic anemia",
+  "Cardiac birth defect",
+  "Epilepsy",
+  "Female infertility",
+  "Immune disorders",
+  "Kidney damage",
+  "Miscarriage",
+  "Multiple Sclerosis",
+  "Myelodysplastic syndromes",
+  "Parkinsons disease (good For Dead Cust)",
+  "Renal toxicity/ disease",
+  "Scleroderma",
+];
+let ngs2_conditions_obj = ngs2_conditions.map((con) => ({
+  condition: con,
+  description: "",
+  pronunciation: "",
+  camp: "NGS2",
+}));
 
-      const allCondithions = [
-        ...ngs1_conditions_obj,
-        ...ngs1_birth_defect_obj,
-        ...ngs2_conditions_obj,
-      ];
-      // --------------------------------------------------
-      // ------------------data objects--------------------
-      // --------------------------------------------------
-      renderList(ngs1_conditions_obj, "ngs1 conditions", "root");
-      renderList(
-        ngs1_birth_defect_obj,
-        "NGS1 Cardiac birth defect - Must be born with birth defect - If not born with birth defect DQ DX at birth, that the claimant was born with a birth defect. Its a DQ if they are DX at a later age.",
-        "root"
-      );
-      renderList(ngs2_conditions_obj, "ngs2 conditions", "root");
+const allCondithions = [
+  ...ngs1_conditions_obj,
+  ...ngs1_birth_defect_obj,
+  ...ngs2_conditions_obj,
+];
+// --------------------------------------------------
+// ------------------data objects--------------------
+// --------------------------------------------------
+renderList(ngs1_conditions_obj, "ngs1 conditions", "root");
+renderList(
+  ngs1_birth_defect_obj,
+  "NGS1 Cardiac birth defect - Must be born with birth defect - If not born with birth defect DQ DX at birth, that the claimant was born with a birth defect. Its a DQ if they are DX at a later age.",
+  "root"
+);
+renderList(ngs2_conditions_obj, "ngs2 conditions", "root");
 
-      function renderList(dataObj, title, rootId) {
-        //  main div
-        const mainDiv = element(
-          "div",
-          {
-            className: [
-              "shadow-sm",
-              "border",
-              "border-gray-600",
-              "dark:border-gray-300",
-              "rounded-md",
-              "px-4",
-              "pb-2",
-              "my-2",
-            ],
-            id: "testMainDIv",
-          },
-          {
-            title: element("h1", {
+function renderList(dataObj, title, rootId) {
+  //  main div
+  const mainDiv = element(
+    "div",
+    {
+      className: [
+        "shadow-sm",
+        "border",
+        "border-gray-600",
+        "dark:border-gray-300",
+        "rounded-md",
+        "px-4",
+        "pb-2",
+        "my-2",
+      ],
+      id: "testMainDIv",
+    },
+    {
+      title: element("h1", {
+        className: [
+          "text-2xl",
+          "font-bold",
+          "tracking-wider",
+          "m-3",
+          "bg-sky-500",
+          "dark:bg-sky-700",
+          "text-slate-100",
+          "pl-2",
+          "py-1",
+          "text-center",
+          "uppercase",
+          "shadow-xl",
+        ],
+        innerText: title,
+      }),
+      listUl: element(
+        "ul",
+        {
+          className: [
+            "flex",
+            "flex-wrap",
+            "gap-2",
+            "justify-center",
+            "items-center",
+          ],
+        },
+        dataObj.map((obj, i) =>
+          element(
+            "li",
+            {
+              innerText: `${i + 1}-${obj.condition}`,
               className: [
-                "text-2xl",
+                "border",
+                "rounded-sm",
+                "border-gray-800",
+                "dark:border-gray-300",
+                "p-2",
                 "font-bold",
-                "tracking-wider",
-                "m-3",
-                "bg-sky-500",
-                "dark:bg-sky-700",
-                "text-slate-100",
-                "pl-2",
-                "py-1",
-                "text-center",
-                "uppercase",
-                "shadow-xl",
+                "text-sm",
+                "text-gray-800",
+                "dark:text-gray-100",
+                "flex",
+                "items-center",
+                "justify-between",
+                "gap-2",
+                `${i % 2 ? "bg-amber-200/70" : "bg-amber-400/70"}`,
+                `${i % 2 ? "dark:bg-amber-900/70" : "dark:bg-amber-700/70"}`,
               ],
-              innerText: title,
-            }),
-            listUl: element(
-              "ul",
-              {
-                className: [
-                  "flex",
-                  "flex-wrap",
-                  "gap-2",
-                  "justify-center",
-                  "items-center",
-                ],
-              },
-              dataObj.map((obj, i) =>
-                element(
-                  "li",
-                  {
-                    innerText: `${i + 1}-${obj.condition}`,
+            },
+            {
+              iconsDiv: element(
+                "div",
+                {
+                  className: ["flex", "justify-evenly", "gap-4"],
+                },
+                {
+                  PlayStopSpan: element(
+                    "spna",
+                    {
+                      className: ["relative", "cursor-pointer", "w-6", "h-6"],
+                    },
+                    {
+                      PlaySpan: element("span", {
+                        className: [
+                          "cursor-pointer",
+                          "absolute",
+                          "top-1/2",
+                          "left-1/2",
+                          "-translate-x-1/2",
+                          "-translate-y-1/2",
+                        ],
+                        title: "play",
+                        innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"></path></svg>`,
+                        onclick: ` textToAudio('${obj.condition}', this)`,
+                      }),
+                      StopSpan: element("span", {
+                        className: [
+                          "cursor-pointer",
+                          "hidden",
+                          "absolute",
+                          "top-1/2",
+                          "left-1/2",
+                          "-translate-x-1/2",
+                          "-translate-y-1/2",
+                        ],
+                        title: "stop",
+                        innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 019 14.437V9.564z"></path></svg>`,
+                        onclick: "stopAudio()",
+                      }),
+                    }
+                  ),
+                  infoSpan: element("span", {
                     className: [
-                      "border",
-                      "rounded-sm",
-                      "border-gray-800",
-                      "dark:border-gray-300",
-                      "p-2",
-                      "font-bold",
-                      "text-sm",
-                      "text-gray-800",
-                      "dark:text-gray-100",
-                      "flex",
-                      "items-center",
-                      "justify-between",
-                      "gap-2",
-                      `${i % 2 ? "bg-amber-200/70" : "bg-amber-400/70"}`,
-                      `${
-                        i % 2 ? "dark:bg-amber-900/70" : "dark:bg-amber-700/70"
-                      }`,
+                      "tooltip",
+                      "cursor-pointer",
+                      "relative",
+                      "group",
+                      "mytooltip",
+                      `${obj.description === "" && "hidden"}`,
                     ],
-                  },
-                  {
-                    iconsDiv: element(
-                      "div",
-                      {
-                        className: ["flex", "justify-evenly", "gap-4"],
-                      },
-                      {
-                        PlayStopSpan: element(
-                          "spna",
-                          {
-                            className: [
-                              "relative",
-                              "cursor-pointer",
-                              "w-6",
-                              "h-6",
-                            ],
-                          },
-                          {
-                            PlaySpan: element("span", {
-                              className: [
-                                "cursor-pointer",
-                                "absolute",
-                                "top-1/2",
-                                "left-1/2",
-                                "-translate-x-1/2",
-                                "-translate-y-1/2",
-                              ],
-                              title: "play",
-                              innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"></path></svg>`,
-                              onclick: ` textToAudio('${obj.condition}', this)`,
-                            }),
-                            StopSpan: element("span", {
-                              className: [
-                                "cursor-pointer",
-                                "hidden",
-                                "absolute",
-                                "top-1/2",
-                                "left-1/2",
-                                "-translate-x-1/2",
-                                "-translate-y-1/2",
-                              ],
-                              title: "stop",
-                              innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 019 14.437V9.564z"></path></svg>`,
-                              onclick: "stopAudio()",
-                            }),
-                          }
-                        ),
-                        infoSpan: element("span", {
-                          className: [
-                            "tooltip",
-                            "cursor-pointer",
-                            "relative",
-                            "group",
-                            "mytooltip",
-                            `${obj.description === "" && "hidden"}`,
-                          ],
-                          innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path></svg>`,
-                          title: "info",
-                          data_mytooltip: `${obj.description}`,
-                        }),
-                        copySpan: element("span", {
-                          className: ["cursor-pointer"],
-                          title: "copy",
-                          innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z"></path></svg>`,
-                          onclick: `copyToClipboard('${obj.condition}')`,
-                        }),
-                      }
-                    ),
-                  }
-                )
-              )
-            ),
-          }
-        );
-        const root = document.getElementById(rootId);
-        root.appendChild(mainDiv);
+                    innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path></svg>`,
+                    title: "info",
+                    data_mytooltip: `${obj.description}`,
+                  }),
+                  copySpan: element("span", {
+                    className: ["cursor-pointer"],
+                    title: "copy",
+                    innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z"></path></svg>`,
+                    onclick: `copyToClipboard('${obj.condition}')`,
+                  }),
+                }
+              ),
+            }
+          )
+        )
+      ),
+    }
+  );
+  const root = document.getElementById(rootId);
+  root.appendChild(mainDiv);
+}
+
+var voiceSelect = document.getElementById("voice");
+
+function loadVoices() {
+  var voices = speechSynthesis.getVoices();
+
+  voices.forEach(function (voice, i) {
+    var option = document.createElement("option");
+
+    option.value = voice.voiceURI;
+    option.dataset.lang = voice.lang;
+    option.innerHTML = voice.name;
+    // option.classList.add("w-40");
+    //Google US English
+    if (voice.voiceURI == "Google US English") {
+      option.selected = "selected";
+    }
+    voiceSelect.appendChild(option);
+  });
+}
+
+loadVoices();
+window.speechSynthesis.onvoiceschanged = function (e) {
+  loadVoices();
+};
+
+function textToAudio(msg, span) {
+  stopAudio();
+
+  function everyTime() {
+    if (!synth.speaking) {
+      clearInterval(myInterval);
+      $(span).show(250);
+      $(span).next().hide(250);
+    } else {
+      if ($(span).is(":visible")) {
+        $(span).hide(250);
+        $(span).next().show(250);
       }
+    }
+  }
 
-      var voiceSelect = document.getElementById("voice");
+  var myInterval = setInterval(everyTime, 50);
+  let speech = new SpeechSynthesisUtterance();
 
-      function loadVoices() {
-        var voices = speechSynthesis.getVoices();
+  if (voiceSelect.value) {
+    var selectedVoice = speechSynthesis.getVoices().filter(function (voice) {
+      return voice.voiceURI == voiceSelect.value;
+    })[0];
+    speech.voiceURI = selectedVoice.voiceURI;
+    speech.lang = selectedVoice.lang;
+    speech.voice = selectedVoice;
+    speech.text = msg;
 
-        voices.forEach(function (voice, i) {
-          var option = document.createElement("option");
+    let pitchIn = Number($("#pitch").val());
+    let rateIn = Number($("#rate").val());
+    let volumeIn = Number($("#volume").val());
+    speech.pitch = pitchIn;
+    speech.rate = rateIn;
+    speech.volume = volumeIn;
+  }
+  const synth = window.speechSynthesis;
+  synth.speak(speech);
+}
 
-          option.value = voice.voiceURI;
-          option.dataset.lang = voice.lang;
-          option.innerHTML = voice.name;
-          // option.classList.add("w-40");
-          //Google US English
-          if (voice.voiceURI == "Google US English") {
-            option.selected = "selected";
-          }
-          voiceSelect.appendChild(option);
+function stopAudio() {
+  window.speechSynthesis.cancel();
+}
+
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("translate-x-[-100%]");
+  sidebar.classList.toggle("translate-x-0");
+}
+// darkmood
+// Get data from localStorage
+const darkmood = localStorage.getItem("darkmood");
+if (darkmood) {
+  const htmlTag = document.getElementById("html");
+  const darkmoodToggleBtn = document.getElementById("darkmoodToggleBtn");
+  if (JSON.parse(darkmood)) {
+    htmlTag.classList.add("dark");
+    darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" > <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/> </svg>`;
+  } else {
+    darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`;
+    htmlTag.classList.remove("dark");
+  }
+} else {
+  console.log("Username not found in localStorage.");
+}
+
+function toggleDarkmood() {
+  const htmlTag = document.getElementById("html");
+  htmlTag.classList.toggle("dark");
+  const darkmoodToggleBtn = document.getElementById("darkmoodToggleBtn");
+
+  if (htmlTag.classList.contains("dark")) {
+    darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" > <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/> </svg>`;
+    localStorage.setItem("darkmood", "true");
+  } else {
+    darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`;
+    localStorage.setItem("darkmood", "false");
+  }
+}
+function copyToClipboard(textTOcopy) {
+  var textarea = document.getElementById("copyTextarea");
+  textarea.value = textTOcopy;
+  setTimeout(() => {
+    var textToCopy = textarea.value;
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .writeText(textToCopy)
+        .then(function () {
+          showNotification("Medical Conditions is copyed", 3000);
+        })
+        .catch(function (err) {
+          alert("Unable to copy to clipboard: " + err);
         });
+    } else {
+      alert("Clipboard API not supported in this browser.");
+    }
+  }, 300);
+}
+//----------------------------------------------------// copy function
+function showNotification(text, duration) {
+  const notificationsDiv = document.getElementById("notificationDiv");
+  const notificationsText = document.getElementById("notificationText");
+  const showNoti = () => {
+    notificationsText.innerText = text;
+    notificationsDiv.classList.remove("translate-x-full");
+    notificationsDiv.classList.add("-translate-x-4");
+    setTimeout(() => {
+      notificationsDiv.classList.add("translate-x-full");
+      notificationsDiv.classList.remove("-translate-x-4");
+    }, duration);
+  };
+  if (notificationsDiv.classList.contains("translate-x-full")) {
+    showNoti();
+  } else {
+    setTimeout(() => {
+      notificationsDiv.classList.add("translate-x-full");
+      notificationsDiv.classList.remove("-translate-x-4");
+      showNoti();
+    }, 2000);
+  }
+}
+function closeNotification() {
+  const notificationsDiv = document.getElementById("notificationDiv");
+  const notificationsText = document.getElementById("notificationText");
+  if (notificationsDiv.classList.contains("-translate-x-4")) {
+    notificationsDiv.classList.add("translate-x-full");
+    notificationsDiv.classList.remove("-translate-x-4");
+    setTimeout(() => {
+      notificationsText.innerText = "";
+    }, 200);
+  }
+}
+class MyTooltip {
+  constructor(element) {
+    this.element = element;
+    this.tooltipText = element.getAttribute("data_mytooltip");
+    this.tooltipElement = document.createElement("span");
+    const classes = [
+      "invisible",
+      "text-white",
+      "text-center",
+      "rounded",
+      "p-1",
+      "absolute",
+      "opacity-0",
+      "min-w-[250px]",
+      "bg-gray-800",
+      "z-10",
+      "-translate-x-1/2",
+      "transition",
+      "duration-300",
+      "group-hover:visible",
+      "group-hover:opacity-100",
+    ];
+    this.tooltipElement.className = "mytooltip-text";
+    this.tooltipElement.classList.add(...classes);
+    this.tooltipElement.textContent = this.tooltipText;
+    this.element.classList.add("mytooltip");
+    this.element.appendChild(this.tooltipElement);
+
+    this.element.addEventListener("mouseenter", () => {
+      this.positionTooltip();
+    });
+  }
+
+  positionTooltip() {
+    const buttonRect = this.element.getBoundingClientRect();
+    const tooltipRect = this.tooltipElement.getBoundingClientRect();
+
+    const spaceToLeft = buttonRect.left;
+    const spaceToRight = window.innerWidth - buttonRect.right;
+
+    const spaceToTop = buttonRect.top;
+    const spaceToBottom = window.innerHeight - buttonRect.bottom;
+
+    const tooltipSpace = 10; // Adjust this value to control the space
+
+    let left, right, top, bottom, width;
+    // console.log('spaceToTop', spaceToTop, 'spaceToBottom', spaceToBottom)
+    // console.log('spaceToLeft', spaceToLeft, 'spaceToRight', spaceToRight)
+    let ToolTipGater = 50;
+    if (spaceToLeft > spaceToRight) {
+      // Position on the left side
+      // left = buttonRect.right - tooltipRect.width //buttonRect.left - tooltipRect.width - tooltipSpace;
+      // right = 'auto';
+      width = spaceToLeft - ToolTipGater;
+      right = buttonRect.width - width / 2; //tooltipRect.width / 2;
+      left = "auto";
+    } else {
+      // Position on the right side
+      // left = 'auto';
+      // right = buttonRect.left - tooltipRect.width//window.innerWidth - buttonRect.right + tooltipSpace;
+      width = spaceToRight - ToolTipGater;
+      left = buttonRect.width + width / 2; //tooltipRect.width / 2;
+      right = "auto";
+    }
+
+    if (spaceToTop > spaceToBottom) {
+      // Position on the left side
+      // left = buttonRect.right - tooltipRect.width //buttonRect.left - tooltipRect.width - tooltipSpace;
+      // right = 'auto';
+      bottom = buttonRect.height; // - tooltipRect.height / 2;
+      top = "auto";
+    } else {
+      // Position on the right side
+      // left = 'auto';
+      // right = buttonRect.left - tooltipRect.width//window.innerWidth - buttonRect.right + tooltipSpace;
+      top = buttonRect.height; // + tooltipRect.height / 2;
+      bottom = "auto";
+    }
+    // console.log('width: ', width, 'left', left, 'right', right, 'top', top, 'bottom', bottom)
+    // this.tooltipElement.style.top = `${buttonRect.height}px`;
+    this.tooltipElement.style.left = left !== "auto" ? `${left}px` : left;
+    this.tooltipElement.style.right = right !== "auto" ? `${right}px` : right;
+    this.tooltipElement.style.top = top !== "auto" ? `${top}px` : top;
+    this.tooltipElement.style.bottom =
+      bottom !== "auto" ? `${bottom}px` : bottom;
+
+    this.tooltipElement.style.width = `${width}px`;
+  }
+}
+
+// Initialize tooltips
+const myTooltipElements = document.querySelectorAll(".tooltip");
+myTooltipElements.forEach((element) => {
+  new MyTooltip(element);
+});
+
+function element(eleTag, attributesObj = null, children = null) {
+  const newElement = document.createElement(eleTag);
+  if (attributesObj !== null) {
+    for (const key in attributesObj) {
+      if (
+        attributesObj.hasOwnProperty(key) &&
+        key !== "innerHTML" &&
+        key !== "innerText" &&
+        key !== "className"
+      ) {
+        newElement.setAttribute(key, attributesObj[key]);
+      } else if (attributesObj[key] && key === "innerHTML") {
+        newElement.innerHTML = attributesObj[key];
+      } else if (attributesObj[key] && key === "innerText") {
+        newElement.innerText = attributesObj[key];
+      } else if (attributesObj[key] && key === "className") {
+        newElement.classList.add(...attributesObj[key]);
       }
+    }
+  }
+  if (children !== null) {
+    for (const key in children) {
+      newElement.innerHTML += `<!-- ${key} -->`;
+      newElement.appendChild(children[key]);
+    }
+  }
+  return newElement;
+}
 
-      loadVoices();
-      window.speechSynthesis.onvoiceschanged = function (e) {
-        loadVoices();
-      };
+function searchByCon(con) {
+  con = con.toLowerCase().trim(); // Convert input to lowercase for case-insensitive matching
+  const matchs = [];
+  for (let i = 0; i < allCondithions.length; i++) {
+    const condition = allCondithions[i].condition.toLowerCase();
+    if (condition.includes(con)) {
+      matchs.push(allCondithions[i]);
+    }
+  }
 
-      function textToAudio(msg, span) {
-        stopAudio();
+  return matchs;
+}
 
-        function everyTime() {
-          if (!synth.speaking) {
-            clearInterval(myInterval);
-            $(span).show(250);
-            $(span).next().hide(250);
-          } else {
-            if ($(span).is(":visible")) {
-              $(span).hide(250);
-              $(span).next().show(250);
-            }
-          }
-        }
+const inputElement = document.getElementById("searchInput");
+const autocompleteList = document.getElementById("autocomplete-list");
 
-        var myInterval = setInterval(everyTime, 50);
-        let speech = new SpeechSynthesisUtterance();
-
-        if (voiceSelect.value) {
-          var selectedVoice = speechSynthesis
-            .getVoices()
-            .filter(function (voice) {
-              return voice.voiceURI == voiceSelect.value;
-            })[0];
-          speech.voiceURI = selectedVoice.voiceURI;
-          speech.lang = selectedVoice.lang;
-          speech.voice = selectedVoice;
-          speech.text = msg;
-
-          let pitchIn = Number($("#pitch").val());
-          let rateIn = Number($("#rate").val());
-          let volumeIn = Number($("#volume").val());
-          speech.pitch = pitchIn;
-          speech.rate = rateIn;
-          speech.volume = volumeIn;
-        }
-        const synth = window.speechSynthesis;
-        synth.speak(speech);
-      }
-
-      function stopAudio() {
-        window.speechSynthesis.cancel();
-      }
-
-      function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("translate-x-[-100%]");
-        sidebar.classList.toggle("translate-x-0");
-      }
-      // darkmood
-      // Get data from localStorage
-      const darkmood = localStorage.getItem("darkmood");
-      if (darkmood) {
-        const htmlTag = document.getElementById("html");
-        const darkmoodToggleBtn = document.getElementById("darkmoodToggleBtn");
-        if (JSON.parse(darkmood)) {
-          htmlTag.classList.add("dark");
-          darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" > <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/> </svg>`;
-        } else {
-          darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`;
-          htmlTag.classList.remove("dark");
-        }
-      } else {
-        console.log("Username not found in localStorage.");
-      }
-
-      function toggleDarkmood() {
-        const htmlTag = document.getElementById("html");
-        htmlTag.classList.toggle("dark");
-        const darkmoodToggleBtn = document.getElementById("darkmoodToggleBtn");
-
-        if (htmlTag.classList.contains("dark")) {
-          darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" > <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/> </svg>`;
-          localStorage.setItem("darkmood", "true");
-        } else {
-          darkmoodToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`;
-          localStorage.setItem("darkmood", "false");
-        }
-      }
-      function copyToClipboard(textTOcopy) {
-        var textarea = document.getElementById("copyTextarea");
-        textarea.value = textTOcopy;
-        setTimeout(() => {
-          var textToCopy = textarea.value;
-          if (navigator.clipboard) {
-            navigator.clipboard
-              .writeText(textToCopy)
-              .then(function () {
-                showNotification("Medical Conditions is copyed", 3000);
-              })
-              .catch(function (err) {
-                alert("Unable to copy to clipboard: " + err);
-              });
-          } else {
-            alert("Clipboard API not supported in this browser.");
-          }
-        }, 300);
-      }
-      //----------------------------------------------------// copy function
-      function showNotification(text, duration) {
-        const notificationsDiv = document.getElementById("notificationDiv");
-        const notificationsText = document.getElementById("notificationText");
-        const showNoti = () => {
-          notificationsText.innerText = text;
-          notificationsDiv.classList.remove("translate-x-full");
-          notificationsDiv.classList.add("-translate-x-4");
-          setTimeout(() => {
-            notificationsDiv.classList.add("translate-x-full");
-            notificationsDiv.classList.remove("-translate-x-4");
-          }, duration);
-        };
-        if (notificationsDiv.classList.contains("translate-x-full")) {
-          showNoti();
-        } else {
-          setTimeout(() => {
-            notificationsDiv.classList.add("translate-x-full");
-            notificationsDiv.classList.remove("-translate-x-4");
-            showNoti();
-          }, 2000);
-        }
-      }
-      function closeNotification() {
-        const notificationsDiv = document.getElementById("notificationDiv");
-        const notificationsText = document.getElementById("notificationText");
-        if (notificationsDiv.classList.contains("-translate-x-4")) {
-          notificationsDiv.classList.add("translate-x-full");
-          notificationsDiv.classList.remove("-translate-x-4");
-          setTimeout(() => {
-            notificationsText.innerText = "";
-          }, 200);
-        }
-      }
-      class MyTooltip {
-        constructor(element) {
-          this.element = element;
-          this.tooltipText = element.getAttribute("data_mytooltip");
-          this.tooltipElement = document.createElement("span");
-          const classes = [
-            "invisible",
-            "text-white",
-            "text-center",
-            "rounded",
-            "p-1",
-            "absolute",
-            "opacity-0",
-            "min-w-[250px]",
-            "bg-gray-800",
-            "z-10",
-            "-translate-x-1/2",
-            "transition",
-            "duration-300",
-            "group-hover:visible",
-            "group-hover:opacity-100",
-          ];
-          this.tooltipElement.className = "mytooltip-text";
-          this.tooltipElement.classList.add(...classes);
-          this.tooltipElement.textContent = this.tooltipText;
-          this.element.classList.add("mytooltip");
-          this.element.appendChild(this.tooltipElement);
-
-          this.element.addEventListener("mouseenter", () => {
-            this.positionTooltip();
-          });
-        }
-
-        positionTooltip() {
-          const buttonRect = this.element.getBoundingClientRect();
-          const tooltipRect = this.tooltipElement.getBoundingClientRect();
-
-          const spaceToLeft = buttonRect.left;
-          const spaceToRight = window.innerWidth - buttonRect.right;
-
-          const spaceToTop = buttonRect.top;
-          const spaceToBottom = window.innerHeight - buttonRect.bottom;
-
-          const tooltipSpace = 10; // Adjust this value to control the space
-
-          let left, right, top, bottom, width;
-          // console.log('spaceToTop', spaceToTop, 'spaceToBottom', spaceToBottom)
-          // console.log('spaceToLeft', spaceToLeft, 'spaceToRight', spaceToRight)
-          let ToolTipGater = 50;
-          if (spaceToLeft > spaceToRight) {
-            // Position on the left side
-            // left = buttonRect.right - tooltipRect.width //buttonRect.left - tooltipRect.width - tooltipSpace;
-            // right = 'auto';
-            width = spaceToLeft - ToolTipGater;
-            right = buttonRect.width - width / 2; //tooltipRect.width / 2;
-            left = "auto";
-          } else {
-            // Position on the right side
-            // left = 'auto';
-            // right = buttonRect.left - tooltipRect.width//window.innerWidth - buttonRect.right + tooltipSpace;
-            width = spaceToRight - ToolTipGater;
-            left = buttonRect.width + width / 2; //tooltipRect.width / 2;
-            right = "auto";
-          }
-
-          if (spaceToTop > spaceToBottom) {
-            // Position on the left side
-            // left = buttonRect.right - tooltipRect.width //buttonRect.left - tooltipRect.width - tooltipSpace;
-            // right = 'auto';
-            bottom = buttonRect.height; // - tooltipRect.height / 2;
-            top = "auto";
-          } else {
-            // Position on the right side
-            // left = 'auto';
-            // right = buttonRect.left - tooltipRect.width//window.innerWidth - buttonRect.right + tooltipSpace;
-            top = buttonRect.height; // + tooltipRect.height / 2;
-            bottom = "auto";
-          }
-          // console.log('width: ', width, 'left', left, 'right', right, 'top', top, 'bottom', bottom)
-          // this.tooltipElement.style.top = `${buttonRect.height}px`;
-          this.tooltipElement.style.left = left !== "auto" ? `${left}px` : left;
-          this.tooltipElement.style.right =
-            right !== "auto" ? `${right}px` : right;
-          this.tooltipElement.style.top = top !== "auto" ? `${top}px` : top;
-          this.tooltipElement.style.bottom =
-            bottom !== "auto" ? `${bottom}px` : bottom;
-
-          this.tooltipElement.style.width = `${width}px`;
-        }
-      }
-
-      // Initialize tooltips
-      const myTooltipElements = document.querySelectorAll(".tooltip");
-      myTooltipElements.forEach((element) => {
-        new MyTooltip(element);
-      });
-
-      function element(eleTag, attributesObj = null, children = null) {
-        const newElement = document.createElement(eleTag);
-        if (attributesObj !== null) {
-          for (const key in attributesObj) {
-            if (
-              attributesObj.hasOwnProperty(key) &&
-              key !== "innerHTML" &&
-              key !== "innerText" &&
-              key !== "className"
-            ) {
-              newElement.setAttribute(key, attributesObj[key]);
-            } else if (attributesObj[key] && key === "innerHTML") {
-              newElement.innerHTML = attributesObj[key];
-            } else if (attributesObj[key] && key === "innerText") {
-              newElement.innerText = attributesObj[key];
-            } else if (attributesObj[key] && key === "className") {
-              newElement.classList.add(...attributesObj[key]);
-            }
-          }
-        }
-        if (children !== null) {
-          for (const key in children) {
-            newElement.innerHTML += `<!-- ${key} -->`;
-            newElement.appendChild(children[key]);
-          }
-        }
-        return newElement;
-      }
-
-      function searchByCon(con) {
-        con = con.toLowerCase().trim(); // Convert input to lowercase for case-insensitive matching
-        const matchs = [];
-        for (let i = 0; i < allCondithions.length; i++) {
-          const condition = allCondithions[i].condition.toLowerCase();
-          if (condition.includes(con)) {
-            matchs.push(allCondithions[i]);
-          }
-        }
-
-        return matchs;
-      }
-
-      const inputElement = document.getElementById("searchInput");
-      const autocompleteList = document.getElementById("autocomplete-list");
-
-      function renderSuggestions(suggestionsArr) {
-        suggestionsArr.forEach((obj, i) => {
-          autocompleteList.appendChild(
-            // element("li", {
-            //   className: [
-            //     "cursor-pointer",
-            //     "transition",
-            //     "duration-200",
-            //     "text-center",
-            //     "hover:text-gray-100",
-            //     "hover:bg-slate-500/80",
-            //   ],
-            //   innerText: `${con.condition} -(${con.camp})`,
-            //   onclick: "sugest(this)",
-            // })
-            element(
-              "li",
-              {
-                innerHTML: `${obj.condition} <span class='px-1 rounded-sm dark:bg-slate-900/50 bg-slate-100/50'>(${obj.camp})</span>`,
+function renderSuggestions(suggestionsArr) {
+  suggestionsArr.forEach((obj, i) => {
+    autocompleteList.appendChild(
+      // element("li", {
+      //   className: [
+      //     "cursor-pointer",
+      //     "transition",
+      //     "duration-200",
+      //     "text-center",
+      //     "hover:text-gray-100",
+      //     "hover:bg-slate-500/80",
+      //   ],
+      //   innerText: `${con.condition} -(${con.camp})`,
+      //   onclick: "sugest(this)",
+      // })
+      element(
+        "li",
+        {
+          innerHTML: `${obj.condition} <span class='px-1 rounded-sm dark:bg-slate-900/50 bg-slate-100/50'>(${obj.camp})</span>`,
+          className: [
+            "border",
+            "rounded-sm",
+            "border-gray-800",
+            "dark:border-gray-300",
+            "p-2",
+            "font-bold",
+            "text-sm",
+            "text-gray-800",
+            "dark:text-gray-100",
+            "flex",
+            "items-center",
+            "justify-between",
+            "gap-2",
+            `${i % 2 ? "bg-amber-200" : "bg-amber-400"}`,
+            `${i % 2 ? "dark:bg-amber-900" : "dark:bg-amber-700"}`,
+            "m-1",
+            "shadow-sm",
+          ],
+        },
+        {
+          iconsDiv: element(
+            "div",
+            {
+              className: ["flex", "justify-evenly", "gap-4"],
+            },
+            {
+              PlayStopSpan: element(
+                "spna",
+                {
+                  className: ["relative", "cursor-pointer", "w-6", "h-6"],
+                },
+                {
+                  PlaySpan: element("span", {
+                    className: [
+                      "cursor-pointer",
+                      "absolute",
+                      "top-1/2",
+                      "left-1/2",
+                      "-translate-x-1/2",
+                      "-translate-y-1/2",
+                    ],
+                    title: "play",
+                    innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"></path></svg>`,
+                    onclick: ` textToAudio('${obj.condition}', this)`,
+                  }),
+                  StopSpan: element("span", {
+                    className: [
+                      "cursor-pointer",
+                      "hidden",
+                      "absolute",
+                      "top-1/2",
+                      "left-1/2",
+                      "-translate-x-1/2",
+                      "-translate-y-1/2",
+                    ],
+                    title: "stop",
+                    innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 019 14.437V9.564z"></path></svg>`,
+                    onclick: "stopAudio()",
+                  }),
+                }
+              ),
+              infoSpan: element("span", {
                 className: [
-                  "border",
-                  "rounded-sm",
-                  "border-gray-800",
-                  "dark:border-gray-300",
-                  "p-2",
-                  "font-bold",
-                  "text-sm",
-                  "text-gray-800",
-                  "dark:text-gray-100",
-                  "flex",
-                  "items-center",
-                  "justify-between",
-                  "gap-2",
-                  `${i % 2 ? "bg-amber-200" : "bg-amber-400"}`,
-                  `${i % 2 ? "dark:bg-amber-900" : "dark:bg-amber-700"}`,
-                  "m-1",
-                  "shadow-sm",
+                  "tooltip",
+                  "cursor-pointer",
+                  "relative",
+                  "group",
+                  "mytooltip",
+                  `${obj.description === "" && "hidden"}`,
                 ],
-              },
-              {
-                iconsDiv: element(
-                  "div",
-                  {
-                    className: ["flex", "justify-evenly", "gap-4"],
-                  },
-                  {
-                    PlayStopSpan: element(
-                      "spna",
-                      {
-                        className: ["relative", "cursor-pointer", "w-6", "h-6"],
-                      },
-                      {
-                        PlaySpan: element("span", {
-                          className: [
-                            "cursor-pointer",
-                            "absolute",
-                            "top-1/2",
-                            "left-1/2",
-                            "-translate-x-1/2",
-                            "-translate-y-1/2",
-                          ],
-                          title: "play",
-                          innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"></path></svg>`,
-                          onclick: ` textToAudio('${obj.condition}', this)`,
-                        }),
-                        StopSpan: element("span", {
-                          className: [
-                            "cursor-pointer",
-                            "hidden",
-                            "absolute",
-                            "top-1/2",
-                            "left-1/2",
-                            "-translate-x-1/2",
-                            "-translate-y-1/2",
-                          ],
-                          title: "stop",
-                          innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 019 14.437V9.564z"></path></svg>`,
-                          onclick: "stopAudio()",
-                        }),
-                      }
-                    ),
-                    infoSpan: element("span", {
-                      className: [
-                        "tooltip",
-                        "cursor-pointer",
-                        "relative",
-                        "group",
-                        "mytooltip",
-                        `${obj.description === "" && "hidden"}`,
-                      ],
-                      innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path></svg>`,
-                      title: "info",
-                      data_mytooltip: `${obj.description}`,
-                    }),
-                    copySpan: element("span", {
-                      className: ["cursor-pointer"],
-                      title: "copy",
-                      innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z"></path></svg>`,
-                      onclick: `copyToClipboard('${obj.condition}')`,
-                    }),
-                  }
-                ),
-              }
-            )
-          );
-        });
-      }
-      inputElement.addEventListener("input", function () {
-        autocompleteList.innerHTML = "";
-        if (inputElement.value === "" || inputElement.value.length < 1) return;
-        renderSuggestions(searchByCon(inputElement.value.toLowerCase()));
-      });
-
-      function toggleSearchDiv() {
-        document
-          .getElementById("searchDiv")
-          .classList.toggle("-translate-y-full");
-        document.getElementById("searchDiv").classList.toggle("opacity-0");
-        inputElement.value = "";
-        autocompleteList.innerHTML = "";
-      }
-      document.addEventListener("keydown", function (event) {
-        // Check if Ctrl (or Command on Mac) + K is pressed
-        if ((event.ctrlKey || event.metaKey) && event.key === "k") {
-          // Prevent the default action of the key combination
-          event.preventDefault();
-          toggleSearchDiv();
-          // Focus on the search input
-          inputElement.focus();
+                innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path></svg>`,
+                title: "info",
+                data_mytooltip: `${obj.description}`,
+              }),
+              copySpan: element("span", {
+                className: ["cursor-pointer"],
+                title: "copy",
+                innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z"></path></svg>`,
+                onclick: `copyToClipboard('${obj.condition}')`,
+              }),
+            }
+          ),
         }
-      });
+      )
+    );
+  });
+
+  // dataObj.map((obj, i) =>
+
+  // );
+}
+inputElement.addEventListener("input", function () {
+  autocompleteList.innerHTML = "";
+  if (inputElement.value === "" || inputElement.value.length < 1) return;
+  renderSuggestions(searchByCon(inputElement.value.toLowerCase()));
+});
+
+function toggleSearchDiv() {
+  document.getElementById("searchDiv").classList.toggle("-translate-y-full");
+  document.getElementById("searchDiv").classList.toggle("opacity-0");
+  inputElement.value = "";
+  autocompleteList.innerHTML = "";
+}
+document.addEventListener("keydown", function (event) {
+  // Check if Ctrl (or Command on Mac) + K is pressed
+  if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+    // Prevent the default action of the key combination
+    event.preventDefault();
+    toggleSearchDiv();
+    // Focus on the search input
+    inputElement.focus();
+  }
+});
+
     </script>
   </body>
 </html>
