@@ -1,7 +1,7 @@
 {
   "1": {
     "title": "ngs1",
-    "condtionsArr": [
+    "conditions": [
       "Kidney cancer",
       "Leukemia",
       "Liver cancer",
@@ -26,7 +26,7 @@
   },
   "2": {
     "title": "ngs1 birth defect",
-    "condtionsArr": [
+    "conditions": [
       "Anomalous pulmonary venous return",
       "Aortic valve stenosis",
       "Atrial septal defect",
@@ -67,7 +67,7 @@
   },
   "3": {
     "title": "ngs2",
-    "condtionsArr": [
+    "conditions": [
       "Acute Myeloid Leukemia (AML)",
       "Bladder cancer (good For Dead Cust)",
       "Brain cancer",
