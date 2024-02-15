@@ -1,3 +1,4 @@
+/// 02-15-2024
 document.querySelector("head").insertAdjacentHTML(
   "afterbegin",
   `
@@ -6,12 +7,14 @@ document.querySelector("head").insertAdjacentHTML(
   </style>
   <link rel="stylesheet" href="https://leoadams2022.github.io/BizFunding.github.io/assets/css/test.css">
   `
-); document.querySelector("#comments").insertAdjacentHTML(
+);
+document.querySelector("#comments").insertAdjacentHTML(
   "afterend",
   `
   <button onclick="toggleMyInterface()" class="tw-text-sm tw-font-bold tw-py-1 tw-px-3 tw-rounded-sm tw-bg-slate-800 tw-text-slate-100 tw-capitalize tw-transition-colors tw-duration-200 tw-ease-out hover:tw-bg-slate-950 tw-m-2">Show My interface</button>
   `
-); document.querySelector("body").insertAdjacentHTML(
+);
+document.querySelector("body").insertAdjacentHTML(
   "afterbegin",
   `
 
@@ -24,9 +27,10 @@ document.querySelector("head").insertAdjacentHTML(
 </div>
 </div>
 `
-); document.querySelector("body").insertAdjacentHTML(
+);
+document.querySelector("body").insertAdjacentHTML(
   "beforeend",
-`
+  `
 <div class="tw-fixed tw-z-[27] tw-w-screen tw-h-screen tw-bg-slate-900 tw-text-slate-100" id=My_interfaceDiv>
 <div class="tw-box-border tw-h-[60px] tw-w-full tw-flex tw-items-center tw-gap-8">
 <div class=tw-px-3>
@@ -360,7 +364,962 @@ Call Back:
 </div>
 <span id=My_Notification class="tw-fixed tw-top-8 -tw-translate-y-[200%] tw-left-1/2 -tw-translate-x-1/2 tw-px-2 tw-py-1 tw-rounded-sm tw-transition tw-duration-300 tw-line-clamp-1">Notification</span>
 </div>
-` 
-); 
-const the_TransferMain_span=document.getElementById("TransferMain");function setStyles(){let e=document.querySelector("body");e?e.style.overflow="hidden":console.log("setStyles bad body tag"),the_TransferMain_span?(the_TransferMain_span.style.position="fixed",the_TransferMain_span.style.bottom="0",the_TransferMain_span.style.left="0",the_TransferMain_span.style.top="auto",the_TransferMain_span.style.right="auto"):console.log("setStyles bad TransferMain");let t=document.getElementById("webphoneSpan");t?(t.style.position="absolute",t.style.bottom="auto",t.style.left="auto",t.style.top="auto",t.style.right="auto",t.style.height="auto",t.style.overflow="auto",t.style.zIndex="auto",t.style.backgroundColor="unset"):console.log("setStyles bad webphoneSpan");let n=document.getElementById("webphone");n?(n.style.position="fixed",n.style.bottom="0px",n.style.left="auto",n.style.top="auto",n.style.right="0px",n.style.zIndex="28",n.style.width="432px",n.style.height="261px"):console.log("setStyles bad webphone");let a=document.getElementById("AgentViewSpan");a?(a.style.position="fixed",a.style.bottom="0px",a.style.left="auto",a.style.top="60px",a.style.right="0px",a.style.zIndex="28",a.style.width="190px",a.style.height="300px",a.style.overflowX="auto",a.style.overflowY="auto",a.style.backgroundColor="unset",a.style.color="white"):console.log("setStyles bad AgentViewSpan")}function checkActiveCall(){return!!(1==VD_live_customer_call||1==MD_channel_look||lastcustchannel.length>0||manual_call_live>0)}function checkCustHungUp(e){if(!e)return"no active call";{let t=document.getElementById("Tabs").getElementsByTagName("table")[0].getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0].getElementsByTagName("td")[3].getElementsByTagName("img")[0].getAttribute("src").split("/");return"agc_live_call_DEAD.gif"==t[t.length-1]&&1===CheckDEADcallON}}setStyles();const phone_numberDISP=document.getElementById("phone_numberDISP");let temp_phoneNumber="";function gotANewCall(){return new Promise((e,t)=>{try{let n=phone_numberDISP.innerText,a=temp_phoneNumber!==n;a?(temp_phoneNumber=n,e(!0)):e(!1)}catch(l){t(l)}})}const DispoSelectBox=document.querySelector("#DispoSelectBox");function checkDispoPanlVisibalty(){return"visible"===DispoSelectBox.style.visibility}function checkIfReady(){return"PAUSED"!==VDRP_stage}function hungupAndDispo(e="NI",t="both",n=()=>{console.log("hungupAndDispo callBackFunc this the default msg")},a=0,l=1e3){return new Promise((s,i)=>{checkActiveCall()?"both"===t?(setTimeout(()=>{dialedcall_send_hangup("","","","","YES"),n()},a),setTimeout(()=>{checkDispoPanlVisibalty()?(DispoSelectContent_create(e,"ADD","YES"),DispoSelect_submit("","","YES"),s(!0)):i({case:!1,reason:"Dispo Panl not Visible"})},l)):"hungup"===t?setTimeout(()=>{dialedcall_send_hangup("","","","","YES"),s(!0)},a):"dispo"===t&&setTimeout(()=>{checkDispoPanlVisibalty()?(DispoSelectContent_create(e),DispoSelect_submit("","","YES"),s(!0)):i({case:!1,reason:"Dispo Panl not Visible"})},l):i({case:!1,reason:"no active call"})})}const sessionIDspan=document.getElementById("sessionIDspan"),My_sessionIDspan=document.getElementById("My_sessionIDspan"),AgentStatusCalls=document.getElementById("AgentStatusCalls"),My_AgentStatusCalls=document.getElementById("My_AgentStatusCalls"),SecondSDISP=document.getElementById("SecondSDISP"),My_SecondSDISP=document.getElementById("My_SecondSDISP"),MainStatuSSpan=document.getElementById("MainStatuSSpan"),My_MainStatuSSpan=document.getElementById("My_MainStatuSSpan");function getHeaderInfo(e){e&&(My_MainStatuSSpan.innerText!==MainStatuSSpan.innerText&&(My_MainStatuSSpan.innerText=MainStatuSSpan.innerText),My_SecondSDISP.innerText!==SecondSDISP.innerText&&(My_SecondSDISP.innerText=SecondSDISP.innerText),My_AgentStatusCalls.innerHTML!==AgentStatusCalls.innerHTML&&(My_AgentStatusCalls.innerHTML=AgentStatusCalls.innerHTML),My_sessionIDspan.innerText!==sessionIDspan.innerText&&(My_sessionIDspan.innerText=sessionIDspan.innerText))}const status=document.getElementById("status"),My_status=document.getElementById("My_status");function CallIndocater(e){let t=document.getElementById("My_liveCallSvg_indocater");!0===e?"red"!==t.getAttribute("stroke")&&(t.setAttribute("stroke","red"),t.classList.add("sm:tw-animate-bounce")):!1===e?"#00ff00"!==t.getAttribute("stroke")&&(t.setAttribute("stroke","#00ff00"),t.classList.add("sm:tw-animate-bounce")):"no active call"===e&&"gray"!==t.getAttribute("stroke")&&(t.setAttribute("stroke","gray"),t.classList.remove("sm:tw-animate-bounce"))}setInterval(()=>{My_status.innerText!==status.innerText&&(My_status.innerText=status.innerText)},1e3);const My_goReadyBtn=document.getElementById("My_goReadyBtn"),My_pauseBtn=document.getElementById("My_pauseBtn"),My_readyOrPauseSpan_indocater=document.getElementById("My_readyOrPauseSpan_indocater");function showAndHide_StartPauseBtns(e){!1===checkIfReady()&&My_goReadyBtn.classList.contains("tw-hidden")?(My_pauseBtn.classList.add("tw-hidden"),My_goReadyBtn.classList.remove("tw-hidden"),My_readyOrPauseSpan_indocater.innerHTML='you are <span class="tw-text-yellow-500 tw-inline-block tw-animate-bounce">paused</span>'):!0===checkIfReady()&&My_pauseBtn.classList.contains("tw-hidden")&&(My_goReadyBtn.classList.add("tw-hidden"),My_pauseBtn.classList.remove("tw-hidden"),My_readyOrPauseSpan_indocater.innerHTML='you are <span class="tw-text-green-500 tw-inline-block tw-animate-bounce">ready</span>'),e?My_goReadyBtn.disabled&&My_pauseBtn.disabled||(My_goReadyBtn.disabled=!0,My_pauseBtn.disabled=!0):(My_goReadyBtn.disabled||My_pauseBtn.disabled)&&(My_goReadyBtn.disabled=!1,My_pauseBtn.disabled=!1)}My_goReadyBtn.addEventListener("click",()=>{My_goReadyBtn.classList.add("tw-hidden"),My_pauseBtn.classList.remove("tw-hidden"),My_readyOrPauseSpan_indocater.innerHTML='you are <span class="tw-text-green-500 tw-inline-block tw-animate-bounce">ready</span>'}),My_pauseBtn.addEventListener("click",()=>{My_pauseBtn.classList.add("tw-hidden"),My_goReadyBtn.classList.remove("tw-hidden"),My_readyOrPauseSpan_indocater.innerHTML='you are <span class="tw-text-yellow-500 tw-inline-block tw-animate-bounce">paused</span>'});const My_openTransferPanelBtn=document.getElementById("My_openTransferPanelBtn"),My_closeTransferPanelBtn=document.getElementById("My_closeTransferPanelBtn");function disableAndEnable_OpenCloseTransferBtns(e){e?(My_openTransferPanelBtn.disabled||My_closeTransferPanelBtn.disabled)&&(My_openTransferPanelBtn.disabled=!1,My_closeTransferPanelBtn.disabled=!1,My_openTransferPanelBtn.classList.add("hover:tw-bg-green-500"),My_closeTransferPanelBtn.classList.add("hover:tw-bg-green-600")):(My_openTransferPanelBtn.disabled&&My_closeTransferPanelBtn.disabled||(My_openTransferPanelBtn.disabled=!0,My_closeTransferPanelBtn.disabled=!0),My_closeTransferPanelBtn.classList.contains("tw-hidden")||(My_closeTransferPanelBtn.classList.add("tw-hidden"),My_openTransferPanelBtn.classList.remove("tw-hidden"),My_openTransferPanelBtn.classList.remove("hover:tw-bg-green-500"),My_closeTransferPanelBtn.classList.remove("hover:tw-bg-green-600")))}My_openTransferPanelBtn.addEventListener("click",()=>{the_TransferMain_span.style.top="auto",My_openTransferPanelBtn.classList.add("tw-hidden"),My_closeTransferPanelBtn.classList.remove("tw-hidden")}),My_closeTransferPanelBtn.addEventListener("click",()=>{My_closeTransferPanelBtn.classList.add("tw-hidden"),My_openTransferPanelBtn.classList.remove("tw-hidden")});const My_hungupBtn=document.getElementById("My_hungupBtn"),My_f1_hungupBtn=document.getElementById("My_f1_hungupBtn"),My_f2_hungupBtn=document.getElementById("My_f2_hungupBtn"),My_f3_hungupBtn=document.getElementById("My_f3_hungupBtn"),My_f4_hungupBtn=document.getElementById("My_f4_hungupBtn");function disableAndEnable_hungupBtn(e){e?My_hungupBtn.disabled&&(My_hungupBtn.disabled=!1,My_hungupBtn.classList.remove("tw-bg-red-400"),My_hungupBtn.classList.add("tw-bg-red-500","hover:tw-bg-red-800","hover:tw-text-slate-100"),My_f1_hungupBtn.disabled=!1,My_f2_hungupBtn.disabled=!1,My_f3_hungupBtn.disabled=!1,My_f1_hungupBtn.disabled=!1,My_f1_hungupBtn.classList.add("hover:tw-bg-red-800","hover:tw-text-slate-100"),My_f2_hungupBtn.classList.add("hover:tw-bg-red-800","hover:tw-text-slate-100"),My_f3_hungupBtn.classList.add("hover:tw-bg-red-800","hover:tw-text-slate-100"),My_f4_hungupBtn.classList.add("hover:tw-bg-red-800","hover:tw-text-slate-100")):My_hungupBtn.disabled||(My_hungupBtn.disabled=!0,My_hungupBtn.classList.remove("tw-bg-red-500","hover:tw-bg-red-800","hover:tw-text-slate-100"),My_hungupBtn.classList.add("tw-bg-red-400"),My_f1_hungupBtn.disabled=!0,My_f2_hungupBtn.disabled=!0,My_f3_hungupBtn.disabled=!0,My_f4_hungupBtn.disabled=!0,My_f1_hungupBtn.classList.remove("hover:tw-bg-red-800","hover:tw-text-slate-100"),My_f2_hungupBtn.classList.remove("hover:tw-bg-red-800","hover:tw-text-slate-100"),My_f3_hungupBtn.classList.remove("hover:tw-bg-red-800","hover:tw-text-slate-100"),My_f4_hungupBtn.classList.remove("hover:tw-bg-red-800","hover:tw-text-slate-100"))}function webForm1_click(){if(checkActiveCall()){let e=document.getElementById("WebFormSpan").querySelector("a");e&&(console.log(),window.open(e.getAttribute("href"),"_blank"))}}function webForm2_click(){if(checkActiveCall()){let e=document.getElementById("WebFormSpanTwo").querySelector("a");e&&(console.log(),window.open(e.getAttribute("href"),"_blank"))}}const My_webform1=document.getElementById("My_webform1"),My_webform2=document.getElementById("My_webform2");function disableAndEnable_wbefromBtns(e){e?(My_webform1.disabled||My_webform2.disabled)&&(My_webform1.disabled=!1,My_webform2.disabled=!1,My_webform1.classList.add("hover:tw-bg-slate-400"),My_webform2.classList.add("hover:tw-bg-slate-400")):My_webform1.disabled&&My_webform2.disabled||(My_webform1.disabled=!0,My_webform2.disabled=!0,My_webform1.classList.remove("hover:tw-bg-slate-400"),My_webform2.classList.remove("hover:tw-bg-slate-400"))}const My_parkcallBtn=document.getElementById("My_parkcallBtn"),My_parkcallSpan=document.getElementById("My_parkcallSpan"),ParkCounterSpan=document.getElementById("ParkCounterSpan");let ParkCounterSpanInterval,update_My_parkcallSpan=!1;function parkcallBtn_click(){let e=document.getElementById("ParkControl").querySelector("a");if(!e)return!1;e.click(),My_parkcallSpan.classList.remove("tw-hidden"),update_My_parkcallSpan=!update_My_parkcallSpan;let t=()=>{My_parkcallSpan.innerText!==ParkCounterSpan.innerText&&update_My_parkcallSpan&&(My_parkcallSpan.innerText=ParkCounterSpan.innerText)};ParkCounterSpanInterval=setInterval(t,1e3)}function disableAndEnable_parkcallBtn(e){e?My_parkcallBtn.disabled&&(My_parkcallBtn.disabled=!1,My_parkcallBtn.classList.add("hover:tw-bg-slate-400")):My_parkcallBtn.disabled||(My_parkcallBtn.disabled=!0,My_parkcallBtn.classList.remove("hover:tw-bg-slate-400"),My_parkcallSpan.classList.add("tw-hidden"),clearInterval(ParkCounterSpanInterval))}const My_manualDialBtn=document.getElementById("My_manualDialBtn");function disableAndEnable_manualDialBtn(e){e?My_manualDialBtn.disabled&&(My_manualDialBtn.disabled=!0,My_manualDialBtn.classList.remove("hover:tw-bg-slate-950")):My_manualDialBtn.disabled||(My_manualDialBtn.disabled=!1,My_manualDialBtn.classList.add("hover:tw-bg-slate-950"))}const My_callLogBtn=document.getElementById("My_callLogBtn");function disableAndEnable_callLogBtn(e){e?My_callLogBtn.disabled&&(My_callLogBtn.disabled=!0,My_callLogBtn.classList.remove("hover:tw-bg-slate-950")):My_callLogBtn.disabled||(My_callLogBtn.disabled=!1,My_callLogBtn.classList.add("hover:tw-bg-slate-950"))}const My_webPhoneBtn=document.getElementById("My_webPhoneBtn"),My_webPhoneBtnSpan=document.getElementById("My_webPhoneBtnSpan");let webPhone_isOpen=!0;function webPhoneBtn_click(){let e=document.getElementById("webphoneLink").querySelector("a");e&&(e.click(),webPhone_isOpen=!webPhone_isOpen),My_webPhoneBtnSpan.innerText=webPhone_isOpen?"-":"+"}const My_agentsViewBtn=document.getElementById("My_agentsViewBtn"),My_agentsViewBtnSpan=document.getElementById("My_agentsViewBtnSpan");let agentsViewBtn_isOpen=!1;function agentsViewBtn_click(){let e=document.getElementById("AgentViewLink").querySelector("a");e&&(e.click(),agentsViewBtn_isOpen=!agentsViewBtn_isOpen),My_agentsViewBtnSpan.innerText=agentsViewBtn_isOpen?"-":"+"}const My_PhoneNumber=document.getElementById("My_PhoneNumber"),title=document.getElementById("title"),first_name=document.getElementById("first_name"),middle_initial=document.getElementById("middle_initial"),last_name=document.getElementById("last_name"),My_FullName=document.getElementById("My_FullName"),address1=document.getElementById("address1"),address2=document.getElementById("address2"),address3=document.getElementById("address3"),city=document.getElementById("city"),state=document.getElementById("state"),postal_code=document.getElementById("postal_code"),province=document.getElementById("province"),My_FullAddress=document.getElementById("My_FullAddress"),email=document.getElementById("email"),My_Email=document.getElementById("My_Email"),comments=document.getElementById("comments"),My_Comments=document.getElementById("My_Comments");function getCustInfo(e,t){t&&e?(My_PhoneNumber.value=phone_numberDISP.innerText.trim(),My_FullName.value=`${title.value} ${first_name.value} ${middle_initial.value} ${last_name.value}`.trim(),My_FullAddress.value=`${address1.value} ${address2.value} ${address3.value} ${city.value} ${state.value} ${postal_code.value} ${province.value}`.trim(),My_Email.value=email.value.trim(),My_Comments.value=comments.value.trim()):t&&!e&&(My_PhoneNumber.value="",My_FullName.value="",My_FullAddress.value="",My_Email.value="",My_Comments.value="")}const My_Notification=document.getElementById("My_Notification");let is_Notification_open=!1;function show_Notification(e,t="sky",n=4e3){is_Notification_open?setTimeout(()=>{show_Notification(e,t,n)},500):(is_Notification_open=!0,My_Notification.innerText=e,My_Notification.classList.remove("-tw-translate-y-[200%]"),My_Notification.classList.add(`tw-bg-${t}-500`),setTimeout(()=>{My_Notification.classList.add("-tw-translate-y-[200%]"),setTimeout(()=>{My_Notification.classList.remove(`tw-bg-${t}-500`),My_Notification.innerText="",is_Notification_open=!1},400)},n))}let modelIsOpen=!1;const modal=document.getElementById("My_modal"),modalText=document.getElementById("My_modalText"),My_modalTimer=document.getElementById("My_modalTimer"),modalOkayBtn=document.getElementById("My_modal_okayBtn"),modalCancelBtn=document.getElementById("My_modal_cancelBtn");function openModal(e,t,n,a=()=>{},l=5e3){modelIsOpen&&console.log(`${e}
-"modal is open"`),modelIsOpen=!0,modalText.innerText=e;let s=l/1e3;My_modalTimer.innerText=s.toString();let i=setInterval(()=>{s--,My_modalTimer.innerText=s.toString()},1e3),o=()=>{t(),clearTimeout(d),u()},r=()=>{n(),clearTimeout(d),u()};modalOkayBtn.removeEventListener("click",o),modalCancelBtn.removeEventListener("click",r),modalOkayBtn.addEventListener("click",o),modalCancelBtn.addEventListener("click",r),modal.classList.remove("tw-translate-y-[180%]"),modal.classList.add("tw-translate-y-0");let d=setTimeout(()=>{modelIsOpen&&(a(),u())},l);function u(){clearInterval(i),modal.classList.remove("tw-translate-y-0"),modal.classList.add("tw-translate-y-[180%]"),modelIsOpen=!1,modalOkayBtn.removeEventListener("click",o),modalCancelBtn.removeEventListener("click",r)}}function toggleMyInterface(){document.getElementById("My_interfaceDiv").classList.toggle("tw-invisible")}let isItMuted=!1;const autoMuteToggle=document.getElementById("autoMuteToggle");function AutoMuteFunc(e){if(!autoMuteToggle.checked)return!1;e?!0==isItMuted&&(volume_control("UNMUTE",agentchannel,"AgenT"),sendMessageToIframe("muteButton"),isItMuted=!1):isItMuted||(volume_control("MUTING",agentchannel,"AgenT"),sendMessageToIframe("muteButton"),isItMuted=!0)}let DupList=[];function getDupListFromlocalStorge(){let e=JSON.parse(localStorage.getItem("DupList"));null==e?alert("Did Not find a duplicate list in the lucalstorge"):null!=e&&(DupList=e)}getDupListFromlocalStorge();const My_PhoneNumber_label=document.getElementById("My_PhoneNumber_label");function AutoCheckDupFun(e,t){t&&e?0===DupList.length?(My_PhoneNumber_label.classList.contains("tw-bg-green-500")||My_PhoneNumber_label.classList.contains("tw-bg-red-500"))&&(My_PhoneNumber_label.classList.remove("tw-bg-green-500"),My_PhoneNumber_label.classList.remove("tw-bg-red-500")):DupList.includes(phone_numberDISP.innerText)?(My_PhoneNumber_label.classList.remove("tw-bg-green-500"),My_PhoneNumber_label.classList.add("tw-bg-red-500")):(My_PhoneNumber_label.classList.remove("tw-bg-red-500"),My_PhoneNumber_label.classList.add("tw-bg-green-500")):!e&&(My_PhoneNumber_label.classList.contains("tw-bg-green-500")||My_PhoneNumber_label.classList.contains("tw-bg-red-500"))&&(My_PhoneNumber_label.classList.remove("tw-bg-green-500"),My_PhoneNumber_label.classList.remove("tw-bg-red-500"))}const My_dupListInput=document.getElementById("dupListInput");function setDupListTolocalStorge(){try{let e=JSON.parse(My_dupListInput.value);if(Array.isArray(e)){let t=!1;if(e.forEach(e=>{(10!==e.length||isNaN(Number(e)))&&(t=!0)}),t)return show_Notification("One or more entries are not valid phone numbers.","red"),!1;localStorage.setItem("DupList",JSON.stringify(e)),getDupListFromlocalStorge(),My_dupListInput.value="",show_Notification("Duplicates List has been set.","green")}else show_Notification("Textarea value is not a valid array.","red")}catch(n){show_Notification("Error parsing the textarea value as JSON.","red")}}function Copy(...e){let t=e.join(" ");navigator.clipboard.writeText(t).then(()=>{}).catch(e=>{console.error("Unable to copy text to clipboard",e)})}function openTahtsThem(){let e=phone_numberDISP.innerText;if(10===e.length){let t=`https://thatsthem.com/phone/${e.slice(0,3)}-${e.slice(3,6)}-${e.slice(6,10)}`;window.open(t,"_blank")}else show_Notification("phone number is not valid ","red")}const autoPronunciationToggle=document.getElementById("autoPronunciation");function autoPronunciationFunc(e,t){if(!autoPronunciationToggle.checked)return!1;t&&e&&textToAudio(`${My_FullName.value}`)}function textToAudio(e){let t=new SpeechSynthesisUtterance;t.voiceURI="Google US English",t.lang="en-US",t.name="Google US English",t.text=e;let n=window.speechSynthesis;n.speak(t)}function stopTextToAudio(){window.speechSynthesis.cancel()}let manualHungUp=!1;const TransferMain=document.querySelector("#TransferMain"),AHWCH_Toggle=document.getElementById("AHWCH_Toggle");let custHungupModelIsOpen=!1;const autoHungupWaitTimeInput=document.getElementById("autoHungupWaitTimeInput");autoHungupWaitTimeInput.addEventListener("keydown",function(e){e.preventDefault()});let autoHungupWaitingTime=5e3;function autoHungupIfCustHungup(e){if(!0!==e||!AHWCH_Toggle.checked||custHungupModelIsOpen)return;custHungupModelIsOpen=!0;let t=async()=>{if("visible"!==TransferMain.style.visibility)try{await hungupAndDispo(custHungupDispo,"both"),show_Notification(`Customer has hung up. Dispositioned as not ${custHungupDispo}`,"sky")}catch(e){console.log("autoHungupIfCustHungup catch block","case: ",e.case,"reason: ",e.reason,"error: ",e)}};openModal(`Customer Hung up will end to call in ${autoHungupWaitingTime/1e3} seconds?`,()=>{t()},()=>{console.log("hungup was canceld")},()=>{console.log("modal on close func runing"),t()},autoHungupWaitingTime)}autoHungupWaitTimeInput.addEventListener("change",function(){autoHungupWaitingTime=1e3*Number(autoHungupWaitTimeInput.value),console.log(autoHungupWaitingTime)});let allDispoOptions=[];function GetAllDispoArr(){let e=processDispoSelect("DispoSelectA");if(e){let t=processDispoSelect("DispoSelectB"),n=processDispoSelect("DispoSelectC");if(t&&n)return!0}return!1}function processDispoSelect(e){let t=document.getElementById(e);if(null===t)return!1;let n=t.querySelectorAll('[size="2"]'),a=[];return n.forEach(e=>{a.push(e.firstElementChild)}),a.forEach(e=>{let t=("'"+e.attributes.onclick.value.split(",")[0].match(/'([^']+)'/)[1]+"'").replace(/'/g,"\\'");allDispoOptions.push(t)}),!0}function addOptinos(e,t,n=0){let a=document.getElementById(t);e.forEach((e,t)=>{let l=document.createElement("option");l.value=e,l.textContent=e,t===n&&(l.selected=!0),a.appendChild(l)}),a.addEventListener("change",function(){let e=a.value,t=a.id;switch(t){case"F1select":F1=e;break;case"F2select":F2=e;break;case"F3select":F3=e;break;case"F4select":F4=e;break;case"custHungupDispoSelect":custHungupDispo=e}console.log("F1: ",F1," F2: ",F2," F3: ",F3," F4: ",F4)})}let autoCustHungup=!1,GotTheGetAllDispoArr=!1;function addAllOptionsToSelect(){GetAllDispoArr()?(addOptinos(allDispoOptions,"F1select",0),addOptinos(allDispoOptions,"F2select",1),addOptinos(allDispoOptions,"F3select",2),addOptinos(allDispoOptions,"F4select",3),addOptinos(allDispoOptions,"custHungupDispoSelect",0),autoCustHungup=!0,GotTheGetAllDispoArr=!0,F1=allDispoOptions[0],F2=allDispoOptions[1],F3=allDispoOptions[2],F4=allDispoOptions[3],custHungupDispo=allDispoOptions[0]):console.log("addAllOptionsToSelect still cant find the #DispoSelectA or #DispoSelectB or #DispoSelectC")}let F1=!1,F2=!1,F3=!1,F4=!1,custHungupDispo=!1;async function hungup_withButton(e){try{manualHungUp=!0,await hungupAndDispo(e,"both",()=>{setTimeout(()=>{manualHungUp=!1},1100)}),show_Notification("Call hanged up and dispositioned as "+e.toString(),"sky")}catch(t){console.log(`keydown  dispo: ${e}`,"case: ",t.case,"reason: ",t.reason,"error: ",t),show_Notification(t.reason,"red")}}function validatePhoneNumber(e){if(!e)return!1;let t=e.toString().trim(),n=t.replace(/\D/g,""),a=/^(\d{10}|\d{11})$/.test(n);return!!a&&10===t.length||(console.log(t),!1)}function CallThisNumber(e){if(checkActiveCall())return show_Notification("There's already an active call","red"),!1;if(!validatePhoneNumber(e))return show_Notification("Unvalid phone number","red"),!1;if(checkIfReady()&&AutoDial_ReSume_PauSe("VDADpause","","","","","","","YES"),!checkIfReady()){NeWManuaLDiaLCalL("NO","","","","","YES","YES");let t=document.getElementById("NeWManuaLDiaLBox");if("visible"===t.style.visibility)return document.getElementById("MDPhonENumbeR").value=e,NeWManuaLDiaLCalLSubmiT("NOW","YES"),!0}return!1}My_f1_hungupBtn.addEventListener("click",async()=>{!1!=F1?hungup_withButton(F1):show_Notification("F1 is Still not assigned","red")}),My_f2_hungupBtn.addEventListener("click",async()=>{!1!=F2?hungup_withButton(F2):show_Notification("F3 is Still not assigned","red")}),My_f3_hungupBtn.addEventListener("click",async()=>{!1!=F3?hungup_withButton(F3):show_Notification("F3 is Still not assigned","red")}),My_f4_hungupBtn.addEventListener("click",async()=>{!1!=F4?hungup_withButton(F4):show_Notification("F4 is Still not assigned","red")}),document.addEventListener("keydown",async function(e){switch(e.which){case 112:e.preventDefault(),!1!=F1?hungup_withButton(F1):show_Notification("F1 is Still not assigned","red");break;case 113:e.preventDefault(),!1!=F2?hungup_withButton(F2):show_Notification("F2 is Still not assigned","red");break;case 114:e.preventDefault(),!1!=F3?hungup_withButton(F3):show_Notification("F3 is Still not assigned","red");break;case 115:e.preventDefault(),!1!=F4?hungup_withButton(F4):show_Notification("F4 is Still not assigned","red")}});let cbIndex=-1,CallBacksArray=[];function setCallBacksArray(e){if(0===e.length){show_Notification("Unveiled input","red");return}let t=e.split("\n");if(0===t.length){show_Notification("Unveiled input","red");return}CallBacksArray=[],cbIndex=-1;let n=[],a=[],l=[];for(var s=0;s<t.length;s++){let i=t[s].trim();validatePhoneNumber(i)?DupList.includes(i.toString())?l.push(i):n.push(i):a.push(i)}a.length>0&&show_Notification(`There was ${a.length} unvalid numbers in the input`,"red"),l.length>0&&show_Notification(`There was ${l.length} numbers From the duplicated list in the input`,"red"),CallBacksArray=Array.from(new Set(n)),document.getElementById("My_callbacksTextarea").value="",document.getElementById("My_cbIndex").innerText="-",document.getElementById("My_cbArrayLength").innerText=CallBacksArray.length.toString()}function CallNext(){if(CallBacksArray.length<1){show_Notification("Unveiled call back Array","red");return}if(CallBacksArray[cbIndex+1])cbIndex++;else{show_Notification("There is no more numbers on the list","red");return}let e=CallThisNumber(CallBacksArray[cbIndex]);e?updateIndexIndicator():cbIndex--}function CallPrevious(){if(CallBacksArray.length<1){show_Notification("Unveiled call back Array","red");return}if(CallBacksArray[cbIndex-1])cbIndex--;else{show_Notification("There is no previous number on the list","red");return}let e=CallThisNumber(CallBacksArray[cbIndex]);e?updateIndexIndicator():cbIndex++}function updateIndexIndicator(){let e=document.getElementById("My_cbIndex");e.innerText=(cbIndex+1).toString()}function resetCBArrayAndIndex(){CallBacksArray=[],cbIndex=-1,document.getElementById("My_cbIndex").innerText="-",document.getElementById("My_callbacksTextarea").value="",document.getElementById("My_cbArrayLength").innerText="0"}function sendMessageToIframe(e=null){document.getElementById("webphone").contentWindow.postMessage(e,"https://phone.vici.cx/viciphone.php")}let is_fillInterFace_Running=!1;async function fillInterFace(){if(is_fillInterFace_Running){console.log("%c fillInterFace is still running. Skipping this iteration.","background: red; color: white");return}is_fillInterFace_Running=!0;let e=checkActiveCall(),t=checkCustHungUp(e);getHeaderInfo(e),CallIndocater(t),showAndHide_StartPauseBtns(e),disableAndEnable_OpenCloseTransferBtns(e),disableAndEnable_hungupBtn(e),disableAndEnable_wbefromBtns(e),disableAndEnable_parkcallBtn(e),disableAndEnable_manualDialBtn(e),disableAndEnable_callLogBtn(e),AutoMuteFunc(e),GotTheGetAllDispoArr||addAllOptionsToSelect();try{let n=await gotANewCall();getCustInfo(e,n),AutoCheckDupFun(e,n),autoPronunciationFunc(e,n),!manualHungUp&&autoCustHungup&&(n&&(custHungupModelIsOpen=!1),autoHungupIfCustHungup(t))}catch(a){console.error("fillInterFace catch block",a)}finally{is_fillInterFace_Running=!1}}setInterval(fillInterFace,100);
+`
+);
+const the_TransferMain_span = document.getElementById("TransferMain");
+function setStyles() {
+  let e = document.querySelector("body");
+  e ? (e.style.overflow = "hidden") : console.log("setStyles bad body tag"),
+    the_TransferMain_span
+      ? ((the_TransferMain_span.style.position = "fixed"),
+        (the_TransferMain_span.style.bottom = "0"),
+        (the_TransferMain_span.style.left = "0"),
+        (the_TransferMain_span.style.top = "auto"),
+        (the_TransferMain_span.style.right = "auto"))
+      : console.log("setStyles bad TransferMain");
+  let t = document.getElementById("webphoneSpan");
+  t
+    ? ((t.style.position = "absolute"),
+      (t.style.bottom = "auto"),
+      (t.style.left = "auto"),
+      (t.style.top = "auto"),
+      (t.style.right = "auto"),
+      (t.style.height = "auto"),
+      (t.style.overflow = "auto"),
+      (t.style.zIndex = "auto"),
+      (t.style.backgroundColor = "unset"))
+    : console.log("setStyles bad webphoneSpan");
+  let n = document.getElementById("webphone");
+  n
+    ? ((n.style.position = "fixed"),
+      (n.style.bottom = "0px"),
+      (n.style.left = "auto"),
+      (n.style.top = "auto"),
+      (n.style.right = "0px"),
+      (n.style.zIndex = "28"),
+      (n.style.width = "432px"),
+      (n.style.height = "261px"))
+    : console.log("setStyles bad webphone");
+  let a = document.getElementById("AgentViewSpan");
+  a
+    ? ((a.style.position = "fixed"),
+      (a.style.bottom = "0px"),
+      (a.style.left = "auto"),
+      (a.style.top = "60px"),
+      (a.style.right = "0px"),
+      (a.style.zIndex = "28"),
+      (a.style.width = "190px"),
+      (a.style.height = "300px"),
+      (a.style.overflowX = "auto"),
+      (a.style.overflowY = "auto"),
+      (a.style.backgroundColor = "unset"),
+      (a.style.color = "white"))
+    : console.log("setStyles bad AgentViewSpan");
+}
+function checkActiveCall() {
+  return !!(
+    1 == VD_live_customer_call ||
+    1 == MD_channel_look ||
+    lastcustchannel.length > 0 ||
+    manual_call_live > 0
+  );
+}
+function checkCustHungUp(e) {
+  if (!e) return "no active call";
+  {
+    let t = document
+      .getElementById("Tabs")
+      .getElementsByTagName("table")[0]
+      .getElementsByTagName("tbody")[0]
+      .getElementsByTagName("tr")[0]
+      .getElementsByTagName("td")[3]
+      .getElementsByTagName("img")[0]
+      .getAttribute("src")
+      .split("/");
+    return "agc_live_call_DEAD.gif" == t[t.length - 1] && 1 === CheckDEADcallON;
+  }
+}
+setStyles();
+const phone_numberDISP = document.getElementById("phone_numberDISP");
+let temp_phoneNumber = "";
+function gotANewCall() {
+  return new Promise((e, t) => {
+    try {
+      let n = phone_numberDISP.innerText,
+        a = temp_phoneNumber !== n;
+      a ? ((temp_phoneNumber = n), e(!0)) : e(!1);
+    } catch (l) {
+      t(l);
+    }
+  });
+}
+const DispoSelectBox = document.querySelector("#DispoSelectBox");
+function checkDispoPanlVisibalty() {
+  return "visible" === DispoSelectBox.style.visibility;
+}
+function checkIfReady() {
+  return "PAUSED" !== VDRP_stage;
+}
+function hungupAndDispo(
+  e = "NI",
+  t = "both",
+  n = () => {
+    console.log("hungupAndDispo callBackFunc this the default msg");
+  },
+  a = 0,
+  l = 1e3
+) {
+  return new Promise((s, i) => {
+    checkActiveCall()
+      ? "both" === t
+        ? (setTimeout(() => {
+            dialedcall_send_hangup("", "", "", "", "YES"), n();
+          }, a),
+          setTimeout(() => {
+            checkDispoPanlVisibalty()
+              ? (DispoSelectContent_create(e, "ADD", "YES"),
+                DispoSelect_submit("", "", "YES"),
+                s(!0))
+              : i({ case: !1, reason: "Dispo Panl not Visible" });
+          }, l))
+        : "hungup" === t
+        ? setTimeout(() => {
+            dialedcall_send_hangup("", "", "", "", "YES"), s(!0);
+          }, a)
+        : "dispo" === t &&
+          setTimeout(() => {
+            checkDispoPanlVisibalty()
+              ? (DispoSelectContent_create(e),
+                DispoSelect_submit("", "", "YES"),
+                s(!0))
+              : i({ case: !1, reason: "Dispo Panl not Visible" });
+          }, l)
+      : i({ case: !1, reason: "no active call" });
+  });
+}
+const sessionIDspan = document.getElementById("sessionIDspan"),
+  My_sessionIDspan = document.getElementById("My_sessionIDspan"),
+  AgentStatusCalls = document.getElementById("AgentStatusCalls"),
+  My_AgentStatusCalls = document.getElementById("My_AgentStatusCalls"),
+  SecondSDISP = document.getElementById("SecondSDISP"),
+  My_SecondSDISP = document.getElementById("My_SecondSDISP"),
+  MainStatuSSpan = document.getElementById("MainStatuSSpan"),
+  My_MainStatuSSpan = document.getElementById("My_MainStatuSSpan");
+function getHeaderInfo(e) {
+  e &&
+    (My_MainStatuSSpan.innerText !== MainStatuSSpan.innerText &&
+      (My_MainStatuSSpan.innerText = MainStatuSSpan.innerText),
+    My_SecondSDISP.innerText !== SecondSDISP.innerText &&
+      (My_SecondSDISP.innerText = SecondSDISP.innerText),
+    My_AgentStatusCalls.innerHTML !== AgentStatusCalls.innerHTML &&
+      (My_AgentStatusCalls.innerHTML = AgentStatusCalls.innerHTML),
+    My_sessionIDspan.innerText !== sessionIDspan.innerText &&
+      (My_sessionIDspan.innerText = sessionIDspan.innerText));
+}
+const status = document.getElementById("status"),
+  My_status = document.getElementById("My_status");
+function CallIndocater(e) {
+  let t = document.getElementById("My_liveCallSvg_indocater");
+  !0 === e
+    ? "red" !== t.getAttribute("stroke") &&
+      (t.setAttribute("stroke", "red"), t.classList.add("sm:tw-animate-bounce"))
+    : !1 === e
+    ? "#00ff00" !== t.getAttribute("stroke") &&
+      (t.setAttribute("stroke", "#00ff00"),
+      t.classList.add("sm:tw-animate-bounce"))
+    : "no active call" === e &&
+      "gray" !== t.getAttribute("stroke") &&
+      (t.setAttribute("stroke", "gray"),
+      t.classList.remove("sm:tw-animate-bounce"));
+}
+setInterval(() => {
+  My_status.innerText !== status.innerText &&
+    (My_status.innerText = status.innerText);
+}, 1e3);
+const My_goReadyBtn = document.getElementById("My_goReadyBtn"),
+  My_pauseBtn = document.getElementById("My_pauseBtn"),
+  My_readyOrPauseSpan_indocater = document.getElementById(
+    "My_readyOrPauseSpan_indocater"
+  );
+function showAndHide_StartPauseBtns(e) {
+  !1 === checkIfReady() && My_goReadyBtn.classList.contains("tw-hidden")
+    ? (My_pauseBtn.classList.add("tw-hidden"),
+      My_goReadyBtn.classList.remove("tw-hidden"),
+      (My_readyOrPauseSpan_indocater.innerHTML =
+        'you are <span class="tw-text-yellow-500 tw-inline-block tw-animate-bounce">paused</span>'))
+    : !0 === checkIfReady() &&
+      My_pauseBtn.classList.contains("tw-hidden") &&
+      (My_goReadyBtn.classList.add("tw-hidden"),
+      My_pauseBtn.classList.remove("tw-hidden"),
+      (My_readyOrPauseSpan_indocater.innerHTML =
+        'you are <span class="tw-text-green-500 tw-inline-block tw-animate-bounce">ready</span>')),
+    e
+      ? (My_goReadyBtn.disabled && My_pauseBtn.disabled) ||
+        ((My_goReadyBtn.disabled = !0), (My_pauseBtn.disabled = !0))
+      : (My_goReadyBtn.disabled || My_pauseBtn.disabled) &&
+        ((My_goReadyBtn.disabled = !1), (My_pauseBtn.disabled = !1));
+}
+My_goReadyBtn.addEventListener("click", () => {
+  My_goReadyBtn.classList.add("tw-hidden"),
+    My_pauseBtn.classList.remove("tw-hidden"),
+    (My_readyOrPauseSpan_indocater.innerHTML =
+      'you are <span class="tw-text-green-500 tw-inline-block tw-animate-bounce">ready</span>');
+}),
+  My_pauseBtn.addEventListener("click", () => {
+    My_pauseBtn.classList.add("tw-hidden"),
+      My_goReadyBtn.classList.remove("tw-hidden"),
+      (My_readyOrPauseSpan_indocater.innerHTML =
+        'you are <span class="tw-text-yellow-500 tw-inline-block tw-animate-bounce">paused</span>');
+  });
+const My_openTransferPanelBtn = document.getElementById(
+    "My_openTransferPanelBtn"
+  ),
+  My_closeTransferPanelBtn = document.getElementById(
+    "My_closeTransferPanelBtn"
+  );
+function disableAndEnable_OpenCloseTransferBtns(e) {
+  e
+    ? (My_openTransferPanelBtn.disabled || My_closeTransferPanelBtn.disabled) &&
+      ((My_openTransferPanelBtn.disabled = !1),
+      (My_closeTransferPanelBtn.disabled = !1),
+      My_openTransferPanelBtn.classList.add("hover:tw-bg-green-500"),
+      My_closeTransferPanelBtn.classList.add("hover:tw-bg-green-600"))
+    : ((My_openTransferPanelBtn.disabled &&
+        My_closeTransferPanelBtn.disabled) ||
+        ((My_openTransferPanelBtn.disabled = !0),
+        (My_closeTransferPanelBtn.disabled = !0)),
+      My_closeTransferPanelBtn.classList.contains("tw-hidden") ||
+        (My_closeTransferPanelBtn.classList.add("tw-hidden"),
+        My_openTransferPanelBtn.classList.remove("tw-hidden"),
+        My_openTransferPanelBtn.classList.remove("hover:tw-bg-green-500"),
+        My_closeTransferPanelBtn.classList.remove("hover:tw-bg-green-600")));
+}
+My_openTransferPanelBtn.addEventListener("click", () => {
+  (the_TransferMain_span.style.top = "auto"),
+    My_openTransferPanelBtn.classList.add("tw-hidden"),
+    My_closeTransferPanelBtn.classList.remove("tw-hidden");
+}),
+  My_closeTransferPanelBtn.addEventListener("click", () => {
+    My_closeTransferPanelBtn.classList.add("tw-hidden"),
+      My_openTransferPanelBtn.classList.remove("tw-hidden");
+  });
+const My_hungupBtn = document.getElementById("My_hungupBtn"),
+  My_f1_hungupBtn = document.getElementById("My_f1_hungupBtn"),
+  My_f2_hungupBtn = document.getElementById("My_f2_hungupBtn"),
+  My_f3_hungupBtn = document.getElementById("My_f3_hungupBtn"),
+  My_f4_hungupBtn = document.getElementById("My_f4_hungupBtn");
+function disableAndEnable_hungupBtn(e) {
+  e
+    ? My_hungupBtn.disabled &&
+      ((My_hungupBtn.disabled = !1),
+      My_hungupBtn.classList.remove("tw-bg-red-400"),
+      My_hungupBtn.classList.add(
+        "tw-bg-red-500",
+        "hover:tw-bg-red-800",
+        "hover:tw-text-slate-100"
+      ),
+      (My_f1_hungupBtn.disabled = !1),
+      (My_f2_hungupBtn.disabled = !1),
+      (My_f3_hungupBtn.disabled = !1),
+      (My_f1_hungupBtn.disabled = !1),
+      My_f1_hungupBtn.classList.add(
+        "hover:tw-bg-red-800",
+        "hover:tw-text-slate-100"
+      ),
+      My_f2_hungupBtn.classList.add(
+        "hover:tw-bg-red-800",
+        "hover:tw-text-slate-100"
+      ),
+      My_f3_hungupBtn.classList.add(
+        "hover:tw-bg-red-800",
+        "hover:tw-text-slate-100"
+      ),
+      My_f4_hungupBtn.classList.add(
+        "hover:tw-bg-red-800",
+        "hover:tw-text-slate-100"
+      ))
+    : My_hungupBtn.disabled ||
+      ((My_hungupBtn.disabled = !0),
+      My_hungupBtn.classList.remove(
+        "tw-bg-red-500",
+        "hover:tw-bg-red-800",
+        "hover:tw-text-slate-100"
+      ),
+      My_hungupBtn.classList.add("tw-bg-red-400"),
+      (My_f1_hungupBtn.disabled = !0),
+      (My_f2_hungupBtn.disabled = !0),
+      (My_f3_hungupBtn.disabled = !0),
+      (My_f4_hungupBtn.disabled = !0),
+      My_f1_hungupBtn.classList.remove(
+        "hover:tw-bg-red-800",
+        "hover:tw-text-slate-100"
+      ),
+      My_f2_hungupBtn.classList.remove(
+        "hover:tw-bg-red-800",
+        "hover:tw-text-slate-100"
+      ),
+      My_f3_hungupBtn.classList.remove(
+        "hover:tw-bg-red-800",
+        "hover:tw-text-slate-100"
+      ),
+      My_f4_hungupBtn.classList.remove(
+        "hover:tw-bg-red-800",
+        "hover:tw-text-slate-100"
+      ));
+}
+function webForm1_click() {
+  if (checkActiveCall()) {
+    let e = document.getElementById("WebFormSpan").querySelector("a");
+    e && (console.log(), window.open(e.getAttribute("href"), "_blank"));
+  }
+}
+function webForm2_click() {
+  if (checkActiveCall()) {
+    let e = document.getElementById("WebFormSpanTwo").querySelector("a");
+    e && (console.log(), window.open(e.getAttribute("href"), "_blank"));
+  }
+}
+const My_webform1 = document.getElementById("My_webform1"),
+  My_webform2 = document.getElementById("My_webform2");
+function disableAndEnable_wbefromBtns(e) {
+  e
+    ? (My_webform1.disabled || My_webform2.disabled) &&
+      ((My_webform1.disabled = !1),
+      (My_webform2.disabled = !1),
+      My_webform1.classList.add("hover:tw-bg-slate-400"),
+      My_webform2.classList.add("hover:tw-bg-slate-400"))
+    : (My_webform1.disabled && My_webform2.disabled) ||
+      ((My_webform1.disabled = !0),
+      (My_webform2.disabled = !0),
+      My_webform1.classList.remove("hover:tw-bg-slate-400"),
+      My_webform2.classList.remove("hover:tw-bg-slate-400"));
+}
+const My_parkcallBtn = document.getElementById("My_parkcallBtn"),
+  My_parkcallSpan = document.getElementById("My_parkcallSpan"),
+  ParkCounterSpan = document.getElementById("ParkCounterSpan");
+let ParkCounterSpanInterval,
+  update_My_parkcallSpan = !1;
+function parkcallBtn_click() {
+  let e = document.getElementById("ParkControl").querySelector("a");
+  if (!e) return !1;
+  e.click(),
+    My_parkcallSpan.classList.remove("tw-hidden"),
+    (update_My_parkcallSpan = !update_My_parkcallSpan);
+  let t = () => {
+    My_parkcallSpan.innerText !== ParkCounterSpan.innerText &&
+      update_My_parkcallSpan &&
+      (My_parkcallSpan.innerText = ParkCounterSpan.innerText);
+  };
+  ParkCounterSpanInterval = setInterval(t, 1e3);
+}
+function disableAndEnable_parkcallBtn(e) {
+  e
+    ? My_parkcallBtn.disabled &&
+      ((My_parkcallBtn.disabled = !1),
+      My_parkcallBtn.classList.add("hover:tw-bg-slate-400"))
+    : My_parkcallBtn.disabled ||
+      ((My_parkcallBtn.disabled = !0),
+      My_parkcallBtn.classList.remove("hover:tw-bg-slate-400"),
+      My_parkcallSpan.classList.add("tw-hidden"),
+      clearInterval(ParkCounterSpanInterval));
+}
+const My_manualDialBtn = document.getElementById("My_manualDialBtn");
+function disableAndEnable_manualDialBtn(e) {
+  e
+    ? My_manualDialBtn.disabled &&
+      ((My_manualDialBtn.disabled = !0),
+      My_manualDialBtn.classList.remove("hover:tw-bg-slate-950"))
+    : My_manualDialBtn.disabled ||
+      ((My_manualDialBtn.disabled = !1),
+      My_manualDialBtn.classList.add("hover:tw-bg-slate-950"));
+}
+const My_callLogBtn = document.getElementById("My_callLogBtn");
+function disableAndEnable_callLogBtn(e) {
+  e
+    ? My_callLogBtn.disabled &&
+      ((My_callLogBtn.disabled = !0),
+      My_callLogBtn.classList.remove("hover:tw-bg-slate-950"))
+    : My_callLogBtn.disabled ||
+      ((My_callLogBtn.disabled = !1),
+      My_callLogBtn.classList.add("hover:tw-bg-slate-950"));
+}
+const My_webPhoneBtn = document.getElementById("My_webPhoneBtn"),
+  My_webPhoneBtnSpan = document.getElementById("My_webPhoneBtnSpan");
+let webPhone_isOpen = !0;
+function webPhoneBtn_click() {
+  let e = document.getElementById("webphoneLink").querySelector("a");
+  e && (e.click(), (webPhone_isOpen = !webPhone_isOpen)),
+    (My_webPhoneBtnSpan.innerText = webPhone_isOpen ? "-" : "+");
+}
+const My_agentsViewBtn = document.getElementById("My_agentsViewBtn"),
+  My_agentsViewBtnSpan = document.getElementById("My_agentsViewBtnSpan");
+let agentsViewBtn_isOpen = !1;
+function agentsViewBtn_click() {
+  let e = document.getElementById("AgentViewLink").querySelector("a");
+  e && (e.click(), (agentsViewBtn_isOpen = !agentsViewBtn_isOpen)),
+    (My_agentsViewBtnSpan.innerText = agentsViewBtn_isOpen ? "-" : "+");
+}
+const My_PhoneNumber = document.getElementById("My_PhoneNumber"),
+  title = document.getElementById("title"),
+  first_name = document.getElementById("first_name"),
+  middle_initial = document.getElementById("middle_initial"),
+  last_name = document.getElementById("last_name"),
+  My_FullName = document.getElementById("My_FullName"),
+  address1 = document.getElementById("address1"),
+  address2 = document.getElementById("address2"),
+  address3 = document.getElementById("address3"),
+  city = document.getElementById("city"),
+  state = document.getElementById("state"),
+  postal_code = document.getElementById("postal_code"),
+  province = document.getElementById("province"),
+  My_FullAddress = document.getElementById("My_FullAddress"),
+  email = document.getElementById("email"),
+  My_Email = document.getElementById("My_Email"),
+  comments = document.getElementById("comments"),
+  My_Comments = document.getElementById("My_Comments");
+function getCustInfo(e, t) {
+  t && e
+    ? ((My_PhoneNumber.value = phone_numberDISP.innerText.trim()),
+      (My_FullName.value =
+        `${title.value} ${first_name.value} ${middle_initial.value} ${last_name.value}`.trim()),
+      (My_FullAddress.value =
+        `${address1.value} ${address2.value} ${address3.value} ${city.value} ${state.value} ${postal_code.value} ${province.value}`.trim()),
+      (My_Email.value = email.value.trim()),
+      (My_Comments.value = comments.value.trim()))
+    : t &&
+      !e &&
+      ((My_PhoneNumber.value = ""),
+      (My_FullName.value = ""),
+      (My_FullAddress.value = ""),
+      (My_Email.value = ""),
+      (My_Comments.value = ""));
+}
+const My_Notification = document.getElementById("My_Notification");
+let is_Notification_open = !1;
+function show_Notification(e, t = "sky", n = 4e3) {
+  is_Notification_open
+    ? setTimeout(() => {
+        show_Notification(e, t, n);
+      }, 500)
+    : ((is_Notification_open = !0),
+      (My_Notification.innerText = e),
+      My_Notification.classList.remove("-tw-translate-y-[200%]"),
+      My_Notification.classList.add(`tw-bg-${t}-500`),
+      setTimeout(() => {
+        My_Notification.classList.add("-tw-translate-y-[200%]"),
+          setTimeout(() => {
+            My_Notification.classList.remove(`tw-bg-${t}-500`),
+              (My_Notification.innerText = ""),
+              (is_Notification_open = !1);
+          }, 400);
+      }, n));
+}
+let modelIsOpen = !1;
+const modal = document.getElementById("My_modal"),
+  modalText = document.getElementById("My_modalText"),
+  My_modalTimer = document.getElementById("My_modalTimer"),
+  modalOkayBtn = document.getElementById("My_modal_okayBtn"),
+  modalCancelBtn = document.getElementById("My_modal_cancelBtn");
+function openModal(e, t, n, a = () => {}, l = 5e3) {
+  modelIsOpen &&
+    console.log(`${e}
+"modal is open"`),
+    (modelIsOpen = !0),
+    (modalText.innerText = e);
+  let s = l / 1e3;
+  My_modalTimer.innerText = s.toString();
+  let i = setInterval(() => {
+      s--, (My_modalTimer.innerText = s.toString());
+    }, 1e3),
+    o = () => {
+      t(), clearTimeout(d), u();
+    },
+    r = () => {
+      n(), clearTimeout(d), u();
+    };
+  modalOkayBtn.removeEventListener("click", o),
+    modalCancelBtn.removeEventListener("click", r),
+    modalOkayBtn.addEventListener("click", o),
+    modalCancelBtn.addEventListener("click", r),
+    modal.classList.remove("tw-translate-y-[180%]"),
+    modal.classList.add("tw-translate-y-0");
+  let d = setTimeout(() => {
+    modelIsOpen && (a(), u());
+  }, l);
+  function u() {
+    clearInterval(i),
+      modal.classList.remove("tw-translate-y-0"),
+      modal.classList.add("tw-translate-y-[180%]"),
+      (modelIsOpen = !1),
+      modalOkayBtn.removeEventListener("click", o),
+      modalCancelBtn.removeEventListener("click", r);
+  }
+}
+function toggleMyInterface() {
+  document.getElementById("My_interfaceDiv").classList.toggle("tw-invisible");
+}
+let isItMuted = !1;
+const autoMuteToggle = document.getElementById("autoMuteToggle");
+function AutoMuteFunc(e) {
+  if (!autoMuteToggle.checked) return !1;
+  e
+    ? !0 == isItMuted &&
+      (volume_control("UNMUTE", agentchannel, "AgenT"),
+      sendMessageToIframe("muteButton"),
+      (isItMuted = !1))
+    : isItMuted ||
+      (volume_control("MUTING", agentchannel, "AgenT"),
+      sendMessageToIframe("muteButton"),
+      (isItMuted = !0));
+}
+let DupList = [];
+function getDupListFromlocalStorge() {
+  let e = JSON.parse(localStorage.getItem("DupList"));
+  null == e
+    ? alert("Did Not find a duplicate list in the lucalstorge")
+    : null != e && (DupList = e);
+}
+getDupListFromlocalStorge();
+const My_PhoneNumber_label = document.getElementById("My_PhoneNumber_label");
+function AutoCheckDupFun(e, t) {
+  t && e
+    ? 0 === DupList.length
+      ? (My_PhoneNumber_label.classList.contains("tw-bg-green-500") ||
+          My_PhoneNumber_label.classList.contains("tw-bg-red-500")) &&
+        (My_PhoneNumber_label.classList.remove("tw-bg-green-500"),
+        My_PhoneNumber_label.classList.remove("tw-bg-red-500"))
+      : DupList.includes(phone_numberDISP.innerText)
+      ? (My_PhoneNumber_label.classList.remove("tw-bg-green-500"),
+        My_PhoneNumber_label.classList.add("tw-bg-red-500"))
+      : (My_PhoneNumber_label.classList.remove("tw-bg-red-500"),
+        My_PhoneNumber_label.classList.add("tw-bg-green-500"))
+    : !e &&
+      (My_PhoneNumber_label.classList.contains("tw-bg-green-500") ||
+        My_PhoneNumber_label.classList.contains("tw-bg-red-500")) &&
+      (My_PhoneNumber_label.classList.remove("tw-bg-green-500"),
+      My_PhoneNumber_label.classList.remove("tw-bg-red-500"));
+}
+const My_dupListInput = document.getElementById("dupListInput");
+function setDupListTolocalStorge() {
+  try {
+    let e = JSON.parse(My_dupListInput.value);
+    if (Array.isArray(e)) {
+      let t = !1;
+      if (
+        (e.forEach((e) => {
+          (10 !== e.length || isNaN(Number(e))) && (t = !0);
+        }),
+        t)
+      )
+        return (
+          show_Notification(
+            "One or more entries are not valid phone numbers.",
+            "red"
+          ),
+          !1
+        );
+      localStorage.setItem("DupList", JSON.stringify(e)),
+        getDupListFromlocalStorge(),
+        (My_dupListInput.value = ""),
+        show_Notification("Duplicates List has been set.", "green");
+    } else show_Notification("Textarea value is not a valid array.", "red");
+  } catch (n) {
+    show_Notification("Error parsing the textarea value as JSON.", "red");
+  }
+}
+function Copy(...e) {
+  let t = e.join(" ");
+  navigator.clipboard
+    .writeText(t)
+    .then(() => {})
+    .catch((e) => {
+      console.error("Unable to copy text to clipboard", e);
+    });
+}
+function openTahtsThem() {
+  let e = phone_numberDISP.innerText;
+  if (10 === e.length) {
+    let t = `https://thatsthem.com/phone/${e.slice(0, 3)}-${e.slice(
+      3,
+      6
+    )}-${e.slice(6, 10)}`;
+    window.open(t, "_blank");
+  } else show_Notification("phone number is not valid ", "red");
+}
+const autoPronunciationToggle = document.getElementById("autoPronunciation");
+function autoPronunciationFunc(e, t) {
+  if (!autoPronunciationToggle.checked) return !1;
+  t && e && textToAudio(`${My_FullName.value}`);
+}
+function textToAudio(e) {
+  let t = new SpeechSynthesisUtterance();
+  (t.voiceURI = "Google US English"),
+    (t.lang = "en-US"),
+    (t.name = "Google US English"),
+    (t.text = e);
+  let n = window.speechSynthesis;
+  n.speak(t);
+}
+function stopTextToAudio() {
+  window.speechSynthesis.cancel();
+}
+let manualHungUp = !1;
+const TransferMain = document.querySelector("#TransferMain"),
+  AHWCH_Toggle = document.getElementById("AHWCH_Toggle");
+let custHungupModelIsOpen = !1;
+const autoHungupWaitTimeInput = document.getElementById(
+  "autoHungupWaitTimeInput"
+);
+autoHungupWaitTimeInput.addEventListener("keydown", function (e) {
+  e.preventDefault();
+});
+let autoHungupWaitingTime = 5e3;
+function autoHungupIfCustHungup(e) {
+  if (!0 !== e || !AHWCH_Toggle.checked || custHungupModelIsOpen) return;
+  custHungupModelIsOpen = !0;
+  let t = async () => {
+    if ("visible" !== TransferMain.style.visibility)
+      try {
+        await hungupAndDispo(custHungupDispo, "both"),
+          show_Notification(
+            `Customer has hung up. Dispositioned as not ${custHungupDispo}`,
+            "sky"
+          );
+      } catch (e) {
+        console.log(
+          "autoHungupIfCustHungup catch block",
+          "case: ",
+          e.case,
+          "reason: ",
+          e.reason,
+          "error: ",
+          e
+        );
+      }
+  };
+  openModal(
+    `Customer Hung up will end to call in ${
+      autoHungupWaitingTime / 1e3
+    } seconds?`,
+    () => {
+      t();
+    },
+    () => {
+      console.log("hungup was canceld");
+    },
+    () => {
+      console.log("modal on close func runing"), t();
+    },
+    autoHungupWaitingTime
+  );
+}
+autoHungupWaitTimeInput.addEventListener("change", function () {
+  (autoHungupWaitingTime = 1e3 * Number(autoHungupWaitTimeInput.value)),
+    console.log(autoHungupWaitingTime);
+});
+let allDispoOptions = [];
+function GetAllDispoArr() {
+  let e = processDispoSelect("DispoSelectA");
+  if (e) {
+    let t = processDispoSelect("DispoSelectB"),
+      n = processDispoSelect("DispoSelectC");
+    if (t && n) return !0;
+  }
+  return !1;
+}
+function processDispoSelect(e) {
+  let t = document.getElementById(e);
+  if (null === t) return !1;
+  let n = t.querySelectorAll('[size="2"]'),
+    a = [];
+  return (
+    n.forEach((e) => {
+      a.push(e.firstElementChild);
+    }),
+    a.forEach((e) => {
+      let t = (
+        "'" +
+        e.attributes.onclick.value.split(",")[0].match(/'([^']+)'/)[1] +
+        "'"
+      ).replace(/'/g, "\\'");
+      allDispoOptions.push(t);
+    }),
+    !0
+  );
+}
+function addOptinos(e, t, n = 0) {
+  let a = document.getElementById(t);
+  e.forEach((e, t) => {
+    let l = document.createElement("option");
+    (l.value = e),
+      (l.textContent = e),
+      t === n && (l.selected = !0),
+      a.appendChild(l);
+  }),
+    a.addEventListener("change", function () {
+      let e = a.value,
+        t = a.id;
+      switch (t) {
+        case "F1select":
+          F1 = e;
+          break;
+        case "F2select":
+          F2 = e;
+          break;
+        case "F3select":
+          F3 = e;
+          break;
+        case "F4select":
+          F4 = e;
+          break;
+        case "custHungupDispoSelect":
+          custHungupDispo = e;
+      }
+      console.log("F1: ", F1, " F2: ", F2, " F3: ", F3, " F4: ", F4);
+    });
+}
+let autoCustHungup = !1,
+  GotTheGetAllDispoArr = !1;
+function addAllOptionsToSelect() {
+  GetAllDispoArr()
+    ? (addOptinos(allDispoOptions, "F1select", 0),
+      addOptinos(allDispoOptions, "F2select", 1),
+      addOptinos(allDispoOptions, "F3select", 2),
+      addOptinos(allDispoOptions, "F4select", 3),
+      addOptinos(allDispoOptions, "custHungupDispoSelect", 0),
+      (autoCustHungup = !0),
+      (GotTheGetAllDispoArr = !0),
+      (F1 = allDispoOptions[0]),
+      (F2 = allDispoOptions[1]),
+      (F3 = allDispoOptions[2]),
+      (F4 = allDispoOptions[3]),
+      (custHungupDispo = allDispoOptions[0]))
+    : console.log(
+        "addAllOptionsToSelect still cant find the #DispoSelectA or #DispoSelectB or #DispoSelectC"
+      );
+}
+let F1 = !1,
+  F2 = !1,
+  F3 = !1,
+  F4 = !1,
+  custHungupDispo = !1;
+async function hungup_withButton(e) {
+  try {
+    (manualHungUp = !0),
+      await hungupAndDispo(e, "both", () => {
+        setTimeout(() => {
+          manualHungUp = !1;
+        }, 1100);
+      }),
+      show_Notification(
+        "Call hanged up and dispositioned as " + e.toString(),
+        "sky"
+      );
+  } catch (t) {
+    console.log(
+      `keydown  dispo: ${e}`,
+      "case: ",
+      t.case,
+      "reason: ",
+      t.reason,
+      "error: ",
+      t
+    ),
+      show_Notification(t.reason, "red");
+  }
+}
+function validatePhoneNumber(e) {
+  if (!e) return !1;
+  let t = e.toString().trim(),
+    n = t.replace(/\D/g, ""),
+    a = /^(\d{10}|\d{11})$/.test(n);
+  return (!!a && 10 === t.length) || (console.log(t), !1);
+}
+function CallThisNumber(e) {
+  if (checkActiveCall())
+    return show_Notification("There's already an active call", "red"), !1;
+  if (!validatePhoneNumber(e))
+    return show_Notification("Unvalid phone number", "red"), !1;
+  if (
+    (checkIfReady() &&
+      AutoDial_ReSume_PauSe("VDADpause", "", "", "", "", "", "", "YES"),
+    !checkIfReady())
+  ) {
+    NeWManuaLDiaLCalL("NO", "", "", "", "", "YES", "YES");
+    let t = document.getElementById("NeWManuaLDiaLBox");
+    if ("visible" === t.style.visibility)
+      return (
+        (document.getElementById("MDPhonENumbeR").value = e),
+        NeWManuaLDiaLCalLSubmiT("NOW", "YES"),
+        !0
+      );
+  }
+  return !1;
+}
+My_f1_hungupBtn.addEventListener("click", async () => {
+  !1 != F1
+    ? hungup_withButton(F1)
+    : show_Notification("F1 is Still not assigned", "red");
+}),
+  My_f2_hungupBtn.addEventListener("click", async () => {
+    !1 != F2
+      ? hungup_withButton(F2)
+      : show_Notification("F3 is Still not assigned", "red");
+  }),
+  My_f3_hungupBtn.addEventListener("click", async () => {
+    !1 != F3
+      ? hungup_withButton(F3)
+      : show_Notification("F3 is Still not assigned", "red");
+  }),
+  My_f4_hungupBtn.addEventListener("click", async () => {
+    !1 != F4
+      ? hungup_withButton(F4)
+      : show_Notification("F4 is Still not assigned", "red");
+  }),
+  document.addEventListener("keydown", async function (e) {
+    switch (e.which) {
+      case 112:
+        e.preventDefault(),
+          !1 != F1
+            ? hungup_withButton(F1)
+            : show_Notification("F1 is Still not assigned", "red");
+        break;
+      case 113:
+        e.preventDefault(),
+          !1 != F2
+            ? hungup_withButton(F2)
+            : show_Notification("F2 is Still not assigned", "red");
+        break;
+      case 114:
+        e.preventDefault(),
+          !1 != F3
+            ? hungup_withButton(F3)
+            : show_Notification("F3 is Still not assigned", "red");
+        break;
+      case 115:
+        e.preventDefault(),
+          !1 != F4
+            ? hungup_withButton(F4)
+            : show_Notification("F4 is Still not assigned", "red");
+    }
+  });
+let cbIndex = -1,
+  CallBacksArray = [];
+function setCallBacksArray(e) {
+  if (0 === e.length) {
+    show_Notification("Unveiled input", "red");
+    return;
+  }
+  let t = e.split("\n");
+  if (0 === t.length) {
+    show_Notification("Unveiled input", "red");
+    return;
+  }
+  (CallBacksArray = []), (cbIndex = -1);
+  let n = [],
+    a = [],
+    l = [];
+  for (var s = 0; s < t.length; s++) {
+    let i = t[s].trim();
+    validatePhoneNumber(i)
+      ? DupList.includes(i.toString())
+        ? l.push(i)
+        : n.push(i)
+      : a.push(i);
+  }
+  a.length > 0 &&
+    show_Notification(
+      `There was ${a.length} unvalid numbers in the input`,
+      "red"
+    ),
+    l.length > 0 &&
+      show_Notification(
+        `There was ${l.length} numbers From the duplicated list in the input`,
+        "red"
+      ),
+    (CallBacksArray = Array.from(new Set(n))),
+    (document.getElementById("My_callbacksTextarea").value = ""),
+    (document.getElementById("My_cbIndex").innerText = "-"),
+    (document.getElementById("My_cbArrayLength").innerText =
+      CallBacksArray.length.toString());
+}
+function CallNext() {
+  if (CallBacksArray.length < 1) {
+    show_Notification("Unveiled call back Array", "red");
+    return;
+  }
+  if (CallBacksArray[cbIndex + 1]) cbIndex++;
+  else {
+    show_Notification("There is no more numbers on the list", "red");
+    return;
+  }
+  let e = CallThisNumber(CallBacksArray[cbIndex]);
+  e ? updateIndexIndicator() : cbIndex--;
+}
+function CallPrevious() {
+  if (CallBacksArray.length < 1) {
+    show_Notification("Unveiled call back Array", "red");
+    return;
+  }
+  if (CallBacksArray[cbIndex - 1]) cbIndex--;
+  else {
+    show_Notification("There is no previous number on the list", "red");
+    return;
+  }
+  let e = CallThisNumber(CallBacksArray[cbIndex]);
+  e ? updateIndexIndicator() : cbIndex++;
+}
+function updateIndexIndicator() {
+  let e = document.getElementById("My_cbIndex");
+  e.innerText = (cbIndex + 1).toString();
+}
+function resetCBArrayAndIndex() {
+  (CallBacksArray = []),
+    (cbIndex = -1),
+    (document.getElementById("My_cbIndex").innerText = "-"),
+    (document.getElementById("My_callbacksTextarea").value = ""),
+    (document.getElementById("My_cbArrayLength").innerText = "0");
+}
+function sendMessageToIframe(e = null) {
+  document
+    .getElementById("webphone")
+    .contentWindow.postMessage(e, "https://phone1.viciphone.com");
+}
+let is_fillInterFace_Running = !1;
+async function fillInterFace() {
+  if (is_fillInterFace_Running) {
+    console.log(
+      "%c fillInterFace is still running. Skipping this iteration.",
+      "background: red; color: white"
+    );
+    return;
+  }
+  is_fillInterFace_Running = !0;
+  let e = checkActiveCall(),
+    t = checkCustHungUp(e);
+  getHeaderInfo(e),
+    CallIndocater(t),
+    showAndHide_StartPauseBtns(e),
+    disableAndEnable_OpenCloseTransferBtns(e),
+    disableAndEnable_hungupBtn(e),
+    disableAndEnable_wbefromBtns(e),
+    disableAndEnable_parkcallBtn(e),
+    disableAndEnable_manualDialBtn(e),
+    disableAndEnable_callLogBtn(e),
+    AutoMuteFunc(e),
+    GotTheGetAllDispoArr || addAllOptionsToSelect();
+  try {
+    let n = await gotANewCall();
+    getCustInfo(e, n),
+      AutoCheckDupFun(e, n),
+      autoPronunciationFunc(e, n),
+      !manualHungUp &&
+        autoCustHungup &&
+        (n && (custHungupModelIsOpen = !1), autoHungupIfCustHungup(t));
+  } catch (a) {
+    console.error("fillInterFace catch block", a);
+  } finally {
+    is_fillInterFace_Running = !1;
+  }
+}
+setInterval(fillInterFace, 100);
