@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check Dup in 2 lists</title>
+    <style>/*! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:initial}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:initial;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:initial}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*,::backdrop,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#3b82f680;--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.fixed{position:fixed}.bottom-0{bottom:0}.left-0{left:0}.top-0{top:0}.z-10{z-index:10}.z-20{z-index:20}.mx-auto{margin-left:auto;margin-right:auto}.mt-2{margin-top:.5rem}.line-clamp-1{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}.inline-block{display:inline-block}.flex{display:flex}.table{display:table}.hidden{display:none}.h-32{height:8rem}.h-6{height:1.5rem}.h-\[100px\]{height:100px}.h-screen{height:100vh}.w-1\/6{width:16.666667%}.w-32{width:8rem}.w-6{width:1.5rem}.w-\[300px\]{width:300px}.w-\[90\%\]{width:90%}.w-screen{width:100vw}.flex-shrink-0{flex-shrink:0}.flex-grow-0{flex-grow:0}.table-auto{table-layout:auto}.border-collapse{border-collapse:collapse}.cursor-pointer{cursor:pointer}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-start{justify-content:flex-start}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.justify-evenly{justify-content:space-evenly}.gap-1{gap:.25rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.text-ellipsis{text-overflow:ellipsis}.rounded-md{border-radius:.375rem}.rounded-sm{border-radius:.125rem}.border{border-width:1px}.border-2{border-width:2px}.border-dashed{border-style:dashed}.border-green-500{--tw-border-opacity:1;border-color:rgb(34 197 94/var(--tw-border-opacity))}.border-slate-900{--tw-border-opacity:1;border-color:rgb(15 23 42/var(--tw-border-opacity))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235/var(--tw-bg-opacity))}.bg-gray-400\/50{background-color:#9ca3af80}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81/var(--tw-bg-opacity))}.bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233/var(--tw-bg-opacity))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity))}.bg-slate-500{--tw-bg-opacity:1;background-color:rgb(100 116 139/var(--tw-bg-opacity))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity))}.p-2{padding:.5rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.text-center{text-align:center}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-sm{font-size:.875rem;line-height:1.25rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.capitalize{text-transform:capitalize}.italic{font-style:italic}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94/var(--tw-text-opacity))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38/var(--tw-text-opacity))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity))}.text-slate-50{--tw-text-opacity:1;color:rgb(248 250 252/var(--tw-text-opacity))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}.shadow-md{--tw-shadow:0 4px 6px -1px #0000001a,0 2px 4px -2px #0000001a;--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-black{--tw-shadow-color:#000;--tw-shadow:var(--tw-shadow-colored)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-300{transition-duration:.3s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}body{font-family:Bebas Neue,sans-serif;font-weight:400;font-style:normal}.hover\:bg-gray-300:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219/var(--tw-bg-opacity))}.hover\:bg-gray-500:hover{--tw-bg-opacity:1;background-color:rgb(107 114 128/var(--tw-bg-opacity))}.hover\:bg-sky-800:hover{--tw-bg-opacity:1;background-color:rgb(7 89 133/var(--tw-bg-opacity))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity))}.hover\:text-slate-800:hover{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity))}@media (min-width:640px){.sm\:h-\[125px\]{height:125px}.sm\:w-\[350px\]{width:350px}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-6{padding-top:1.5rem;padding-bottom:1.5rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}}@media (min-width:768px){.md\:h-\[150px\]{height:150px}.md\:flex-row{flex-direction:row}.md\:gap-2{gap:.5rem}.md\:py-10{padding-top:2.5rem;padding-bottom:2.5rem}.md\:py-8{padding-top:2rem;padding-bottom:2rem}}@media (min-width:1024px){.lg\:w-3\/4{width:75%}.lg\:py-10{padding-top:2.5rem;padding-bottom:2.5rem}.lg\:text-3xl{font-size:1.875rem;line-height:2.25rem}}</style>
+    <link href=https://img.icons8.com/doodle/512/documents.png rel=icon
+    type=image/x-png>
+  </head>
+  <body class="bg-gray-200">
+<div class="flex flex-col h-screen justify-center">
+<div class="fixed top-0 left-0 w-screen py-4 sm:py-6 md:py-8 lg:py-10 sm:text-2xl lg:text-3xl text-center font-bold capitalize text-slate-50 bg-slate-500 shadow-md">
+Find common elements in 2 lists
+</div>
+<div class="w-[90%] lg:w-3/4 px-2 py-16 bg-slate-100 mx-auto rounded-md shadow-md flex flex-col gap-6">
+<div class="flex flex-col md:flex-row gap-4 md:gap-2 justify-around items-center">
+<div id=dropArea1 class="w-[300px] sm:w-[350px] h-[100px] sm:h-[125px] md:h-[150px] bg-gray-200 hover:bg-gray-300 flex-grow-0 flex-shrink-0 drop-area border-2 border-dashed border-slate-900 rounded-md px-2 sm:px-6 py-4 sm:py-6 md:py-10 cursor-pointer flex flex-col">
+<p class=text-gray-500>Drag & Drop or Click to Upload File</p>
+<p id=fileInfo1 class="text-ellipsis line-clamp-1 mt-2 text-green-500"></p>
+<input type=file class=hidden id=fileInput1 accept=.txt>
+</div>
+<div id=dropArea2 class="w-[300px] sm:w-[350px] h-[100px] sm:h-[125px] md:h-[150px] bg-gray-200 hover:bg-gray-300 flex-grow-0 flex-shrink-0 drop-area border-2 border-dashed border-slate-900 rounded-md px-2 sm:px-6 py-4 sm:py-6 md:py-10 cursor-pointer flex flex-col">
+<p class=text-gray-500>Drag & Drop or Click to Upload File</p>
+<p id=fileInfo2 class="text-ellipsis line-clamp-1 mt-2 text-green-500"></p>
+<input type=file class=hidden id=fileInput2 accept=.txt>
+</div>
+</div>
+<div class="flex justify-evenly">
+<button class="p-2 bg-sky-500 text-slate-50 rounded-sm hover:bg-sky-800 transition-colors duration-300 ease-in-out font-semibold" onclick=processFile()>
+Process lists
+</button>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 z-20 w-screen text-slate-400 py-1 bg-slate-800 shadow-md text-sm italic font-semibold text-center">
+<span>Made with ❤️ by walid ali "leo adams"</span>
+</div>
+</div>
+<div id=outputDiv class="fixed top-0 left-0 z-10 bg-slate-700 w-screen h-screen hidden flex-col justify-evenly items-center">
+<table class="table-auto border-collapse w-[90%] text-slate-100 bg-slate-800 shadow-md shadow-black">
+<thead class="bg-gray-700 text-white">
+<tr>
+<th class="border px-2 py-2 w-1/6 capitalize">file</th>
+<th class="border px-4 py-2" id=fileName_1>Column 2</th>
+<th class="border px-4 py-2" id=fileName_2>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="border px-2 py-2 text-center font-semibold capitalize">
+Total numbers
+</td>
+<td class="border px-4 py-2 text-center hover:bg-gray-500 hover:text-slate-800 cursor-pointer" id=list_1_Count>
+R4C2
+</td>
+<td class="border px-4 py-2 text-center hover:bg-gray-500 hover:text-slate-800 cursor-pointer" id=list_2_Count>
+R4C3
+</td>
+</tr>
+<tr>
+<td class="border px-4 py-2 text-center font-semibold capitalize">
+Common
+</td>
+<td class="border px-2 py-2 text-center merged-cells hover:bg-gray-500 hover:text-slate-800 cursor-pointer" colspan=2 id=commonItemsCount>
+R2 Merged Cells
+</td>
+</tr>
+<tr>
+<td class="border px-2 py-2 text-center font-semibold capitalize">
+duplicated
+</td>
+<td class="border px-4 py-2 text-center hover:bg-gray-500 hover:text-slate-800 cursor-pointer" id=list_1_dupsCount>
+R1C2
+</td>
+<td class="border px-4 py-2 text-center hover:bg-gray-500 hover:text-slate-800 cursor-pointer" id=list_2_dupsCount>
+R1C3
+</td>
+</tr>
+<tr>
+<td class="border px-2 py-2 text-center font-semibold capitalize">
+invalid
+</td>
+<td class="border px-4 py-2 text-center hover:bg-gray-500 hover:text-slate-800 cursor-pointer text-red-600" id=list_1_invalidNumsCount>
+R3C2
+</td>
+<td class="border px-4 py-2 text-center hover:bg-gray-500 hover:text-slate-800 cursor-pointer text-red-600" id=list_2_invalidNumsCount>
+R3C3
+</td>
+</tr>
+<tr>
+<td class="border px-2 py-2 text-center font-semibold capitalize">
+valid numbers
+</td>
+<td class="border px-4 py-2 text-center hover:bg-gray-500 hover:text-slate-800 cursor-pointer" id=cleanList_1_Count>
+R5C2
+</td>
+<td class="border px-4 py-2 text-center hover:bg-gray-500 hover:text-slate-800 cursor-pointer" id=cleanList_2_Count>
+R5C3
+</td>
+</tr>
+</tbody>
+</table>
+<div class="w-[90%] flex justify-between items-start">
+<div class="text-sm text-gray-300 italic">
+<p class="font-bold text-white capitalize flex justify-start items-center gap-1">
+<svg xmlns=http://www.w3.org/2000/svg fill=none viewBox="0 0 24 24" stroke-width=1.5 stroke=currentColor class="w-6 h-6 inline-block">
+<path stroke-linecap=round stroke-linejoin=round d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/>
+</svg>
+to download the any of resulted lists click on the cell
+</p>
+<p>
+<span class="font-bold text-white capitalize">Common</span>: it is the number of items that exists in both lists
+</p>
+<p>
+<span class="font-bold text-white capitalize">duplicated</span>: it is the number of items that exists more than once in each list
+</p>
+<p>
+<span class="font-bold text-white capitalize">invalid</span>: it is the number of items that dosen't consists of exactly 10 or 11 digits and nothing else in each list.
+</p>
+<p>
+<span class="font-bold text-white capitalize">valid numbers</span>: it is the number of items that consists of exactly 10 or 11 digits and nothing else in each list.
+</p>
+</div>
+<button class="p-2 bg-black hover:bg-slate-100 hover:text-slate-800 text-slate-50 rounded-sm transition-colors duration-300 ease-in-out font-semibold capitalize" onclick=reset()>
+<svg xmlns=http://www.w3.org/2000/svg fill=none viewBox="0 0 24 24" stroke-width=1.5 stroke=currentColor class="w-6 h-6 mx-auto">
+<path stroke-linecap=round stroke-linejoin=round d="m15 15-6 6m0 0-6-6m6 6V9a6 6 0 0 1 12 0v3"/>
+</svg>
+go back
+</button>
+</div>
+</div>
+<div class="fixed top-0 left-0 w-screen h-screen z-10 bg-gray-400/50 hidden flex-col justify-center items-center text-slate-700" id=loaderDiv>
+<svg xmlns=http://www.w3.org/2000/svg fill=none viewBox="0 0 24 24" stroke-width=1.5 stroke=currentColor class="w-32 h-32">
+<path stroke-linecap=round stroke-linejoin=round d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/>
+</svg>
+<p class=text-3xl>Processing...</p>
+</div>
+    <script >let filesArr=[null,null];function handleFileSelect(e,t,n,i){e.addEventListener("click",()=>{n.click()}),e.addEventListener("dragover",t=>{t.preventDefault(),e.classList.add("border-green-500"),e.classList.remove("border-slate-900")}),e.addEventListener("dragleave",()=>{e.classList.remove("border-green-500"),e.classList.add("border-slate-900")}),e.addEventListener("drop",n=>{n.preventDefault(),e.classList.add("border-green-500");let l=n.dataTransfer.files[0];l&&"text/plain"===l.type?(e.classList.add("border-green-500"),e.classList.remove("border-slate-900"),handleFileUpload(l,i),displayFileInfo(l,t)):(e.classList.remove("border-green-500"),e.classList.add("border-slate-900"),alert("Please drop a valid text file (.txt)."))}),n.addEventListener("change",()=>{let l=n.files[0];l&&"text/plain"===l.type?(e.classList.add("border-green-500"),e.classList.remove("border-slate-900"),handleFileUpload(l,i),displayFileInfo(l,t)):alert("Please drop a valid text file (.txt).")})}function handleFileUpload(e,t){filesArr[t]=e}function displayFileInfo(e,t){e?t.textContent=`${e.name}`:t.textContent=""}const dropArea1=document.getElementById("dropArea1"),fileInfo1=document.getElementById("fileInfo1"),fileInput1=document.getElementById("fileInput1");handleFileSelect(dropArea1,fileInfo1,fileInput1,0);const dropArea2=document.getElementById("dropArea2"),fileInfo2=document.getElementById("fileInfo2"),fileInput2=document.getElementById("fileInput2");handleFileSelect(dropArea2,fileInfo2,fileInput2,1);let List_1=[],List_2=[],list_1_name="",list_2_name="",commonItems=[],list_1_dups=[],list_2_dups=[],list_1_invalidNums=[],list_2_invalidNums=[],cleanList_1=[],cleanList_2=[],invalidLinesInLists=[];const commonItemsCount=document.getElementById("commonItemsCount"),list_1_dupsCount=document.getElementById("list_1_dupsCount"),list_2_dupsCount=document.getElementById("list_2_dupsCount"),list_1_invalidNumsCount=document.getElementById("list_1_invalidNumsCount"),list_2_invalidNumsCount=document.getElementById("list_2_invalidNumsCount"),list_1_Count=document.getElementById("list_1_Count"),list_2_Count=document.getElementById("list_2_Count"),cleanList_1_Count=document.getElementById("cleanList_1_Count"),cleanList_2_Count=document.getElementById("cleanList_2_Count"),fileName_1_td=document.getElementById("fileName_1"),fileName_2_td=document.getElementById("fileName_2"),outputDiv=document.getElementById("outputDiv");async function processFile(){openLoader(),invalidLinesInLists=[],commonItems=await findCommonItems(List_1=await convertFileToArray(filesArr[0]),List_2=await convertFileToArray(filesArr[1])),list_1_dups=await findDuplicates(List_1),list_2_dups=await findDuplicates(List_2),list_1_invalidNums=await findInvalidPhoneNumbers(List_1),list_2_invalidNums=await findInvalidPhoneNumbers(List_2),cleanList_1=await removeInvalidPhoneNumbers(List_1),cleanList_2=await removeInvalidPhoneNumbers(List_2);let e=new FileReader;e.file=filesArr[0];let t=e.file.name;list_1_name=t;let n=new FileReader;n.file=filesArr[1];let i=n.file.name;list_2_name=i,console.log("list_1_name: ",list_1_name),console.log("list_2_name: ",list_2_name),console.log("commonItems: ",commonItems.length),console.log("list_1_dups: ",list_1_dups.length),console.log("list_2_dups: ",list_2_dups.length),console.log("list_1_invalidNums: ",list_1_invalidNums.length),console.log("list_2_invalidNums: ",list_2_invalidNums.length),console.log("cleanList_1: ",cleanList_1.length),console.log("cleanList_2: ",cleanList_2.length),console.log("invalidLinesInLists: ",invalidLinesInLists.length),fileName_1_td.innerText=list_1_name,fileName_2_td.innerText=list_2_name,commonItemsCount.innerText=commonItems.length,list_1_dupsCount.innerText=list_1_dups.length,list_2_dupsCount.innerText=list_2_dups.length,list_1_invalidNumsCount.innerText=list_1_invalidNums.length,list_2_invalidNumsCount.innerText=list_2_invalidNums.length,list_1_Count.innerText=List_1.length,list_2_Count.innerText=List_2.length,cleanList_1_Count.innerText=cleanList_1.length,cleanList_2_Count.innerText=cleanList_2.length,outputDiv.classList.remove("hidden"),outputDiv.classList.add("flex"),closeLoader()}function convertFileToArray(e){return new Promise((t,n)=>{try{let i=new FileReader;i.file=e,i.onload=e=>{let n=e.target.result,i=e.target.file,l=i.name,s=n.split("\n").map(e=>{let t=e.trim();return t||(console.warn(`Skipping non-numeric value: ${t} in file: ${l}`),invalidLinesInLists.push(`${t} in file: ${l}`),null)});t(removeNullItems(s))},i.onerror=e=>{n(`Error reading file: ${e.message}`)},i.readAsText(e)}catch(l){console.error(`Error reading file: ${l.message}`),n([])}})}function findCommonItems(e,t){return new Promise((n,i)=>{if(!Array.isArray(e)||!Array.isArray(t)){i(Error("Both arguments must be arrays"));return}let l=new Set(e),s=new Set(t);try{let a=Array.from(new Set([...l].filter(e=>s.has(e))));n(removeNullItems(a))}catch(r){i(Error("An error occurred while finding common items"))}})}function findDuplicates(e){return new Promise((t,n)=>{if(!Array.isArray(e)){n(Error("Argument must be an array"));return}try{let i=new Set,l=[];for(let s of e)i.has(s)?l.push(s):i.add(s);t(removeNullItems(l))}catch(a){n(Error("An error occurred while finding duplicates"))}})}function openLoader(){let e=document.getElementById("loaderDiv");e.classList.contains("hidden")&&(e.classList.remove("hidden"),e.classList.add("flex"))}function closeLoader(){let e=document.getElementById("loaderDiv");e.classList.contains("hidden")||(e.classList.remove("flex"),e.classList.add("hidden"))}function downloadArrayAsTextFile(e,t){let n=e.join("\n"),i=new Blob([n],{type:"text/plain"}),l=document.createElement("a");l.href=URL.createObjectURL(i),l.download=t,document.body.appendChild(l),l.click(),document.body.removeChild(l)}function findInvalidPhoneNumbers(e){return new Promise((t,n)=>{if(!Array.isArray(e)){n(Error("Argument must be an array"));return}try{let i=/^\d{10,11}$/,l=e.reduce((e,t)=>(i.test(t)||e.push(t),e),[]);t(l)}catch(s){n(Error("An error occurred while finding invalid phone numbers"))}})}function removeInvalidPhoneNumbers(e){return new Promise((t,n)=>{if(!Array.isArray(e)){n(Error("Argument must be an array"));return}try{let i=/^\d{10,11}$/,l=e.filter(e=>i.test(e));t(l)}catch(s){n(Error("An error occurred while removing invalid phone numbers"))}})}function removeNullItems(e){return e.filter(e=>null!==e)}function reset(){List_1=[],List_2=[],list_1_name="",list_2_name="",commonItems=[],list_1_dups=[],list_2_dups=[],list_1_invalidNums=[],list_2_invalidNums=[],cleanList_1=[],cleanList_2=[],invalidLinesInLists=[],outputDiv.classList.remove("flex"),outputDiv.classList.add("hidden")}commonItemsCount.addEventListener("click",()=>{if(0==commonItems.length){alert("No common items found");return}downloadArrayAsTextFile(commonItems,`Common Items in ${list_1_name} and ${list_2_name}`)}),list_1_dupsCount.addEventListener("click",()=>{if(0==list_1_dups.length){alert("No duplicate items found");return}downloadArrayAsTextFile(list_1_dups,`Duplicate Items in ${list_1_name}`)}),list_2_dupsCount.addEventListener("click",()=>{if(0==list_2_dups.length){alert("No duplicate items found");return}downloadArrayAsTextFile(list_2_dups,`Duplicate Items in ${list_2_dups}`)}),list_1_invalidNumsCount.addEventListener("click",()=>{if(0==list_1_invalidNums.length){alert("No invalid numbers found");return}downloadArrayAsTextFile(list_1_invalidNums,`Invalid Numbers in ${list_1_name}`)}),list_2_invalidNumsCount.addEventListener("click",()=>{if(0==list_2_invalidNums.length){alert("No invalid numbers found");return}downloadArrayAsTextFile(list_2_invalidNums,`Invalid Numbers in ${list_2_name}`)}),cleanList_1_Count.addEventListener("click",()=>{if(0==cleanList_1.length){alert("the cleaned list is empty");return}downloadArrayAsTextFile(cleanList_1,`Cleaned ${list_1_name}`)}),cleanList_2_Count.addEventListener("click",()=>{if(0==cleanList_2.length){alert("the cleaned list is empty");return}downloadArrayAsTextFile(cleanList_2,`Cleaned ${list_2_name}`)});</script>
+  </body>
+</html>
